@@ -42,7 +42,7 @@ namespace QuanLyDuLich2.ViewModel
         private string _ChucVu;
         public string ChucVu { get => _ChucVu; set { _ChucVu = value; OnPropertyChanged(); } }
 
-        public DispatcherTimer _timer;
+        private Task updateTimeTask = null;
 
         //private NGUOIDUNG user;
         #endregion
@@ -50,17 +50,18 @@ namespace QuanLyDuLich2.ViewModel
         #region function
         private void GetTimeNow()
         {
-            NgayGioHienTai = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
-            // Copy from https://stackoverflow.com/questions/31160201/time-ticking-in-c-sharp-wpf-mvvm
-            _timer = new DispatcherTimer(DispatcherPriority.Render);
-            _timer.Interval = TimeSpan.FromSeconds(1);
-            _timer.Tick += (sender, args) =>
-            {
-                //Khởi tạo tài khoản cho toàn bộ chương trình
-                InitTaiKhoan();
-                NgayGioHienTai = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
-            };
-            _timer.Start();
+            if (updateTimeTask == null)
+                updateTimeTask = Task.Run(async () =>
+                {
+                    while (true)
+                    {
+                        await Task.Delay(1000);
+
+                        //Khởi tạo tài khoản cho toàn bộ chương trình
+                        InitTaiKhoan();
+                        NgayGioHienTai = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
+                    }
+                });
         }
 
         private void InitTaiKhoan()

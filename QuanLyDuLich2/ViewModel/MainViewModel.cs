@@ -20,7 +20,7 @@ namespace QuanLyDuLich2.ViewModel
     {
         #region Variable
 
-        static public DispatcherTimer _timer;
+        static private Task TimerTask = null;
 
         private bool _Selected_HOME;
         public bool Selected_HOME
@@ -274,7 +274,7 @@ namespace QuanLyDuLich2.ViewModel
 
         static public void Start_Timer()
         {
-            _timer.Start();
+            TimerTask.Start();
         }
         static public void LogOut()
         {
@@ -306,21 +306,24 @@ namespace QuanLyDuLich2.ViewModel
 
                 //}
 
-                _timer = new DispatcherTimer(DispatcherPriority.Render);
-                _timer.Interval = TimeSpan.FromSeconds(1);
-                _timer.Tick += (sender, args) =>
+                TimerTask = new Task(async () =>
                 {
-                    Util.ShowTodoMessage();
-                    /*
-                    if (LoginViewModel.TaiKhoanSuDung != null)
+                    bool TimerStop = false;
+                    while (!TimerStop)
                     {
-                        Init_Button_User(LoginViewModel.TaiKhoanSuDung);
-                        
-                        _timer.Stop();
+                        await Task.Delay(1000);
+                        Util.ShowTodoMessage();
+                        /*
+                        if (LoginViewModel.TaiKhoanSuDung != null)
+                        {
+                            Init_Button_User(LoginViewModel.TaiKhoanSuDung);
+
+                            TimerStop = true;
+                        }
+                        //*/
                     }
-                    //*/
-                };
-                _timer.Start();
+                });
+                TimerTask.Start();
 
                 FrameContent = new Home_Page();
 
