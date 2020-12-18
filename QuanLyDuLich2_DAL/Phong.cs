@@ -39,6 +39,14 @@ namespace QuanLyDuLich2_DAL
             {
             }
         }
+
+        public LOAI_PHONG LOAI_PHONG
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 
     public enum TINH_TRANG_PHONG

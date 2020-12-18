@@ -46,5 +46,21 @@ namespace QuanLyDuLich2_DAL
             {
             }
         }
+
+        public PHIEU_DICH_VU PHIEU_DICH_VU
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public DICH_VU DICH_VU
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

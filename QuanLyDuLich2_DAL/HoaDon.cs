@@ -56,6 +56,30 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
+        public PHIEU_CHUYEN_KHOAN PHIEU_CHUYEN_KHOAN
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public PHIEU_TRA_PHONG PHIEU_TRA_PHONG
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public KHACH KHACH
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void TinhTien(KHACH khachHang)
         {
             throw new System.NotImplementedException();

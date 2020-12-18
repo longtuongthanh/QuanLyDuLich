@@ -47,6 +47,22 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
+        public SU_CO SU_CO
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public PHIEU_DICH_VU PHIEU_DICH_VU
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public List<SU_CO> GetDanhSachSuCo()
         {
             throw new System.NotImplementedException();

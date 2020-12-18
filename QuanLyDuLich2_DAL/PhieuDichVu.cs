@@ -62,5 +62,13 @@ namespace QuanLyDuLich2_DAL
             {
             }
         }
+
+        public HOA_DON HOA_DON
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

@@ -38,5 +38,13 @@ namespace QuanLyDuLich2_DAL
             {
             }
         }
+
+        public TY_GIA TY_GIA
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

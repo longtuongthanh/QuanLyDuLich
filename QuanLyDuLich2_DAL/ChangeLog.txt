@@ -3,3 +3,5 @@
 [PHIEU_DICH_VU] changed List<YeuCauDichVu> into List<DichVu>
 
 [PHIEU_CHUYEN_KHOAN] added DonViTien
+
+[PHIEU_CHUYEN_KHOAN] DonViTien(FK) --> NgoaiTe[TY_GIA]

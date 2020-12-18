@@ -38,5 +38,21 @@ namespace QuanLyDuLich2_DAL
             {
             }
         }
+
+        public PHONG PHONG
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public KHACH KHACH
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

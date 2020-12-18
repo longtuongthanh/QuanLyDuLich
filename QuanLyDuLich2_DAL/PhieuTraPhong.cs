@@ -30,5 +30,13 @@ namespace QuanLyDuLich2_DAL
             {
             }
         }
+
+        public PHIEU_THUE_PHONG PHIEU_THUE_PHONG
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }
