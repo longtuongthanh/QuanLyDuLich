@@ -14,13 +14,13 @@ namespace QuanLyDuLich2.Helper
         [CallerLineNumber] int lineNumber = 0,
         [CallerMemberName] string caller = null)
         {
-            MessageBox.Show(message + " at line " + lineNumber + " (" + caller + ")");
+            Console.WriteLine(message + " at line " + lineNumber + " (" + caller + ")");
         }
         public static void ShowTodoMessage(
         [CallerLineNumber] int lineNumber = 0,
         [CallerMemberName] string caller = null)
         {
-            MessageBox.Show("TODO at line " + lineNumber + " (" + caller + ")");
+            Console.WriteLine("TODO at line " + lineNumber + " (" + caller + ")");
         }
     }
 }

@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace QuanLyDuLich2.View
 {
     /// <summary>
-    /// Interaction logic for BaoCaoMoDong_Page.xaml
+    /// Interaction logic for ViewService_Page.xaml
     /// </summary>
-    public partial class BaoCaoMoDong_Page : Page
+    public partial class ViewService_Page : Page
     {
-        public BaoCaoMoDong_Page()
+        public ViewService_Page()
         {
             InitializeComponent();
         }
-
-       
     }
 }

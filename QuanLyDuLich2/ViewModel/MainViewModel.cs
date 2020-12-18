@@ -99,11 +99,7 @@ namespace QuanLyDuLich2.ViewModel
         public ICommand GuiTien_Page_SelectedCommand { get; set; }
         public ICommand RutTien_Page_SelectedCommand { get; set; }
         public ICommand TraCuu_Page_SelectedCommand { get; set; }
-        public ICommand BaoCaoDoanhSo_Page_SelectedCommand { get; set; }
-        public ICommand BaoCaoMoDong_Page_SelectedCommand { get; set; }
-        public ICommand ThayDoiQuyDinh_Page_SelectedCommand { get; set; }
-        public ICommand QuanLyNhanSu_Page_SelectedCommand { get; set; }
-        public ICommand CaiDatKhac_Page_SelectedCommand { get; set; }
+        public ICommand BaoCao_Page_SelectedCommand { get; set; }
         public ICommand DangXuat_SelectedCommand { get; set; }
         #endregion
 
@@ -203,6 +199,13 @@ namespace QuanLyDuLich2.ViewModel
             // tooltip handle
             MoSo_Tooltip = GuiTien_Tooltip = RutTien_Tooltip = TraCuu_Tooltip = BaoCaoDS_Tooltip = BaoCaoMD_Tooltip = QLNS_Tooltip = TDQD_Tooltip = "Không thể truy cập";
             Home_Tooltip = "Có thể truy cập";
+
+            Util.ShowTodoMessage();
+            for (int i = 0; i < 8; i++)
+            {
+                Init_Valid_Button(i + 1);
+                Init_Valid_Tooltip(i + 1);
+            }
         }
 
         private void Init_Valid_Button(int maChucNang)
@@ -313,6 +316,7 @@ namespace QuanLyDuLich2.ViewModel
                     {
                         await Task.Delay(1000);
                         Util.ShowTodoMessage();
+                        Init_Button_User();
                         /*
                         if (LoginViewModel.TaiKhoanSuDung != null)
                         {
@@ -333,62 +337,45 @@ namespace QuanLyDuLich2.ViewModel
                 //Selected_HOME = true;
                 //Selected_DangXuat = false;
                 FrameContent = new Home_Page();
+                Console.WriteLine("adfskhdsfkja");
                 //FrameContent.DataContext = new Home_PageViewModel();
             });
 
             MoSo_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new MoSo_Page();
+                FrameContent = new Info_Page();
+                Console.WriteLine("adfskhdsfkja");
                 //FrameContent.DataContext = new MoSo_ViewModel();
             });
 
             GuiTien_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new GuiTien_Page();
+                FrameContent = new ViewRoom_Page();
+                Console.WriteLine("adfskhdsfkja");
                 //FrameContent.DataContext = new GuiTien_ViewModel();
             });
 
             RutTien_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new RutTien_Page();
+                FrameContent = new ViewService_Page();
                 //FrameContent.DataContext = new RutTien_ViewModel();
             });
             TraCuu_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new TraCuu_Page();
+                Console.WriteLine("adfskhdsfkja");
                 //FrameContent.DataContext = new TraCuu_ViewModel();
             });
-            BaoCaoDoanhSo_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            BaoCao_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new BaoCaoDoanhSo_Page();
+                Console.WriteLine("adfskhdsfkja");
                 //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
-            });
-            BaoCaoMoDong_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
-                FrameContent = new BaoCaoMoDong_Page();
-                //FrameContent.DataContext = new BaoCaoMoDong_ViewModel();
-            });
-            ThayDoiQuyDinh_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
-                FrameContent = new ThayDoiQuyDinh_Page();
-                //FrameContent.DataContext = new ThayDoiQuyDinh_ViewModel();
-            });
-            QuanLyNhanSu_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
-                FrameContent = new QuanLyNhanSu_Page();
-                //FrameContent.DataContext = new QuanLyNhanSu_ViewModel();
-            });
-            CaiDatKhac_Page_SelectedCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
-                FrameContent = new CaiDatKhac_Page();
-                FrameContent.DataContext = new CaiDatKhac_Page();
             });
             DangXuat_SelectedCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 System.Windows.Forms.DialogResult kq = System.Windows.Forms.MessageBox.Show("Bạn có chắc đăng xuất tài khoản này không?", "Đăng xuất", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question);
@@ -400,6 +387,5 @@ namespace QuanLyDuLich2.ViewModel
                 }
             });
         }
-
     }
 }

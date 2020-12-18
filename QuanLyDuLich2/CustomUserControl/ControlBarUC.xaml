@@ -36,12 +36,26 @@
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <materialDesign:Card
-                  Background="{DynamicResource PrimaryHueDarkBrush}"
-                  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
-                  Padding="8">
-                            <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="14" Text="Master Save Banking System - Phần mềm quản lý sổ tiết kiệm chuyên nghiệp"></TextBlock>
-                        </materialDesign:Card>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <materialDesign:Card
+                                    Background="{DynamicResource PrimaryHueDarkBrush}"
+                                    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                                    Padding="20,4,20,0" >
+                                <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="14" Text="Làng Quốc tế Hướng Dương - Nghỉ dưỡng với chúng tôi"></TextBlock>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <materialDesign:Card
+                                    Background="{DynamicResource PrimaryHueDarkBrush}"
+                                    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                                    Padding="4">
+                                <TextBlock FontWeight="DemiBold" TextAlignment="Center" FontSize="8" Text="Sunflower international village - Relax with us"></TextBlock>
+                            </materialDesign:Card>
+                        </Grid>
                     </Grid>
                     <Grid Grid.Column="1">
                         <StackPanel DockPanel.Dock="Right" Background="Transparent" Orientation="Horizontal">
@@ -51,13 +65,13 @@
                                 </Style>
                             </StackPanel.Resources>
                             <Button Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding MinimizeWindowCommand}"
-                            CommandParameter="{Binding ElementName=UC_ControlBar}"
+                            CommandParameter="{Binding ElementName=UC_ControlBar}" Height="Auto"
                             ToolTip="Thu nhỏ" ToolBar.OverflowMode="AsNeeded" Background="{StaticResource SecondaryAccentBrush}">
                                 <materialDesign:PackIcon Kind="WindowMinimize" />
                             </Button>
                             <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" Command="{Binding CloseWindowCommand}"
                             CommandParameter="{Binding ElementName=UC_ControlBar}"
-                            ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="Red">
+                            ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="Red" Height="Auto">
                                 <materialDesign:PackIcon Kind="WindowClose" />
                             </Button>
                         </StackPanel>

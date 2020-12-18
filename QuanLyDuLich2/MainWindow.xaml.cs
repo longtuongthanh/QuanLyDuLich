@@ -27,13 +27,11 @@ namespace QuanLyDuLich2
         #region Management Page Selections
 
         private Home_Page HomePage = new Home_Page();
-        private MoSo_Page MoSoPage = new MoSo_Page();
+        private Info_Page MoSoPage = new Info_Page();
         private GuiTien_Page GuiTienPage = new GuiTien_Page();
         private RutTien_Page RutTienPage = new RutTien_Page();
         private BaoCaoDoanhSo_Page BaoCaoDoanhSoPage = new BaoCaoDoanhSo_Page();
-        private BaoCaoMoDong_Page BaoCaoMoDongPage = new BaoCaoMoDong_Page();
         private ThayDoiQuyDinh_Page ThayDoiQuyDinhPage = new ThayDoiQuyDinh_Page();
-        private QuanLyNhanSu_Page QuanLyNhanSuPage = new QuanLyNhanSu_Page();
         private CaiDatKhac_Page CaiDatKhacPage = new CaiDatKhac_Page();
         private TraCuu_Page TraCuuPage = new TraCuu_Page();
         #endregion
@@ -41,6 +39,7 @@ namespace QuanLyDuLich2
         public MainWindow()
         {
             InitializeComponent();
+            //DataContext = new MainViewModel();
         }
 
 

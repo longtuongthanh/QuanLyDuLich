@@ -51,7 +51,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <HamburgerMenu:HamburgerMenu x:Name="hamburger" MaxWidth="230" Background="#49c7ab" MenuIconColor="#236084" SelectionIndicatorColor="#80fbdd" MenuItemForeground="FloralWhite" HorizontalAlignment="Left">
+                <HamburgerMenu:HamburgerMenu x:Name="hamburger" MaxWidth="500" Background="{StaticResource PrimaryHueMidBrush}" MenuIconColor="#236084" SelectionIndicatorColor="#80fbdd" MenuItemForeground="FloralWhite" HorizontalAlignment="Left">
                     <HamburgerMenu:HamburgerMenuItem x:Name="Home_Page_Button" Icon="Images/home.png" Text="Trang chủ" IsEnabled="{Binding Enable_Home}" ToolTip="{Binding Home_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
@@ -92,68 +92,28 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="BaoCaoDoanhSo_Page_Button" Icon="Images/5-BaoCaoDoanhThu.png" Text="Lập báo cáo doanh số" IsEnabled="{Binding Enable_BCDS}" ToolTip="{Binding BaoCaoDS_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                    <HamburgerMenu:HamburgerMenuItem x:Name="BaoCao_Page_Button" 
+                                                     Icon="Images/search.png" Text="Tra cứu sổ" 
+                                                     IsEnabled="{Binding Enable_TraCuu}" ToolTip="{Binding TraCuu_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding BaoCaoDoanhSo_Page_SelectedCommand}"
+                                <i:InvokeCommandAction Command="{Binding BaoCao_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="BaoCaoMoDong_Page_Button" Icon="Images/6-BaoCaoMoDong.png" Text="Lập báo cáo mở đóng" IsEnabled="{Binding Enable_BCMD}" ToolTip="{Binding BaoCaoMD_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding BaoCaoMoDong_Page_SelectedCommand}"
-                                                    CommandParameter="{Binding ElementName=hamburger}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="ThayDoiQuyDinh_Page_Button" Icon="Images/7-ThayDoiQuyDinh.png" Text="Thay đổi quy định" IsEnabled="{Binding Enable_TDQD}" ToolTip="{Binding TDQD_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding ThayDoiQuyDinh_Page_SelectedCommand}"
-                                                    CommandParameter="{Binding ElementName=hamburger}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="QuanLyNhanSu_Page_Button" Icon="Images/8-QuanLyNhanSu.png" Text="Quản lí nhân sự" IsEnabled="{Binding Enable_QLNS}" ToolTip="{Binding QLNS_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding QuanLyNhanSu_Page_SelectedCommand}"
-                                                    CommandParameter="{Binding ElementName=hamburger}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/10-info.png" Text="Thông tin phần mềm">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Selected">
-                                    <i:InvokeCommandAction Command="{Binding CaiDatKhac_Page_SelectedCommand}"
-                                                   CommandParameter="{Binding ElementName=_this}" />
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </HamburgerMenu:HamburgerMenuItem>
-
-                    <HamburgerMenu:HamburgerMenuItem IsEnabled="False" Height="134">
-                    </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="Logout_Button" Icon="Images/11-logout.png" Text="Đăng xuất">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding DangXuat_SelectedCommand}"
-                                                    CommandParameter="{Binding ElementName=this_}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
                 </HamburgerMenu:HamburgerMenu>
                 <!--</Grid>-->
 
-                <!--<Grid Grid.Row="1" VerticalAlignment="Bottom">
+                <Grid Grid.Row="1" VerticalAlignment="Bottom">
                     <Button Background='#49c7ab' Height="50"
                                 ToolTip="Đăng xuất" Command="{Binding DangXuat_SelectedCommand}"
                                                    CommandParameter="{Binding ElementName=this_}">
                         <Image Source="Images/logout.png" Width="10" Height="10" />
                     </Button>
-                </Grid>-->
-                
+                </Grid>
+
             </Grid>
             <Grid Grid.Column="1">
                 <Frame x:Name="main" Margin="10,10,10.4,10" NavigationUIVisibility="Hidden"

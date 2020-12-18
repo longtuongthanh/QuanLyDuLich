@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace QuanLyDuLich2.View
 {
     /// <summary>
-    /// Interaction logic for QuanLyNhanSu_Page.xaml
+    /// Interaction logic for ViewRoom_Page.xaml
     /// </summary>
-    public partial class QuanLyNhanSu_Page : Page
+    public partial class ViewRoom_Page : Page
     {
-        public QuanLyNhanSu_Page()
+        public ViewRoom_Page()
         {
             InitializeComponent();
         }

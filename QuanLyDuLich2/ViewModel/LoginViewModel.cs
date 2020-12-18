@@ -35,7 +35,8 @@ namespace QuanLyDuLich2.ViewModel
             {
                 if (UserName == null || Password == null)
                     MessageBox.Show("Mời nhập tài khoản!");
-                Util.ShowMessage("TODO: ");
+                Util.ShowTodoMessage();
+                p.Close();
                 /* TODO:
                 ObservableCollection<NGUOIDUNG> Account = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs);
 

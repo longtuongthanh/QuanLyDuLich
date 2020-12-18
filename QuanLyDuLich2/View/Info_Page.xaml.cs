@@ -19,17 +19,11 @@ namespace QuanLyDuLich2
     /// <summary>
     /// Interaction logic for MoSo_Page.xaml
     /// </summary>
-    public partial class MoSo_Page : Page
+    public partial class Info_Page : Page
     {
-        public MoSo_Page()
+        public Info_Page()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            var textBox = sender as TextBox;
-            e.Handled = Regex.IsMatch(e.Text, "[^0-9,]+");
         }
     }
 }

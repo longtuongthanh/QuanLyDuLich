@@ -182,7 +182,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MoSo_PrintPreview_ViewModel.cs" />
-    <Compile Include="ViewModel\MoSo_ViewModel.cs" />
+    <Compile Include="ViewModel\Info_ViewModel.cs" />
     <Compile Include="ViewModel\PhieuGui_PrintPreview_ViewModel.cs" />
     <Compile Include="ViewModel\PhieuRut_PrintPreview_ViewModel.cs" />
     <Compile Include="ViewModel\QuanLyNhanSu_ViewModel.cs" />
@@ -191,9 +191,6 @@
     <Compile Include="ViewModel\TraCuu_ViewModel.cs" />
     <Compile Include="View\BaoCaoDoanhSo_Page.xaml.cs">
       <DependentUpon>BaoCaoDoanhSo_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\BaoCaoMoDong_Page.xaml.cs">
-      <DependentUpon>BaoCaoMoDong_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CaiDatKhac_Page.xaml.cs">
       <DependentUpon>CaiDatKhac_Page.xaml</DependentUpon>
@@ -204,14 +201,11 @@
     <Compile Include="View\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MoSo_Page.xaml.cs">
-      <DependentUpon>MoSo_Page.xaml</DependentUpon>
+    <Compile Include="View\Info_Page.xaml.cs">
+      <DependentUpon>Info_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomUserControl\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\QuanLyNhanSu_Page.xaml.cs">
-      <DependentUpon>QuanLyNhanSu_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RutTien_Page.xaml.cs">
       <DependentUpon>RutTien_Page.xaml</DependentUpon>
@@ -221,6 +215,15 @@
     </Compile>
     <Compile Include="View\TraCuu_Page.xaml.cs">
       <DependentUpon>TraCuu_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC_ActionButtons.xaml.cs">
+      <DependentUpon>UC_ActionButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewRoom_Page.xaml.cs">
+      <DependentUpon>ViewRoom_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewService_Page.xaml.cs">
+      <DependentUpon>ViewService_Page.xaml</DependentUpon>
     </Compile>
     <Page Include="MoSo_PrintPreview.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -262,10 +265,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\BaoCaoMoDong_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\CaiDatKhac_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -278,7 +277,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MoSo_Page.xaml">
+    <Page Include="View\Info_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,10 +286,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomUserControl\ControlBarUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\QuanLyNhanSu_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -303,6 +298,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TraCuu_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UC_ActionButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewRoom_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewService_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

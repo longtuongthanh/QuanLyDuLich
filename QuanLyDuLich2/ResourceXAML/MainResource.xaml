@@ -4,7 +4,7 @@
                     xmlns:local="clr-namespace:QuanLyDuLich2.ResourceXAML;assembly=">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
-    <viewmodel:MoSo_ViewModel x:Key="MoSoVM"></viewmodel:MoSo_ViewModel>
+    <viewmodel:Info_ViewModel x:Key="InfoVM"></viewmodel:Info_ViewModel>
     <viewmodel:GuiTien_ViewModel x:Key="GuiTienVM"></viewmodel:GuiTien_ViewModel>
     <viewmodel:RutTien_ViewModel x:Key="RutTienVM"></viewmodel:RutTien_ViewModel>
     <viewmodel:TraCuu_ViewModel x:Key="TraCuuVM"></viewmodel:TraCuu_ViewModel>
