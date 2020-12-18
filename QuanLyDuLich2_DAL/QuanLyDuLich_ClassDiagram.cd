@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="QuanLyDuLich2_DAL.KHACH">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAQAAAAEAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Khach.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.PHIEU_THUE_PHONG">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>PhieuThuePhong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.PHONG">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIEAAAAAAAAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Phong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.TY_GIA">
+    <Position X="7.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TyGia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.LOAI_PHONG">
+    <Position X="7.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoaiPhong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.DICH_VU">
+    <Position X="7.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAACAAAAAAABAAEAAA=</HashCode>
+      <FileName>DichVu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.PHIEU_DICH_VU">
+    <Position X="3.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAABIAAAAAAAAAAAAAAAQAAAAAAQEQAA=</HashCode>
+      <FileName>PhieuDichVu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.CHI_TIET_PHIEU_DICH_VU">
+    <Position X="5.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAgAAAAAACAAAAAAAAAgAQAA=</HashCode>
+      <FileName>ChiTietPhieuDichVu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.BAO_CAO">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAgAAAAAAgAAAAAAAAAAAIAAAIAAAAAAAEACAAAAg=</HashCode>
+      <FileName>BaoCao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.HOA_DON">
+    <Position X="5.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgCAAAAAAAgIAAAAAAEAAAAAAAAAAAAAAAEQAE=</HashCode>
+      <FileName>HoaDon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.PHIEU_CHUYEN_KHOAN">
+    <Position X="7.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABgAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAA=</HashCode>
+      <FileName>PhieuChuyenKhoan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.SU_CO">
+    <Position X="10" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAQAAAAAAAEAAA=</HashCode>
+      <FileName>SuCo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.PHIEU_TRA_PHONG">
+    <Position X="1.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAEAIA=</HashCode>
+      <FileName>PhieuTraPhong.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuanLyDuLich2_DAL.USER">
+    <Position X="1.5" Y="5.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+      <NewMemberFileName>USER.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="QuanLyDuLich2_DAL.TINH_TRANG_PHONG">
+    <Position X="5.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Phong.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="QuanLyDuLich2_DAL.LOAI_TAI_KHOAN">
+    <Position X="1.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
