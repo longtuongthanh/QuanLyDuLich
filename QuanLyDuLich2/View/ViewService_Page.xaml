@@ -22,7 +22,7 @@
     <Grid Grid.Row="1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="400" MaxWidth="900"/>
-            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--#region LEFT: MAIL LIST-->
@@ -33,7 +33,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Column="0">
-                <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="MediumPurple" BorderThickness="3">
+                <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
                     <DockPanel LastChildFill="True">
                         <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
                             <materialDesign:PackIcon DockPanel.Dock="Right" Kind="Search" Margin="10,0">
@@ -79,7 +79,7 @@
         <!--#endregion -->
 
         <!--Spliter-->
-        <GridSplitter Grid.Column="1" Width="5" Background="Purple" HorizontalAlignment="Stretch"/>
+        <GridSplitter Grid.Column="1" Width="3" Background="Ba"  HorizontalAlignment="Stretch"/>
 
         <!--#region RIGHT: VIEW PANEL-->
         <Grid Grid.Column="2">

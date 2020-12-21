@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuanLyDuLich2
+namespace QuanLyDuLich2.View
 {
     /// <summary>
-    /// Interaction logic for MoSo_Page.xaml
+    /// Interaction logic for NewRoomRent_Page.xaml
     /// </summary>
-    public partial class Info_Page : Page
+    public partial class NewRoomRent_Page : Page
     {
-        public Info_Page()
+        public NewRoomRent_Page()
         {
             InitializeComponent();
         }

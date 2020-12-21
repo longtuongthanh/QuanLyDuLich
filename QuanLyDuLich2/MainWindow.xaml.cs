@@ -27,7 +27,7 @@ namespace QuanLyDuLich2
         #region Management Page Selections
 
         private Home_Page HomePage = new Home_Page();
-        private Info_Page MoSoPage = new Info_Page();
+        private Info_Page_Chooser MoSoPage = new Info_Page_Chooser();
         private GuiTien_Page GuiTienPage = new GuiTien_Page();
         private RutTien_Page RutTienPage = new RutTien_Page();
         private BaoCaoDoanhSo_Page BaoCaoDoanhSoPage = new BaoCaoDoanhSo_Page();

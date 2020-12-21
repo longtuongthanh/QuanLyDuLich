@@ -1,0 +1,83 @@
+﻿<Page x:Class="QuanLyDuLich2.Info_Page_Chooser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyDuLich2"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="18"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      
+      
+      DataContext="{StaticResource InfoVM}"
+      
+      Name="Info" Background="LightGray"
+      Title="Open Passbook">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Unloaded">
+            <i:InvokeCommandAction Command="{Binding LostFocusPageCommand}" CommandParameter="{Binding ElementName=MoSo}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=Info}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Width="300" Background="{DynamicResource MaterialDesignPaper}">
+            <Canvas HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                        Command="{Binding Open_PreviousPage}">
+                    <materialDesign:PackIcon Kind="Close">
+                        <materialDesign:PackIcon.RenderTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2" CenterX="4" CenterY="7"/>
+                        </materialDesign:PackIcon.RenderTransform>
+                    </materialDesign:PackIcon>
+                </Button>
+            </Canvas>
+            <TextBlock Margin="40,10,40,5" TextAlignment="Center"
+                       Style="{StaticResource MaterialDesignHeadline5TextBlock}" TextWrapping="Wrap"> 
+                Vui lòng chọn loại danh mục:
+            </TextBlock>
+            <Button HorizontalAlignment="Stretch" Margin="20,5" Height="40"
+                    Command="{Binding ViewRoom_Page_SelectedCommand}"
+                    IsEnabled="{Binding Enable_ViewRoom}"
+                    ToolTip="{Binding ViewRoom_Tooltip}">
+                <DockPanel>
+                    <TextBlock>
+                        Danh mục thông tin phòng
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+            <Button HorizontalAlignment="Stretch" Margin="20,5" Height="40"
+                    Command="{Binding ViewService_Page_SelectedCommand}"
+                    IsEnabled="{Binding Enable_ViewService}"
+                    ToolTip="{Binding ViewService_Tooltip}">
+                <DockPanel>
+                    <TextBlock>
+                        Danh mục dịch vụ
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+            <Button HorizontalAlignment="Stretch" Margin="20,5,20,10" Height="40"
+                    Command="{Binding ViewExchange_Page_SelectedCommand}"
+                    IsEnabled="{Binding Enable_ViewExchange}"
+                    ToolTip="{Binding ViewExchange_Tooltip}">
+                <DockPanel>
+                    <TextBlock>
+                        Danh mục tỷ giá ngoại tệ
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -58,7 +58,7 @@ namespace QuanLyDuLich2.ViewModel
             get => _Enable_ViewExchange;
             set { _Enable_ViewExchange = value; OnPropertyChanged(); }
         }
-
+        /*
         private bool _Enable_UpdateRoom;
         public bool Enable_UpdateRoom
         {
@@ -78,7 +78,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             get => _Enable_UpdateExchange;
             set { _Enable_UpdateExchange = value; OnPropertyChanged(); }
-        }
+        }//*/
 
         private Page _FrameContent;
 
@@ -118,7 +118,7 @@ namespace QuanLyDuLich2.ViewModel
             get => _ViewExchange_Tooltip;
             set { _ViewExchange_Tooltip = value; OnPropertyChanged(); }
         }
-
+        /*
         private string _UpdateRoom_Tooltip;
         public string UpdateRoom_Tooltip
         {
@@ -139,7 +139,7 @@ namespace QuanLyDuLich2.ViewModel
             get => _UpdateExchange_Tooltip;
             set { _UpdateExchange_Tooltip = value; OnPropertyChanged(); }
         }
-
+        //*/
         #endregion
 
         public bool isLoaded = false;
@@ -153,9 +153,11 @@ namespace QuanLyDuLich2.ViewModel
 
         private void Init_Button()
         {
-            Enable_ViewService = Enable_ViewExchange = Enable_UpdateRoom = Enable_UpdateService = Enable_UpdateExchange = Enable_ViewRoom = false;
-            // tooltip handle
-            ViewRoom_Tooltip = ViewService_Tooltip = ViewExchange_Tooltip = UpdateRoom_Tooltip = UpdateService_Tooltip = UpdateExchange_Tooltip = "Không thể truy cập";
+            //Enable_UpdateService = Enable_UpdateExchange = Enable_UpdateRoom
+            Enable_ViewService = Enable_ViewExchange = Enable_ViewRoom = false;
+
+            //UpdateRoom_Tooltip = UpdateService_Tooltip = UpdateExchange_Tooltip =
+            ViewRoom_Tooltip = ViewService_Tooltip = ViewExchange_Tooltip = "Không thể truy cập";
 
             Util.ShowTodoMessage();
             // TODO: choose which is valid for user
@@ -170,9 +172,6 @@ namespace QuanLyDuLich2.ViewModel
         {
             switch (maChucNang)
             {
-                case 1:
-                    Enable_UpdateExchange = true;
-                    break;
                 case 2:
                     Enable_ViewRoom = true;
                     break;
@@ -181,13 +180,16 @@ namespace QuanLyDuLich2.ViewModel
                     break;
                 case 4:
                     Enable_ViewExchange = true;
+                    break;/*
+                case 1:
+                    Enable_UpdateExchange = true;
                     break;
                 case 5:
                     Enable_UpdateRoom = true;
                     break;
                 case 6:
                     Enable_UpdateService = true;
-                    break;
+                    break;//*/
                 default:
                     break;
             }
@@ -198,9 +200,6 @@ namespace QuanLyDuLich2.ViewModel
         {
             switch (maChucNang)
             {
-                case 1:
-                    UpdateExchange_Tooltip = "Có thể truy cập";
-                    break;
                 case 2:
                     ViewRoom_Tooltip = "Có thể truy cập";
                     break;
@@ -209,13 +208,16 @@ namespace QuanLyDuLich2.ViewModel
                     break;
                 case 4:
                     ViewExchange_Tooltip = "Có thể truy cập";
+                    break;/*
+                case 1:
+                    UpdateExchange_Tooltip = "Có thể truy cập";
                     break;
                 case 5:
                     UpdateRoom_Tooltip = "Có thể truy cập";
                     break;
                 case 6:
                     UpdateService_Tooltip = "Có thể truy cập";
-                    break;
+                    break;//*/
                 default:
                     break;
             }
@@ -235,26 +237,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             //Selected_HOME = true;
             //Selected_DangXuat = false;
-            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
-
-                //if (p == null) return;
-                p.Hide(); // main view hide in login window
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
-                isLoaded = true;
-
-                //if (loginWindow.DataContext == null) return;
-                //var loginVM = loginWindow.DataContext as LoginViewModel;
-                //if (loginVM.isLogin)
-                //{
-                p.Show();
-                //    LoadRemainsData(); // show remain table
-                //}
-                //else
-                //{
-
-                //}
-
+            LoadedWindowCommand = new RelayCommand<Page>((p) => { return true; }, (p) => {
                 TimerTask = new Task(async () =>
                 {
                     bool TimerStop = false;
@@ -282,14 +265,14 @@ namespace QuanLyDuLich2.ViewModel
             ViewRoom_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = true;
                 //Selected_DangXuat = false;
-                FrameContent = new Home_Page();
+                MainViewModel.Ins.FrameContent = new ViewRoom_Page();
                 //FrameContent.DataContext = new Home_PageViewModel();
             });
 
             ViewService_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new Info_Page();
+                MainViewModel.Ins.FrameContent = new ViewService_Page();
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new MoSo_ViewModel();
             });
@@ -297,11 +280,11 @@ namespace QuanLyDuLich2.ViewModel
             ViewExchange_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new GuiTien_Page();
+                MainViewModel.Ins.FrameContent = new ExchangeRate_Page();
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new GuiTien_ViewModel();
             });
-
+            /*
             UpdateRoom_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
@@ -323,7 +306,11 @@ namespace QuanLyDuLich2.ViewModel
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
             });
+            //*/
         }
+
+
+
         /*/
         #region Singleton
         private static Info_ViewModel _ins;

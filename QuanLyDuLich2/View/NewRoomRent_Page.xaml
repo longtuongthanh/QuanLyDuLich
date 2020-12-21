@@ -1,0 +1,135 @@
+﻿<Page x:Class="QuanLyDuLich2.View.NewRoomRent_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyDuLich2.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="18"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+      
+      Title="NewRoomRent_Page">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding BoxWidth}" MinWidth="400" MaxWidth="900"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <StackPanel Orientation="Vertical" Margin="0,10">
+                <!--Header-->
+                <StackPanel Margin="5">
+                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                                    TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                    > Phiếu thuê phòng </TextBlock>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5"> 
+                        Phòng:
+                    </TextBlock>
+                    <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="A-01"
+                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                         Foreground="{StaticResource SecondaryAccentBrush}" 
+                         VerticalAlignment="Center"
+                         PreviewTextInput="TextBox_PreviewTextInput_1"
+                         IsEnabled="{Binding EnableGiaTri}"
+                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </ComboBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Tên khách:
+                    </TextBlock>
+                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
+                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Foreground="{StaticResource SecondaryAccentBrush}" 
+                         VerticalAlignment="Center"
+                         PreviewTextInput="TextBox_PreviewTextInput_1"
+                         IsEnabled="{Binding EnableGiaTri}"
+                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Số CMND:
+                    </TextBlock>
+                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="000-000-000-000"
+                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Foreground="{StaticResource SecondaryAccentBrush}" 
+                         VerticalAlignment="Center"
+                         PreviewTextInput="TextBox_PreviewTextInput_1"
+                         IsEnabled="{Binding EnableGiaTri}"
+                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                </Grid>
+                <WrapPanel Margin="5">
+                    <TextBlock> Địa chỉ:</TextBlock>
+                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                        Text="{Binding SelectedCongVanNumber, Mode=OneWay}">
+                    </TextBlock>
+                </WrapPanel>
+                <WrapPanel Margin="5">
+                    <TextBlock> Tình trạng:</TextBlock>
+                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                        Text="{Binding SelectedCongVanSentDate, Mode=OneWay}">
+                    </TextBlock>
+                </WrapPanel>
+                <WrapPanel Margin="5">
+                    <TextBlock> Đơn giá tháng:</TextBlock>
+                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                        Text="{Binding SelectedCongVanKeyNumber, Mode=OneWay}">
+                    </TextBlock>
+                </WrapPanel>
+
+                <WrapPanel Margin="5">
+                    <TextBlock VerticalAlignment="Top"> Đơn giá ngày:</TextBlock>
+                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                        Text="{Binding SelectedCongVanNote, Mode=OneWay}">
+                    </TextBlock>
+                </WrapPanel>
+
+                <WrapPanel Margin="5">
+                    <TextBlock VerticalAlignment="Top"> Khách hiện tại:</TextBlock>
+                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                        Text="{Binding SelectedCongVanNote, Mode=OneWay}">
+                    </TextBlock>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+
+        <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
+
+        <Grid Grid.Column="2">
+            <!-- SELECTOR SCREEN -->
+            <Frame x:Name="main" Margin="0,0,0,0" NavigationUIVisibility="Hidden"
+                       Content="{Binding FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            </Frame>
+        </Grid>
+    </Grid>
+</Page>

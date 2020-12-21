@@ -195,17 +195,23 @@
     <Compile Include="View\CaiDatKhac_Page.xaml.cs">
       <DependentUpon>CaiDatKhac_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ExchangeRate_Page.xaml.cs">
+      <DependentUpon>ExchangeRate_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GuiTien_Page.xaml.cs">
       <DependentUpon>GuiTien_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Info_Page.xaml.cs">
-      <DependentUpon>Info_Page.xaml</DependentUpon>
+    <Compile Include="View\Info_Page_Chooser.xaml.cs">
+      <DependentUpon>Info_Page_Chooser.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomUserControl\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewRoomRent_Page.xaml.cs">
+      <DependentUpon>NewRoomRent_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RutTien_Page.xaml.cs">
       <DependentUpon>RutTien_Page.xaml</DependentUpon>
@@ -269,6 +275,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ExchangeRate_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GuiTien_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -277,7 +287,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Info_Page.xaml">
+    <Page Include="View\Info_Page_Chooser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -286,6 +296,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomUserControl\ControlBarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewRoomRent_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

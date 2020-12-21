@@ -285,8 +285,24 @@ namespace QuanLyDuLich2.ViewModel
         }
         public ICommand Home_Select { get; set; }
         #endregion
+        private static MainViewModel _ins = null;
+        public static MainViewModel Ins
+        {
+            get
+            {
+                if (_ins == null)
+                {
+                    _ins = new MainViewModel();
+                }
+                return _ins;
+            }
+        }
         public MainViewModel() // all main page handling goes there
         {
+            if (_ins == null)
+                _ins = this;
+            else
+                throw new InvalidOperationException();
             //Selected_HOME = true;
             //Selected_DangXuat = false;
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
@@ -337,15 +353,15 @@ namespace QuanLyDuLich2.ViewModel
                 //Selected_HOME = true;
                 //Selected_DangXuat = false;
                 FrameContent = new Home_Page();
-                Console.WriteLine("adfskhdsfkja");
+                Util.ShowTodoMessage();
                 //FrameContent.DataContext = new Home_PageViewModel();
             });
 
             MoSo_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new Info_Page();
-                Console.WriteLine("adfskhdsfkja");
+                FrameContent = new Info_Page_Chooser();
+                Util.ShowTodoMessage();
                 //FrameContent.DataContext = new MoSo_ViewModel();
             });
 
@@ -353,7 +369,7 @@ namespace QuanLyDuLich2.ViewModel
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new ViewRoom_Page();
-                Console.WriteLine("adfskhdsfkja");
+                Util.ShowTodoMessage();
                 //FrameContent.DataContext = new GuiTien_ViewModel();
             });
 
@@ -361,20 +377,21 @@ namespace QuanLyDuLich2.ViewModel
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new ViewService_Page();
+                Util.ShowTodoMessage();
                 //FrameContent.DataContext = new RutTien_ViewModel();
             });
             TraCuu_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new TraCuu_Page();
-                Console.WriteLine("adfskhdsfkja");
+                Util.ShowTodoMessage();
                 //FrameContent.DataContext = new TraCuu_ViewModel();
             });
             BaoCao_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new BaoCaoDoanhSo_Page();
-                Console.WriteLine("adfskhdsfkja");
+                Util.ShowTodoMessage();
                 //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
             });
             DangXuat_SelectedCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
