@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyDuLich2_DAL
+namespace QuanLyDuLich2_DTO
 {
     public class PHIEU_TRA_PHONG
     {
+        #region Properties
+        /** PROPERTIES */
         public string _ID
         {
             get => default;
@@ -38,5 +40,17 @@ namespace QuanLyDuLich2_DAL
             {
             }
         }
+        #endregion
+
+        #region Constructors
+        /** CONSTRUCTORS */
+        public PHIEU_TRA_PHONG() { }
+        public PHIEU_TRA_PHONG(string _id, string phieuThuePhong, DateTime ngayTra)
+        {
+            this._ID = _id;
+            this.PhieuThuePhong = phieuThuePhong;
+            this.NgayTra = ngayTra;
+        }
+        #endregion
     }
 }

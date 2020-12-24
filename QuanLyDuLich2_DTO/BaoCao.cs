@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyDuLich2_DAL
+namespace QuanLyDuLich2_DTO
 {
     public class BAO_CAO
     {
+        #region Properties
+        /** PROPERTIES */
         public DateTime _TuNgay
         {
             get => default;
@@ -47,7 +49,7 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public SU_CO SU_CO
+        public SU_CO SuCo
         {
             get => default;
             set
@@ -55,14 +57,31 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public PHIEU_DICH_VU PHIEU_DICH_VU
+        public PHIEU_DICH_VU PhieuDichVu
         {
             get => default;
             set
             {
             }
         }
+        #endregion
 
+        #region Constructor
+        /** CONSTRUCTOR */
+        public BAO_CAO() { }
+        public BAO_CAO(DateTime _tuNgay, DateTime _denNgay, double khachDen, double khachDi, SU_CO suCo, PHIEU_DICH_VU phieuDichVu)
+        {
+            _TuNgay = _tuNgay;
+            _DenNgay = _denNgay;
+            KhachDen = khachDen;
+            KhachDi = khachDi;
+            SuCo = suCo;
+            PhieuDichVu = phieuDichVu;            
+        }
+        #endregion
+
+        #region Methods
+        /** METHODS */
         public List<SU_CO> GetDanhSachSuCo()
         {
             throw new System.NotImplementedException();
@@ -77,5 +96,6 @@ namespace QuanLyDuLich2_DAL
         {
             throw new System.NotImplementedException();
         }
+        #endregion
     }
 }

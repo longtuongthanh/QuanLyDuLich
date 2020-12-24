@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyDuLich2_DAL
+namespace QuanLyDuLich2_DTO
 {
     public class PHIEU_DICH_VU
     {
+        #region Properties
+        /** PROPERTIES */
         public string _ID
         {
             get => default;
@@ -70,5 +72,22 @@ namespace QuanLyDuLich2_DAL
             {
             }
         }
+        #endregion
+
+        #region Constructors
+        /** CONSTRUCTORS */
+        public PHIEU_DICH_VU() { }
+        public PHIEU_DICH_VU(string _id, string khach, DateTime ngay, List<DICH_VU> dsDichVu, 
+            double giamGia, double thanhTien, string hoaDon)
+        {
+            this._ID = _id;
+            this.Khach = khach;
+            this.Ngay = ngay;
+            this.DanhSachDichVu = dsDichVu;
+            this.GiamGia = giamGia;
+            this.ThanhTien = thanhTien;
+            this.HoaDon = hoaDon;
+        }
+        #endregion
     }
 }

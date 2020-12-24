@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyDuLich2_DAL
+namespace QuanLyDuLich2_DTO
 {
     public class PHIEU_CHUYEN_KHOAN
     {
+        #region Properties
+        /** PROPERTIES */ 
         public string _ID
         {
             get => default;
@@ -39,12 +41,18 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public TY_GIA TY_GIA
+        #endregion
+
+        #region Constructors
+        /** CONSTRUCTORS */
+        public PHIEU_CHUYEN_KHOAN() { }
+        public PHIEU_CHUYEN_KHOAN(string _id, string khachKhang, double soTien, string donViTien)
         {
-            get => default;
-            set
-            {
-            }
+            this._ID = _id;
+            this.KhachHang = KhachHang;
+            this.SoTien = soTien;
+            this.DonViTien = donViTien;
         }
+        #endregion
     }
 }

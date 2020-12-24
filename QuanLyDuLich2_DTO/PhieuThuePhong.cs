@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyDuLich2_DAL
+namespace QuanLyDuLich2_DTO
 {
-    public class CHI_TIET_PHIEU_DICH_VU
+    public class PHIEU_THUE_PHONG
     {
-        public string _PhieuDichVu
+        #region Properties
+        /** PROPERTIES */
+        public string _ID
         {
             get => default;
             set
@@ -15,7 +17,7 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public string _DichVu
+        public string Khach
         {
             get => default;
             set
@@ -23,7 +25,7 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public string YeuCauKhach
+        public string Phong
         {
             get => default;
             set
@@ -31,7 +33,7 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public double SoLuong
+        public DateTime NgayThue
         {
             get => default;
             set
@@ -39,7 +41,7 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public double DonGia
+        public PHONG PHONG
         {
             get => default;
             set
@@ -47,20 +49,25 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public PHIEU_DICH_VU PHIEU_DICH_VU
+        public KHACH KHACH
         {
             get => default;
             set
             {
             }
         }
+        #endregion
 
-        public DICH_VU DICH_VU
+        #region Constructors
+        /** CONSTRUCTORS */
+        public PHIEU_THUE_PHONG() { }
+        public PHIEU_THUE_PHONG(string _id, string khach, string phong, DateTime ngayThue)
         {
-            get => default;
-            set
-            {
-            }
+            this._ID = _id;
+            this.Khach = khach;
+            this.Phong = phong;
+            this.NgayThue = ngayThue;
         }
+        #endregion
     }
 }

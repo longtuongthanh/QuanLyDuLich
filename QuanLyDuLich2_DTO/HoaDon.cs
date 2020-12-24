@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyDuLich2_DAL
+namespace QuanLyDuLich2_DTO
 {
     public class HOA_DON
     {
-
+        #region Properties
+        /** PROPERTIES */
         public string _ID
         {
             get => default;
@@ -56,7 +57,7 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public PHIEU_CHUYEN_KHOAN PHIEU_CHUYEN_KHOAN
+        public PHIEU_CHUYEN_KHOAN PHIEUCHUYENKHOAN
         {
             get => default;
             set
@@ -64,7 +65,7 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public PHIEU_TRA_PHONG PHIEU_TRA_PHONG
+        public PHIEU_TRA_PHONG PHIEUTRAPHONG
         {
             get => default;
             set
@@ -79,7 +80,25 @@ namespace QuanLyDuLich2_DAL
             {
             }
         }
+        #endregion
 
+        #region Constructors
+        /** CONSTRUCTORS */
+        public HOA_DON() { }
+        public HOA_DON(string _id, List<PHIEU_DICH_VU> dsPhieuDichVu, string khachHang,
+            string phieuChuyenKhoan, string phieuTraPhong, double thanhTien)
+        {
+            this._ID = _id;
+            this.DanhSachPhieuDichVu = dsPhieuDichVu;
+            this.KhachHang = khachHang;
+            this.PhieuChuyenKhoan = phieuChuyenKhoan;
+            this.PhieuTraPhong = phieuTraPhong;
+            this.ThanhTien = thanhTien;
+        }
+        #endregion
+
+        #region Methods
+        /** METHODS */
         public void TinhTien(KHACH khachHang)
         {
             throw new System.NotImplementedException();
@@ -89,5 +108,6 @@ namespace QuanLyDuLich2_DAL
         {
             throw new System.NotImplementedException();
         }
+        #endregion
     }
 }

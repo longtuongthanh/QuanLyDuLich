@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("QuanLyDuLich2_DAL")]
+[assembly: AssemblyTitle("QuanLyDuLich_DAT")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("QuanLyDuLich2_DAL")]
+[assembly: AssemblyProduct("QuanLyDuLich_DAT")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8f4133e8-fb8d-49c3-9598-39bd7ec85063")]
+[assembly: Guid("19286dda-968e-4960-b17d-e4736728a962")]
 
 // Version information for an assembly consists of the following four values:
 //

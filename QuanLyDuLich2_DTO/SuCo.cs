@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace QuanLyDuLich2_DAL
+namespace QuanLyDuLich2_DTO
 {
-    public class KHACH
+    public class SU_CO
     {
+        #region Properties
+        /** PROPERTIES */
         public string _ID
         {
             get => default;
@@ -15,7 +17,7 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public string CMND
+        public string NoiDung
         {
             get => default;
             set
@@ -23,20 +25,24 @@ namespace QuanLyDuLich2_DAL
             }
         }
 
-        public string HoTen
+        public DateTime Ngay
         {
             get => default;
             set
             {
             }
         }
+        #endregion
 
-        public string DiaChi
+        #region Constructors
+        /** CONSTRUCTORS */
+        public SU_CO() { }
+        public SU_CO(string _id, string noiDung, DateTime ngay)
         {
-            get => default;
-            set
-            {
-            }
+            this._ID = _id;
+            this.NoiDung = noiDung;
+            this.Ngay = ngay;
         }
+        #endregion
     }
 }
