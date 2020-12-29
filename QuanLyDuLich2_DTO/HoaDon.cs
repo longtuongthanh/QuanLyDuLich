@@ -25,14 +25,6 @@ namespace QuanLyDuLich2_DTO
             }
         }
 
-        public List<PHIEU_DICH_VU> DanhSachPhieuDichVu
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public string PhieuTraPhong
         {
             get => default;
@@ -85,11 +77,10 @@ namespace QuanLyDuLich2_DTO
         #region Constructors
         /** CONSTRUCTORS */
         public HOA_DON() { }
-        public HOA_DON(string _id, List<PHIEU_DICH_VU> dsPhieuDichVu, string khachHang,
+        public HOA_DON(string _id, string khachHang,
             string phieuChuyenKhoan, string phieuTraPhong, double thanhTien)
         {
             this._ID = _id;
-            this.DanhSachPhieuDichVu = dsPhieuDichVu;
             this.KhachHang = khachHang;
             this.PhieuChuyenKhoan = phieuChuyenKhoan;
             this.PhieuTraPhong = phieuTraPhong;

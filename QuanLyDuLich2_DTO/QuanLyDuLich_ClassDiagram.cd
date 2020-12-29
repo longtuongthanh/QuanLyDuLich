@@ -89,14 +89,14 @@
     <Position X="3.5" Y="6.75" Width="1.5" />
     <AssociationLine Name="HOA_DON" Type="QuanLyDuLich2_DTO.HOA_DON" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="3.5" Y="8.55" />
-        <Point X="3.357" Y="8.55" />
+        <Point X="3.5" Y="8.422" />
+        <Point X="3.357" Y="8.422" />
         <Point X="3.357" Y="10.638" />
         <Point X="5.5" Y="10.638" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAAABIAAAAAAAAAAAAAAAQBAAAAAQEQAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAAABIAAAAAAAAAAAAAAAQBAAAAAAEQAA=</HashCode>
       <FileName>PhieuDichVu.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -109,8 +109,8 @@
       <Path>
         <Point X="5.5" Y="8.146" />
         <Point X="5.26" Y="8.146" />
-        <Point X="5.26" Y="7.876" />
-        <Point X="5" Y="7.876" />
+        <Point X="5.26" Y="7.796" />
+        <Point X="5" Y="7.796" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="DichVu" Type="QuanLyDuLich2_DTO.DICH_VU" FixedToPoint="true">
@@ -130,21 +130,10 @@
   </Class>
   <Class Name="QuanLyDuLich2_DTO.BAO_CAO">
     <Position X="10" Y="4.25" Width="1.5" />
-    <AssociationLine Name="SuCo" Type="QuanLyDuLich2_DTO.SU_CO" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="10" Y="6.677" />
-        <Point X="9.625" Y="6.677" />
-        <Point X="9.625" Y="9.141" />
-        <Point X="10" Y="9.141" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>CACAgAAAAAAgAAAAAAAAAAAIIAAIAAAAAAAEACAAAAg=</HashCode>
+      <HashCode>CAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAACAAAAg=</HashCode>
       <FileName>BaoCao.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="SuCo" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="QuanLyDuLich2_DTO.HOA_DON">
     <Position X="5.5" Y="9.5" Width="1.5" />
@@ -157,7 +146,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAgCAAAAAAAgIAAAAAAEAABAAAAAAAAAAAAEQAE=</HashCode>
+      <HashCode>AAAAAAgCAAAAAAAAIAAAAAAEAABAAAAAAAAAAAAEQAE=</HashCode>
       <FileName>HoaDon.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

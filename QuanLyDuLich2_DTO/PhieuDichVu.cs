@@ -33,14 +33,6 @@ namespace QuanLyDuLich2_DTO
             }
         }
 
-        public List<DICH_VU> DanhSachDichVu
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public double GiamGia
         {
             get => default;
@@ -77,13 +69,12 @@ namespace QuanLyDuLich2_DTO
         #region Constructors
         /** CONSTRUCTORS */
         public PHIEU_DICH_VU() { }
-        public PHIEU_DICH_VU(string _id, string khach, DateTime ngay, List<DICH_VU> dsDichVu, 
+        public PHIEU_DICH_VU(string _id, string khach, DateTime ngay,
             double giamGia, double thanhTien, string hoaDon)
         {
             this._ID = _id;
             this.Khach = khach;
             this.Ngay = ngay;
-            this.DanhSachDichVu = dsDichVu;
             this.GiamGia = giamGia;
             this.ThanhTien = thanhTien;
             this.HoaDon = hoaDon;
