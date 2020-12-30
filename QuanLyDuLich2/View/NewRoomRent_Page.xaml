@@ -21,7 +21,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{Binding BoxWidth}" MinWidth="400" MaxWidth="900"/>
+            <ColumnDefinition Width="{Binding BoxWidth}" MinWidth="300" MaxWidth="900"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -88,45 +88,32 @@
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                 </Grid>
-                <WrapPanel Margin="5">
-                    <TextBlock> Địa chỉ:</TextBlock>
-                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanNumber, Mode=OneWay}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Ngày thuê:
                     </TextBlock>
-                </WrapPanel>
-                <WrapPanel Margin="5">
-                    <TextBlock> Tình trạng:</TextBlock>
-                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanSentDate, Mode=OneWay}">
-                    </TextBlock>
-                </WrapPanel>
-                <WrapPanel Margin="5">
-                    <TextBlock> Đơn giá tháng:</TextBlock>
-                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanKeyNumber, Mode=OneWay}">
-                    </TextBlock>
-                </WrapPanel>
-
-                <WrapPanel Margin="5">
-                    <TextBlock VerticalAlignment="Top"> Đơn giá ngày:</TextBlock>
-                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanNote, Mode=OneWay}">
-                    </TextBlock>
-                </WrapPanel>
-
-                <WrapPanel Margin="5">
-                    <TextBlock VerticalAlignment="Top"> Khách hiện tại:</TextBlock>
-                    <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanNote, Mode=OneWay}">
-                    </TextBlock>
-                </WrapPanel>
+                    <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
+                        Visibility="{Binding VisibilityOfEditThamSo}"
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                        VerticalAlignment="Center"
+                        PreviewTextInput="TextBox_PreviewTextInput_1"
+                        IsEnabled="{Binding EnableGiaTri}"
+                        FirstDayOfWeek="Monday"
+                        SelectedDateFormat="Long"
+                        Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
+                </Grid>
             </StackPanel>
         </Grid>
 
         <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
 
         <Grid Grid.Column="2">
-            <!-- SELECTOR SCREEN -->
+            <!-- SELECTOR SCREEN, bind to either [Choose guest] or [Choose room] -->
             <Frame x:Name="main" Margin="0,0,0,0" NavigationUIVisibility="Hidden"
                        Content="{Binding FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             </Frame>
