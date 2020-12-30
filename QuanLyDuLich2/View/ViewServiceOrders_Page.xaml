@@ -63,7 +63,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="124"/>
                         <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="30"/>
+                        <ColumnDefinition Width="Auto" MinWidth="40"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="0,5">
                         Tên khách:
