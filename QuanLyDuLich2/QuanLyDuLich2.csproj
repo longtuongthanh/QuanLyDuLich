@@ -210,8 +210,11 @@
     <Compile Include="CustomUserControl\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\NewRoomRent_Page.xaml.cs">
-      <DependentUpon>NewRoomRent_Page.xaml</DependentUpon>
+    <Compile Include="View\ViewRoomRent_Page.xaml.cs">
+      <DependentUpon>ViewRoomRent_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewServiceOrders_Page.xaml.cs">
+      <DependentUpon>ViewServiceOrders_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RutTien_Page.xaml.cs">
       <DependentUpon>RutTien_Page.xaml</DependentUpon>
@@ -299,7 +302,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\NewRoomRent_Page.xaml">
+    <Page Include="View\ViewRoomRent_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewServiceOrders_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

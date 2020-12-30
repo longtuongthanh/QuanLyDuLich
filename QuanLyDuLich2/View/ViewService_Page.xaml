@@ -79,7 +79,7 @@
         <!--#endregion -->
 
         <!--Spliter-->
-        <GridSplitter Grid.Column="1" Width="3" Background="Ba"  HorizontalAlignment="Stretch"/>
+        <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueMidBrush}"  HorizontalAlignment="Stretch"/>
 
         <!--#region RIGHT: VIEW PANEL-->
         <Grid Grid.Column="2">
