@@ -61,7 +61,7 @@ namespace QuanLyDuLich2.ResourceXAML {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 18.
+        ///   Looks up a localized string similar to 30.
         /// </summary>
         public static string fontSize {
             get {
