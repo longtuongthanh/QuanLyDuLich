@@ -54,7 +54,6 @@
                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         PreviewTextInput="TextBox_PreviewTextInput_1"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </ComboBox>
@@ -73,7 +72,6 @@
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         PreviewTextInput="TextBox_PreviewTextInput_1"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
@@ -115,7 +113,6 @@
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         PreviewTextInput="TextBox_PreviewTextInput_1"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
@@ -134,7 +131,6 @@
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
-                        PreviewTextInput="TextBox_PreviewTextInput_1"
                         IsEnabled="{Binding EnableGiaTri}"
                         FirstDayOfWeek="Monday"
                         SelectedDateFormat="Long"
