@@ -51,19 +51,16 @@
                     <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Loại sự cố:
                     </TextBlock>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Loại sự cố"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Loại sự cố"
+                         Visibility="{Binding VisibilityOfEditThamSo}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          PreviewTextInput="TextBox_PreviewTextInput_1"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </TextBox>
+                    </ComboBox>
                     <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
-                                        Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Contact" Height="30" Width="30"/>
-                    </Button>
+                                        Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>

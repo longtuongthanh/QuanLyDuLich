@@ -189,8 +189,11 @@
     <Compile Include="ViewModel\RutTien_ViewModel.cs" />
     <Compile Include="ViewModel\ThayDoiQuyDinh_ViewModel.cs" />
     <Compile Include="ViewModel\TraCuu_ViewModel.cs" />
-    <Compile Include="View\BaoCaoDoanhSo_Page.xaml.cs">
-      <DependentUpon>BaoCaoDoanhSo_Page.xaml</DependentUpon>
+    <Compile Include="View\ViewBaoCaoTongHop_Page.xaml.cs">
+      <DependentUpon>ViewBaoCaoTongHop_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewBaoCaoTheoNgay_Page.xaml.cs">
+      <DependentUpon>ViewBaoCaoTheoNgay_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CaiDatKhac_Page.xaml.cs">
       <DependentUpon>CaiDatKhac_Page.xaml</DependentUpon>
@@ -209,6 +212,9 @@
     </Compile>
     <Compile Include="CustomUserControl\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewSuCo_Page.xaml.cs">
+      <DependentUpon>ViewSuCo_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewRoomRent_Page.xaml.cs">
       <DependentUpon>ViewRoomRent_Page.xaml</DependentUpon>
@@ -270,7 +276,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\BaoCaoDoanhSo_Page.xaml">
+    <Page Include="View\ViewBaoCaoTongHop_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewBaoCaoTheoNgay_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -301,6 +311,10 @@
     <Page Include="CustomUserControl\ControlBarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewSuCo_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ViewRoomRent_Page.xaml">
       <SubType>Designer</SubType>
