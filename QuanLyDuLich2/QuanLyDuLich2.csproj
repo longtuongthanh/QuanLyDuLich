@@ -195,6 +195,9 @@
     <Compile Include="View\CaiDatKhac_Page.xaml.cs">
       <DependentUpon>CaiDatKhac_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Checkout_Page.xaml.cs">
+      <DependentUpon>Checkout_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ExchangeRate_Page.xaml.cs">
       <DependentUpon>ExchangeRate_Page.xaml</DependentUpon>
     </Compile>
@@ -209,6 +212,12 @@
     </Compile>
     <Compile Include="CustomUserControl\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectGuest_Page.xaml.cs">
+      <DependentUpon>SelectGuest_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ServiceFeedback_Page.xaml.cs">
+      <DependentUpon>ServiceFeedback_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewRoomRent_Page.xaml.cs">
       <DependentUpon>ViewRoomRent_Page.xaml</DependentUpon>
@@ -278,6 +287,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Checkout_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ExchangeRate_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -299,6 +312,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomUserControl\ControlBarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SelectGuest_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ServiceFeedback_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

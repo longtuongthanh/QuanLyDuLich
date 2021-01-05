@@ -1,0 +1,76 @@
+﻿<Page x:Class="QuanLyDuLich2.View.SelectGuest_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyDuLich2.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="SelectGuest_Page"
+       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <!--#region LEFT: MAIL LIST-->
+    <Grid Grid.Column="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*" MinHeight="80"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0*" MinHeight="50"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0">
+            <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
+                <DockPanel LastChildFill="True">
+                    <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                        <materialDesign:PackIcon DockPanel.Dock="Right" Kind="Search" Margin="10,0">
+                            <materialDesign:PackIcon.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            </materialDesign:PackIcon.LayoutTransform>
+                        </materialDesign:PackIcon>
+                        <materialDesign:PackIcon DockPanel.Dock="Right" Kind="MoreHoriz">
+                            <materialDesign:PackIcon.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                            </materialDesign:PackIcon.LayoutTransform>
+                        </materialDesign:PackIcon>
+                    </WrapPanel>
+                    <TextBox VerticalContentAlignment="Center" Margin="100,0,10,0" BorderBrush="Transparent" FontWeight="SemiBold" Text="{Binding FilterText, Mode=TwoWay}"/>
+                </DockPanel>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListBox materialDesign:ListViewAssist.ListViewItemPadding="10"
+                     materialDesign:ListBoxAssist.IsToggle="False"
+                     Style="{StaticResource MaterialDesignCardsListBox}"
+                     ItemsSource="{Binding DSCongVan}" SelectedItem="{Binding SelectedCongVan, Mode=TwoWay}">
+                    <ListBox.ItemTemplate>
+
+                        <DataTemplate>
+                            <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
+                            <DockPanel LastChildFill="True">
+                                <CheckBox Margin="5"/>
+                                <TextBlock Margin="5" Width="100" Text="{Binding CMND}"></TextBlock>
+                                <TextBlock Margin="5" Text="{Binding Name}"></TextBlock>
+                                <TextBlock Margin="5" Text="{Binding DiaChi}"></TextBlock>
+                            </DockPanel>
+                            <!--/Button-->
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+        </Grid>
+        <local:UC_ActionButtons Grid.Row="2"
+                      Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+
+        </local:UC_ActionButtons>
+    </Grid>
+    <!--#endregion -->
+</Page>
