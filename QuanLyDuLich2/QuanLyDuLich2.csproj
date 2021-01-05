@@ -242,10 +242,10 @@
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\GuiTien_ViewModel.cs" />
     <Compile Include="ViewModel\Home_PageViewModel.cs" />
+    <Compile Include="ViewModel\Info_ViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MoSo_PrintPreview_ViewModel.cs" />
-    <Compile Include="ViewModel\MoSo_ViewModel.cs" />
     <Compile Include="ViewModel\PhieuGui_PrintPreview_ViewModel.cs" />
     <Compile Include="ViewModel\PhieuRut_PrintPreview_ViewModel.cs" />
     <Compile Include="ViewModel\QuanLyNhanSu_ViewModel.cs" />
@@ -255,11 +255,11 @@
     <Compile Include="View\BaoCaoDoanhSo_Page.xaml.cs">
       <DependentUpon>BaoCaoDoanhSo_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BaoCaoMoDong_Page.xaml.cs">
-      <DependentUpon>BaoCaoMoDong_Page.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\CaiDatKhac_Page.xaml.cs">
       <DependentUpon>CaiDatKhac_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExchangeRate_Page.xaml.cs">
+      <DependentUpon>ExchangeRate_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GuiTien_Page.xaml.cs">
       <DependentUpon>GuiTien_Page.xaml</DependentUpon>
@@ -267,14 +267,11 @@
     <Compile Include="View\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MoSo_Page.xaml.cs">
-      <DependentUpon>MoSo_Page.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CustomUserControl\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\QuanLyNhanSu_Page.xaml.cs">
-      <DependentUpon>QuanLyNhanSu_Page.xaml</DependentUpon>
+    <Compile Include="View\Info_Page_Chooser.xaml.cs">
+      <DependentUpon>Info_Page_Chooser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RutTien_Page.xaml.cs">
       <DependentUpon>RutTien_Page.xaml</DependentUpon>
@@ -284,6 +281,21 @@
     </Compile>
     <Compile Include="View\TraCuu_Page.xaml.cs">
       <DependentUpon>TraCuu_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UC_ActionButtons.xaml.cs">
+      <DependentUpon>UC_ActionButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewRoomRent_Page.xaml.cs">
+      <DependentUpon>ViewRoomRent_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewRoom_Page.xaml.cs">
+      <DependentUpon>ViewRoom_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewServiceOrders_Page.xaml.cs">
+      <DependentUpon>ViewServiceOrders_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewService_Page.xaml.cs">
+      <DependentUpon>ViewService_Page.xaml</DependentUpon>
     </Compile>
     <Page Include="MoSo_PrintPreview.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -325,23 +337,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\BaoCaoMoDong_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\CaiDatKhac_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ExchangeRate_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\GuiTien_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Home_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\MoSo_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -353,9 +361,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\QuanLyNhanSu_Page.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\Info_Page_Chooser.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\RutTien_Page.xaml">
       <SubType>Designer</SubType>
@@ -368,6 +376,26 @@
     <Page Include="View\TraCuu_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UC_ActionButtons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewRoomRent_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewRoom_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewServiceOrders_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewService_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
