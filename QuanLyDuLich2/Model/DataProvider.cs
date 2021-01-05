@@ -22,12 +22,12 @@ namespace QuanLyDuLich2.Model
                 _ins = value;
             }
         }
-        //* TODO
-        //public QLSTKEntities DB { get; set; }
+        
+        public QuanLyDuLich2Entities DB { get; set; }
 
         private DataProvider()
         {
-            //DB = new QLSTKEntities();
+            DB = new QuanLyDuLich2Entities();
             Util.ShowTodoMessage();
         }
     }

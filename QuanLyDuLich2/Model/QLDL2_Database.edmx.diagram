@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a2817ba6de8d42cf90cea550072ff2dc" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.sysdiagram" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbBaoCao" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbChiTietPhieuDichVu" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbDichVu" Width="1.5" PointX="8.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbHoaDon" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbKhach" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbLoaiPhong" Width="1.5" PointX="1.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbLoaiSuCo" Width="1.5" PointX="10.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbLoaiTaiKhoan" Width="1.5" PointX="5.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbPhieuChuyenKhoan" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbPhieuDichVu" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbPhieuThuePhong" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbPhong" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbSuCo" Width="1.5" PointX="13" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbTaiKhoan" Width="1.5" PointX="8" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDuLich2Model.tbTyGia" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbChiTiet__DichV__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbChiTiet__Phieu__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbHoaDon__IDKhac__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbHoaDon__PhieuC__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbHoaDon__PhieuT__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbPhieuDi__HoaDo__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbPhieuCh__IDKha__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbPhieuDi__Khach__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbPhieuTh__Khach__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbPhong__LoaiPho__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbSuCo__LoaiSuCo__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbTaiKhoa__LoaiT__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbPhieuCh__Ngoai__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDuLich2Model.FK__tbPhieuTh__SoPho__2C3393D0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

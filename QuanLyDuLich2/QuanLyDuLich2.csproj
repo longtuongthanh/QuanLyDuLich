@@ -146,6 +146,69 @@
     </ApplicationDefinition>
     <Compile Include="Helper\DatabaseCheck.cs" />
     <Compile Include="Helper\Util.cs" />
+    <Compile Include="Model\QLDL2_Database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDL2_Database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QLDL2_Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QLDL2_Database.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDL2_Database.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbBaoCao.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbChiTietPhieuDichVu.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbDichVu.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbHoaDon.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbKhach.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbLoaiPhong.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbLoaiSuCo.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbLoaiTaiKhoan.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbPhieuChuyenKhoan.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbPhieuDichVu.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbPhieuThuePhong.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbPhong.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbSuCo.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbTaiKhoan.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbTyGia.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="MoSo_PrintPreview.xaml.cs">
       <DependentUpon>MoSo_PrintPreview.xaml</DependentUpon>
     </Compile>
@@ -182,7 +245,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MoSo_PrintPreview_ViewModel.cs" />
-    <Compile Include="ViewModel\Info_ViewModel.cs" />
+    <Compile Include="ViewModel\MoSo_ViewModel.cs" />
     <Compile Include="ViewModel\PhieuGui_PrintPreview_ViewModel.cs" />
     <Compile Include="ViewModel\PhieuRut_PrintPreview_ViewModel.cs" />
     <Compile Include="ViewModel\QuanLyNhanSu_ViewModel.cs" />
@@ -192,11 +255,11 @@
     <Compile Include="View\BaoCaoDoanhSo_Page.xaml.cs">
       <DependentUpon>BaoCaoDoanhSo_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\BaoCaoMoDong_Page.xaml.cs">
+      <DependentUpon>BaoCaoMoDong_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CaiDatKhac_Page.xaml.cs">
       <DependentUpon>CaiDatKhac_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ExchangeRate_Page.xaml.cs">
-      <DependentUpon>ExchangeRate_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GuiTien_Page.xaml.cs">
       <DependentUpon>GuiTien_Page.xaml</DependentUpon>
@@ -204,17 +267,14 @@
     <Compile Include="View\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Info_Page_Chooser.xaml.cs">
-      <DependentUpon>Info_Page_Chooser.xaml</DependentUpon>
+    <Compile Include="View\MoSo_Page.xaml.cs">
+      <DependentUpon>MoSo_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomUserControl\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewRoomRent_Page.xaml.cs">
-      <DependentUpon>ViewRoomRent_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ViewServiceOrders_Page.xaml.cs">
-      <DependentUpon>ViewServiceOrders_Page.xaml</DependentUpon>
+    <Compile Include="View\QuanLyNhanSu_Page.xaml.cs">
+      <DependentUpon>QuanLyNhanSu_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RutTien_Page.xaml.cs">
       <DependentUpon>RutTien_Page.xaml</DependentUpon>
@@ -224,15 +284,6 @@
     </Compile>
     <Compile Include="View\TraCuu_Page.xaml.cs">
       <DependentUpon>TraCuu_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UC_ActionButtons.xaml.cs">
-      <DependentUpon>UC_ActionButtons.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ViewRoom_Page.xaml.cs">
-      <DependentUpon>ViewRoom_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ViewService_Page.xaml.cs">
-      <DependentUpon>ViewService_Page.xaml</DependentUpon>
     </Compile>
     <Page Include="MoSo_PrintPreview.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -274,11 +325,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CaiDatKhac_Page.xaml">
+    <Page Include="View\BaoCaoMoDong_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ExchangeRate_Page.xaml">
+    <Page Include="View\CaiDatKhac_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -290,7 +341,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Info_Page_Chooser.xaml">
+    <Page Include="View\MoSo_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -302,11 +353,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewRoomRent_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ViewServiceOrders_Page.xaml">
+    <Page Include="View\QuanLyNhanSu_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -319,18 +366,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TraCuu_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UC_ActionButtons.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ViewRoom_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ViewService_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -357,6 +392,13 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ThayDoiQuyDinh_Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\QLDL2_Database.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLDL2_Database.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\QLDL2_Database.edmx.diagram">
+      <DependentUpon>QLDL2_Database.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -412,6 +454,22 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UnitTest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Model\ChangeLog.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\QLDL2_Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLDL2_Database.edmx</DependentUpon>
+      <LastGenOutput>QLDL2_Database.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\QLDL2_Database.sql" />
+    <Content Include="Model\QLDL2_Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLDL2_Database.edmx</DependentUpon>
+      <LastGenOutput>QLDL2_Database.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets')" />
