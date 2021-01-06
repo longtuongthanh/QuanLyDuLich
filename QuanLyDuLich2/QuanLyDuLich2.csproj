@@ -213,6 +213,9 @@
     <Compile Include="CustomUserControl\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MoneyTransfer_Page.xaml.cs">
+      <DependentUpon>MoneyTransfer_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Receipt_Page.xaml.cs">
       <DependentUpon>Receipt_Page.xaml</DependentUpon>
     </Compile>
@@ -315,6 +318,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomUserControl\ControlBarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MoneyTransfer_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

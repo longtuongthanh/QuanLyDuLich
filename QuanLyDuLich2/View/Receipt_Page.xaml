@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:QuanLyDuLich2.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1200"
       Title="Receipt_Page"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       
@@ -20,7 +20,7 @@
 
     <Grid Grid.Row="1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="300" MaxWidth="900"/>
+            <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="480"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -194,6 +194,7 @@
                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
+                                         TextAlignment="Right"
                                     PreviewTextInput="TextBox_PreviewTextInput_1"
                                     Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                                 </TextBox>
@@ -220,6 +221,7 @@
                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
+                                         TextAlignment="Right"
                                     PreviewTextInput="TextBox_PreviewTextInput_1"
                                     Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                                 </TextBox>
@@ -244,18 +246,23 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Hủy" Background="{StaticResource WarningHueBrush}"
-                            Width="Auto" Height="35" Command="{Binding CancelCommand}"
+                            Width="130" Height="35" Command="{Binding CancelCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
                     <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="Auto" Height="35" Command="{Binding CancelCommand}"
+                            Width="130" Height="35" Command="{Binding CancelCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
                     <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="In hóa đơn" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="Auto" Height="35" Command="{Binding PrintCommand}"
+                            Width="130" Height="35" Command="{Binding PrintCommand}"
+                            Visibility="{Binding VisibilityOfCancel}"/>
+                    <Button Grid.Column="3" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            Margin="5" Content="Chuyển khoản" Background="{StaticResource PrimaryHueDarkBrush}"
+                            Width="130" Height="35" Command="{Binding PrintCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
                 </Grid>
             </Grid>
