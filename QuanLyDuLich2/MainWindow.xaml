@@ -63,7 +63,7 @@
                     <HamburgerMenu:HamburgerMenuItem x:Name="MoSo_Page_Button" Icon="Images/1-MoSo.png" Text="Giao dịch mở sổ" IsEnabled="{Binding Enable_MoSo}" ToolTip="{Binding MoSo_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding MoSo_Page_SelectedCommand}"
+                                <i:InvokeCommandAction Command="{Binding Info_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
@@ -71,7 +71,7 @@
                     <HamburgerMenu:HamburgerMenuItem x:Name="GuiTien_Page_Button" Icon="Images/2-GuiTien.png" Text="Giao dịch gửi tiền" IsEnabled="{Binding Enable_GuiTien}" ToolTip="{Binding GuiTien_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding GuiTien_Page_SelectedCommand}"
+                                <i:InvokeCommandAction Command="{Binding ViewRoom_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
@@ -79,7 +79,7 @@
                     <HamburgerMenu:HamburgerMenuItem x:Name="RutTien_Page_Button" Icon="Images/3-RutTien.png" Text="Giao dịch rút tiền" IsEnabled="{Binding Enable_RutTien}" ToolTip="{Binding RutTien_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding RutTien_Page_SelectedCommand}"
+                                <i:InvokeCommandAction Command="{Binding ViewService_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
@@ -87,7 +87,7 @@
                     <HamburgerMenu:HamburgerMenuItem x:Name="TraCuu_Page_Button" Icon="Images/search.png" Text="Tra cứu sổ" IsEnabled="{Binding Enable_TraCuu}" ToolTip="{Binding TraCuu_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding TraCuu_Page_SelectedCommand}"
+                                <i:InvokeCommandAction Command="{Binding ViewServiceOrders_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
@@ -98,7 +98,7 @@
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding BaoCao_Page_SelectedCommand}"
+                                <i:InvokeCommandAction Command="{Binding ServiceFeedback_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

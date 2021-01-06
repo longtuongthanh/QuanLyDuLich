@@ -95,11 +95,11 @@ namespace QuanLyDuLich2.ViewModel
         #region ICommand
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand Home_Page_SelectedCommand { get; set; }
-        public ICommand MoSo_Page_SelectedCommand { get; set; }
-        public ICommand GuiTien_Page_SelectedCommand { get; set; }
-        public ICommand RutTien_Page_SelectedCommand { get; set; }
-        public ICommand TraCuu_Page_SelectedCommand { get; set; }
-        public ICommand BaoCao_Page_SelectedCommand { get; set; }
+        public ICommand Info_Page_SelectedCommand { get; set; }
+        public ICommand ViewRoom_Page_SelectedCommand { get; set; }
+        public ICommand ViewService_Page_SelectedCommand { get; set; }
+        public ICommand ViewServiceOrders_Page_SelectedCommand { get; set; }
+        public ICommand ServiceFeedback_Page_SelectedCommand { get; set; }
         public ICommand DangXuat_SelectedCommand { get; set; }
         #endregion
 
@@ -357,7 +357,7 @@ namespace QuanLyDuLich2.ViewModel
                 //FrameContent.DataContext = new Home_PageViewModel();
             });
 
-            MoSo_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            Info_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new Info_Page_Chooser();
@@ -365,7 +365,7 @@ namespace QuanLyDuLich2.ViewModel
                 //FrameContent.DataContext = new MoSo_ViewModel();
             });
 
-            GuiTien_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            ViewRoom_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new ViewRoom_Page();
@@ -373,21 +373,21 @@ namespace QuanLyDuLich2.ViewModel
                 //FrameContent.DataContext = new GuiTien_ViewModel();
             });
 
-            RutTien_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            ViewService_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new ViewService_Page();
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new RutTien_ViewModel();
             });
-            TraCuu_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            ViewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new ViewServiceOrders_Page();
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new TraCuu_ViewModel();
             });
-            BaoCao_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            ServiceFeedback_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new ServiceFeedback_Page();
