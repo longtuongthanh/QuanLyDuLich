@@ -26,70 +26,72 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" MinHeight="309"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,10">
-                <!--Header-->
-                <StackPanel Margin="5">
-                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,10">
+                    <!--Header-->
+                    <StackPanel Margin="5">
+                        <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
                                     TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                    > Phiếu thuê phòng </TextBlock>
-                </StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="40"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5"> 
+                                    > Phiếu thuê phòng</TextBlock>
+                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="120"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="40"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5"> 
                         Phòng:
-                    </TextBlock>
-                    <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="A-01"
+                        </TextBlock>
+                        <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="A-01"
                          Visibility="{Binding VisibilityOfEditThamSo}"
                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </ComboBox>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="30"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        </ComboBox>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="120"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="30"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Tên khách:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
+                        </TextBlock>
+                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
                          Visibility="{Binding VisibilityOfEditThamSo}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </TextBox>
-                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
+                        </TextBox>
+                        <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
                                         Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Contact" Height="30" Width="30"/>
-                    </Button>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="40"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                            <materialDesign:PackIcon Kind="Contact" Height="30" Width="30"/>
+                        </Button>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="120"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="40"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Số CMND:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="000-000-000-000"
+                        </TextBlock>
+                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="000-000-000-000"
                          Visibility="{Binding VisibilityOfEditThamSo}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
@@ -97,36 +99,36 @@
                          PreviewTextInput="TextBox_PreviewTextInput_1"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </TextBox>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="40"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        </TextBox>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="120"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="40"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                          Địa chỉ khách:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="1 Văn Cao, Ngô Quyền, Hải Phòng"
+                        </TextBlock>
+                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="1 Văn Cao, Ngô Quyền, Hải Phòng"
                          Visibility="{Binding VisibilityOfEditThamSo}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </TextBox>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="10"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        </TextBox>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="120"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="10"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Ngày thuê:
-                    </TextBlock>
-                    <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
+                        </TextBlock>
+                        <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
                         Visibility="{Binding VisibilityOfEditThamSo}"
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                         Foreground="{StaticResource SecondaryAccentBrush}" 
@@ -135,23 +137,72 @@
                         FirstDayOfWeek="Monday"
                         SelectedDateFormat="Long"
                         Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
+                    </Grid>
+                </StackPanel>
+                <Grid Grid.Row="1" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="120"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="85"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Ngày thuê:
+                        </TextBlock>
+                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="10000"
+                            Visibility="{Binding VisibilityOfEditThamSo}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Foreground="{StaticResource SecondaryAccentBrush}" 
+                            VerticalAlignment="Center"
+                            TextAlignment="Right"
+                            IsEnabled="{Binding EnableGiaTri}"
+                            Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        </TextBox>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Bottom" Margin="5">
+                            ₫ / ngày
+                        </TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="120"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="85"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="10000"
+                            Visibility="{Binding VisibilityOfEditThamSo}"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                            Foreground="{StaticResource SecondaryAccentBrush}" 
+                            VerticalAlignment="Center"
+                            TextAlignment="Right"
+                            IsEnabled="{Binding EnableGiaTri}"
+                            Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        </TextBox>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Bottom" Margin="5">
+                            ₫ / tháng
+                        </TextBlock>
+                    </Grid>
                 </Grid>
-            </StackPanel>
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="Hủy" Background="{StaticResource WarningHueBrush}"
                             Width="150" Height="35" Command="{Binding CancelCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
-                <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
+                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
                             Width="150" Height="35" Command="{Binding CancelCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
+                </Grid>
             </Grid>
-        </Grid>
+        </ScrollViewer>
 
         <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
 
