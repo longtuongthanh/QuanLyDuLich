@@ -49,7 +49,7 @@
                         Ngày đăng ký:
                     </TextBlock>
                     <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
-                        Visibility="{Binding VisibilityOfEditThamSo}"
+                        
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
@@ -68,7 +68,7 @@
                         Tên khách:
                     </TextBlock>
                     <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
@@ -91,7 +91,7 @@
                          Phòng:
                     </TextBlock>
                     <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="A-01"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
@@ -109,7 +109,7 @@
                         Thành tiền:
                     </TextBlock>
                     <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="200.000₫"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
@@ -128,7 +128,7 @@
                          Giảm giá:
                     </TextBlock>
                     <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="50.000₫"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"

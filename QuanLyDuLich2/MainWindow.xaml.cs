@@ -25,7 +25,7 @@ namespace QuanLyDuLich2
     public partial class MainWindow : Window
     {
         #region Management Page Selections
-
+        /*
         private Home_Page HomePage = new Home_Page();
         private Info_Page_Chooser MoSoPage = new Info_Page_Chooser();
         private GuiTien_Page GuiTienPage = new GuiTien_Page();
@@ -34,6 +34,7 @@ namespace QuanLyDuLich2
         private ThayDoiQuyDinh_Page ThayDoiQuyDinhPage = new ThayDoiQuyDinh_Page();
         private CaiDatKhac_Page CaiDatKhacPage = new CaiDatKhac_Page();
         private TraCuu_Page TraCuuPage = new TraCuu_Page();
+        //*/
         #endregion
 
         public MainWindow()

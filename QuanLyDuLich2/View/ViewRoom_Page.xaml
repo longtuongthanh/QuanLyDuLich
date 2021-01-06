@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1200"
       Title="ViewRoom_Page"
       
       
@@ -21,7 +21,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="0.8*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="8*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" >
@@ -71,10 +71,10 @@
             <Grid Grid.Column="0">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="Auto"/>
                     <!--RowDefinition Height="0*" MinHeight="30"/-->
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0" Margin="20,0,20,0" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
                     <Grid>
@@ -105,14 +105,14 @@
                     </Grid>
                 </Border>
 
-                <Grid Grid.Row="1">
-                    <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 20, 20, 0"
+                <Grid Grid.Row="2">
+                    <Button FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"
                                 Command="{Binding AddCammand}" MinWidth="120">
                         Thêm mới
                     </Button>
                 </Grid>
 
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="1">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <ListBox Margin="20"
                             materialDesign:ListViewAssist.ListViewItemPadding="10"

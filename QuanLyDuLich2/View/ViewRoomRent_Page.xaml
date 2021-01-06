@@ -52,7 +52,7 @@
                         Phòng:
                         </TextBlock>
                         <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="A-01"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
@@ -70,7 +70,7 @@
                         Tên khách:
                         </TextBlock>
                         <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
@@ -92,7 +92,7 @@
                         Số CMND:
                         </TextBlock>
                         <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="000-000-000-000"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
@@ -111,7 +111,7 @@
                          Địa chỉ khách:
                         </TextBlock>
                         <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="1 Văn Cao, Ngô Quyền, Hải Phòng"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
@@ -129,7 +129,7 @@
                         Ngày thuê:
                         </TextBlock>
                         <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
-                        Visibility="{Binding VisibilityOfEditThamSo}"
+                        
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
@@ -155,7 +155,7 @@
                         Ngày thuê:
                         </TextBlock>
                         <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="10000"
-                            Visibility="{Binding VisibilityOfEditThamSo}"
+                            
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                             Foreground="{StaticResource SecondaryAccentBrush}" 
                             VerticalAlignment="Center"
@@ -174,7 +174,7 @@
                             <ColumnDefinition Width="Auto" MinWidth="85"/>
                         </Grid.ColumnDefinitions>
                         <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="10000"
-                            Visibility="{Binding VisibilityOfEditThamSo}"
+                            
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                             Foreground="{StaticResource SecondaryAccentBrush}" 
                             VerticalAlignment="Center"

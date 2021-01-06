@@ -38,17 +38,17 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="Auto" MinWidth="10"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Ngày đăng ký:
                 </TextBlock>
                 <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
-                        Visibility="{Binding VisibilityOfEditThamSo}"
+                        
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
                         IsEnabled="{Binding EnableGiaTri}"
                         FirstDayOfWeek="Monday"
-                        SelectedDateFormat="Short"
+                        SelectedDateFormat="Short" FontSize="18"
                         Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
             </Grid>
             <Grid>
@@ -57,15 +57,15 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="Auto" MinWidth="40"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="0,5">
+                <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="0,5">
                         Tên khách:
                 </TextBlock>
                 <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}"
+                         IsEnabled="{Binding EnableGiaTri}" FontSize="18"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                 </TextBox>
                 <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
@@ -80,14 +80,14 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="Auto" MinWidth="40"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                          Phòng:
                 </TextBlock>
                 <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="A-01"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
-                         VerticalAlignment="Center"
+                         VerticalAlignment="Center" FontSize="18"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                 </TextBox>
@@ -98,16 +98,16 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="Auto" MinWidth="40"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Thành tiền:
                 </TextBlock>
                 <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="200.000₫"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          PreviewTextInput="TextBox_PreviewTextInput"
-                         IsEnabled="{Binding EnableGiaTri}"
+                         IsEnabled="{Binding EnableGiaTri}" FontSize="18"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                 </TextBox>
             </Grid>
@@ -117,16 +117,16 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="Auto" MinWidth="40"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                          Giảm giá:
                 </TextBlock>
                 <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="50.000₫"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          PreviewTextInput="TextBox_PreviewTextInput"
-                         IsEnabled="{Binding EnableGiaTri}"
+                         IsEnabled="{Binding EnableGiaTri}" FontSize="18"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                 </TextBox>
             </Grid>

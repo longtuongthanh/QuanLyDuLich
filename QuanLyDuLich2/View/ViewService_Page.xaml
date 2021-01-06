@@ -21,7 +21,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="0.8*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="8*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Width="Auto">
@@ -72,19 +72,19 @@
             <Grid Grid.Column="0">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
                     <!--RowDefinition Height="0*" MinHeight="30"/-->
-                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="1">
                     <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 0, 20, 0"
                                 Command="{Binding AddCammand}" MinWidth="120">
                         Thêm mới
                     </Button>
                 </Grid>
 
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="0">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <ListBox Margin="20"
                             materialDesign:ListViewAssist.ListViewItemPadding="10"

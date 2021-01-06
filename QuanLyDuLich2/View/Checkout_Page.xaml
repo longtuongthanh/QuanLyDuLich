@@ -12,7 +12,7 @@
       
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
+        TextElement.FontSize="18"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -100,7 +100,7 @@
                             </StackPanel>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="Auto" MinWidth="40"/>
                                 </Grid.ColumnDefinitions>
@@ -108,7 +108,7 @@
                                     Phòng thuê:
                                 </TextBlock>
                                 <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="A-01"
-                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         
                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
@@ -118,7 +118,7 @@
                             </Grid>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="Auto" MinWidth="40"/>
                                 </Grid.ColumnDefinitions>
@@ -126,7 +126,7 @@
                                     Tên khách:
                                 </TextBlock>
                                 <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
-                                    Visibility="{Binding VisibilityOfEditThamSo}"
+                                    
                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
@@ -140,15 +140,15 @@
                             </Grid>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="Auto" MinWidth="10"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                                    Ngày thuê phòng:
+                                    Ngày thuê:
                                 </TextBlock>
                                 <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
-                                    Visibility="{Binding VisibilityOfEditThamSo}"
+                                    
                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
@@ -159,15 +159,15 @@
                             </Grid>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="Auto" MinWidth="10"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                                    Ngày trả phòng:
+                                    Ngày trả:
                                 </TextBlock>
                                 <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
-                                    Visibility="{Binding VisibilityOfEditThamSo}"
+                                    
                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
@@ -178,7 +178,7 @@
                             </Grid>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="Auto" MinWidth="40"/>
                                 </Grid.ColumnDefinitions>
@@ -187,7 +187,7 @@
                                 </TextBlock>
 
                                 <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="200.000₫"
-                                    Visibility="{Binding VisibilityOfEditThamSo}"
+                                    
                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"

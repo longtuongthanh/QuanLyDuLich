@@ -57,7 +57,10 @@
                             <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
                             <DockPanel LastChildFill="True">
                                 <CheckBox Margin="5"/>
-                                <TextBlock Margin="5" Width="100" Text="{Binding CMND}"></TextBlock>
+                                <TextBlock Margin="5" Width="100" Text="{Binding CMND}" 
+                                           FontSize="18" Style="{StaticResource MaterialDesignTextBlock}">
+                                    
+                                </TextBlock>
                                 <TextBlock Margin="5" Text="{Binding Name}"></TextBlock>
                                 <TextBlock Margin="5" Text="{Binding DiaChi}"></TextBlock>
                             </DockPanel>

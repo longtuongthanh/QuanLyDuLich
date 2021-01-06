@@ -233,39 +233,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ThayDoiQuyDinh_Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\BaoCaoDoanhSo_PrintPreview_ViewModel.cs" />
-    <Compile Include="ViewModel\BaoCaoDoanhSo_ViewModel.cs" />
-    <Compile Include="ViewModel\BaoCaoMoDong_PrintPreview_ViewModel.cs" />
-    <Compile Include="ViewModel\BaoCaoMoDong_ViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\CaiDatKhac_ViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
-    <Compile Include="ViewModel\GuiTien_ViewModel.cs" />
     <Compile Include="ViewModel\Home_PageViewModel.cs" />
     <Compile Include="ViewModel\Info_ViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\MoSo_PrintPreview_ViewModel.cs" />
-    <Compile Include="ViewModel\PhieuGui_PrintPreview_ViewModel.cs" />
-    <Compile Include="ViewModel\PhieuRut_PrintPreview_ViewModel.cs" />
-    <Compile Include="ViewModel\QuanLyNhanSu_ViewModel.cs" />
-    <Compile Include="ViewModel\RutTien_ViewModel.cs" />
-    <Compile Include="ViewModel\ThayDoiQuyDinh_ViewModel.cs" />
-    <Compile Include="ViewModel\TraCuu_ViewModel.cs" />
-    <Compile Include="View\BaoCaoDoanhSo_Page.xaml.cs">
-      <DependentUpon>BaoCaoDoanhSo_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CaiDatKhac_Page.xaml.cs">
-      <DependentUpon>CaiDatKhac_Page.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Checkout_Page.xaml.cs">
       <DependentUpon>Checkout_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ExchangeRate_Page.xaml.cs">
       <DependentUpon>ExchangeRate_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\GuiTien_Page.xaml.cs">
-      <DependentUpon>GuiTien_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
@@ -293,15 +271,6 @@
     </Compile>
     <Compile Include="View\ViewServiceOrders_Page.xaml.cs">
       <DependentUpon>ViewServiceOrders_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\RutTien_Page.xaml.cs">
-      <DependentUpon>RutTien_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ThayDoiQuyDinh_Page.xaml.cs">
-      <DependentUpon>ThayDoiQuyDinh_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\TraCuu_Page.xaml.cs">
-      <DependentUpon>TraCuu_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UC_ActionButtons.xaml.cs">
       <DependentUpon>UC_ActionButtons.xaml</DependentUpon>
@@ -348,23 +317,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\BaoCaoDoanhSo_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CaiDatKhac_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Checkout_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ExchangeRate_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\GuiTien_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -405,18 +362,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewServiceOrders_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\RutTien_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ThayDoiQuyDinh_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\TraCuu_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
