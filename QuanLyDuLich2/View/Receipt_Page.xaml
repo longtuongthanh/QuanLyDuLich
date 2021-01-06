@@ -134,7 +134,6 @@
                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
-                                    PreviewTextInput="TextBox_PreviewTextInput_1"
                                     IsEnabled="False"
                                     Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                                 </TextBox>
@@ -154,7 +153,6 @@
                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
-                                    PreviewTextInput="TextBox_PreviewTextInput_1"
                                     IsEnabled="False"
                                     Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                                 </TextBox>
@@ -174,7 +172,6 @@
                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
-                                    PreviewTextInput="TextBox_PreviewTextInput_1"
                                     IsEnabled="False"
                                     Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                                 </TextBox>
@@ -195,7 +192,7 @@
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
                                          TextAlignment="Right"
-                                    PreviewTextInput="TextBox_PreviewTextInput_1"
+                                    PreviewTextInput="TextBox_PreviewTextInput"
                                     Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                                 </TextBox>
                                 <ComboBox Grid.Column="2" materialDesign:HintAssist.Hint="VND" Margin="5, 0"
@@ -222,7 +219,7 @@
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
                                          TextAlignment="Right"
-                                    PreviewTextInput="TextBox_PreviewTextInput_1"
+                                    PreviewTextInput="TextBox_PreviewTextInput"
                                     Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                                 </TextBox>
                                 <ComboBox Grid.Column="2" materialDesign:HintAssist.Hint="VND" Margin="5, 0"

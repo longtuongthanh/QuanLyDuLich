@@ -119,7 +119,6 @@
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
                                          TextAlignment="Right"
-                                    PreviewTextInput="TextBox_PreviewTextInput_1"
                                  IsEnabled="False"
                                     Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
                         </TextBox>

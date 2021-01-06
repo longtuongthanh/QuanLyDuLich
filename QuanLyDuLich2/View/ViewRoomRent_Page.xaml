@@ -96,7 +96,7 @@
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         PreviewTextInput="TextBox_PreviewTextInput_1"
+                         PreviewTextInput="TextBox_PreviewTextInput"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         </TextBox>
