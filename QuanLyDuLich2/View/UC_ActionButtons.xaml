@@ -22,20 +22,20 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Visibility="{Binding ActionVisibility}">
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding PerformAction}">
+            <Button FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Command="{Binding PerformAction}" MinWidth="120">
                 Chỉnh sửa
             </Button>
         </Grid>
         <Grid Grid.Column="1" Visibility="{Binding Action2Visibility}">
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding PerformAction2}">
+            <Button FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Command="{Binding PerformAction2}" MinWidth="120">
                 Chọn
             </Button>
         </Grid>
         <Grid Grid.Column="2" Visibility="{Binding Action3Visibility}">
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding PerformAction3}" Background="{StaticResource WarningHueBrush}">
+            <Button FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Command="{Binding PerformAction3}" Background="{StaticResource WarningHueBrush}" MinWidth="120">
                 Xóa
             </Button>
         </Grid>

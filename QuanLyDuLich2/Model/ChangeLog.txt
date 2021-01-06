@@ -1,0 +1,21 @@
+﻿13:03 AM 31/12/2020 
+{
+	Deleted DiaChi in tbLoaiPhong
+	Changed all tables name
+	Changed some propeties' names
+	Changed "tbPhieuDichVu->GiamGia" to "tbPhieuDichVu->TienGiam" (represent discounted amount of money, instead of percentage)
+	Added "tbPhieuDichVu->GhiChu"
+	Added "tbSuCo->TinhTrang"
+	Changed "tbSuCo->Ngay" to "tbSuCo->ThoiGianTao"
+	Added "tbChiTietPhieuDichVu->TinhTrang" (ThanhToan, ChuaThanhToan)
+	Changed "tbChiTietPhieuDichVu->DonGia" to "tbChiTietPhieuDichVu->ThanhTien"
+	Added "tbUser->TinhTrang" (BiKhoa, KhongKhoa, ...)
+	Union "tbPhieuThuePhong" and "tbPhieuTraPhong" --> "tbPhieuThuePhong"
+	Removed "tbPhong->ViTri"
+	Changed "tbPhong->Loai" to "tbPhong->LoaiPhong"
+	Changed "tbPhieuDichVu->Ngay" to "tbPhieuDichVu->ThoiGian"
+	Changed "tbPhieuMuonPhong->Phong" to "tbPhieuMuonPhong->SoPhong"
+	Changed "tbHoaDon->KhachHang" to "tbHoaDon->IDKhachHang"
+	Changed "tbPhieuChuyenKhoan->KhachHang" to "tbPhieuChuyenKhoan->IDKhachHang"
+	Added "tbPhieuChuyenKhoan->DonViNgoaiTe"
+}

@@ -18,25 +18,27 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
-
-
-    <Grid Grid.Row="1">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="400" MaxWidth="900"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0*" MinHeight="80"/>
-                <!--RowDefinition Height="0*" MinHeight="30"/-->
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="0.8*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <materialDesign:Card Margin="5"
+                  Background="{DynamicResource PrimaryHueDarkBrush}"
+                  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                  Padding="8">
+                <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="20">DANH MỤC CĂN HỘ</TextBlock>
+            </materialDesign:Card>
+        </Grid>
+        <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="1" CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
                     <DockPanel LastChildFill="True">
                         <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
                             <materialDesign:PackIcon DockPanel.Dock="Right" Kind="Search" Margin="10,0">
@@ -50,145 +52,170 @@
                                 </materialDesign:PackIcon.LayoutTransform>
                             </materialDesign:PackIcon>
                         </WrapPanel>
-                        <TextBox VerticalContentAlignment="Center" Margin="100,0,10,0" BorderBrush="Transparent" FontWeight="SemiBold" Text="{Binding FilterText, Mode=TwoWay}"/>
+                        <TextBox VerticalContentAlignment="Bottom"
+                                 Margin="10,0,10,0"
+                                 BorderBrush="Transparent"
+                                 FontWeight="SemiBold"
+                                 FontSize="24"
+                                 Text="{Binding FilterText, Mode=TwoWay}"/>
                     </DockPanel>
                 </Border>
             </Grid>
-            <Grid Grid.Row="1">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <CheckBox Margin="5" IsChecked="{Binding ChuaDoc}" HorizontalAlignment="Center">Trống</CheckBox>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="400" MaxWidth="900"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <!--RowDefinition Height="0*" MinHeight="30"/-->
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Margin="20,0,20,0" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
+                    <Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <CheckBox FontSize="18" Margin="5" IsChecked="{Binding ChuaDoc}" HorizontalAlignment="Center">Trống</CheckBox>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <CheckBox FontSize="18" Margin="5" IsChecked="{Binding DaTiepNhan}" HorizontalAlignment="Center">Đang sử dụng</CheckBox>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <CheckBox FontSize="18" Margin="5" IsChecked="{Binding DaDuyet}" HorizontalAlignment="Center">Trả phòng</CheckBox>
+                            </Grid>
+                            <Grid Grid.Column="3">
+                                <CheckBox FontSize="18" Margin="5" IsChecked="{Binding ChuaDoc}" HorizontalAlignment="Center">Sự cố</CheckBox>
+                            </Grid>
+                            <Grid Grid.Column="4">
+                                <CheckBox FontSize="18" Margin="5" IsChecked="{Binding DaTiepNhan}" HorizontalAlignment="Center">Không sử dụng</CheckBox>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <Grid Grid.Column="1">
-                        <CheckBox Margin="5" IsChecked="{Binding DaTiepNhan}" HorizontalAlignment="Center">Đang sử dụng</CheckBox>
-                    </Grid>
-                    <Grid Grid.Column="2">
-                        <CheckBox Margin="5" IsChecked="{Binding DaDuyet}" HorizontalAlignment="Center">Trả phòng</CheckBox>
-                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1">
+                    <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 20, 20, 0"
+                                Command="{Binding AddCammand}" MinWidth="120">
+                        Thêm mới
+                    </Button>
                 </Grid>
-            </Grid>
-            <Grid Grid.Row="2" Visibility="{Binding AdvancedStateEnable}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <CheckBox Margin="5" IsChecked="{Binding ChuaDoc}" HorizontalAlignment="Center">Sự cố</CheckBox>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <CheckBox Margin="5" IsChecked="{Binding DaTiepNhan}" HorizontalAlignment="Center">Không sử dụng</CheckBox>
-                    </Grid>
+
+                <Grid Grid.Row="2">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ListBox Margin="20"
+                            materialDesign:ListViewAssist.ListViewItemPadding="10"
+                         materialDesign:ListBoxAssist.IsToggle="False"
+                         Style="{StaticResource MaterialDesignCardsListBox}"
+                         ItemsSource="{Binding DSCongVan}" SelectedItem="{Binding SelectedCongVan, Mode=TwoWay}">
+                            <ListBox.ItemTemplate>
+
+                                <DataTemplate>
+                                    <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
+                                    <DockPanel LastChildFill="True">
+                                        <CheckBox Margin="5"/>
+                                        <TextBlock Margin="5" Width="100" Text="{Binding NoiGui.Name}"></TextBlock>
+                                        <TextBlock Margin="5" Text="{Binding LoaiCongVan.Id, StringFormat=[{0}]}"></TextBlock>
+                                        <TextBlock Margin="5" DockPanel.Dock="Right" MinWidth="100" Text="{Binding Status}"></TextBlock>
+                                        <TextBlock Margin="5" Text="{Binding TrichYeu}"></TextBlock>
+                                    </DockPanel>
+                                    <!--/Button-->
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
                 </Grid>
-            </Grid>
-
-            <Grid Grid.Row="3">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox materialDesign:ListViewAssist.ListViewItemPadding="10"
-                     materialDesign:ListBoxAssist.IsToggle="False"
-                     Style="{StaticResource MaterialDesignCardsListBox}"
-                     ItemsSource="{Binding DSCongVan}" SelectedItem="{Binding SelectedCongVan, Mode=TwoWay}">
-                        <ListBox.ItemTemplate>
-
-                            <DataTemplate>
-                                <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
-                                <DockPanel LastChildFill="True">
-                                    <CheckBox Margin="5"/>
-                                    <TextBlock Margin="5" Width="100" Text="{Binding NoiGui.Name}"></TextBlock>
-                                    <TextBlock Margin="5" Text="{Binding LoaiCongVan.Id, StringFormat=[{0}]}"></TextBlock>
-                                    <TextBlock Margin="5" DockPanel.Dock="Right" MinWidth="100" Text="{Binding Status}"></TextBlock>
-                                    <TextBlock Margin="5" Text="{Binding TrichYeu}"></TextBlock>
-                                </DockPanel>
-                                <!--/Button-->
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </ScrollViewer>
-            </Grid>
-        </Grid>
-    <!--#endregion -->
-
-        <!--Spliter-->
-        <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
-
-        <!--#region RIGHT: VIEW PANEL-->
-        <Grid Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="0*" MinHeight="50"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <!--View Panel-->
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
-                    <StackPanel>
-                        <!--CongVan Info-->
-                        <StackPanel Orientation="Vertical" Margin="0,10">
-                            <!--Header-->
-                            <StackPanel Margin="5">
-                                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
-                                    TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                    > Chi tiết căn hộ </TextBlock>
-                            </StackPanel>
-                            <WrapPanel Margin="5">
-                                <TextBlock VerticalAlignment="Top"> Số căn hộ:</TextBlock>
-                                <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanNumber, StringFormat={}{0:000}, Mode=OneWay}">
-                                </TextBlock>
-                            </WrapPanel>
-                            <WrapPanel Margin="5">
-                                <TextBlock> Loại căn hộ:</TextBlock>
-                                <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanNumber, Mode=OneWay}">
-                                </TextBlock>
-                            </WrapPanel>
-                            <WrapPanel Margin="5">
-                                <TextBlock> Địa chỉ:</TextBlock>
-                                <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanNumber, Mode=OneWay}">
-                                </TextBlock>
-                            </WrapPanel>
-                            <WrapPanel Margin="5">
-                                <TextBlock> Tình trạng:</TextBlock>
-                                <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanSentDate, Mode=OneWay}">
-                                </TextBlock>
-                            </WrapPanel>
-                            <WrapPanel Margin="5">
-                                <TextBlock> Đơn giá tháng:</TextBlock>
-                                <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanKeyNumber, Mode=OneWay}">
-                                </TextBlock>
-                            </WrapPanel>
-
-                            <WrapPanel Margin="5">
-                                <TextBlock VerticalAlignment="Top"> Đơn giá ngày:</TextBlock>
-                                <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanNote, Mode=OneWay}">
-                                </TextBlock>
-                            </WrapPanel>
-
-                            <WrapPanel Margin="5">
-                                <TextBlock VerticalAlignment="Top"> Khách hiện tại:</TextBlock>
-                                <TextBlock Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                        Text="{Binding SelectedCongVanNote, Mode=OneWay}">
-                                </TextBlock>
-                            </WrapPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </ScrollViewer>
             </Grid>
             <!--#endregion -->
-            <!--Action bar-->
-            <Grid Grid.Row="1"
-                      Height="50" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <local:UC_ActionButtons>
 
-                </local:UC_ActionButtons>
+            <!--Spliter-->
+            <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
+
+            <!--#region RIGHT: VIEW PANEL-->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="1*" MinHeight="50"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <!--View Panel-->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
+                        <StackPanel>
+                            <!--CongVan Info-->
+                            <StackPanel Orientation="Vertical" Margin="0,10">
+                                <!--Header-->
+                                <StackPanel Margin="5">
+                                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                                        TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                        > Chi tiết căn hộ</TextBlock>
+                                </StackPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Số căn hộ:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SoCanHo, StringFormat={}{0:000}, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Loại căn hộ:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding LoaiCanHo, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Địa chỉ:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding DiaChi, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Tình trạng:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding TinhTrang, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Đơn giá tháng:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding DonGiaThang, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Đơn giá ngày:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding DonGiaNgay, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Khách hiện tại:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding Khach, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+                <!--#endregion -->
+                <!--Action bar-->
+                <Grid Grid.Row="1"
+                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <local:UC_ActionButtons>
+
+                    </local:UC_ActionButtons>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

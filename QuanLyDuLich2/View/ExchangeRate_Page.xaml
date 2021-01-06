@@ -24,15 +24,16 @@
             <RowDefinition Height="0*" MinHeight="70"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <StackPanel Margin="5">
-                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
-                                    TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                    >Bảng giá ngoại tệ</TextBlock>
-            </StackPanel>
+        <Grid Grid.Row="0" >
+            <materialDesign:Card Margin="5"
+                  Background="{DynamicResource PrimaryHueDarkBrush}"
+                  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                  Padding="8">
+                <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="20">DANH MỤC TỶ GIÁ NGOẠI TỆ</TextBlock>
+            </materialDesign:Card>
         </Grid>
         <Grid Grid.Row="1">
-            <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="MediumPurple" BorderThickness="3">
+            <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
                 <DockPanel LastChildFill="True">
                     <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
                         <materialDesign:PackIcon DockPanel.Dock="Right" Kind="Search" Margin="10,0">
@@ -46,7 +47,7 @@
                             </materialDesign:PackIcon.LayoutTransform>
                         </materialDesign:PackIcon>
                     </WrapPanel>
-                    <TextBox  VerticalContentAlignment="Center" Margin="100,0,10,0" 
+                    <TextBox  VerticalContentAlignment="Center" Margin="0,0,0,0" 
                               BorderBrush="Transparent" FontWeight="SemiBold" 
                               Text="{Binding FilterText, Mode=TwoWay}"/>
                 </DockPanel>
@@ -85,7 +86,7 @@
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
-                                <TextBlock Margin="10,5" MinWidth="100" TextAlignment="Right"> USD</TextBlock>
+                                <TextBlock Margin="10,5" MinWidth="100" TextAlignment="Right"> 1 USD</TextBlock>
                             </Grid>
                             <Grid Grid.Column="1">
                                 <TextBlock Margin="10,5" MinWidth="100" TextAlignment="Left"> 22000 ₫ </TextBlock>
