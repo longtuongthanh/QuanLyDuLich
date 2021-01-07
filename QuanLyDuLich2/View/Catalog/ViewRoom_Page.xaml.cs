@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QuanLyDuLich2.ViewModel;
 
 namespace QuanLyDuLich2.View
 {
@@ -23,6 +24,7 @@ namespace QuanLyDuLich2.View
         public ViewRoom_Page()
         {
             InitializeComponent();
+            this.DataContext = new ViewRoom_ViewModel();
         }
     }
 }

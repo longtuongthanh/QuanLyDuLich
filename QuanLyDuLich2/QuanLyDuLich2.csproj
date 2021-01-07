@@ -144,6 +144,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\EventArgs.cs" />
+    <Compile Include="Command\EventRaiser.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Helper\DatabaseCheck.cs" />
     <Compile Include="Helper\Util.cs" />
     <Compile Include="Model\QLDL2_Database.Context.cs">
