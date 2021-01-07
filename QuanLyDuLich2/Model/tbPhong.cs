@@ -23,6 +23,8 @@ namespace QuanLyDuLich2.Model
         public string SoPhong { get; set; }
         public string LoaiPhong { get; set; }
         public Nullable<int> TinhTrang { get; set; }
+
+        //0 - Trong, 1 - Dang su dung, 2 - Tra Phong, 3 - Su co, 4 - Khong su dung
     
         public virtual tbLoaiPhong tbLoaiPhong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

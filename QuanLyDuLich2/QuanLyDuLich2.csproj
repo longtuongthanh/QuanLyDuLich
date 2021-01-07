@@ -144,6 +144,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\EventArgs.cs" />
+    <Compile Include="Command\EventRaiser.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Helper\DatabaseCheck.cs" />
     <Compile Include="Helper\Util.cs" />
     <Compile Include="Model\QLDL2_Database.Context.cs">
@@ -252,6 +255,8 @@
     <Compile Include="ViewModel\RutTien_ViewModel.cs" />
     <Compile Include="ViewModel\ThayDoiQuyDinh_ViewModel.cs" />
     <Compile Include="ViewModel\TraCuu_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewRoom_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewService_ViewModel.cs" />
     <Compile Include="View\BaoCaoDoanhSo_Page.xaml.cs">
       <DependentUpon>BaoCaoDoanhSo_Page.xaml</DependentUpon>
     </Compile>
