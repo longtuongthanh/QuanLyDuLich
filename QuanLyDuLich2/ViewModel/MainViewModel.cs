@@ -42,46 +42,46 @@ namespace QuanLyDuLich2.ViewModel
             set { _Enable_Home = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_MoSo;
-        public bool Enable_MoSo
+        private bool _Enable_Info;
+        public bool Enable_Info
         {
-            get => _Enable_MoSo;
-            set { _Enable_MoSo = value; OnPropertyChanged(); }
+            get => _Enable_Info;
+            set { _Enable_Info = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_GuiTien;
-        public bool Enable_GuiTien
+        private bool _Enable_RoomRent;
+        public bool Enable_RoomRent
         {
-            get => _Enable_GuiTien;
-            set { _Enable_GuiTien = value; OnPropertyChanged(); }
+            get => _Enable_RoomRent;
+            set { _Enable_RoomRent = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_RutTien;
-        public bool Enable_RutTien
+        private bool _Enable_ServiceFeedback;
+        public bool Enable_ServiceFeedback
         {
-            get => _Enable_RutTien;
-            set { _Enable_RutTien = value; OnPropertyChanged(); }
+            get => _Enable_ServiceFeedback;
+            set { _Enable_ServiceFeedback = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_TraCuu;
-        public bool Enable_TraCuu
+        private bool _Enable_ServiceOrder;
+        public bool Enable_ServiceOrder
         {
-            get => _Enable_TraCuu;
-            set { _Enable_TraCuu = value; OnPropertyChanged(); }
+            get => _Enable_ServiceOrder;
+            set { _Enable_ServiceOrder = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_BCDS;
-        public bool Enable_BCDS
+        private bool _Enable_Checkout;
+        public bool Enable_Checkout
         {
-            get => _Enable_BCDS;
-            set { _Enable_BCDS = value; OnPropertyChanged(); }
+            get => _Enable_Checkout;
+            set { _Enable_Checkout = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_BCMD;
-        public bool Enable_BCMD
+        private bool _Enable_Receipt;
+        public bool Enable_Receipt
         {
-            get => _Enable_BCMD;
-            set { _Enable_BCMD = value; OnPropertyChanged(); }
+            get => _Enable_Receipt;
+            set { _Enable_Receipt = value; OnPropertyChanged(); }
         }
 
         private Page _FrameContent;
@@ -96,10 +96,11 @@ namespace QuanLyDuLich2.ViewModel
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand Home_Page_SelectedCommand { get; set; }
         public ICommand Info_Page_SelectedCommand { get; set; }
-        public ICommand ViewRoom_Page_SelectedCommand { get; set; }
-        public ICommand ViewService_Page_SelectedCommand { get; set; }
-        public ICommand ViewServiceOrders_Page_SelectedCommand { get; set; }
+        public ICommand ViewRoomRent_Page_SelectedCommand { get; set; }
+        public ICommand Checkout_Page_SelectedCommand { get; set; }
+        public ICommand NewServiceOrders_Page_SelectedCommand { get; set; }
         public ICommand ServiceFeedback_Page_SelectedCommand { get; set; }
+        public ICommand Receipt_Page_SelectedCommand { get; set; }
         public ICommand DangXuat_SelectedCommand { get; set; }
         #endregion
 
@@ -125,11 +126,11 @@ namespace QuanLyDuLich2.ViewModel
             set { _Home_Tooltip = value; OnPropertyChanged(); }
         }
 
-        private string _MoSo_Tooltip;
-        public string MoSo_Tooltip
+        private string _Info_Tooltip;
+        public string Info_Tooltip
         {
-            get => _MoSo_Tooltip;
-            set { _MoSo_Tooltip = value; OnPropertyChanged(); }
+            get => _Info_Tooltip;
+            set { _Info_Tooltip = value; OnPropertyChanged(); }
         }
 
         private string _GuiTien_Tooltip;
@@ -194,10 +195,10 @@ namespace QuanLyDuLich2.ViewModel
 
         private void Init_Button()
         {
-            Enable_Home = Enable_GuiTien = Enable_RutTien = Enable_TraCuu = Enable_BCDS = Enable_BCMD = Enable_QLNS = Enable_TDQD = Enable_MoSo =  false;
+            Enable_Home = Enable_RoomRent = Enable_ServiceFeedback = Enable_ServiceOrder = Enable_Checkout = Enable_Receipt = Enable_QLNS = Enable_TDQD = Enable_Info =  false;
             Enable_Home = true;
             // tooltip handle
-            MoSo_Tooltip = GuiTien_Tooltip = RutTien_Tooltip = TraCuu_Tooltip = BaoCaoDS_Tooltip = BaoCaoMD_Tooltip = QLNS_Tooltip = TDQD_Tooltip = "Không thể truy cập";
+            Info_Tooltip = GuiTien_Tooltip = RutTien_Tooltip = TraCuu_Tooltip = BaoCaoDS_Tooltip = BaoCaoMD_Tooltip = QLNS_Tooltip = TDQD_Tooltip = "Không thể truy cập";
             Home_Tooltip = "Có thể truy cập";
 
             Util.ShowTodoMessage();
@@ -216,22 +217,22 @@ namespace QuanLyDuLich2.ViewModel
                     Enable_QLNS = true;
                     break;
                 case 2:
-                    Enable_MoSo = true;
+                    Enable_Info = true;
                     break;
                 case 3:
-                    Enable_GuiTien = true;
+                    Enable_RoomRent = true;
                     break;
                 case 4:
-                    Enable_RutTien = true;
+                    Enable_ServiceFeedback = true;
                     break;
                 case 5:
-                    Enable_TraCuu = true;
+                    Enable_ServiceOrder = true;
                     break;
                 case 6:
-                    Enable_BCDS = true;
+                    Enable_Checkout = true;
                     break;
                 case 7:
-                    Enable_BCMD = true;
+                    Enable_Receipt = true;
                     break;
                 case 8:
                     Enable_TDQD = true;
@@ -250,7 +251,7 @@ namespace QuanLyDuLich2.ViewModel
                     QLNS_Tooltip = "Có thể truy cập";
                     break;
                 case 2:
-                    MoSo_Tooltip = "Có thể truy cập";
+                    Info_Tooltip = "Có thể truy cập";
                     break;
                 case 3:
                     GuiTien_Tooltip = "Có thể truy cập";
@@ -365,29 +366,36 @@ namespace QuanLyDuLich2.ViewModel
                 //FrameContent.DataContext = new MoSo_ViewModel();
             });
 
-            ViewRoom_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            ViewRoomRent_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new ViewRoom_Page();
+                FrameContent = new ViewRoomRent_Page();
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new GuiTien_ViewModel();
             });
 
-            ViewService_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            Checkout_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new ViewService_Page();
+                FrameContent = new Checkout_Page();
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new RutTien_ViewModel();
             });
-            ViewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            NewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new ViewServiceOrders_Page();
+                FrameContent = new NewServiceOrders_Page();
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new TraCuu_ViewModel();
             });
             ServiceFeedback_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+                //Selected_HOME = false;
+                //Selected_DangXuat = false;
+                FrameContent = new ServiceFeedback_Page();
+                Util.ShowTodoMessage();
+                //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
+            });
+            Receipt_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
                 FrameContent = new ServiceFeedback_Page();

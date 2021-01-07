@@ -19,9 +19,9 @@ namespace QuanLyDuLich2.View
     /// <summary>
     /// Interaction logic for NewServiceOrder_Page.xaml
     /// </summary>
-    public partial class ViewServiceOrders_Page : Page
+    public partial class NewServiceOrders_Page : Page
     {
-        public ViewServiceOrders_Page()
+        public NewServiceOrders_Page()
         {
             InitializeComponent();
         }

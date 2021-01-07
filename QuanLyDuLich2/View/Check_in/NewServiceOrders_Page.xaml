@@ -1,4 +1,4 @@
-﻿<Page x:Class="QuanLyDuLich2.View.ViewServiceOrders_Page"
+﻿<Page x:Class="QuanLyDuLich2.View.NewServiceOrders_Page"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,7 +15,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"      
-      Title="ViewServiceOrders_Page">
+      Title="NewServiceOrders_Page">
 
     <Grid>
         <Grid.ColumnDefinitions>

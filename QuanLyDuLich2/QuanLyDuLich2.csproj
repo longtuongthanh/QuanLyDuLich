@@ -239,46 +239,46 @@
     <Compile Include="ViewModel\Info_ViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="View\Checkout_Page.xaml.cs">
+    <Compile Include="View\Check_out\Checkout_Page.xaml.cs">
       <DependentUpon>Checkout_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ExchangeRate_Page.xaml.cs">
+    <Compile Include="View\Catalog\ExchangeRate_Page.xaml.cs">
       <DependentUpon>ExchangeRate_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Info_Page_Chooser.xaml.cs">
+    <Compile Include="View\Catalog\Info_Page_Chooser.xaml.cs">
       <DependentUpon>Info_Page_Chooser.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomUserControl\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MoneyTransfer_Page.xaml.cs">
+    <Compile Include="View\Check_out\MoneyTransfer_Page.xaml.cs">
       <DependentUpon>MoneyTransfer_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Receipt_Page.xaml.cs">
+    <Compile Include="View\Check_out\Receipt_Page.xaml.cs">
       <DependentUpon>Receipt_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SelectGuest_Page.xaml.cs">
+    <Compile Include="View\Selector\SelectGuest_Page.xaml.cs">
       <DependentUpon>SelectGuest_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ServiceFeedback_Page.xaml.cs">
+    <Compile Include="View\Check_in\ServiceFeedback_Page.xaml.cs">
       <DependentUpon>ServiceFeedback_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewRoomRent_Page.xaml.cs">
+    <Compile Include="View\Check_in\ViewRoomRent_Page.xaml.cs">
       <DependentUpon>ViewRoomRent_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewServiceOrders_Page.xaml.cs">
-      <DependentUpon>ViewServiceOrders_Page.xaml</DependentUpon>
+    <Compile Include="View\Check_in\NewServiceOrders_Page.xaml.cs">
+      <DependentUpon>NewServiceOrders_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UC_ActionButtons.xaml.cs">
       <DependentUpon>UC_ActionButtons.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewRoom_Page.xaml.cs">
+    <Compile Include="View\Catalog\ViewRoom_Page.xaml.cs">
       <DependentUpon>ViewRoom_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewService_Page.xaml.cs">
+    <Compile Include="View\Catalog\ViewService_Page.xaml.cs">
       <DependentUpon>ViewService_Page.xaml</DependentUpon>
     </Compile>
     <Page Include="MoSo_PrintPreview.xaml">
@@ -317,11 +317,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Checkout_Page.xaml">
+    <Page Include="View\Check_out\Checkout_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ExchangeRate_Page.xaml">
+    <Page Include="View\Catalog\ExchangeRate_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -329,7 +329,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Info_Page_Chooser.xaml">
+    <Page Include="View\Catalog\Info_Page_Chooser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -341,27 +341,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MoneyTransfer_Page.xaml">
+    <Page Include="View\Check_out\MoneyTransfer_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Receipt_Page.xaml">
+    <Page Include="View\Check_out\Receipt_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SelectGuest_Page.xaml">
+    <Page Include="View\Selector\SelectGuest_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ServiceFeedback_Page.xaml">
+    <Page Include="View\Check_in\ServiceFeedback_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewRoomRent_Page.xaml">
+    <Page Include="View\Check_in\ViewRoomRent_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewServiceOrders_Page.xaml">
+    <Page Include="View\Check_in\NewServiceOrders_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -369,11 +369,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewRoom_Page.xaml">
+    <Page Include="View\Catalog\ViewRoom_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ViewService_Page.xaml">
+    <Page Include="View\Catalog\ViewService_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -28,7 +28,7 @@
         
         
         x:Name="this_"
-        Title="Master Save - Professional Banking System" Height="650" Width="800">
+        Title="Làng Quốc tế Hướng Dương" Height="650" Width="800">
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -52,7 +52,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <HamburgerMenu:HamburgerMenu x:Name="hamburger" MaxWidth="500" Background="{StaticResource PrimaryHueMidBrush}" MenuIconColor="#236084" SelectionIndicatorColor="#80fbdd" MenuItemForeground="FloralWhite" HorizontalAlignment="Left">
-                    <HamburgerMenu:HamburgerMenuItem x:Name="Home_Page_Button" Icon="Images/home.png" Text="Trang chủ" IsEnabled="{Binding Enable_Home}" ToolTip="{Binding Home_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/home.png" Text="Trang chủ" IsEnabled="{Binding Enable_Home}" ToolTip="{Binding Home_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
                                 <i:InvokeCommandAction Command="{Binding Home_Page_SelectedCommand}"
@@ -60,7 +60,9 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="MoSo_Page_Button" Icon="Images/1-MoSo.png" Text="Giao dịch mở sổ" IsEnabled="{Binding Enable_MoSo}" ToolTip="{Binding MoSo_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/1-MoSo.png" Text="Danh mục" 
+                                                     IsEnabled="{Binding Enable_Info}" ToolTip="{Binding Info_Tooltip}"
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
                                 <i:InvokeCommandAction Command="{Binding Info_Page_SelectedCommand}"
@@ -68,33 +70,50 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="GuiTien_Page_Button" Icon="Images/2-GuiTien.png" Text="Giao dịch gửi tiền" IsEnabled="{Binding Enable_GuiTien}" ToolTip="{Binding GuiTien_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/2-GuiTien.png" Text="Thuê phòng" 
+                                                     IsEnabled="{Binding Enable_RoomRent}" ToolTip="{Binding GuiTien_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding ViewRoom_Page_SelectedCommand}"
+                                <i:InvokeCommandAction Command="{Binding ViewRoomRent_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="RutTien_Page_Button" Icon="Images/3-RutTien.png" Text="Giao dịch rút tiền" IsEnabled="{Binding Enable_RutTien}" ToolTip="{Binding RutTien_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10" >
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/search.png" Text="Đăng ký dịch vụ" 
+                                                     IsEnabled="{Binding Enable_ServiceOrder}" ToolTip="{Binding TraCuu_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding ViewService_Page_SelectedCommand}"
+                                <i:InvokeCommandAction Command="{Binding NewServiceOrders_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="TraCuu_Page_Button" Icon="Images/search.png" Text="Tra cứu sổ" IsEnabled="{Binding Enable_TraCuu}" ToolTip="{Binding TraCuu_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/3-RutTien.png" Text="Trả phòng"
+                                                     IsEnabled="{Binding Enable_Checkout}" ToolTip="{Binding RutTien_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding ViewServiceOrders_Page_SelectedCommand}"
+                                <i:InvokeCommandAction Command="{Binding Checkout_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem x:Name="BaoCao_Page_Button" 
-                                                     Icon="Images/search.png" Text="Tra cứu sổ" 
-                                                     IsEnabled="{Binding Enable_TraCuu}" ToolTip="{Binding TraCuu_Tooltip}" 
+                    <HamburgerMenu:HamburgerMenuItem  
+                                                     Icon="Images/search.png" Text="Thanh toán" 
+                                                     IsEnabled="{Binding Enable_Receipt}" ToolTip="{Binding TraCuu_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding Receipt_Page_SelectedCommand}"
+                                                    CommandParameter="{Binding ElementName=hamburger}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </HamburgerMenu:HamburgerMenuItem>
+                    <HamburgerMenu:HamburgerMenuItem 
+                                                     Icon="Images/search.png" Text="Góp ý dịch vụ" 
+                                                     IsEnabled="{Binding Enable_ServiceFeedback}" ToolTip="{Binding TraCuu_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
