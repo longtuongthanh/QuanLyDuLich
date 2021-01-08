@@ -10,10 +10,11 @@
       d:DesignHeight="600" d:DesignWidth="1200"
       Title="ViewRoom_Page"
       
+      DataContext="{StaticResource ViewRoomVM}"
       
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
+        TextElement.FontSize="18"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -165,103 +166,10 @@
             <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
 
             <!--#region RIGHT: VIEW PANEL-->
-            <Grid Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="8*"/>
-                    <RowDefinition Height="1*" MinHeight="50"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <!--View Panel-->
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
-                        <StackPanel>
-                            <!--CongVan Info-->
-                            <StackPanel Orientation="Vertical" Margin="0,10">
-                                <!--Header-->
-                                <StackPanel Margin="5">
-                                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
-                                        TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                        > Chi tiết căn hộ</TextBlock>
-                                </StackPanel>
-                                <WrapPanel Margin="10">
-                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Số căn hộ:</TextBlock>
-                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding SelectedPhong.SoPhong, Mode=OneWay}">
-                                    </TextBlock>
-                                </WrapPanel>
-                                <WrapPanel Margin="10">
-                                    <TextBlock FontSize="18"> Loại căn hộ:</TextBlock>
-                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding SelectedPhong.LoaiPhong, Mode=OneWay}">
-                                    </TextBlock>
-                                </WrapPanel>
-                                <WrapPanel Margin="10">
-                                    <TextBlock FontSize="18"> Tình trạng:</TextBlock>
-                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding SelectedPhong.sTinhTrang, Mode=OneWay}">
-                                    </TextBlock>
-                                </WrapPanel>
-                                <WrapPanel Margin="10">
-                                    <TextBlock FontSize="18"> Đơn giá tháng:</TextBlock>
-                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding DonGiaThang, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
-                                    </TextBlock>
-                                </WrapPanel>
-
-                                <WrapPanel Margin="10">
-                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Đơn giá ngày:</TextBlock>
-                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding DonGiaNgay, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
-                                    </TextBlock>
-                                </WrapPanel>
-
-                                <WrapPanel Margin="10">
-                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Khách hiện tại:</TextBlock>
-                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding Khach, Mode=OneWay}">
-                                    </TextBlock>
-                                </WrapPanel>
-                            </StackPanel>
-                        </StackPanel>
-                    </ScrollViewer>
-                </Grid>
-                <!--#endregion -->
-                <!--Action bar-->
-                <Grid Grid.Row="1"
-                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0" Visibility="{Binding ActionVisibility}">
-                            <Button 
-                                Visibility="{Binding IsVisible}"
-                                FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding PerformAction}" MinWidth="120">
-                                Chỉnh sửa
-                            </Button>
-                        </Grid>
-                        <Grid Grid.Column="1" Visibility="{Binding Action2Visibility}">
-                            <Button
-                                Visibility="{Binding IsVisible}"
-                                FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding PerformAction2}" MinWidth="120">
-                                Chọn
-                            </Button>
-                        </Grid>
-                        <Grid Grid.Column="2" Visibility="{Binding Action3Visibility}">
-                            <Button 
-                                Visibility="{Binding IsVisible}"
-                                FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding XoaPhong}" Background="{StaticResource WarningHueBrush}" MinWidth="120"
-                                Content="{Binding XoaButton}">
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
+            <Frame x:Name="main" Margin="0,0,0,0" NavigationUIVisibility="Hidden"
+                   Content="{Binding FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                   DataContext="{StaticResource ViewRoomVM}">
+            </Frame>
         </Grid>
     </Grid>
 </Page>

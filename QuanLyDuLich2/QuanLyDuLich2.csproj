@@ -244,8 +244,14 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewRoom_ViewModel.cs" />
     <Compile Include="ViewModel\ViewService_ViewModel.cs" />
-    <Compile Include="View\Catalog\NewRoom_Page.xaml.cs">
-      <DependentUpon>NewRoom_Page.xaml</DependentUpon>
+    <Compile Include="View\Catalog\EditRoom_Page.xaml.cs">
+      <DependentUpon>EditRoom_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Catalog\RoomDetail_Page.xaml.cs">
+      <DependentUpon>RoomDetail_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Catalog\RoomType_Page.xaml.cs">
+      <DependentUpon>RoomType_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Check_out\Checkout_Page.xaml.cs">
       <DependentUpon>Checkout_Page.xaml</DependentUpon>
@@ -325,7 +331,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Catalog\NewRoom_Page.xaml">
+    <Page Include="View\Catalog\EditRoom_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Catalog\RoomDetail_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Catalog\RoomType_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
