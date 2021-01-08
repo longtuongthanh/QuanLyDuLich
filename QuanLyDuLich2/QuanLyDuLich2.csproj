@@ -253,6 +253,9 @@
     <Compile Include="View\Catalog\RoomType_Page.xaml.cs">
       <DependentUpon>RoomType_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Check_out\ViewActivity_Page.xaml.cs">
+      <DependentUpon>ViewActivity_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Check_out\Checkout_Page.xaml.cs">
       <DependentUpon>Checkout_Page.xaml</DependentUpon>
     </Compile>
@@ -349,6 +352,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Catalog\RoomType_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Check_out\ViewActivity_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
