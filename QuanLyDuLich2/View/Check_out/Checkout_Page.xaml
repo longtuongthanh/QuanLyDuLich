@@ -211,15 +211,15 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Hủy" Background="{StaticResource WarningHueBrush}"
-                            Width="Auto" Height="35" Command="{Binding CancelCommand}"
+                            Width="150" Height="35" Command="{Binding CancelCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
                     <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="Auto" Height="35" Command="{Binding CancelCommand}"
+                            Width="150" Height="35" Command="{Binding CancelCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
                     <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Lập hóa đơn" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="Auto" Height="35" Command="{Binding ReceiptCommand}"
+                            Width="150" Height="35" Command="{Binding ReceiptCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
                 </Grid>
             </Grid>

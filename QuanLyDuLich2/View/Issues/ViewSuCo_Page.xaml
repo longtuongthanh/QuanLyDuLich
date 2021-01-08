@@ -26,9 +26,9 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
+        <Grid Grid.Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" MinHeight="309"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -46,7 +46,6 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="120"/>
                         <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="30"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Loại sự cố:
@@ -101,7 +100,6 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="120"/>
                         <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="10"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Ngày lập:
@@ -135,7 +133,7 @@
 
         <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
 
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="0">
             <!-- SELECTOR SCREEN, bind to either [Choose guest] or [Choose room] -->
             <Frame x:Name="main" Margin="0,0,0,0" NavigationUIVisibility="Hidden"
                        Content="{Binding FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">

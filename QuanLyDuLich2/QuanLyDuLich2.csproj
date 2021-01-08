@@ -295,13 +295,13 @@
     <Compile Include="View\Catalog\ViewService_Page.xaml.cs">
       <DependentUpon>ViewService_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BaoCaoTheoNgay_Page.xaml.cs">
+    <Compile Include="View\Report\BaoCaoTheoNgay_Page.xaml.cs">
       <DependentUpon>BaoCaoTheoNgay_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BaoCaoTongHop_Page.xaml.cs">
+    <Compile Include="View\Report\BaoCaoTongHop_Page.xaml.cs">
       <DependentUpon>BaoCaoTongHop_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewSuCo_Page.xaml.cs">
+    <Compile Include="View\Issues\ViewSuCo_Page.xaml.cs">
       <DependentUpon>ViewSuCo_Page.xaml</DependentUpon>
     </Compile>
     <Page Include="MoSo_PrintPreview.xaml">
@@ -412,15 +412,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\BaoCaoTheoNgay_Page.xaml">
+    <Page Include="View\Report\BaoCaoTheoNgay_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\BaoCaoTongHop_Page.xaml">
+    <Page Include="View\Report\BaoCaoTongHop_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ViewSuCo_Page.xaml">
+    <Page Include="View\Issues\ViewSuCo_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
