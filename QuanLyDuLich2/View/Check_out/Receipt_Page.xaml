@@ -31,7 +31,7 @@
                 <RowDefinition Height="0*" MinHeight="50"/>
                 <!--RowDefinition Height="0*" MinHeight="30"/-->
             </Grid.RowDefinitions>
-
+            <!-- danh sách dịch vụ. Phiếu trả phòng là entry đầu tiên -->
             <Grid Grid.Row="0">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox materialDesign:ListViewAssist.ListViewItemPadding="10"
@@ -44,7 +44,8 @@
                                 <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
                                 <DockPanel LastChildFill="True">
                                     <CheckBox Margin="5"/>
-                                    <TextBlock Margin="5" Width="100" Text="{Binding ServiceDate}"></TextBlock>
+                                    <TextBlock Margin="5" MinWidth="100" Text="{Binding ServiceName}"></TextBlock>
+                                    <TextBlock Margin="5" MinWidth="100" Text="{Binding ServiceDate}"></TextBlock>
                                     <TextBlock Margin="5" Text="{Binding Price}"></TextBlock>
                                 </DockPanel>
                                 <!--/Button-->
@@ -54,7 +55,7 @@
                 </ScrollViewer>
             </Grid>
             <Button Grid.Row="1" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5" Content="Xem" Background="{StaticResource PrimaryHueDarkBrush}"
+                            Margin="5" Content="Xem chi tiết" Background="{StaticResource PrimaryHueDarkBrush}"
                             Width="150" Height="35" Command="{Binding CancelCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
         </Grid>
