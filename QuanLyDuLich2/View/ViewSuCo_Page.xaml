@@ -1,0 +1,148 @@
+﻿<Page x:Class="QuanLyDuLich2.View.ViewSuCo_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyDuLich2.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="18"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+      
+      Title="ViewRoomRent_Page">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding BoxWidth}" MinWidth="300" MaxWidth="900"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="309"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,10">
+                <!--Header-->
+                <StackPanel Margin="5">
+                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                                    TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                    Text="Phiếu Báo cáo sự cố"
+                                    />
+                </StackPanel>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="Auto" MinWidth="30"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Loại sự cố:
+                    </TextBlock>
+                    <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Loại sự cố"
+                         Visibility="{Binding VisibilityOfEditThamSo}" 
+                         Foreground="{StaticResource SecondaryAccentBrush}" 
+                         VerticalAlignment="Center"
+                         PreviewTextInput="TextBox_PreviewTextInput_1"
+                         IsEnabled="{Binding EnableGiaTri}"
+                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </ComboBox>
+                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
+                                        Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="Auto" MinWidth="40"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Nội dung:
+                    </TextBlock>
+                    <TextBox Grid.Column="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Nội dung sự cố"
+                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Foreground="{StaticResource SecondaryAccentBrush}" 
+                         VerticalAlignment="Center"
+                         PreviewTextInput="TextBox_PreviewTextInput_1"
+                         IsEnabled="{Binding EnableGiaTri}"
+                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="Auto" MinWidth="40"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                         Tình trạng:
+                    </TextBlock>
+                    <ComboBox Grid.Column="1" Grid.ColumnSpan="2" x:Name="cbStt" Width="auto" Visibility="{Binding VisibilityOfAdd}" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+            
+                          SelectedItem="{Binding SelectedTrangThai}"
+                          IsEnabled="{Binding TextBoxReadOnly}">
+                        <ComboBoxItem IsSelected="True">Chưa giải quyết</ComboBoxItem>
+                        <ComboBoxItem>Đã giải quyết</ComboBoxItem>
+                        
+                    </ComboBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="Auto" MinWidth="10"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Ngày lập:
+                    </TextBlock>
+                    <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="Ngày lập báo cáo"
+                        Visibility="{Binding VisibilityOfEditThamSo}"
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                        VerticalAlignment="Center"
+                        PreviewTextInput="TextBox_PreviewTextInput_1"
+                        IsEnabled="{Binding EnableGiaTri}"
+                        FirstDayOfWeek="Monday"
+                        SelectedDateFormat="Long"
+                        Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
+                </Grid>
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            Margin="5,0,5,0" Content="Hủy" Background="{StaticResource WarningHueBrush}"
+                            Width="150" Height="35" Command="{Binding CancelCommand}"
+                            Visibility="{Binding VisibilityOfCancel}"/>
+                <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            Margin="5,0,5,0" Content="Tạo báo cáo" Background="{StaticResource PrimaryHueDarkBrush}"
+                            Width="150" Height="35" Command="{Binding CancelCommand}"
+                            Visibility="{Binding VisibilityOfCancel}"/>
+            </Grid>
+        </Grid>
+
+        <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
+
+        <Grid Grid.Column="2">
+            <!-- SELECTOR SCREEN, bind to either [Choose guest] or [Choose room] -->
+            <Frame x:Name="main" Margin="0,0,0,0" NavigationUIVisibility="Hidden"
+                       Content="{Binding FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            </Frame>
+        </Grid>
+    </Grid>
+</Page>
