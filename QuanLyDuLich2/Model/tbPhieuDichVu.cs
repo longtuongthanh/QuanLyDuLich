@@ -25,7 +25,7 @@ namespace QuanLyDuLich2.Model
         public Nullable<System.DateTime> ThoiGian { get; set; }
         public Nullable<double> TienGiam { get; set; }
         public Nullable<double> ThanhTien { get; set; }
-        public int HoaDon { get; set; }
+        public Nullable<int> HoaDon { get; set; }
         public string GhiChu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
