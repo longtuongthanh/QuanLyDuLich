@@ -398,7 +398,7 @@ namespace QuanLyDuLich2.ViewModel
             Receipt_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new ServiceFeedback_Page();
+                FrameContent = new Receipt_Page();
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
             });
