@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuanLyDuLich2.View.Check_in
+namespace QuanLyDuLich2.View
 {
     /// <summary>
     /// Interaction logic for SearchServiceOrders_Page.xaml
