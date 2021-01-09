@@ -35,22 +35,6 @@ namespace QuanLyDuLich2.ViewModel
             set { _SelectedPhong = value; OnPropertyChanged(); }
         }
 
-        private string _DonGiaNgay;
-
-        public string DonGiaNgay
-        {
-            get { return _DonGiaNgay; }
-            set { _DonGiaNgay = value; OnPropertyChanged(); }
-        }
-
-        private string _DonGiaThang;
-
-        public string DonGiaThang
-        {
-            get { return _DonGiaThang; }
-            set { _DonGiaThang = value; OnPropertyChanged(); }
-        }
-
         private string _Khach;
 
         public string Khach
@@ -127,10 +111,8 @@ namespace QuanLyDuLich2.ViewModel
         {
             if(SelectedPhong != null)
             {
-                DonGiaNgay = SelectedPhong.tbLoaiPhong.DonGiaNgay.ToString();
-                DonGiaThang = SelectedPhong.tbLoaiPhong.DonGiaThang.ToString();
                 if (SelectedPhong.tbPhieuThuePhongs.Count != 0 && SelectedPhong.TinhTrang == 1)
-                    Khach = SelectedPhong.tbPhieuThuePhongs.Last().tbKhach.HoTen;
+                    Khach = SelectedPhong.tbPhieuThuePhongs.Last().tbKhach.HoTen??"Lỗi";
                 else
                     Khach = "Không có";
                 if(SelectedPhong.TinhTrang == 4)
@@ -144,8 +126,6 @@ namespace QuanLyDuLich2.ViewModel
             }
             else
             {
-                DonGiaNgay = "";
-                DonGiaThang = "";
                 Khach = "";
                 IsVisible = "Collapsed";
             }

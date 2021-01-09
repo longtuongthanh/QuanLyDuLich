@@ -33,9 +33,9 @@ namespace QuanLyDuLich2.ViewModel
             set { _SelectedPhieuThue = value; OnPropertyChanged(); }
         }
 
-        private int _SoTien;
+        private long _SoTien;
 
-        public int SoTien
+        public long SoTien
         {
             get { return _SoTien; }
             set { _SoTien = value; OnPropertyChanged(); }
@@ -49,12 +49,20 @@ namespace QuanLyDuLich2.ViewModel
             set { _NgayTra = value; OnPropertyChanged(); }
         }
 
-        private int _SoNgay;
+        private long _SoNgay;
 
-        public int SoNgay
+        public long SoNgay
         {
             get { return _SoNgay; }
             set { _SoNgay = value; OnPropertyChanged(); }
+        }
+
+        private string _WidthRight = "0*";
+
+        public string WidthRight
+        {
+            get { return _WidthRight; }
+            set { _WidthRight = value; OnPropertyChanged(); }
         }
 
         public ICommand SelectedThueChange
@@ -64,7 +72,9 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
-                    TinhTien();
+                    WidthRight = "1*";
+                    if(SelectedPhieuThue != null)
+                        TinhTien();
                 });
             }
         }
@@ -77,6 +87,19 @@ namespace QuanLyDuLich2.ViewModel
                 x =>
                 {
                     TinhTien();
+                });
+            }
+        }
+        public ICommand CancelCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    //WidthRight = "0*";
+                    //ResetPhieuTra();
+                    MainViewModel.Ins.Checkout_Page_SelectedCommand.Execute(null);
                 });
             }
         }
@@ -118,10 +141,17 @@ namespace QuanLyDuLich2.ViewModel
 
         void TinhTien()
         {
-            int dongiathang = (int)SelectedPhieuThue.tbPhong.tbLoaiPhong.DonGiaThang;
-            int dongiangay = (int)SelectedPhieuThue.tbPhong.tbLoaiPhong.DonGiaNgay;
-            SoNgay = (int)(NgayTra - SelectedPhieuThue.NgayMuon).Value.TotalDays;
+            long dongiathang = (long)SelectedPhieuThue.tbPhong.tbLoaiPhong.DonGiaThang;
+            long dongiangay = (long)SelectedPhieuThue.tbPhong.tbLoaiPhong.DonGiaNgay;
+            SoNgay = (long)(NgayTra - SelectedPhieuThue.NgayMuon).Value.TotalDays;
             SoTien = SoNgay / 30 * dongiathang + SoNgay % 30 * dongiangay;
+        }
+
+        void ResetPhieuTra()
+        {
+            SelectedPhieuThue = null;
+            SoNgay = 0;
+            SoTien = 0;
         }
 
         void ResetPhieuThue()
