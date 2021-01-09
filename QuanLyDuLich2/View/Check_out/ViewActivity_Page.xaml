@@ -26,11 +26,17 @@
         </Grid.RowDefinitions>
 
         <StackPanel Margin="5" Grid.Row="0">
-            <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Margin="10"
-                                        TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                        > Thông tin tổng quát</TextBlock>
 
-            <Border Grid.Column="1" CornerRadius="20" Margin="15,0,15,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
+            <Grid>
+                <materialDesign:Card Margin="10"
+                  Background="{DynamicResource PrimaryHueDarkBrush}"
+                  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                  Padding="8">
+                    <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="20">THÔNG TIN TỔNG QUÁT</TextBlock>
+                </materialDesign:Card>
+            </Grid>
+
+            <Border Grid.Column="1" CornerRadius="20" Margin="15,10,15,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
                 <DockPanel LastChildFill="True">
                     <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
                         <materialDesign:PackIcon DockPanel.Dock="Right" Kind="Search" Margin="10,0">

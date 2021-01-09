@@ -190,11 +190,22 @@
                         <DataTemplate>
                             <StackPanel Orientation="Vertical" Margin="5" Width="Auto">
                                 <!--Header-->
-                                <Grid Margin="5">
-                                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
-                                    TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
-                                    HorizontalAlignment="Stretch"
-                                    Text="{Binding ServiceType}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                                        Loại dịch vụ:
+                                    </TextBlock>
+                                    <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Căn hộ 3A"
+                                        FontSize="18"
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                                        VerticalAlignment="Center"
+                                        IsEnabled="{Binding EnableGiaTri}"
+                                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                    </ComboBox>
                                 </Grid>
 
                                 <Grid>

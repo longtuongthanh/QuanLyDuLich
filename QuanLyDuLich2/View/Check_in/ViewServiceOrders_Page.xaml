@@ -1,0 +1,236 @@
+﻿<Page x:Class="QuanLyDuLich2.View.Check_in.ViewServiceOrders_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyDuLich2.View.Check_in"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="ViewServiceOrders_Page"
+      
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="18"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <materialDesign:Card Margin="5"
+                  Background="{DynamicResource PrimaryHueDarkBrush}"
+                  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                  Padding="8">
+                <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="20">DANH MỤC PHIẾU DỊCH VỤ</TextBlock>
+            </materialDesign:Card>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="400" MaxWidth="900"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!--RowDefinition Height="0*" MinHeight="30"/-->
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <!-- Advanced search - show / hide by advanced search button -->
+                <Border Grid.Row="0" Margin="20,0,20,0" Padding="20,5" CornerRadius="20"
+                        BorderBrush="{StaticResource PrimaryHueDarkBrush}" 
+                        BorderThickness="3" Visibility="{Binding AdvancedSearchVisibility}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" MinWidth="62"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                            Khách:
+                                </TextBlock>
+                                <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Căn hộ 3A"
+                         FontSize="18"
+                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                         Foreground="{StaticResource SecondaryAccentBrush}" 
+                         VerticalAlignment="Center"
+                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                </ComboBox>
+
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" MinWidth="62"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="Auto" MinWidth="10"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Ngày:
+                                </TextBlock>
+                                <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
+                        
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                        VerticalAlignment="Center"
+                        IsEnabled="{Binding EnableGiaTri}"
+                        FirstDayOfWeek="Monday"
+                        SelectedDateFormat="Short" FontSize="18"
+                        Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                                     Kind="Search" Margin="10,0">
+                                <materialDesign:PackIcon.LayoutTransform>
+                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                </materialDesign:PackIcon.LayoutTransform>
+                            </materialDesign:PackIcon>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1">
+                    <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 20, 20, 0"
+                                Command="{Binding AddCammand}" MinWidth="120">
+                        Thêm mới
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="20">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*" MinWidth="100"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" FontWeight="Bold" 
+                                       FontSize="18" Margin="5" Text="Ngày"></TextBlock>
+                            <TextBlock Grid.Column="1" FontWeight="Bold" 
+                                       FontSize="18" Margin="5" Text="Khách"></TextBlock>
+                            <TextBlock Grid.Column="2" FontWeight="Bold" 
+                                       FontSize="18" Margin="5" Text="Thành tiền"></TextBlock>
+                        </Grid>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ListBox x:Name="listbox1"
+                                Margin="0,20,0,20"
+                                materialDesign:ListViewAssist.ListViewItemPadding="10"
+                                materialDesign:ListBoxAssist.IsToggle="False"
+                                SelectedItem="{Binding SelectedPhong, Mode=TwoWay}"
+                                SelectionMode="Single"
+                                ItemsSource="{Binding dsPhong}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding SelectedPhongChange}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <ListBox.ItemTemplate>
+
+                                    <DataTemplate>
+                                        <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
+                                        <Grid Margin="0, 0, 0, 0" VerticalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=listbox1}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="5*"/>
+                                                <ColumnDefinition Width="2*" MinWidth="100"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding SoPhong}"></TextBlock>
+                                            <TextBlock Grid.Column="1" FontSize="18" Margin="0" Text="{Binding LoaiPhong}"></TextBlock>
+                                            <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding sTinhTrang}"></TextBlock>
+                                        </Grid>
+                                        <!--/Button-->
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <!--#endregion -->
+
+            <!--Spliter-->
+            <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
+
+            <!--#region RIGHT: VIEW PANEL-->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="1*" MinHeight="50"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <!--View Panel-->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
+                        <StackPanel>
+                            <!--CongVan Info-->
+                            <StackPanel Orientation="Vertical" Margin="0,10">
+                                <!--Header-->
+                                <StackPanel Margin="5">
+                                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                                        TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                        > Phiếu dịch vụ</TextBlock>
+                                </StackPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Ngày:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhong.SoPhong, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Khách:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhong.LoaiPhong, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Thành tiền:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhong.sTinhTrang, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Đã thanh toán:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding DonGiaThang, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+                <!--#endregion -->
+                <!--Action bar-->
+                <Grid Grid.Row="1"
+                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid Grid.Column="1" Visibility="{Binding Action2Visibility}">
+                        <!-- show ViewServiceOrders 
+                        Page with all actions disabled -->
+                        <Button
+                                Visibility="{Binding IsVisible}"
+                                FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Command="{Binding ViewServiceOrderDetail}" MinWidth="120">
+                            Xem chi tiết
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
