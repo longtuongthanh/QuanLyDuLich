@@ -533,6 +533,8 @@
     <Resource Include="Images\home_out.png" />
     <Resource Include="Images\service.png" />
     <Resource Include="Images\Money.png" />
+    <Resource Include="Images\feedback.png" />
+    <Resource Include="Images\OrderList.png" />
     <Content Include="Model\QLDL2_Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>
