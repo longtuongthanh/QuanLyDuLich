@@ -38,7 +38,7 @@
                 <StackPanel Margin="5">
                     <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
                                     TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                    Text="Phiếu Báo cáo sự cố"
+                                    Text="Phiếu sự cố"
                                     />
                 </StackPanel>
                 
@@ -74,6 +74,7 @@
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
+                         TextWrapping="WrapWithOverflow"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
@@ -114,19 +115,43 @@
                         SelectedDateFormat="Long"
                         Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
                 </Grid>
+                <Grid Visibility="{Binding isQL_KT}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Chi phí:
+                    </TextBlock>
+                    <TextBox Grid.Column="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Chi phí giải quyết sự cố (VND)"
+                         Visibility="{Binding VisibilityOfEditThamSo}"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Foreground="{StaticResource SecondaryAccentBrush}" 
+                         VerticalAlignment="Center"
+                         TextWrapping="WrapWithOverflow"
+                         IsEnabled="{Binding EnableGiaTri}"
+                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                </Grid>
+                
             </StackPanel>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
+                <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            Margin="5,0,5,0" Content="{Binding Action_Text}" Background="{StaticResource PrimaryHueDarkBrush}"
+                            Width="150" Height="35" Command="{Binding CancelCommand}"
+                            Visibility="{Binding CanCreate}"/>
                 <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="Hủy" Background="{StaticResource WarningHueBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"
+                            Width="150" Height="35" Command="{Binding onCreate}"
                             Visibility="{Binding VisibilityOfCancel}"/>
                 <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5,0,5,0" Content="Tạo báo cáo" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"
+                            Margin="5,0,5,0" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
+                            Width="150" Height="35" Command="{Binding onCreate}"
                             Visibility="{Binding VisibilityOfCancel}"/>
             </Grid>
         </Grid>
@@ -134,10 +159,34 @@
         <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
 
         <Grid Grid.Column="0">
-            <!-- SELECTOR SCREEN, bind to either [Choose guest] or [Choose room] -->
-            <Frame x:Name="main" Margin="0,0,0,0" NavigationUIVisibility="Hidden"
-                       Content="{Binding FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            </Frame>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+           
+                <StackPanel Margin="5" Grid.Row="0">
+                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                                    TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                    Text="Danh sách sự cố"
+                                    />
+                </StackPanel>
+          
+            <ListView Grid.Row="1"
+                FontSize="18" ItemsSource="{Binding ListSuCo}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                          HorizontalAlignment="Center" VerticalAlignment="Top">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="auto" Header="STT" DisplayMemberBinding="{Binding SoThuTu}"/>
+                        <GridViewColumn Width="auto" Header="Loại sự cố" DisplayMemberBinding="{Binding LoaiSuCo}"/>
+                        <GridViewColumn Width="auto" Header="Thời gian" DisplayMemberBinding="{Binding NgaySuCo}"/>
+                        <GridViewColumn Width="auto" Header="Trạng thái" DisplayMemberBinding="{Binding TrangThai}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Grid Grid.Row="2">
+                
+            </Grid>
         </Grid>
     </Grid>
 </Page>
