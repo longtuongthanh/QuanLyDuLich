@@ -27,13 +27,15 @@
             <StackPanel Orientation="Vertical" Margin="5" Width="Auto">
                 <!--Header-->
                 <StackPanel Margin="5">
+                    <!-- Text: Phòng mới / Thay đổi thông tin phòng -->
                     <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
                                     TextWrapping="Wrap" TextAlignment="Center"
-                                    > Phòng mới</TextBlock>
+                                    Text="{Binding TitleText}"
+                                    ></TextBlock>
                 </StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="124"/>
+                        <ColumnDefinition Width="Auto" MinWidth="128"/>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="Auto" MinWidth="40"/>
                     </Grid.ColumnDefinitions>
@@ -55,7 +57,7 @@
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="124"/>
+                        <ColumnDefinition Width="Auto" MinWidth="128"/>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="Auto" MinWidth="40"/>
                     </Grid.ColumnDefinitions>
@@ -77,7 +79,7 @@
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="124"/>
+                        <ColumnDefinition Width="Auto" MinWidth="128"/>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="Auto" MinWidth="40"/>
                     </Grid.ColumnDefinitions>
@@ -95,7 +97,7 @@
 
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="Auto" MinWidth="128"/>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="Auto" MinWidth="85"/>
                     </Grid.ColumnDefinitions>
@@ -116,7 +118,7 @@
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
+                        <ColumnDefinition Width="Auto" MinWidth="128"/>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="Auto" MinWidth="85"/>
                     </Grid.ColumnDefinitions>

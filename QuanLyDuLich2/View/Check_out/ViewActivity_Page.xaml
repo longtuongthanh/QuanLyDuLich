@@ -44,11 +44,6 @@
                                 <ScaleTransform ScaleX="2" ScaleY="2"/>
                             </materialDesign:PackIcon.LayoutTransform>
                         </materialDesign:PackIcon>
-                        <materialDesign:PackIcon DockPanel.Dock="Right" Kind="MoreHoriz">
-                            <materialDesign:PackIcon.LayoutTransform>
-                                <ScaleTransform ScaleX="2" ScaleY="2"/>
-                            </materialDesign:PackIcon.LayoutTransform>
-                        </materialDesign:PackIcon>
                     </WrapPanel>
                     <TextBox VerticalContentAlignment="Bottom"
                                  Margin="10,0,10,0"
