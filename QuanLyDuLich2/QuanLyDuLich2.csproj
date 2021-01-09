@@ -164,9 +164,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>QLDL2_Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\tbBaoCao.cs">
       <DependentUpon>QLDL2_Database.tt</DependentUpon>
     </Compile>

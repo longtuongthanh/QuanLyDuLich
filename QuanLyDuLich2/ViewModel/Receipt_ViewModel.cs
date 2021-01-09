@@ -74,7 +74,7 @@ namespace QuanLyDuLich2.ViewModel
         void GetDSDichVu()
         {
             dsDichVu.Clear();
-            foreach(tbPhieuDichVu item in DataProvider.Ins.DB.tbPhieuDichVus.Where(pdv => /*pdv.tbHoaDon == null &&*/ pdv.Khach == SelectedPhieuThue.Khach))
+            foreach(tbPhieuDichVu item in DataProvider.Ins.DB.tbPhieuDichVus.Where(pdv => pdv.tbHoaDon == null && pdv.Khach == SelectedPhieuThue.Khach))
             {
                 dsDichVu.Add(item);
                 

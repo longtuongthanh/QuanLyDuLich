@@ -25,7 +25,6 @@ namespace QuanLyDuLich2.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tbBaoCao> tbBaoCaos { get; set; }
         public virtual DbSet<tbChiTietPhieuDichVu> tbChiTietPhieuDichVus { get; set; }
         public virtual DbSet<tbDichVu> tbDichVus { get; set; }
