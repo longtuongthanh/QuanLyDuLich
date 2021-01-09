@@ -145,7 +145,7 @@
                     <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Thành tiền:
                     </TextBlock>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="200.000₫"
+                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="150.000₫"
                          IsEnabled="False"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
