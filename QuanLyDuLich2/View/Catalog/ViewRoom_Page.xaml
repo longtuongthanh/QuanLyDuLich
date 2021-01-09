@@ -204,14 +204,14 @@
                                 <WrapPanel Margin="10">
                                     <TextBlock FontSize="18"> Đơn giá tháng:</TextBlock>
                                     <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding DonGiaThang, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                            Text="{Binding SelectedPhong.tbLoaiPhong.DonGiaThang, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
 
                                 <WrapPanel Margin="10">
                                     <TextBlock FontSize="18" VerticalAlignment="Top"> Đơn giá ngày:</TextBlock>
                                     <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding DonGiaNgay, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                            Text="{Binding SelectedPhong.tbLoaiPhong.DonGiaNgay, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
 
