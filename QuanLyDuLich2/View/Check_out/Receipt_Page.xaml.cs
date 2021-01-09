@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyDuLich2.ViewModel;
+using QuanLyDuLich2.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +26,13 @@ namespace QuanLyDuLich2.View
         public Receipt_Page()
         {
             InitializeComponent();
+            this.DataContext = new Receipt_ViewModel();
+        }
+
+        public Receipt_Page(tbPhieuThuePhong temp)
+        {
+            InitializeComponent();
+            this.DataContext = new Receipt_ViewModel(temp);
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

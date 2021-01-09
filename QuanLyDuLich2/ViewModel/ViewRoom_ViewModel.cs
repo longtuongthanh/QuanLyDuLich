@@ -59,7 +59,7 @@ namespace QuanLyDuLich2.ViewModel
             set { _Khach = value; OnPropertyChanged(); }
         }
 
-        private string _IsVisible = "Hidden";
+        private string _IsVisible = "Collapsed";
 
         public string IsVisible
         {
@@ -74,8 +74,6 @@ namespace QuanLyDuLich2.ViewModel
             get { return _XoaButton; }
             set { _XoaButton = value; OnPropertyChanged(); }
         }
-
-
         #endregion
         #region Command
         public ICommand SelectedPhongChange
@@ -149,7 +147,7 @@ namespace QuanLyDuLich2.ViewModel
                 DonGiaNgay = "";
                 DonGiaThang = "";
                 Khach = "";
-                IsVisible = "Hidden";
+                IsVisible = "Collapsed";
             }
         }
         #endregion
@@ -164,7 +162,8 @@ namespace QuanLyDuLich2.Model
         {
             get
             {
-                switch(TinhTrang)
+                //0 - Trong, 1 - Dang su dung, 2 - Tra Phong, 3 - Su co, 4 - Khong su dung
+                switch (TinhTrang)
                 {
                     case 0: return "Trống";
                     case 1: return "Đang sử dụng";

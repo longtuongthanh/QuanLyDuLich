@@ -8,219 +8,226 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Checkout_Page"
       
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="18"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
-
-
-    <Grid Grid.Row="1">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="400" MaxWidth="900"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0*" MinHeight="80"/>
-                <!--RowDefinition Height="0*" MinHeight="30"/-->
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
-                    <DockPanel LastChildFill="True">
-                        <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
-                            <materialDesign:PackIcon DockPanel.Dock="Right" Kind="Search" Margin="10,0">
-                                <materialDesign:PackIcon.LayoutTransform>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                </materialDesign:PackIcon.LayoutTransform>
-                            </materialDesign:PackIcon>
-                            <materialDesign:PackIcon DockPanel.Dock="Right" Kind="MoreHoriz">
-                                <materialDesign:PackIcon.LayoutTransform>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                </materialDesign:PackIcon.LayoutTransform>
-                            </materialDesign:PackIcon>
-                        </WrapPanel>
-                        <TextBox VerticalContentAlignment="Center" Margin="100,0,10,0" BorderBrush="Transparent" FontWeight="SemiBold" Text="{Binding FilterText, Mode=TwoWay}"/>
-                    </DockPanel>
-                </Border>
-            </Grid>
-
-            <Grid Grid.Row="1">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox materialDesign:ListViewAssist.ListViewItemPadding="10"
-                     materialDesign:ListBoxAssist.IsToggle="False"
-                     Style="{StaticResource MaterialDesignCardsListBox}"
-                     ItemsSource="{Binding DSCongVan}" SelectedItem="{Binding SelectedCongVan, Mode=TwoWay}">
-                        <ListBox.ItemTemplate>
-
-                            <DataTemplate>
-                                <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
-                                <DockPanel LastChildFill="True">
-                                    <CheckBox Margin="5"/>
-                                    <TextBlock Margin="5" Width="100" Text="{Binding Phong}"></TextBlock>
-                                    <TextBlock Margin="5" Text="{Binding TenKhach}"></TextBlock>
-                                    <TextBlock Margin="5" DockPanel.Dock="Right" Text="{Binding NgayThue}"></TextBlock>
-                                </DockPanel>
-                                <!--/Button-->
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </ScrollViewer>
-            </Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <materialDesign:Card Margin="5"
+                  Background="{DynamicResource PrimaryHueDarkBrush}"
+                  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                  Padding="8">
+                <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="20">TRẢ PHÒNG</TextBlock>
+            </materialDesign:Card>
         </Grid>
-        <!--#endregion -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="400" MaxWidth="900"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
 
-        <!--Spliter-->
-        <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0*" MinHeight="80"/>
+                    <!--RowDefinition Height="0*" MinHeight="30"/-->
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
+                        <DockPanel LastChildFill="True">
+                            <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                                <materialDesign:PackIcon DockPanel.Dock="Right" Kind="Search" Margin="10,0">
+                                    <materialDesign:PackIcon.LayoutTransform>
+                                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    </materialDesign:PackIcon.LayoutTransform>
+                                </materialDesign:PackIcon>
+                                <materialDesign:PackIcon DockPanel.Dock="Right" Kind="MoreHoriz">
+                                    <materialDesign:PackIcon.LayoutTransform>
+                                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    </materialDesign:PackIcon.LayoutTransform>
+                                </materialDesign:PackIcon>
+                            </WrapPanel>
+                            <TextBox VerticalContentAlignment="Center" Margin="10,0,10,0" BorderBrush="Transparent" FontWeight="SemiBold" Text="{Binding FilterText, Mode=TwoWay}"/>
+                        </DockPanel>
+                    </Border>
+                </Grid>
 
-        <!--#region RIGHT: VIEW PANEL-->
-        <Grid Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="0*" MinHeight="50"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <!--View Panel-->
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
+                <Grid Grid.Row="1" Margin="20">
                     <StackPanel>
-                        <!--CongVan Info-->
-                        <StackPanel Orientation="Vertical" Margin="0,10">
-                            <!--Header-->
-                            <StackPanel Margin="5">
-                                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
-                                    TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                    > Phiếu trả phòng</TextBlock>
-                            </StackPanel>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="Auto" MinWidth="40"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                                    Phòng thuê:
-                                </TextBlock>
-                                <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="A-01"
-                         
-                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
-                         Foreground="{StaticResource SecondaryAccentBrush}" 
-                         VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                                </ComboBox>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="Auto" MinWidth="40"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                                    Tên khách:
-                                </TextBlock>
-                                <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
-                                    
-                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                    Foreground="{StaticResource SecondaryAccentBrush}" 
-                                    VerticalAlignment="Center"
-                                    IsEnabled="{Binding EnableGiaTri}"
-                                    Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                                </TextBox>
-                                <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
-                                        Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom">
-                                    <materialDesign:PackIcon Kind="Contact" Height="30" Width="30"/>
-                                </Button>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="Auto" MinWidth="10"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                                    Ngày thuê:
-                                </TextBlock>
-                                <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
-                                    
-                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
-                                    Foreground="{StaticResource SecondaryAccentBrush}" 
-                                    VerticalAlignment="Center"
-                                    IsEnabled="{Binding EnableGiaTri}"
-                                    FirstDayOfWeek="Monday"
-                                    SelectedDateFormat="Short"
-                                    Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="Auto" MinWidth="10"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                                    Ngày trả:
-                                </TextBlock>
-                                <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
-                                    
-                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
-                                    Foreground="{StaticResource SecondaryAccentBrush}" 
-                                    VerticalAlignment="Center"
-                                    IsEnabled="{Binding EnableGiaTri}"
-                                    FirstDayOfWeek="Monday"
-                                    SelectedDateFormat="Short"
-                                    Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="104"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="Auto" MinWidth="40"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                                    Tiền phòng:
-                                </TextBlock>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="18" Margin="5" Text="Số phòng"></TextBlock>
+                            <TextBlock Grid.Column="1" FontWeight="Bold" FontSize="18" Margin="5" Text="Khách"></TextBlock>
+                            <TextBlock Grid.Column="2" FontWeight="Bold" FontSize="18" Margin="5" Text="Ngày thuê"></TextBlock>
+                        </Grid>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ListBox x:Name="listbox1"
+                                Margin="0,20,0,20"
+                                materialDesign:ListViewAssist.ListViewItemPadding="10"
+                                materialDesign:ListBoxAssist.IsToggle="False"
+                                SelectedItem="{Binding SelectedPhieuThue, Mode=TwoWay}"
+                                SelectionMode="Single"
+                                ItemsSource="{Binding dsThue}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding SelectedThueChange}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <ListBox.ItemTemplate>
 
-                                <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="200.000₫"
-                                    
-                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                    Foreground="{StaticResource SecondaryAccentBrush}" 
-                                    VerticalAlignment="Center"
-                                    IsEnabled="False"
-                                    Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
-                                </TextBox>
-                            </Grid>
-                        </StackPanel>
+                                    <DataTemplate>
+                                        <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
+                                        <Grid Margin="0, 0, 0, 0" VerticalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=listbox1}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.2*"/>
+                                                <ColumnDefinition Width="0.5*"/>
+                                                <ColumnDefinition Width="0.2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding SoPhong}"></TextBlock>
+                                            <TextBlock Grid.Column="1" FontSize="18" Margin="0" Text="{Binding tbKhach.HoTen}"></TextBlock>
+                                            <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding NgayMuon, StringFormat='dd/MM/yyyy'}"></TextBlock>
+                                        </Grid>
+                                        <!--/Button-->
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
                     </StackPanel>
-                </ScrollViewer>
+                </Grid>
             </Grid>
             <!--#endregion -->
-            <!--Action bar-->
-            <Grid Grid.Row="1"
-                      Height="50" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5" Content="Hủy" Background="{StaticResource WarningHueBrush}"
-                            Width="Auto" Height="35" Command="{Binding CancelCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
-                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="Auto" Height="35" Command="{Binding CancelCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
-                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5" Content="Lập hóa đơn" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="Auto" Height="35" Command="{Binding ReceiptCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
+
+            <!--Spliter-->
+            <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
+
+            <!--#region RIGHT: VIEW PANEL-->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0*" MinHeight="50"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <!--View Panel-->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
+                        <StackPanel>
+                            <!--CongVan Info-->
+                            <StackPanel Orientation="Vertical" Margin="0,10">
+                                <!--Header-->
+                                <StackPanel Margin="5">
+                                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                                        TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                        > Phiếu trả phòng</TextBlock>
+                                </StackPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top">Phòng thuê:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhieuThue.SoPhong, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Tên khách hàng: </TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhieuThue.tbKhach.HoTen, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> CMND:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhieuThue.tbKhach.CMND, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Ngày thuê</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhieuThue.NgayMuon, StringFormat='dd/MM/yyyy', Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Bottom"> Ngày trả</TextBlock>
+                                    <!--<TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding DonGiaThang, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                    </TextBlock>-->
+                                    <DatePicker Grid.Column="1"
+                                        MinWidth="250"
+                                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                                        VerticalAlignment="Center"
+                                        FirstDayOfWeek="Monday"
+                                        SelectedDateFormat="Short"
+                                        FontSize="18"
+                                       
+                                        SelectedDate="{Binding NgayTra, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Margin="15,0,0,0">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="SelectedDateChanged">
+                                                <i:InvokeCommandAction Command="{Binding SelectedDateChange}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </DatePicker>
+                                </WrapPanel>
+
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Số ngày lưu trú:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SoNgay, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Số tiền:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SoTien, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+                <!--#endregion -->
+                <!--Action bar-->
+                <Grid Grid.Row="1"
+                          Height="50" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0"  
+                                Content="Hủy" Background="{StaticResource WarningHueBrush}"
+                                Command="{Binding CancelCommand}"
+                                Visibility="{Binding VisibilityOfCancel}"
+                                MinWidth="120"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
+                                Margin="5" Content="Lưu" Background="{StaticResource PrimaryHueDarkBrush}"
+                                Command="{Binding SaveCommand}"
+                                Visibility="{Binding VisibilityOfCancel}"
+                                MinWidth="120"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
+                                Margin="5" Content="Lưu và lập hóa đơn" Background="{StaticResource PrimaryHueDarkBrush}"
+                                Command="{Binding ReceiptCommand}"
+                                Visibility="{Binding VisibilityOfCancel}"
+                                MinWidth="120"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

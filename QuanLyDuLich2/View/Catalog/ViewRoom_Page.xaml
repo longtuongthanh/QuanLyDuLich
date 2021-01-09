@@ -64,9 +64,9 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="400" MaxWidth="900"/>
+                <ColumnDefinition x:Name="colMailBox" Width="1*"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition />
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
 
@@ -80,11 +80,11 @@
                     <Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="0.2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
                                 <CheckBox FontSize="18" Margin="5" IsChecked="{Binding ChuaDoc}" HorizontalAlignment="Center">Trống</CheckBox>
@@ -116,9 +116,9 @@
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="0.2*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="18" Margin="5" Text="Số phòng"></TextBlock>
                             <TextBlock Grid.Column="1" FontWeight="Bold" FontSize="18" Margin="5" Text="Loại phòng"></TextBlock>
@@ -143,9 +143,9 @@
                                         <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
                                         <Grid Margin="0, 0, 0, 0" VerticalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=listbox1}">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="5*"/>
-                                                <ColumnDefinition Width="2*"/>
-                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="0.5*"/>
+                                                <ColumnDefinition Width="0.2*"/>
+                                                <ColumnDefinition Width="0.2*"/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding SoPhong}"></TextBlock>
                                             <TextBlock Grid.Column="1" FontSize="18" Margin="0" Text="{Binding LoaiPhong}"></TextBlock>
@@ -165,12 +165,12 @@
             <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
 
             <!--#region RIGHT: VIEW PANEL-->
-            <Grid Grid.Column="2">
+            <Grid Grid.Column="2" Visibility="{Binding IsVisible}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="8*"/>
                     <RowDefinition Height="1*" MinHeight="50"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" >
                     <!--View Panel-->
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
                         <StackPanel>
