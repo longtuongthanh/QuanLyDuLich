@@ -7,5 +7,7 @@
     <viewmodel:Info_ViewModel x:Key="InfoVM"></viewmodel:Info_ViewModel>
     <viewmodel:Home_PageViewModel x:Key="HomeVM"></viewmodel:Home_PageViewModel>
     <viewmodel:ViewRoom_ViewModel x:Key="ViewRoomVM"></viewmodel:ViewRoom_ViewModel>
-
+    <viewmodel:ViewBaoCaoTheoNgay_ViewModel x:Key="ViewBaoCaoTheoNgayVM"></viewmodel:ViewBaoCaoTheoNgay_ViewModel>
+    <viewmodel:ViewBaoCaoTongHop_ViewModel x:Key="ViewBaoCaoTongHopVM"></viewmodel:ViewBaoCaoTongHop_ViewModel>
+    <viewmodel:ViewSuCo_ViewModel x:Key="ViewSuCoVM"></viewmodel:ViewSuCo_ViewModel>
 </ResourceDictionary>

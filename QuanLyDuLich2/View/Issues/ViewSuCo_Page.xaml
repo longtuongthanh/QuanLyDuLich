@@ -16,8 +16,8 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-      
-      Title="ViewRoomRent_Page">
+     DataContext="{StaticResource ViewSuCoVM}"
+      Title="ViewSuCo_Page">
 
     <Grid>
         <Grid.ColumnDefinitions>
