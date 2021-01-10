@@ -101,7 +101,7 @@
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
                     <HamburgerMenu:HamburgerMenuItem  
-                                                     Icon="Images/Money.png" Text="Thanh toán" 
+                                                     Icon="Images/Money.png" Text="Lập hóa đơn" 
                                                      IsEnabled="{Binding Enable_Receipt}" ToolTip="{Binding Receipt_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
