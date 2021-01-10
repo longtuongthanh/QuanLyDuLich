@@ -224,19 +224,19 @@
                         <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Hủy" Background="{StaticResource WarningHueBrush}"
                             Width="130" Height="35" Command="{Binding CancelCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
+                            Visibility="{Binding Visibility}"/>
                         <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
                             Width="130" Height="35" Command="{Binding SaveCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
+                            Visibility="{Binding Visibility}"/>
                         <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="In hóa đơn" Background="{StaticResource PrimaryHueDarkBrush}"
                             Width="130" Height="35" Command="{Binding PrintCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
+                            Visibility="{Binding Visibility}"/>
                         <Button Grid.Column="3" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Chuyển khoản" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="130" Height="35" Command="{Binding PrintCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
+                            Width="130" Height="35" Command="{Binding TransferCommand}"
+                            Visibility="{Binding Visibility}"/>
                     </Grid>
                 </Grid>
             </Grid>
