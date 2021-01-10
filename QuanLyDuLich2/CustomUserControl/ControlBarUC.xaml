@@ -33,7 +33,7 @@
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto" MinWidth="120"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
                         <Grid.RowDefinitions>
@@ -57,24 +57,21 @@
                             </materialDesign:Card>
                         </Grid>
                     </Grid>
-                    <Grid Grid.Column="1">
-                        <StackPanel DockPanel.Dock="Right" Background="Transparent" Orientation="Horizontal">
-                            <StackPanel.Resources>
-                                <Style TargetType="Button">
-                                    <Setter Property="Width" Value="40"></Setter>
-                                </Style>
-                            </StackPanel.Resources>
-                            <Button Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding MinimizeWindowCommand}"
+                    <Grid Grid.Column="1" Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding MinimizeWindowCommand}"
                             CommandParameter="{Binding ElementName=UC_ControlBar}" Height="Auto"
                             ToolTip="Thu nhỏ" ToolBar.OverflowMode="AsNeeded" Background="{StaticResource SecondaryAccentBrush}">
-                                <materialDesign:PackIcon Kind="WindowMinimize" />
+                            <materialDesign:PackIcon Kind="WindowMinimize" Height="30" Width="30"/>
                             </Button>
-                            <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" Command="{Binding CloseWindowCommand}"
+                        <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedDarkButton}" Command="{Binding CloseWindowCommand}"
                             CommandParameter="{Binding ElementName=UC_ControlBar}"
                             ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="Red" Height="Auto">
-                                <materialDesign:PackIcon Kind="WindowClose" />
-                            </Button>
-                        </StackPanel>
+                            <materialDesign:PackIcon Kind="WindowClose" Height="30" Width="30"/>
+                        </Button>
                     </Grid>
                 </Grid>
 

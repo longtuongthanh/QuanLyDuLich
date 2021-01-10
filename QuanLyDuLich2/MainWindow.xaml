@@ -60,7 +60,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/1-MoSo.png" Text="Danh mục" 
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/Catalog.png" Text="Danh mục" 
                                                      IsEnabled="{Binding Enable_Info}" ToolTip="{Binding Info_Tooltip}"
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
@@ -70,8 +70,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/2-GuiTien.png" Text="Thuê phòng" 
-                                                     IsEnabled="{Binding Enable_RoomRent}" ToolTip="{Binding GuiTien_Tooltip}" 
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/home_in.png" Text="Thuê phòng" 
+                                                     IsEnabled="{Binding Enable_RoomRent}" ToolTip="{Binding RoomRent_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -80,8 +80,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/search.png" Text="Đăng ký dịch vụ" 
-                                                     IsEnabled="{Binding Enable_ServiceOrder}" ToolTip="{Binding TraCuu_Tooltip}" 
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/service.png" Text="Đăng ký dịch vụ" 
+                                                     IsEnabled="{Binding Enable_ServiceOrder}" ToolTip="{Binding ServiceOrder_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -90,8 +90,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/3-RutTien.png" Text="Trả phòng"
-                                                     IsEnabled="{Binding Enable_Checkout}" ToolTip="{Binding RutTien_Tooltip}" 
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/home_out.png" Text="Trả phòng"
+                                                     IsEnabled="{Binding Enable_Checkout}" ToolTip="{Binding Checkout_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -101,8 +101,8 @@
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
                     <HamburgerMenu:HamburgerMenuItem  
-                                                     Icon="Images/search.png" Text="Thanh toán" 
-                                                     IsEnabled="{Binding Enable_Receipt}" ToolTip="{Binding TraCuu_Tooltip}" 
+                                                     Icon="Images/Money.png" Text="Lập hóa đơn" 
+                                                     IsEnabled="{Binding Enable_Receipt}" ToolTip="{Binding Receipt_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -112,12 +112,23 @@
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
                     <HamburgerMenu:HamburgerMenuItem 
-                                                     Icon="Images/search.png" Text="Góp ý dịch vụ" 
-                                                     IsEnabled="{Binding Enable_ServiceFeedback}" ToolTip="{Binding TraCuu_Tooltip}" 
+                                                     Icon="Images/feedback.png" Text="Góp ý dịch vụ" 
+                                                     IsEnabled="{Binding Enable_ServiceFeedback}" ToolTip="{Binding ServiceFeedback_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
                                 <i:InvokeCommandAction Command="{Binding ServiceFeedback_Page_SelectedCommand}"
+                                                    CommandParameter="{Binding ElementName=hamburger}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </HamburgerMenu:HamburgerMenuItem>
+                    <HamburgerMenu:HamburgerMenuItem 
+                                                     Icon="Images/OrderList.png" Text="Danh sách phiếu dịch vụ" 
+                                                     IsEnabled="{Binding Enable_ViewServiceOrders}" ToolTip="{Binding ViewServiceOrders_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding ViewServiceOrders_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

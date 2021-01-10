@@ -56,7 +56,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                            Tài khoản nhận:
+                            Tài khoản gửi:
                         </TextBlock>
                         <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="XXXX.XXX.XXX.XXX"
                                     
