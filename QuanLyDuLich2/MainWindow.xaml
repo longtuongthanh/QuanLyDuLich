@@ -133,6 +133,39 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
+                    <HamburgerMenu:HamburgerMenuItem 
+                                                     Icon="Images/OrderList.png" Text="Báo cáo doanh số theo ngày" 
+                                                     IsEnabled="{Binding Enable_ViewReportByDay}" ToolTip="{Binding ViewReportByDay_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding ViewReportByDay_Page_SelectedCommand}"
+                                                    CommandParameter="{Binding ElementName=hamburger}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </HamburgerMenu:HamburgerMenuItem>
+                    <HamburgerMenu:HamburgerMenuItem 
+                                                     Icon="Images/OrderList.png" Text="Báo cáo doanh số tổng hợp" 
+                                                     IsEnabled="{Binding Enable_ViewReportByMonth}" ToolTip="{Binding ViewReportByMonth_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding ViewReportByMonth_Page_SelectedCommand}"
+                                                    CommandParameter="{Binding ElementName=hamburger}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </HamburgerMenu:HamburgerMenuItem>
+                    <HamburgerMenu:HamburgerMenuItem 
+                                                     Icon="Images/OrderList.png" Text="Sự cố" 
+                                                     IsEnabled="{Binding Enable_ViewIssue}" ToolTip="{Binding ViewIssue_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding ViewIssue_Page_SelectedCommand}"
+                                                    CommandParameter="{Binding ElementName=hamburger}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </HamburgerMenu:HamburgerMenuItem>
                 </HamburgerMenu:HamburgerMenu>
                 <!--</Grid>-->
 
