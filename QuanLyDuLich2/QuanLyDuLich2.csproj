@@ -483,7 +483,7 @@
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>
       <LastGenOutput>QLDL2_Database.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\QLDL2_Database.sql" />
+    <Content Include="Model\QLDL2_Database.edmx.sql" />
     <Content Include="Model\QLDL2_Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>
