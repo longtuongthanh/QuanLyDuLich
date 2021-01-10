@@ -18,10 +18,10 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         
         
-      
+      DataContext="{StaticResource ViewBaoCaoTongHopVM}"
       Name="BaoCaoDoanhSo"
       Title="BaoCaoDoanhSo_Page">
-    <!--DataContext="{StaticResource BaoCaoDoanhSoVM}"-->
+    
 
     <Grid>
         <materialDesign:DialogHost IsOpen="{Binding DialogOpen}" BorderBrush="{DynamicResource MaterialDesignDivider}">
@@ -57,7 +57,7 @@
                     </Grid.ColumnDefinitions>
                     <ComboBox x:Name="cbReport" Width="150" materialDesign:HintAssist.Hint="Chọn loại báo cáo" Visibility="{Binding VisibilityOfAdd}" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
             
-                          SelectedItem="{Binding SelectedQuyDinh}"
+                          SelectedItem="{Binding SelectedLoaiBaoCao}"
                           IsEnabled="{Binding TextBoxReadOnly}">
                         <ComboBoxItem IsSelected="True">Phòng ở</ComboBoxItem>
                         <ComboBoxItem>Dịch vụ tiện ích</ComboBoxItem>
@@ -174,18 +174,19 @@
                             </materialDesign:Card>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <ListView  ItemsSource="{Binding ListDaBaoCao}" SelectedItem="{Binding SelectedDate}" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                            <ListView  ItemsSource="{Binding ListDaBaoCaoTongHop}" SelectedItem="{Binding SelectedIndex}" ScrollViewer.VerticalScrollBarVisibility="Auto"
                           HorizontalContentAlignment="Stretch" FontSize="18" SelectionMode="Single"
                           HorizontalAlignment="Center" VerticalAlignment="Top">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Ngày báo cáo" DisplayMemberBinding="{Binding NgayDaBaoCao }" />
+                                        <GridViewColumn Header="Từ tháng" DisplayMemberBinding="{Binding TuThang}" />
+                                        <GridViewColumn Header="Đến tháng" DisplayMemberBinding="{Binding DenThang}" />
                                         <GridViewColumn Header="Loại báo cáo" DisplayMemberBinding="{Binding LoaiDaBaoCao}"/>
                                     </GridView>
                                 </ListView.View>
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding SelectedMonthYear_Command}" />
+                                        <i:InvokeCommandAction Command="{Binding SelectedMonthYearType_Command}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </ListView>

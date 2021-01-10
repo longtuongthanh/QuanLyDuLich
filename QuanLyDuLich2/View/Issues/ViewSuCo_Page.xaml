@@ -55,10 +55,10 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding LoaiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </ComboBox>
                     <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
-                                        Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom"/>
+                                        Command="{Binding ListLoaiSuCo}" VerticalAlignment="Bottom"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -76,7 +76,7 @@
                          VerticalAlignment="Center"
                          TextWrapping="WrapWithOverflow"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding NoiDungSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                 </Grid>
                 <Grid>
@@ -97,24 +97,7 @@
                         
                     </ComboBox>
                 </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                        Ngày lập:
-                    </TextBlock>
-                    <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="Ngày lập báo cáo"
-                        Visibility="{Binding VisibilityOfEditThamSo}"
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
-                        Foreground="{StaticResource SecondaryAccentBrush}" 
-                        VerticalAlignment="Center"
-                        IsEnabled="{Binding EnableGiaTri}"
-                        FirstDayOfWeek="Monday"
-                        SelectedDateFormat="Long"
-                        Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
-                </Grid>
+                
                 <Grid Visibility="{Binding isQL_KT}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="120"/>
@@ -130,7 +113,7 @@
                          VerticalAlignment="Center"
                          TextWrapping="WrapWithOverflow"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding ChiPhiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                 </Grid>
                 

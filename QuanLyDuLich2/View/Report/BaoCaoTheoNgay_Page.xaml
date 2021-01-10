@@ -16,12 +16,12 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        
+        DataContext="{StaticResource ViewBaoCaoTheoNgayVM}"
       
       Name="BaoCaoDoanhSo"
       Title="BaoCaoDoanhSo_Page">
 
-    <!-- DataContext="{StaticResource BaoCaoDoanhSoVM}"-->
+    
 
     <Grid>
         <materialDesign:DialogHost IsOpen="{Binding DialogOpen}" BorderBrush="{DynamicResource MaterialDesignDivider}">
@@ -55,8 +55,7 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <ComboBox x:Name="cbReport" Width="150" materialDesign:HintAssist.Hint="Chọn loại báo cáo" Visibility="{Binding VisibilityOfAdd}" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-            
-                          SelectedItem="{Binding SelectedQuyDinh}"
+                          SelectedItem="{Binding SelectedLoaiBaoCao}"
                           IsEnabled="{Binding TextBoxReadOnly}">
                         <ComboBoxItem IsSelected="True">Phòng ở</ComboBoxItem>
                         <ComboBoxItem>Dịch vụ tiện ích</ComboBoxItem>
@@ -78,7 +77,6 @@
 
                             </DatePicker>
                             <materialDesign:PopupBox Visibility="{Binding VisibilityDatePickerPopup}"  VerticalAlignment="Center" Margin="5" PopupContent="{Binding PopupContent}" >
-
                                 <materialDesign:PopupBox.ToggleContent>
                                     <materialDesign:PackIcon Foreground="Red" Kind="Error" />
                                 </materialDesign:PopupBox.ToggleContent>
@@ -152,7 +150,7 @@
                             </materialDesign:Card>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <ListView  ItemsSource="{Binding ListDaBaoCao}" SelectedItem="{Binding SelectedDate}" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                            <ListView  ItemsSource="{Binding ListDaBaoCao}" SelectedItem="{Binding SelectedIndex}" ScrollViewer.VerticalScrollBarVisibility="Auto"
                           HorizontalContentAlignment="Stretch" FontSize="18" SelectionMode="Single"
                           HorizontalAlignment="Center" VerticalAlignment="Top">
                                 <ListView.View>
@@ -163,7 +161,7 @@
                                 </ListView.View>
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding SelectedMonthYear_Command}" />
+                                        <i:InvokeCommandAction Command="{Binding SelectedTypedDate_Command}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </ListView>
