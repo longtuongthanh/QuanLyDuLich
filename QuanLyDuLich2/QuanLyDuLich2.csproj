@@ -240,6 +240,7 @@
     <Compile Include="ViewModel\Info_ViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MoneyTransfer_ViewModel.cs" />
     <Compile Include="ViewModel\Receipt_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoom_ViewModel.cs" />
     <Compile Include="ViewModel\ViewService_ViewModel.cs" />
