@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:QuanLyDuLich2.View"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="1200"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="Receipt_Page"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -240,15 +240,15 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" MinWidth="124"/>
                                         <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="Auto" MinWidth="50"/>
+                                        <ColumnDefinition Width="Auto" MinWidth="65"/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom">
                                     Tiền đã nhận:
                                     </TextBlock>
 
-                                    <TextBox FontSize="18" Grid.Column="1"
+                                    <TextBox FontSize="18" Grid.Column="1" Margin="5, 0"
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                          TextAlignment="Left"
                                     PreviewTextInput="TextBox_PreviewTextInput"
                                     Text="{Binding TienNhan, UpdateSourceTrigger=PropertyChanged, StringFormat='#,##0;(#,##0)', Mode=TwoWay}">
@@ -258,25 +258,39 @@
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
                                     </TextBox>
+
+                                    <ComboBox Grid.Column="2" Margin="5, 0"
+                                    Style="{StaticResource MaterialDesignComboBox}" 
+                                    Foreground="{StaticResource SecondaryAccentBrush}" 
+                                    VerticalAlignment="Bottom" FontSize="18"
+                                    Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                    </ComboBox>
                                 </Grid>
                                 <Grid Margin="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" MinWidth="124"/>
                                         <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="Auto" MinWidth="50"/>
+                                        <ColumnDefinition Width="Auto" MinWidth="65"/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom">
                                     Tiền thối:
                                     </TextBlock>
 
-                                    <TextBox Grid.Column="1"
+                                    <TextBox Grid.Column="1" Margin="5, 0"
                                              IsReadOnly="True"
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     TextAlignment="Left" FontSize="18"
                                     PreviewTextInput="TextBox_PreviewTextInput"
                                     Text="{Binding TienThoi, UpdateSourceTrigger=PropertyChanged, StringFormat='#,##0;(#,##0)',  Mode=TwoWay}">
                                     </TextBox>
+                                    
+                                    <ComboBox Grid.Column="2" Margin="5, 0"
+                                    Style="{StaticResource MaterialDesignComboBox}" 
+                                    Foreground="{StaticResource SecondaryAccentBrush}" 
+                                    VerticalAlignment="Bottom" FontSize="18"
+                                    Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                    </ComboBox>
                                 </Grid>
                             </StackPanel>
                         </StackPanel>
