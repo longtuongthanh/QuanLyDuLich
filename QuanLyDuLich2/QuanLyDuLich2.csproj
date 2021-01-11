@@ -149,6 +149,7 @@
     <Compile Include="Command\EventRaiser.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Helper\DatabaseCheck.cs" />
+    <Compile Include="Helper\ListSuCo.cs" />
     <Compile Include="Helper\Util.cs" />
     <Compile Include="Model\QLDL2_Database.Context.cs">
       <AutoGen>True</AutoGen>

@@ -55,7 +55,7 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding LoaiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding SelectedLoaiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </ComboBox>
                     <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
                                         Command="{Binding ListLoaiSuCo}" VerticalAlignment="Bottom"/>
@@ -74,7 +74,7 @@
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         TextWrapping="WrapWithOverflow"
+                         TextWrapping="Wrap"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding NoiDungSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
@@ -89,7 +89,7 @@
                          Tình trạng:
                     </TextBlock>
                     <ComboBox Grid.Column="1" Grid.ColumnSpan="2" x:Name="cbStt" Width="auto" Visibility="{Binding VisibilityOfAdd}" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-            
+                    
                           SelectedItem="{Binding SelectedTrangThai}"
                           IsEnabled="{Binding TextBoxReadOnly}">
                         <ComboBoxItem IsSelected="True">Chưa giải quyết</ComboBoxItem>
@@ -126,16 +126,16 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="{Binding Action_Text}" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"
+                            Width="150" Height="35" Command="{Binding UserAction}"
                             Visibility="{Binding CanCreate}"/>
                 <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="Hủy" Background="{StaticResource WarningHueBrush}"
-                            Width="150" Height="35" Command="{Binding onCreate}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
+                            Width="150" Height="35" Command="{Binding CancelInput}"
+                            Visibility="{Binding onCreate}"/>
                 <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding onCreate}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
+                            Width="150" Height="35" Command="{Binding AcceptInput}"
+                            Visibility="{Binding onCreate}"/>
             </Grid>
         </Grid>
 
