@@ -51,13 +51,23 @@
                         <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5"> 
                         Phòng:
                         </TextBlock>
-                        <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="A-01"
+                        <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Chọn phòng"
                          
                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                  
+                         SelectedItem="{Binding SelectedPhong, Mode=TwoWay}"
+                         ItemsSource="{Binding dsPhong}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Path=SoPhong}"/>
+                                        <TextBlock Text="   - Loại phòng: " FontStyle="Italic" Style="{StaticResource MaterialDesignSubtitle2TextBlock}"/>
+                                        <TextBlock Text="{Binding Path=LoaiPhong}" FontWeight="DemiBold" Style="{StaticResource MaterialDesignSubtitle2TextBlock}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
                         </ComboBox>
                     </Grid>
                     <Grid>
@@ -69,13 +79,13 @@
                         <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Tên khách:
                         </TextBlock>
-                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
+                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Tên đầy đủ, có dấu"
                          
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding HoTen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         </TextBox>
                         <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
                                         Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom">
@@ -91,14 +101,14 @@
                         <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Số CMND:
                         </TextBlock>
-                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="000-000-000-000"
+                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Chỉ chấp nhận CMND hoặc CCCD"
                          
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          PreviewTextInput="TextBox_PreviewTextInput"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding CMND, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         </TextBox>
                     </Grid>
                     <Grid>
@@ -116,7 +126,7 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding DiaChi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         </TextBox>
                     </Grid>
                     <Grid>
@@ -136,57 +146,10 @@
                         IsEnabled="{Binding EnableGiaTri}"
                         FirstDayOfWeek="Monday"
                         SelectedDateFormat="Long"
-                        Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
+                        SelectedDate="{Binding NgayThue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
                     </Grid>
                 </StackPanel>
-                <Grid Grid.Row="1" Margin="5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" MinWidth="120"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="Auto" MinWidth="85"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                        Ngày thuê:
-                        </TextBlock>
-                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="10000"
-                            
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                            Foreground="{StaticResource SecondaryAccentBrush}" 
-                            VerticalAlignment="Center"
-                            TextAlignment="Right"
-                            IsEnabled="{Binding EnableGiaTri}"
-                            Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                        </TextBox>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Bottom" Margin="5">
-                            ₫ / ngày
-                        </TextBlock>
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" MinWidth="120"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="Auto" MinWidth="85"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="10000"
-                            
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                            Foreground="{StaticResource SecondaryAccentBrush}" 
-                            VerticalAlignment="Center"
-                            TextAlignment="Right"
-                            IsEnabled="{Binding EnableGiaTri}"
-                            Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                        </TextBox>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Bottom" Margin="5">
-                            ₫ / tháng
-                        </TextBlock>
-                    </Grid>
-                </Grid>
+                
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -194,11 +157,11 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Hủy" Background="{StaticResource WarningHueBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"
+                            Width="150" Height="35" Command="{Binding ResetAllCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
                     <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"
+                            Width="150" Height="35" Command="{Binding ConfirmCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
                 </Grid>
             </Grid>
