@@ -70,6 +70,23 @@ namespace QuanLyDuLich2.ViewModel
                 });
             }
         }
+        
+        public ICommand LoaiPhongCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    //IsVisible = "Visible";
+                    //ResetThongTinPhong();
+                    SelectedPhong = null;
+                    var page = new RoomType_Page(this);
+                    this.FrameContent = page;
+
+                });
+            }
+        }
 
         public ICommand SelectedPhongChange
         {

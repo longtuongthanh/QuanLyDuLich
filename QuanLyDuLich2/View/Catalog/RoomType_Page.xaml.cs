@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDuLich2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace QuanLyDuLich2.View.Catalog
         public RoomType_Page()
         {
             InitializeComponent();
+        }
+
+        public RoomType_Page(ViewRoom_ViewModel parent)
+        {
+            InitializeComponent();
+            DataContext = new RoomType_ViewModel(parent);
         }
     }
 }

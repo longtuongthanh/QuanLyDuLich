@@ -156,6 +156,7 @@ namespace QuanLyDuLich2.ViewModel
                     SaveLoaiPhong();
                     IsDialogOpen = false;
                     ResetDialog();
+                    MessageBox.Show("Đã lưu loại phòng thành công!");
                 });
             }
         }
@@ -193,6 +194,7 @@ namespace QuanLyDuLich2.ViewModel
                 x =>
                 {
                     Save();
+                    MessageBox.Show("Đã lưu thành công!");
                 });
             }
         }

@@ -107,10 +107,16 @@
                 </Border>
 
                 <Grid Grid.Row="1">
-                    <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 20, 20, 0"
-                                Command="{Binding AddCommand}" MinWidth="120">
-                        Thêm mới
-                    </Button>
+                    <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Top">
+                        <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 20, 20, 0"
+                                    Command="{Binding AddCommand}" MinWidth="120">
+                            Thêm mới
+                        </Button>
+                        <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 20, 20, 0"
+                                    Command="{Binding LoaiPhongCommand}" MinWidth="120">
+                            Quản lí loại phòng
+                        </Button>
+                    </WrapPanel>
                 </Grid>
 
                 <Grid Grid.Row="2" Margin="20">
