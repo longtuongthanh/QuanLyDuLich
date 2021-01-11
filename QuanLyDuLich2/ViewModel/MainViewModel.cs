@@ -13,6 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Threading;
+using QuanLyDuLich2.Command;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -184,6 +185,7 @@ namespace QuanLyDuLich2.ViewModel
 
         #endregion
 
+        public tbTaiKhoan user = null;
         public bool isLoaded = false;
 
         #region Function
@@ -384,7 +386,7 @@ namespace QuanLyDuLich2.ViewModel
             NewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new NewServiceOrders_Page();
+                FrameContent = new NewServiceOrders_Page(null);
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new TraCuu_ViewModel();
             });
@@ -411,6 +413,53 @@ namespace QuanLyDuLich2.ViewModel
                     Application.Current.Shutdown();
                 }
             });
+        }
+    }
+}
+
+namespace QuanLyDuLich2.Model
+{
+    public partial class tbTaiKhoan
+    {
+        public enum UserTypes
+        {
+            QuanLy = 0,
+            KeToan = 1,
+            LeTan = 2,
+            Unknown = 3
+        }
+        public UserTypes UserType
+        {
+            get
+            {
+                switch (LoaiTaiKhoan)
+                {
+                    case "Quản lý":
+                        return UserTypes.QuanLy;
+                    case "Kế toán":
+                        return UserTypes.KeToan;
+                    case "Lễ tân":
+                        return UserTypes.LeTan;
+                    default:
+                        return UserTypes.Unknown;
+                }
+            }
+            set
+            {
+                switch (value)
+                {
+                    case UserTypes.QuanLy:
+                        LoaiTaiKhoan = "Quản lý";
+                        break;
+                    case UserTypes.KeToan:
+                        LoaiTaiKhoan = "Kế toán";
+                        break;
+                    case UserTypes.LeTan:
+                        break;
+                    case UserTypes.Unknown:
+                        break;
+                }
+            }
         }
     }
 }

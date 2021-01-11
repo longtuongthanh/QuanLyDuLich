@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QuanLyDuLich2.Model;
 
 namespace QuanLyDuLich2.View
 {
@@ -21,7 +22,7 @@ namespace QuanLyDuLich2.View
     /// </summary>
     public partial class NewServiceOrders_Page : Page
     {
-        public NewServiceOrders_Page()
+        public NewServiceOrders_Page(tbPhieuDichVu phieuDichVu)
         {
             InitializeComponent();
         }

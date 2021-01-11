@@ -13,12 +13,12 @@ namespace QuanLyDuLich2.Command
         private readonly Action<T> _execute;
 
         public RelayCommand(Action<T> execute)
-           : this(execute, null)
+           : this(null, execute)
         {
             _execute = execute;
         }
 
-        public RelayCommand(Action<T> execute, Predicate<T> canExecute)
+        public RelayCommand(Predicate<T> canExecute, Action<T> execute)
         {
             if (execute == null)
             {
@@ -61,10 +61,14 @@ namespace QuanLyDuLich2.Command
         private Action<object> _execute;
         private Predicate<object> _canExecute;
 
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
+        public RelayCommand(Predicate<object> canExecute, Action<object> execute)
         {
             _execute = execute;
             _canExecute = canExecute;
+        }
+        public RelayCommand(Action<object> execute) : this(null, execute)
+        {
+            _execute = execute;
         }
 
         public bool CanExecute(object parameter)

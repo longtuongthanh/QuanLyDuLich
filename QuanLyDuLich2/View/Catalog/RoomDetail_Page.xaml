@@ -8,6 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="400"
       Title="RoomDetail_Page"
       
+      DataContext="{StaticResource ViewRoomVM}"
       
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"

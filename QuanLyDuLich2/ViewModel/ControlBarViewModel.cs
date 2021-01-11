@@ -12,6 +12,7 @@ using System.Windows.Threading;
 using QuanLyDuLich2.Model;
 using System.Collections.ObjectModel;
 using QuanLyDuLich2.Helper;
+using QuanLyDuLich2.Command;
 
 namespace QuanLyDuLich2.ViewModel
 {

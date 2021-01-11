@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media.TextFormatting;
 using MessageBox = System.Windows.Forms.MessageBox;
+using QuanLyDuLich2.Command;
 
 namespace QuanLyDuLich2.ViewModel
 {

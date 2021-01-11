@@ -16,7 +16,9 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      
+      DataContext="{StaticResource ViewServiceOrdersVM}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -72,7 +74,7 @@
                          Style="{StaticResource MaterialDesignTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding FilterKhach, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                                 </TextBox>
 
                             </Grid>
@@ -88,18 +90,23 @@
                                     Style="{StaticResource MaterialDesignDatePicker}" 
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
-                                    IsEnabled="{Binding EnableGiaTri}"
                                     FirstDayOfWeek="Monday"
                                     SelectedDateFormat="Short" FontSize="18"
-                                    Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
+                                    SelectedDate="{Binding FilterDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
                             </Grid>
                         </Grid>
                         <Grid Grid.Column="1">
                             <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                                     Kind="Search" Margin="10,0">
+                                                     Kind="Search" Margin="10,0" >
                                 <materialDesign:PackIcon.LayoutTransform>
                                     <ScaleTransform ScaleX="2" ScaleY="2"/>
                                 </materialDesign:PackIcon.LayoutTransform>
+
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseDown">
+                                        <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                             </materialDesign:PackIcon>
                         </Grid>
                     </Grid>
@@ -107,7 +114,7 @@
 
                 <Grid Grid.Row="1">
                     <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 20, 20, 0"
-                                Command="{Binding AddCammand}" MinWidth="120">
+                                Command="{Binding NewServiceOrderCammand}" MinWidth="120">
                         Thêm mới
                     </Button>
                 </Grid>
@@ -132,14 +139,9 @@
                                 Margin="0,20,0,20"
                                 materialDesign:ListViewAssist.ListViewItemPadding="10"
                                 materialDesign:ListBoxAssist.IsToggle="False"
-                                SelectedItem="{Binding SelectedPhong, Mode=TwoWay}"
+                                SelectedItem="{Binding SelectedServiceOrder, Mode=TwoWay}"
                                 SelectionMode="Single"
-                                ItemsSource="{Binding dsPhong}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding SelectedPhongChange}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
+                                ItemsSource="{Binding dsServiceOrder}">
                                 <ListBox.ItemTemplate>
 
                                     <DataTemplate>
@@ -150,9 +152,9 @@
                                                 <ColumnDefinition Width="5*"/>
                                                 <ColumnDefinition Width="2*" MinWidth="100"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding SoPhong}"></TextBlock>
-                                            <TextBlock Grid.Column="1" FontSize="18" Margin="0" Text="{Binding LoaiPhong}"></TextBlock>
-                                            <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding sTinhTrang}"></TextBlock>
+                                            <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding ThoiGian, StringFormat='dd/MM/yyyy'}"></TextBlock>
+                                            <TextBlock Grid.Column="1" FontSize="18" Margin="0" Text="{Binding tbKhach.HoTen}"></TextBlock>
+                                            <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding ThanhTien, StringFormat={}{0:N}₫}"></TextBlock>
                                         </Grid>
                                         <!--/Button-->
                                     </DataTemplate>
@@ -188,25 +190,25 @@
                                 <WrapPanel Margin="10">
                                     <TextBlock FontSize="18" VerticalAlignment="Top"> Ngày:</TextBlock>
                                     <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding SelectedPhong.SoPhong, Mode=OneWay}">
+                                            Text="{Binding SelectedServiceOrder?.ThoiGian, Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
                                 <WrapPanel Margin="10">
                                     <TextBlock FontSize="18"> Khách:</TextBlock>
                                     <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding SelectedPhong.LoaiPhong, Mode=OneWay}">
+                                            Text="{Binding SelectedServiceOrder?.tbKhach.HoTen, Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
                                 <WrapPanel Margin="10">
                                     <TextBlock FontSize="18"> Thành tiền:</TextBlock>
                                     <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding SelectedPhong.sTinhTrang, Mode=OneWay}">
+                                            Text="{Binding SelectedServiceOrder?.ThanhTien, Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
                                 <WrapPanel Margin="10">
-                                    <TextBlock FontSize="18"> Đã thanh toán:</TextBlock>
+                                    <TextBlock FontSize="18"> Trạng thái:</TextBlock>
                                     <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding DonGiaThang, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                            Text="{Binding SelectedIsPaid, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
                             </StackPanel>
@@ -221,9 +223,10 @@
                         <!-- show ViewServiceOrders 
                         Page with all actions disabled -->
                         <Button
-                                Visibility="{Binding IsVisible}"
+                                IsEnabled="{Binding IsViewDetailEnabled}"
                                 FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding ViewServiceOrderDetail}" MinWidth="120">
+                                Command="{Binding ViewServiceOrderDetail}" MinWidth="120" 
+                                CommandParameter="{Binding SelectedServiceOrder}">
                             Xem chi tiết
                         </Button>
                     </Grid>
