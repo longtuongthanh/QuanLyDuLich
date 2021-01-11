@@ -7,10 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using QuanLyDuLich2.Command;
+using System.Windows.Controls;
+using QuanLyDuLich2.View.Catalog;
 
 namespace QuanLyDuLich2.ViewModel
 {
-    class ViewRoom_ViewModel : BaseViewModel
+    public class ViewRoom_ViewModel : BaseViewModel
     {
         public ViewRoom_ViewModel()
         {
@@ -35,31 +37,40 @@ namespace QuanLyDuLich2.ViewModel
             set { _SelectedPhong = value; OnPropertyChanged(); }
         }
 
-        private string _Khach;
+        private Page _FrameContent;
 
-        public string Khach
+        public Page FrameContent
         {
-            get { return _Khach; }
-            set { _Khach = value; OnPropertyChanged(); }
+            get { return _FrameContent; }
+            set { _FrameContent = value; OnPropertyChanged(); }
         }
 
-        private string _IsVisible = "Collapsed";
-
-        public string IsVisible
-        {
-            get { return _IsVisible; }
-            set { _IsVisible = value; OnPropertyChanged(); }
-        }
-
-        private string _XoaButton;
-
-        public string XoaButton
-        {
-            get { return _XoaButton; }
-            set { _XoaButton = value; OnPropertyChanged(); }
-        }
+        public bool ShowAddRoom = false;
         #endregion
         #region Command
+        public ICommand AddCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    //IsVisible = "Visible";
+                    //ResetThongTinPhong();
+                    if (!ShowAddRoom)
+                    {
+                        SelectedPhong = null;
+                        var page = new EditRoom_Page(this);
+                        this.FrameContent = page;
+                    }
+                    else
+                    {
+                        
+                    }
+                });
+            }
+        }
+
         public ICommand SelectedPhongChange
         {
             get
@@ -67,67 +78,28 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
-                    IsVisible = "Visible";
-                    ResetThongTinPhong();
-                });
-            }
-        }
-        public ICommand XoaPhong
-        {
-            get
-            {
-                return new RelayCommand(
-                x =>
-                {
-                    if (SelectedPhong.TinhTrang != 4)
+                    //IsVisible = "Visible";
+                    //ResetThongTinPhong();
+                    if (SelectedPhong != null)
                     {
-                        SelectedPhong.TinhTrang = 4;
-                        DataProvider.Ins.DB.SaveChanges();
-                        ResetPhong();
-                        ResetThongTinPhong();
+                        var page = new RoomDetail_Page(SelectedPhong, this);
+                        this.FrameContent = page;
                     }
                     else
                     {
-                        SelectedPhong.TinhTrang = 0;
-                        DataProvider.Ins.DB.SaveChanges();
-                        ResetPhong();
-                        ResetThongTinPhong();
+                        this.FrameContent = null;
                     }
                 });
             }
         }
         #endregion
         #region Function
-        void ResetPhong()
+        public void ResetPhong()
         {
             dsPhong.Clear();
             foreach(tbPhong item in DataProvider.Ins.DB.tbPhongs)
             {
                 dsPhong.Add(item);
-            }
-        }
-
-        void ResetThongTinPhong()
-        {
-            if(SelectedPhong != null)
-            {
-                if (SelectedPhong.tbPhieuThuePhongs.Count != 0 && SelectedPhong.TinhTrang == 1)
-                    Khach = SelectedPhong.tbPhieuThuePhongs.Last().tbKhach.HoTen??"Lỗi";
-                else
-                    Khach = "Không có";
-                if(SelectedPhong.TinhTrang == 4)
-                {
-                    XoaButton = "Khôi phục";
-                }
-                else
-                {
-                    XoaButton = "Xoá";
-                }
-            }
-            else
-            {
-                Khach = "";
-                IsVisible = "Collapsed";
             }
         }
         #endregion

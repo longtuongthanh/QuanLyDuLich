@@ -17,142 +17,150 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="Auto" MinHeight="50"/>
-        </Grid.RowDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel Orientation="Vertical" Margin="5" Width="Auto">
-                <!--Header-->
-                <StackPanel Margin="5">
-                    <!-- Text: Phòng mới / Thay đổi thông tin phòng -->
-                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+        <materialDesign:DialogHost
+              IsOpen="{Binding IsDialogOpen, Mode=TwoWay}"
+              CloseOnClickAway="True"
+              Style="{StaticResource MaterialDesignEmbeddedDialogHost}"
+              DialogMargin="8">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <TextBlock FontWeight="Bold" FontSize="18" Text="Thêm loại phòng mới">
+                    </TextBlock>
+                    <TextBox
+                        FontSize="18"
+                    materialDesign:HintAssist.Hint="Loại phòng"
+                    materialDesign:HintAssist.IsFloating="True"
+                    Foreground="{StaticResource SecondaryAccentBrush}" 
+                    HorizontalAlignment="Stretch"
+                    x:Name="LoaiPhongTextBox" 
+                    Text="{Binding newLoaiPhong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </TextBox>
+                    <TextBox Grid.Column="1"
+                              FontSize="18"
+                        materialDesign:HintAssist.Hint="Diện tích"
+                        materialDesign:HintAssist.IsFloating="True"
+                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                        VerticalAlignment="Center"
+                        Text="{Binding DienTich, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                    <TextBox Grid.Column="1"
+                              FontSize="18"
+                        materialDesign:HintAssist.Hint="Đơn giá ngày"
+                        materialDesign:HintAssist.IsFloating="True"
+                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                        VerticalAlignment="Center"
+                        Text="{Binding DonGiaNgay, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                    <TextBox Grid.Column="1"
+                              FontSize="18"
+                        materialDesign:HintAssist.Hint="Đơn giá tháng"
+                        materialDesign:HintAssist.IsFloating="True"
+                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                        VerticalAlignment="Center"
+                        Text="{Binding DonGiaThang, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                    <StackPanel
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">        
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            IsDefault="True"
+                            Margin="0 8 8 0"
+                                 FontSize="18"
+                            Command="{Binding SaveLoai}">
+                            Lưu
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            IsCancel="True"
+                            Margin="0 8 8 0"
+                                 FontSize="18"
+                            Command="{Binding CancelLoai}">
+                            Huỷ
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="Auto" MinHeight="50"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Orientation="Vertical" Margin="5" Width="Auto">
+                        <!--Header-->
+                        <StackPanel Margin="5">
+                            <!-- Text: Phòng mới / Thay đổi thông tin phòng -->
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
                                     TextWrapping="Wrap" TextAlignment="Center"
                                     Text="{Binding TitleText}"
                                     ></TextBlock>
-                </StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="128"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="40"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                        Tên khách:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nguyễn Văn A"
-                         
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        </StackPanel>
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" MinWidth="128"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="Auto" MinWidth="40"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Số phòng:
+                            </TextBlock>
+                            <TextBox Grid.Column="1"
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}" FontSize="18"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </TextBox>
-                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
-                                        Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Contact" Height="30" Width="30"/>
-                    </Button>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="128"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="40"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                         IsEnabled="{Binding IsAdd}" FontSize="18"
+                         Text="{Binding SoPhong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding SoPhongChange}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
+                                        Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" MinWidth="128"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="Auto" MinWidth="40"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Loại phòng:
-                    </TextBlock>
-                    <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Căn hộ 3A"
+                            </TextBlock>
+                            <ComboBox Grid.Column="1"
                          FontSize="18"
-                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </ComboBox>
-                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
-                                        Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="PlusThick" Height="30" Width="30"/>
-                    </Button>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="128"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="40"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Top" Margin="5,20,5,5">
-                         Địa chỉ:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Tầng X, Tòa A"
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                         Foreground="{StaticResource SecondaryAccentBrush}" 
-                         VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}" FontSize="18"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
-                    </TextBox>
-                </Grid>
+                         ItemsSource="{Binding ListLoaiPhong, Mode=TwoWay}"
+                         SelectedValue="{Binding SelectedLoaiPhong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                            </ComboBox>
+                            <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
+                                        Command="{Binding AddLoaiPhong}" VerticalAlignment="Bottom">
+                                <materialDesign:PackIcon Kind="PlusThick" Height="30" Width="30"/>
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
 
-                <Grid>
+                <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="128"/>
                         <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="85"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                                        Đơn giá ngày:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="10000"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                        Foreground="{StaticResource SecondaryAccentBrush}" 
-                                        VerticalAlignment="Center"
-                                        TextAlignment="Right"
-                                        IsEnabled="{Binding EnableGiaTri}"
-                                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </TextBox>
-                    <TextBlock Grid.Column="2" VerticalAlignment="Bottom" Margin="5">
-                                        ₫ / ngày
-                    </TextBlock>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="128"/>
                         <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="85"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                                        Đơn giá tháng:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="10000"
-                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                        Foreground="{StaticResource SecondaryAccentBrush}" 
-                                        VerticalAlignment="Center"
-                                        TextAlignment="Right"
-                                        IsEnabled="{Binding EnableGiaTri}"
-                                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </TextBox>
-                    <TextBlock Grid.Column="2" VerticalAlignment="Bottom" Margin="5">
-                                        ₫ / tháng
-                    </TextBlock>
-                </Grid>
-            </StackPanel>
-        </ScrollViewer>
-
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
+                    <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Hủy" Background="{StaticResource WarningHueBrush}"
                             Width="150" Height="35" Command="{Binding CancelCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
-            <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            />
+                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            materialDesign:HintAssist.Hint="{Binding SaveToolTip, Mode=TwoWay}"
+                            materialDesign:HintAssist.IsFloating="True"
+                            IsEnabled="{Binding IsEnableSave}"
                             Margin="5" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
-        </Grid>
+                            Width="150" Height="35" Command="{Binding SaveCommand}"
+                            />
+                </Grid>
+            </Grid>
+        </materialDesign:DialogHost>
     </Grid>
 </Page>
