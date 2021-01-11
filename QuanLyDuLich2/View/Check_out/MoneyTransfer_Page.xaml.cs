@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDuLich2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace QuanLyDuLich2.View
         public MoneyTransfer_Page()
         {
             InitializeComponent();
+            this.DataContext = new MoneyTransfer_ViewModel("", 0, null);
+        }
+
+        public MoneyTransfer_Page(string Khach, long SoTien, Receipt_ViewModel go_back)
+        {
+            InitializeComponent();
+            this.DataContext = new MoneyTransfer_ViewModel(Khach, SoTien, go_back);
         }
     }
 }

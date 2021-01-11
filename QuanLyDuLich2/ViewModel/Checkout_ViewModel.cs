@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.View;
+using System.Windows.Forms;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -111,6 +112,7 @@ namespace QuanLyDuLich2.ViewModel
                 x =>
                 {
                     Luu();
+                    MainViewModel.Ins.Checkout_Page_SelectedCommand.Execute(null);
                 });
             }
         }
@@ -131,6 +133,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             SelectedPhieuThue.NgayTra = NgayTra;
             DataProvider.Ins.DB.SaveChanges();
+            MessageBox.Show("Đã lưu thành công!","Trả phòng");
         }
 
         void ShowRecieptPage()
