@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyDuLich2.ViewModel;
+using QuanLyDuLich2.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +20,9 @@ namespace QuanLyDuLich2.View
     /// <summary>
     /// Interaction logic for BaoCaoDoanhSo_Page.xaml
     /// </summary>
-    public partial class BaoCaoDoanhSo_Page : Page
+    public partial class BaoCaoTheoNgay_Page : Page
     {
-        public BaoCaoDoanhSo_Page()
+        public BaoCaoTheoNgay_Page()
         {
             InitializeComponent();
         }

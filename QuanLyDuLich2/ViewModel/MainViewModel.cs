@@ -110,6 +110,9 @@ namespace QuanLyDuLich2.ViewModel
         public ICommand ViewServiceOrders_Page_SelectedCommand { get; set; }
         public ICommand Receipt_Page_SelectedCommand { get; set; }
         public ICommand DangXuat_SelectedCommand { get; set; }
+        public ICommand ViewReportByDay_Page_SelectedCommand { get; set; }
+        public ICommand ViewReportByMonth_Page_SelectedCommand { get; set; }
+        public ICommand ViewIssue_Page_SelectedCommand { get; set; }
         #endregion
 
         private bool _Enable_QLNS;
@@ -377,6 +380,24 @@ namespace QuanLyDuLich2.ViewModel
             });
             ViewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 FrameContent = new ViewServiceOrders_Page();
+            });
+            ViewReportByDay_Page_SelectedCommand= new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+                
+                FrameContent = new BaoCaoTheoNgay_Page();
+                Util.ShowTodoMessage();
+                //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
+            });
+            ViewReportByMonth_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+
+                FrameContent = new BaoCaoTongHop_Page();
+                Util.ShowTodoMessage();
+                //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
+            });
+            ViewIssue_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+
+                FrameContent = new ViewSuCo_Page();
+                Util.ShowTodoMessage();
+                //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
             });
             DangXuat_SelectedCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 System.Windows.Forms.DialogResult kq = System.Windows.Forms.MessageBox.Show("Bạn có chắc đăng xuất tài khoản này không?", "Đăng xuất", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question);

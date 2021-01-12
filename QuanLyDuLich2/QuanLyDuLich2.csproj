@@ -149,6 +149,7 @@
     <Compile Include="Command\EventRaiser.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Helper\DatabaseCheck.cs" />
+    <Compile Include="Helper\ListSuCo.cs" />
     <Compile Include="Helper\FilterHelper.cs" />
     <Compile Include="Helper\Util.cs" />
     <Compile Include="Model\QLDL2_Database.Context.cs">
@@ -250,9 +251,12 @@
     <Compile Include="ViewModel\RoomDetail_ViewModel.cs" />
     <Compile Include="ViewModel\RoomType_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoomRent_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewBaoCaoTheoNgay_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewBaoCaoTongHop_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoom_ViewModel.cs" />
     <Compile Include="ViewModel\ViewServiceOrders_ViewModel.cs" />
     <Compile Include="ViewModel\ViewService_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewSuCo_ViewModel.cs" />
     <Compile Include="View\Catalog\EditRoom_Page.xaml.cs">
       <DependentUpon>EditRoom_Page.xaml</DependentUpon>
     </Compile>
