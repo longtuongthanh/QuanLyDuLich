@@ -240,7 +240,6 @@
     <Compile Include="ViewModel\RoomDetail_ViewModel.cs" />
     <Compile Include="ViewModel\RoomType_ViewModel.cs" />
     <Compile Include="ViewModel\ViewActivity_ViewModel.cs" />
-    <Compile Include="ViewModel\ViewBaoCaoTheoNgay_ViewModel.cs" />
     <Compile Include="ViewModel\ViewBaoCaoTongHop_ViewModel.cs" />
     <Compile Include="ViewModel\ViewReceipt_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoomRent_ViewModel.cs" />
