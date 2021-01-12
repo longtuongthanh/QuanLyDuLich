@@ -190,19 +190,19 @@
                                 <WrapPanel Margin="10">
                                     <TextBlock FontSize="18" VerticalAlignment="Top"> Ngày:</TextBlock>
                                     <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding SelectedServiceOrder?.ThoiGian, Mode=OneWay}">
+                                            Text="{Binding SelectedServiceOrder.ThoiGian, Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
                                 <WrapPanel Margin="10">
                                     <TextBlock FontSize="18"> Khách:</TextBlock>
                                     <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding SelectedServiceOrder?.tbKhach.HoTen, Mode=OneWay}">
+                                            Text="{Binding SelectedServiceOrder.tbKhach.HoTen, Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
                                 <WrapPanel Margin="10">
                                     <TextBlock FontSize="18"> Thành tiền:</TextBlock>
                                     <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding SelectedServiceOrder?.ThanhTien, Mode=OneWay}">
+                                            Text="{Binding SelectedServiceOrder.ThanhTien, Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
                                 <WrapPanel Margin="10">
@@ -219,7 +219,7 @@
                 <!--Action bar-->
                 <Grid Grid.Row="1"
                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <Grid Grid.Column="1" Visibility="{Binding Action2Visibility}">
+                    <Grid Grid.Column="1">
                         <!-- show ViewServiceOrders 
                         Page with all actions disabled -->
                         <Button

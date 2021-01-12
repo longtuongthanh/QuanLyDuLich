@@ -398,11 +398,11 @@ namespace QuanLyDuLich2.ViewModel
                 //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
             });
             Receipt_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
                 FrameContent = new Receipt_Page();
                 Util.ShowTodoMessage();
-                //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
+            });
+            ViewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+                FrameContent = new ViewServiceOrders_Page();
             });
             DangXuat_SelectedCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 System.Windows.Forms.DialogResult kq = System.Windows.Forms.MessageBox.Show("Bạn có chắc đăng xuất tài khoản này không?", "Đăng xuất", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question);

@@ -235,5 +235,22 @@ namespace QuanLyDuLich2.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ThanhTien"));
         }
+
+        public ObservableCollection<tbDichVu> dsServices
+        {
+            get
+            {
+                IEnumerable<tbDichVu> tb = DataProvider.Ins.DB.tbDichVus;
+
+                return new ObservableCollection<tbDichVu>(tb.Select(
+                    item => new tbDichVu
+                    {
+                        ChiTiet = item.ChiTiet,
+                        DonGia = item.DonGia,
+                        ID = item.ID,
+                        Ten = item.Ten
+                    }));
+            }
+        }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using QuanLyDuLich2.Model;
+using QuanLyDuLich2.ViewModel;
 
 namespace QuanLyDuLich2.View
 {
@@ -25,6 +26,7 @@ namespace QuanLyDuLich2.View
         public NewServiceOrders_Page(tbPhieuDichVu phieuDichVu)
         {
             InitializeComponent();
+            DataContext = new NewServiceOrders_ViewModel(phieuDichVu);
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

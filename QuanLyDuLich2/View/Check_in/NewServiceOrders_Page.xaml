@@ -98,7 +98,7 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="False"
-                         Text="{Binding Room, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding Room, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
                     </TextBox>
                 </Grid>
                 <Grid>

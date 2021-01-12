@@ -83,7 +83,7 @@ namespace QuanLyDuLich2.ViewModel
             get
             {
                 return new RelayCommand(
-                    obj => { return MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan; }, 
+                    obj => { return true; },//MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan; }, 
                     obj =>
                     {
                         MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(null); 
