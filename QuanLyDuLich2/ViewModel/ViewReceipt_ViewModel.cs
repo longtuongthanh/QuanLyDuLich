@@ -12,16 +12,17 @@ using System.Windows.Forms;
 
 namespace QuanLyDuLich2.ViewModel
 {
-    public class Receipt_ViewModel : BaseViewModel
+    public class ViewReceipt_ViewModel : BaseViewModel
     {
-        public Receipt_ViewModel()
+        public ViewReceipt_ViewModel()
         {
 
         }
 
-        public Receipt_ViewModel(tbPhieuThuePhong temp)
+        public ViewReceipt_ViewModel(tbHoaDon x)
         {
-            SelectedPhieuThue = temp;
+            SelectedHoaDon = x;
+            SelectedPhieuThue = x.tbPhieuThuePhong;
             TinhTien();
             GetDSDichVu();
             TinhTienDichVu();
@@ -31,6 +32,8 @@ namespace QuanLyDuLich2.ViewModel
         private int saved_id;
 
         public int id_ck = -1;
+
+        private tbHoaDon SelectedHoaDon;
 
         private tbPhieuThuePhong _SelectedPhieuThue;
 
@@ -47,7 +50,7 @@ namespace QuanLyDuLich2.ViewModel
             set { _dsDichVu = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<tbChiTietPhieuDichVu> _ListDV = new ObservableCollection<tbChiTietPhieuDichVu>() ;
+        private ObservableCollection<tbChiTietPhieuDichVu> _ListDV = new ObservableCollection<tbChiTietPhieuDichVu>();
 
         public ObservableCollection<tbChiTietPhieuDichVu> ListDV
         {
@@ -128,7 +131,7 @@ namespace QuanLyDuLich2.ViewModel
         }
 
         public ICommand TienDaNhanChange
-        { 
+        {
             get
             {
                 return new RelayCommand(
@@ -163,15 +166,14 @@ namespace QuanLyDuLich2.ViewModel
             }
         }
 
-        public ICommand SaveCommand
+        public ICommand CancelCommand
         {
             get
             {
                 return new RelayCommand(
                 x =>
                 {
-                    LuuHoaDon();
-                    
+                    TroVeMain();
                 });
             }
         }
@@ -183,36 +185,25 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
-                    LuuVaIn();
-                    
+                    var window = new Receipt_PrintPreview(SelectedHoaDon);
+                    window.ShowDialog();
                 });
             }
         }
 
-        public ICommand TransferCommand
-        {
-            get
-            {
-                return new RelayCommand(
-                x =>
-                {
-                    PhieuChuyenKhoan();
-                });
-            }
-        }
 
         void TinhTien()
         {
             long dongiathang = (long)SelectedPhieuThue.DonGiaThang;
             long dongiangay = (long)SelectedPhieuThue.DonGiaNgay;
-            SoNgay = (long)(SelectedPhieuThue.NgayTra.Value.Date - SelectedPhieuThue.NgayMuon.Value.Date).TotalDays+1;
+            SoNgay = (long)(SelectedPhieuThue.NgayTra.Value.Date - SelectedPhieuThue.NgayMuon.Value.Date).TotalDays + 1;
             SoTien = SoNgay / 30 * dongiathang + SoNgay % 30 * dongiangay;
         }
 
         void TinhTienDichVu()
         {
             SoTienDichVu = 0;
-            foreach(tbPhieuDichVu item in dsDichVu)
+            foreach (tbPhieuDichVu item in dsDichVu)
             {
                 SoTienDichVu += (long)item.ThanhTien;
             }
@@ -226,30 +217,24 @@ namespace QuanLyDuLich2.ViewModel
         void GetDSDichVu()
         {
             dsDichVu.Clear();
-            foreach(tbPhieuDichVu item in DataProvider.Ins.DB.tbPhieuDichVus.Where(pdv => pdv.tbHoaDon == null && pdv.Khach == SelectedPhieuThue.Khach))
+            foreach (tbPhieuDichVu item in SelectedHoaDon.tbPhieuDichVus)
             {
                 dsDichVu.Add(item);
             }
         }
 
-        void PhieuChuyenKhoan()
+        void TroVeMain()
         {
-            var page = new MoneyTransfer_Page(SelectedPhieuThue.tbKhach.HoTen,TongTien, this);
-            MainViewModel.Ins.FrameContent = page;
-        }
-
-        void TroVePhieuTraPhong()
-        {
-            var page = new Checkout_Page();
+            var page = new ViewActivity_Page();
             MainViewModel.Ins.FrameContent = page;
         }
 
         void XemChiTietPhieuDichVu()
         {
-            if(SelectedDV != null)
+            if (SelectedDV != null)
             {
                 ListDV.Clear();
-                foreach(tbChiTietPhieuDichVu item in SelectedDV.tbChiTietPhieuDichVus)
+                foreach (tbChiTietPhieuDichVu item in SelectedDV.tbChiTietPhieuDichVus)
                 {
                     ListDV.Add(item);
                 }
@@ -264,41 +249,6 @@ namespace QuanLyDuLich2.ViewModel
         }
 
         async void LuuHoaDon()
-        {
-            tbHoaDon newHoaDon = new tbHoaDon()
-            {
-                IDKhachHang = SelectedPhieuThue.Khach,
-                PhieuThuePhong = SelectedPhieuThue.ID,
-                ThanhTien = TongTien
-            };
-            if(id_ck != -1)
-            {
-                newHoaDon.PhieuChuyenKhoan = id_ck;
-            }
-            DataProvider.Ins.DB.tbHoaDons.Add(newHoaDon);
-            await DataProvider.Ins.DB.SaveChangesAsync();
-
-            ObservableCollection<tbHoaDon> clone = new ObservableCollection<tbHoaDon>();
-                
-            foreach(tbHoaDon item in DataProvider.Ins.DB.tbHoaDons)
-            {
-                clone.Add(item);
-            }
-
-            saved_id = clone.Last().ID;
-
-            foreach (tbPhieuDichVu item in DataProvider.Ins.DB.tbPhieuDichVus.Where(pdv => pdv.tbHoaDon == null && pdv.Khach == SelectedPhieuThue.Khach))
-            {
-                item.HoaDon = saved_id;
-            }
-            await DataProvider.Ins.DB.SaveChangesAsync();
-
-            MessageBox.Show("Đã lưu hoá đơn thành công!", "Hoá đơn");
-
-            TroVePhieuTraPhong();
-        }
-
-        async void LuuVaIn()
         {
             tbHoaDon newHoaDon = new tbHoaDon()
             {
@@ -327,24 +277,6 @@ namespace QuanLyDuLich2.ViewModel
                 item.HoaDon = saved_id;
             }
             await DataProvider.Ins.DB.SaveChangesAsync();
-
-            var window = new Receipt_PrintPreview(clone.Last());
-            window.ShowDialog();
-            TroVePhieuTraPhong();
-        }
-    }
-}
-
-namespace QuanLyDuLich2.Model
-{
-    partial class tbChiTietPhieuDichVu
-    {
-        public double ThanhTien
-        {
-            get
-            {
-                return DonGia * SoLuong??0;
-            }
         }
     }
 }

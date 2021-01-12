@@ -96,6 +96,12 @@
     <Reference Include="HamburgerMenu, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HamburgerMenu.0.1.0\lib\net40\HamburgerMenu.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.5.1465, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.5\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -215,11 +221,8 @@
     <Compile Include="MoSo_PrintPreview.xaml.cs">
       <DependentUpon>MoSo_PrintPreview.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PhieuRut_PrintPreview.xaml.cs">
-      <DependentUpon>PhieuRut_PrintPreview.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PhieuGui_PrintPreview.xaml.cs">
-      <DependentUpon>PhieuGui_PrintPreview.xaml</DependentUpon>
+    <Compile Include="Receipt_PrintPreview.xaml.cs">
+      <DependentUpon>Receipt_PrintPreview.xaml</DependentUpon>
     </Compile>
     <Compile Include="BaoCaoDoanhSo_PrintPreview.xaml.cs">
       <DependentUpon>BaoCaoDoanhSo_PrintPreview.xaml</DependentUpon>
@@ -236,6 +239,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ThayDoiQuyDinh_Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BaoCaoTheoNgay_ViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Checkout_ViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
@@ -243,14 +247,17 @@
     <Compile Include="ViewModel\ExchangeRate_ViewModel.cs" />
     <Compile Include="ViewModel\Home_PageViewModel.cs" />
     <Compile Include="ViewModel\Info_ViewModel.cs" />
+    <Compile Include="ViewModel\IssueViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MoneyTransfer_ViewModel.cs" />
     <Compile Include="ViewModel\NewServiceOrders_ViewModel.cs" />
+    <Compile Include="ViewModel\Receipt_PrintPreviewVM.cs" />
     <Compile Include="ViewModel\Receipt_ViewModel.cs" />
     <Compile Include="ViewModel\RoomDetail_ViewModel.cs" />
     <Compile Include="ViewModel\RoomType_ViewModel.cs" />
     <Compile Include="ViewModel\ViewActivity_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewReceipt_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoomRent_ViewModel.cs" />
     <Compile Include="ViewModel\ViewBaoCaoTheoNgay_ViewModel.cs" />
     <Compile Include="ViewModel\ViewBaoCaoTongHop_ViewModel.cs" />
@@ -284,6 +291,9 @@
     </Compile>
     <Compile Include="View\Catalog\ExchangeRate_Page.xaml.cs">
       <DependentUpon>ExchangeRate_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Check_out\ViewReceipt_Page.xaml.cs">
+      <DependentUpon>ViewReceipt_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
@@ -334,11 +344,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PhieuRut_PrintPreview.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PhieuGui_PrintPreview.xaml">
+    <Page Include="Receipt_PrintPreview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -399,6 +405,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Catalog\ExchangeRate_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Check_out\ViewReceipt_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

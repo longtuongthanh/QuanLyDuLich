@@ -141,6 +141,7 @@ namespace QuanLyDuLich2.ViewModel
         void Luu()
         {
             SelectedPhieuThue.NgayTra = NgayTra;
+            DataProvider.Ins.DB.tbPhongs.Find(SelectedPhieuThue.SoPhong).TinhTrang = 0;
             DataProvider.Ins.DB.SaveChanges();
             MessageBox.Show("Đã lưu thành công!","Trả phòng");
         }

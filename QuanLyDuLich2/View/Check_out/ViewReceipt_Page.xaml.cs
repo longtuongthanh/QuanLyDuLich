@@ -1,6 +1,4 @@
-﻿using QuanLyDuLich2.ViewModel;
-using QuanLyDuLich2.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QuanLyDuLich2.ViewModel;
+using QuanLyDuLich2.Model;
 
-namespace QuanLyDuLich2.View
+namespace QuanLyDuLich2.View.Check_out
 {
     /// <summary>
-    /// Interaction logic for BaoCaoDoanhSo_Page.xaml
+    /// Interaction logic for ViewReceipt_Page.xaml
     /// </summary>
-    public partial class BaoCaoTheoNgay_Page : Page
+    public partial class ViewReceipt_Page : Page
     {
-        public BaoCaoTheoNgay_Page()
+        public ViewReceipt_Page()
         {
             InitializeComponent();
-            DataContext = new BaoCaoTheoNgay_ViewModel();
+            this.DataContext = new Receipt_ViewModel();
+        }
+
+        public ViewReceipt_Page(tbHoaDon x)
+        {
+            InitializeComponent();
+            this.DataContext = new ViewReceipt_ViewModel(x);
         }
     }
 }
