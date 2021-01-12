@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDuLich2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace QuanLyDuLich2.View
         public NewServiceOrders_Page()
         {
             InitializeComponent();
+            this.DataContext = new NewServiceOrders_ViewModel();
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
