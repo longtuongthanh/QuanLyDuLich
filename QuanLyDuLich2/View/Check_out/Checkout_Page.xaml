@@ -51,19 +51,28 @@
                 <Grid Grid.Row="0">
                     <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
                         <DockPanel LastChildFill="True">
-                            <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
-                                <materialDesign:PackIcon DockPanel.Dock="Right" Kind="Search" Margin="10,0">
+                            <Button Width="Auto" Height="Auto" Padding="0,0" Background="Transparent" Foreground="{StaticResource SecondaryAccentBrush}" BorderThickness="0" DockPanel.Dock="Right">
+                                <materialDesign:PackIcon Kind="Search" HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <materialDesign:PackIcon.LayoutTransform>
                                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                                     </materialDesign:PackIcon.LayoutTransform>
                                 </materialDesign:PackIcon>
-                                <materialDesign:PackIcon DockPanel.Dock="Right" Kind="MoreHoriz">
-                                    <materialDesign:PackIcon.LayoutTransform>
-                                        <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                    </materialDesign:PackIcon.LayoutTransform>
-                                </materialDesign:PackIcon>
-                            </WrapPanel>
-                            <TextBox VerticalContentAlignment="Center" Margin="10,0,10,0" BorderBrush="Transparent" FontWeight="SemiBold" Text="{Binding FilterText, Mode=TwoWay}"/>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
+                            <TextBox VerticalContentAlignment="Bottom"
+                                 Margin="10,0,10,0"
+                                 BorderBrush="Transparent"
+                                 FontWeight="SemiBold"
+                                 FontSize="24"
+                                 Text="{Binding FilterText, Mode=TwoWay}">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Command="{Binding SearchCommand}" Key="Return" />
+                                </TextBox.InputBindings>
+                            </TextBox>
                         </DockPanel>
                     </Border>
                 </Grid>

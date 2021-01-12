@@ -75,6 +75,9 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          Text="{Binding FilterKhach, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                    <TextBox.InputBindings>
+                                        <KeyBinding Command="{Binding SearchCommand}" Key="Return" />
+                                    </TextBox.InputBindings>
                                 </TextBox>
 
                             </Grid>
@@ -96,7 +99,7 @@
                             </Grid>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <Button Width="Auto" Height="Auto" Padding="0,0" Background="Transparent" BorderThickness="0" Foreground="Black">
+                            <Button Width="Auto" Height="Auto" Padding="0,0" Background="Transparent" BorderThickness="0"  Foreground="{StaticResource SecondaryAccentBrush}">
                                 <materialDesign:PackIcon Kind="Search" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
                                     <materialDesign:PackIcon.LayoutTransform>
                                         <ScaleTransform ScaleX="2" ScaleY="2"/>

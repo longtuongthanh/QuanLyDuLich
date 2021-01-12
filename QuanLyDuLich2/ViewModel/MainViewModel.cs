@@ -19,6 +19,8 @@ namespace QuanLyDuLich2.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        public tbTaiKhoan user;
+
         #region Variable
 
         static private Task TimerTask = null;
@@ -408,6 +410,55 @@ namespace QuanLyDuLich2.ViewModel
                     Application.Current.Shutdown();
                 }
             });
+        }
+    }
+}
+
+namespace QuanLyDuLich2.Model
+{
+    partial class tbTaiKhoan
+    {
+        public enum UserTypes
+        {
+            LeTan = 0,
+            QuanLy = 1,
+            KeToan = 2,
+            Unknown = 3
+        }
+        public UserTypes UserType
+        {
+            get
+            {
+                switch (LoaiTaiKhoan)
+                {
+                    case "Lễ tân":
+                        return UserTypes.LeTan;
+                    case "Quản lý":
+                        return UserTypes.QuanLy;
+                    case "Kế toán":
+                        return UserTypes.KeToan;
+                    default:
+                        return UserTypes.Unknown;
+                };
+            }
+            set
+            {
+                switch (value)
+                {
+                    case UserTypes.LeTan:
+                        LoaiTaiKhoan = "Lễ tân";
+                        break;
+                    case UserTypes.QuanLy:
+                        LoaiTaiKhoan = "Quản lý";
+                        break;
+                    case UserTypes.KeToan:
+                        LoaiTaiKhoan = "Kế toán";
+                        break;
+                    case UserTypes.Unknown:
+                        LoaiTaiKhoan = "Khách";
+                        break;
+                }
+            }
         }
     }
 }

@@ -80,6 +80,33 @@ namespace QuanLyDuLich2.ViewModel
             set { _newTyGia = value; OnPropertyChanged(); }
         }
 
+        private string filterText;
+        public string FilterText { get => filterText; set => filterText = value; }
+
+        bool FilterCondition(tbTyGia item)
+        {
+            if (FilterText == null || FilterText == "")
+                return true;
+            return item.NgoaiTe.ToUpper() == FilterText.ToUpper();
+        }
+        public ICommand SearchCommand
+        {
+            get => new RelayCommand(obj =>
+            {
+                ResetListTyGia();
+                List<tbTyGia> toRemove = new List<tbTyGia>();
+                foreach (var item in ListTyGia)
+                {
+                    if (!FilterCondition(item))
+                        toRemove.Add(item);
+                }
+                foreach (var item in toRemove)
+                {
+                    ListTyGia.Remove(item);
+                }
+            });
+        }
+
         public ICommand EditCommand
         {
             get
@@ -142,6 +169,7 @@ namespace QuanLyDuLich2.ViewModel
                 });
             }
         }
+
 
         void ResetDialog()
         {

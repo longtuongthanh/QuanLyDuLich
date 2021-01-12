@@ -9,6 +9,7 @@ using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.View;
 using System.Windows.Forms;
+using QuanLyDuLich2.Helper;
 
 namespace QuanLyDuLich2.ViewModel
 {
