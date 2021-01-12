@@ -51,7 +51,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <HamburgerMenu:HamburgerMenu x:Name="hamburger" MaxWidth="500" Background="{StaticResource PrimaryHueMidBrush}" MenuIconColor="#236084" SelectionIndicatorColor="#80fbdd" MenuItemForeground="FloralWhite" HorizontalAlignment="Left">
+                <HamburgerMenu:HamburgerMenu x:Name="hamburger" MaxWidth="500" Background="{StaticResource PrimaryHueMidBrush}" MenuIconColor="{StaticResource SecondaryAccentBrush}" SelectionIndicatorColor="{StaticResource PrimaryHueLightBrush}" MenuItemForeground="FloralWhite" HorizontalAlignment="Left">
                     <HamburgerMenu:HamburgerMenuItem Icon="Images/home.png" Text="Trang chủ" IsEnabled="{Binding Enable_Home}" ToolTip="{Binding Home_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
@@ -171,7 +171,7 @@
                 <!--</Grid>-->
 
                 <Grid Grid.Row="1" VerticalAlignment="Bottom">
-                    <Button Background='#49c7ab' Height="50"
+                    <Button Background="{StaticResource WarningHueBrush}" Height="50"
                                 ToolTip="Đăng xuất" Command="{Binding DangXuat_SelectedCommand}"
                                                    CommandParameter="{Binding ElementName=this_}">
                         <Image Source="Images/logout.png" Width="10" Height="10" />

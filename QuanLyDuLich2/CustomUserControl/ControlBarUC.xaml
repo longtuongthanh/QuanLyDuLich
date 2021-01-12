@@ -75,7 +75,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Row="1" Background="#49c7ab">
+                <Grid Grid.Row="1" Background="{StaticResource SecondaryAccentBrush}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>

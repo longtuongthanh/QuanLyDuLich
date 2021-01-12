@@ -6,14 +6,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <!-- primary -->
-            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#80fbdd"/>
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#fee331"/>
             <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#FFFFFF"/>
-            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#49c7ab"/>
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#eba606"/>
             <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFF"/>
-            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#00967c"/>
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#bf5c06"/>
             <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFF"/>
             <!-- accent -->
-            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#236084"/>
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#446327"/>
             <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#FFFFFF"/>
             <SolidColorBrush x:Key="WarningHueBrush" Color="#FF2244"/>
             <ResourceDictionary.MergedDictionaries>

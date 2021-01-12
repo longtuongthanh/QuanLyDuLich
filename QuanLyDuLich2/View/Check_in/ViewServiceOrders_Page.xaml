@@ -96,18 +96,18 @@
                             </Grid>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                                     Kind="Search" Margin="10,0" >
-                                <materialDesign:PackIcon.LayoutTransform>
-                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                </materialDesign:PackIcon.LayoutTransform>
-
+                            <Button Width="Auto" Height="Auto" Padding="0,0" Background="Transparent" BorderThickness="0" Foreground="Black">
+                                <materialDesign:PackIcon Kind="Search" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0">
+                                    <materialDesign:PackIcon.LayoutTransform>
+                                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                    </materialDesign:PackIcon.LayoutTransform>
+                                </materialDesign:PackIcon>
                                 <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="MouseDown">
+                                    <i:EventTrigger EventName="Click">
                                         <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
-                            </materialDesign:PackIcon>
+                            </Button>
                         </Grid>
                     </Grid>
                 </Border>
@@ -209,20 +209,19 @@
                                 </WrapPanel>
                             </StackPanel>
                             <ListBox x:Name="listbox2"
-                                Margin="0,20,0,20"
+                                Margin="0,20,0,20" Width="Auto" HorizontalAlignment="Stretch"
                                 materialDesign:ListViewAssist.ListViewItemPadding="10"
                                 materialDesign:ListBoxAssist.IsToggle="False"
                                 ItemsSource="{Binding dsServiceOrderDetail}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid>
+                                        <Grid HorizontalAlignment="Stretch">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto"/>
                                                 <RowDefinition Height="Auto"/>
                                             </Grid.RowDefinitions>
                                             <!--Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalContentAlignment="Stretch" Height="40"-->
-                                            <Grid Margin="0, 0, 0, 0" VerticalAlignment="Stretch" 
-                                          Width="{Binding ActualWidth, ElementName=listbox2}"
+                                            <Grid Margin="0, 0, 0, 0" VerticalAlignment="Stretch" Width="Auto" HorizontalAlignment="Stretch"
                                           Grid.Row="0">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="4*"/>
@@ -230,21 +229,25 @@
                                                     <ColumnDefinition Width="2*"/>
                                                     <ColumnDefinition Width="2*" MinWidth="100"/>
                                                 </Grid.ColumnDefinitions>
-                                                <ComboBox ItemsSource="{Binding dsServices}" Grid.Column="0" 
-                                                  FontSize="18" Margin="0" SelectedValuePath="Ten" 
-                                                  SelectedItem="{Binding tbDichVu, UpdateSourceTrigger=PropertyChanged}">
-                                                </ComboBox>
-                                                <Border Grid.Row="0" Margin="20,0,20,0" Padding="20,5"
+                                                <Border Grid.Column="0" Margin="20,0,20,0" Padding="20,5"
+                                                    BorderBrush="{StaticResource PrimaryHueDarkBrush}" 
+                                                    BorderThickness="1">
+                                                    <TextBlock  Grid.Column="0" 
+                                                  FontSize="18" Margin="0" 
+                                                  Text="{Binding tbDichVu.Ten, UpdateSourceTrigger=PropertyChanged}">
+                                                    </TextBlock>
+                                                </Border>
+                                                <Border Grid.Column="1" Margin="20,0,20,0" Padding="20,5"
                                                     BorderBrush="{StaticResource PrimaryHueDarkBrush}" 
                                                     BorderThickness="1">
                                                     <TextBlock Grid.Column="1" FontSize="18" Margin="0" Text="{Binding DonGia, StringFormat={}{0:N}₫, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                                                 </Border>
-                                                <Border Grid.Row="0" Margin="20,0,20,0" Padding="20,5"
+                                                <Border Grid.Column="2" Margin="20,0,20,0" Padding="20,5"
                                                     BorderBrush="{StaticResource PrimaryHueDarkBrush}" 
                                                     BorderThickness="1">
-                                                    <TextBox Grid.Column="2" FontSize="18" Margin="0" Text="{Binding SoLuong, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                                    <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding SoLuong, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                                                 </Border>
-                                                <Border Grid.Row="0" Margin="20,0,20,0" Padding="20,5"
+                                                <Border Grid.Column="3" Margin="20,0,20,0" Padding="20,5"
                                                     BorderBrush="{StaticResource PrimaryHueDarkBrush}" 
                                                     BorderThickness="1">
                                                     <TextBlock Grid.Column="3" FontSize="18" Margin="0" Text="{Binding ThanhTien, StringFormat={}{0:N}₫}"></TextBlock>

@@ -53,6 +53,7 @@ namespace QuanLyDuLich2.ViewModel
                 selectedServiceOrder = value;
                 OnPropertyChanged("IsViewDetailEnabled");
                 OnPropertyChanged("SelectedIsPaid");
+                OnPropertyChanged("dsServiceOrderDetail");
                 OnPropertyChanged();
             }
         }
@@ -93,15 +94,15 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                filterHelper_.Clear();
-
-                if (FilterDate != null)
-                    filterHelper_.Insert(item => item.ThoiGian != null && item.ThoiGian.Value.Date == FilterDate.Value.Date);
-                if (FilterKhach != null && FilterKhach != "")
-                    filterHelper_.Insert(item => Util.Match(item.tbKhach.HoTen, FilterKhach));
-
                 return new RelayCommand(obj =>
                 {
+                    filterHelper_.Clear();
+
+                    if (FilterDate != null)
+                        filterHelper_.Insert(item => item.ThoiGian != null && item.ThoiGian.Value.Date == FilterDate.Value.Date);
+                    if (FilterKhach != null && FilterKhach != "")
+                        filterHelper_.Insert(item => Util.Match(item.tbKhach.HoTen, FilterKhach));
+
                     _dsServiceOrder = null;
                     OnPropertyChanged("dsServiceOrder");
                 });
@@ -123,7 +124,8 @@ namespace QuanLyDuLich2.ViewModel
                 if (_dsServiceOrderDetail == null)
                 {
                     var temp = DataProvider.Ins.DB.tbDichVus.ToList();
-                    IEnumerable<tbChiTietPhieuDichVu> tb = DataProvider.Ins.DB.tbChiTietPhieuDichVus;
+                    IEnumerable<tbChiTietPhieuDichVu> tb = DataProvider.Ins.DB.tbChiTietPhieuDichVus
+                        .Where(item => item.PhieuDichVu == SelectedServiceOrder.ID);
                     _dsServiceOrderDetail = new ObservableCollection<tbChiTietPhieuDichVu>(tb.Select(
                         item => new tbChiTietPhieuDichVu
                         {
