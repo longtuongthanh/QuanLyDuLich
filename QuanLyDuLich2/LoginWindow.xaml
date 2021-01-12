@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyDuLich2"
         mc:Ignorable="d"
-        
+        xmlns:b="clr-namespace:QuanLyDuLich2.Helper"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"

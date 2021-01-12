@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using QuanLyDuLich2.Command;
+using QuanLyDuLich2.Helper;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -53,6 +54,35 @@ namespace QuanLyDuLich2.ViewModel
 
         #endregion
         #region Command
+
+        private string filterText;
+        public string FilterText { get => filterText; set => filterText = value; }
+
+        bool FilterCondition(tbDichVu item)
+        {
+            if (FilterText == null || FilterText == "")
+                return true;
+            return Util.Match(FilterText.ToLower(), item.Ten.ToLower()) ||
+                Util.Match(FilterText.ToLower(), item.DonGia.ToString());
+        }
+        public ICommand SearchCommand
+        {
+            get => new RelayCommand(obj =>
+            {
+                ResetDichVu();
+                List<tbDichVu> toRemove = new List<tbDichVu>();
+                foreach (var item in dsDichVu)
+                {
+                    if (!FilterCondition(item))
+                        toRemove.Add(item);
+                }
+                foreach (var item in toRemove)
+                {
+                    dsDichVu.Remove(item);
+                }
+            });
+        }
+
         public ICommand SelectedDichVuChange
         {
             get

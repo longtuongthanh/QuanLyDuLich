@@ -157,7 +157,7 @@
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
                     <HamburgerMenu:HamburgerMenuItem 
-                                                     Icon="Images/OrderList.png" Text="Sự cố" 
+                                                     Icon="Images/spam.png" Text="Sự cố" 
                                                      IsEnabled="{Binding Enable_ViewIssue}" ToolTip="{Binding ViewIssue_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>

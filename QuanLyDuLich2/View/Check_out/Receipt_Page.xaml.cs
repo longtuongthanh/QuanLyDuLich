@@ -38,7 +38,7 @@ namespace QuanLyDuLich2.View
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             var textBox = sender as TextBox;
-            e.Handled = Regex.IsMatch(e.Text, "[^0-9,]+");
+            e.Handled = Regex.IsMatch(e.Text, "[^0-9,]+.");
         }
     }
 }

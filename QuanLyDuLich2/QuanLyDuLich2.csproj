@@ -155,6 +155,7 @@
     <Compile Include="Command\EventRaiser.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Helper\DatabaseCheck.cs" />
+    <Compile Include="Helper\InputBindingManager.cs" />
     <Compile Include="Helper\ListSuCo.cs" />
     <Compile Include="Helper\FilterHelper.cs" />
     <Compile Include="Helper\Util.cs" />
@@ -536,15 +537,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\home.png" />
-    <Resource Include="Images\1-MoSo.png" />
     <Resource Include="Images\10-info.png" />
     <Resource Include="Images\11-logout.png" />
-    <Resource Include="Images\2-GuiTien.png" />
-    <Resource Include="Images\3-RutTien.png" />
-    <Resource Include="Images\5-BaoCaoDoanhThu.png" />
-    <Resource Include="Images\6-BaoCaoMoDong.png" />
-    <Resource Include="Images\7-ThayDoiQuyDinh.png" />
-    <Resource Include="Images\8-QuanLyNhanSu.png" />
     <Resource Include="Images\favorite.png" />
     <Resource Include="Images\list.png" />
     <Resource Include="Images\logoms.png" />
@@ -554,7 +548,6 @@
     <Resource Include="Images\search.png" />
     <Resource Include="Images\setting.png" />
     <Resource Include="Images\spam.png" />
-    <Resource Include="Images\tinylogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
