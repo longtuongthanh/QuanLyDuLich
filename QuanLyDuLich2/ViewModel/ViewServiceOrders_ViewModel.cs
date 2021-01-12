@@ -69,6 +69,18 @@ namespace QuanLyDuLich2.ViewModel
                     return "Đã thanh toán";
             }
         }
+
+        public ICommand ViewServiceOrderDetail
+        {
+            get
+            {
+                return new RelayCommand<tbPhieuDichVu>(item => item != null, item =>
+                {
+                    //MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(item);
+                });
+            }
+        }
+        
         public ICommand NewServiceOrderCammand
         {
             get

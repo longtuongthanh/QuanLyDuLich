@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.13.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.0\build\NUnit.props')" />
   <Import Project="..\packages\NUnit3TestAdapter.3.17.0-beta.2\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.17.0-beta.2\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -96,25 +97,7 @@
     <Reference Include="HamburgerMenu, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HamburgerMenu.0.1.0\lib\net40\HamburgerMenu.dll</HintPath>
     </Reference>
-    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
-    </Reference>
-    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="MaterialDesignColors, Version=1.2.5.1465, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.1.2.5\lib\net45\MaterialDesignColors.dll</HintPath>
-    </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.2.1465, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.3.1.2\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Data.Entity.Design.Extensibility, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -128,9 +111,6 @@
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -155,8 +135,6 @@
     <Compile Include="Command\EventRaiser.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Helper\DatabaseCheck.cs" />
-    <Compile Include="Helper\InputBindingManager.cs" />
-    <Compile Include="Helper\ListSuCo.cs" />
     <Compile Include="Helper\FilterHelper.cs" />
     <Compile Include="Helper\Util.cs" />
     <Compile Include="Model\QLDL2_Database.Context.cs">
@@ -222,8 +200,11 @@
     <Compile Include="MoSo_PrintPreview.xaml.cs">
       <DependentUpon>MoSo_PrintPreview.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Receipt_PrintPreview.xaml.cs">
-      <DependentUpon>Receipt_PrintPreview.xaml</DependentUpon>
+    <Compile Include="PhieuRut_PrintPreview.xaml.cs">
+      <DependentUpon>PhieuRut_PrintPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuGui_PrintPreview.xaml.cs">
+      <DependentUpon>PhieuGui_PrintPreview.xaml</DependentUpon>
     </Compile>
     <Compile Include="BaoCaoDoanhSo_PrintPreview.xaml.cs">
       <DependentUpon>BaoCaoDoanhSo_PrintPreview.xaml</DependentUpon>
@@ -240,14 +221,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ThayDoiQuyDinh_Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\BaoCaoTheoNgay_ViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Checkout_ViewModel.cs" />
-    <Compile Include="ViewModel\ChooseGuest_ViewModel.cs" />
-    <Compile Include="ViewModel\ChooseService_ViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
-    <Compile Include="ViewModel\EditRoom_ViewModel.cs" />
-    <Compile Include="ViewModel\ExchangeRate_ViewModel.cs" />
     <Compile Include="ViewModel\Home_PageViewModel.cs" />
     <Compile Include="ViewModel\Info_ViewModel.cs" />
     <Compile Include="ViewModel\IssueViewModel.cs" />
@@ -255,19 +231,11 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MoneyTransfer_ViewModel.cs" />
     <Compile Include="ViewModel\NewServiceOrders_ViewModel.cs" />
-    <Compile Include="ViewModel\Receipt_PrintPreviewVM.cs" />
     <Compile Include="ViewModel\Receipt_ViewModel.cs" />
-    <Compile Include="ViewModel\RoomDetail_ViewModel.cs" />
-    <Compile Include="ViewModel\RoomType_ViewModel.cs" />
-    <Compile Include="ViewModel\ViewActivity_ViewModel.cs" />
-    <Compile Include="ViewModel\ViewReceipt_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoomRent_ViewModel.cs" />
-    <Compile Include="ViewModel\ViewBaoCaoTheoNgay_ViewModel.cs" />
-    <Compile Include="ViewModel\ViewBaoCaoTongHop_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoom_ViewModel.cs" />
     <Compile Include="ViewModel\ViewServiceOrders_ViewModel.cs" />
     <Compile Include="ViewModel\ViewService_ViewModel.cs" />
-    <Compile Include="ViewModel\ViewSuCo_ViewModel.cs" />
     <Compile Include="View\Catalog\ChooseGuest.xaml.cs">
       <DependentUpon>ChooseGuest.xaml</DependentUpon>
     </Compile>
@@ -294,9 +262,6 @@
     </Compile>
     <Compile Include="View\Catalog\ExchangeRate_Page.xaml.cs">
       <DependentUpon>ExchangeRate_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Check_out\ViewReceipt_Page.xaml.cs">
-      <DependentUpon>ViewReceipt_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
@@ -347,7 +312,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Receipt_PrintPreview.xaml">
+    <Page Include="PhieuRut_PrintPreview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PhieuGui_PrintPreview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -376,12 +345,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Catalog\ChooseGuest.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Catalog\ChooseService.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Catalog\EditRoom_Page.xaml">
       <SubType>Designer</SubType>
@@ -408,10 +377,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Catalog\ExchangeRate_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Check_out\ViewReceipt_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -539,8 +504,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\home.png" />
+    <Resource Include="Images\1-MoSo.png" />
     <Resource Include="Images\10-info.png" />
     <Resource Include="Images\11-logout.png" />
+    <Resource Include="Images\2-GuiTien.png" />
+    <Resource Include="Images\3-RutTien.png" />
+    <Resource Include="Images\5-BaoCaoDoanhThu.png" />
+    <Resource Include="Images\6-BaoCaoMoDong.png" />
+    <Resource Include="Images\7-ThayDoiQuyDinh.png" />
+    <Resource Include="Images\8-QuanLyNhanSu.png" />
     <Resource Include="Images\favorite.png" />
     <Resource Include="Images\list.png" />
     <Resource Include="Images\logoms.png" />
@@ -550,6 +522,7 @@
     <Resource Include="Images\search.png" />
     <Resource Include="Images\setting.png" />
     <Resource Include="Images\spam.png" />
+    <Resource Include="Images\tinylogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -590,5 +563,8 @@
     <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets'))" />
     <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.17.0-beta.2\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.17.0-beta.2\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.13.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.0\build\NUnit.props'))" />
   </Target>
+  <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
 </Project>
