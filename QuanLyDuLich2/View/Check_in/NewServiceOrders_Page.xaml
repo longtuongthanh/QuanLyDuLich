@@ -108,7 +108,8 @@
                         Danh sách dịch vụ:
                     </TextBlock>
 
-                    <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}">
+                    <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"
+                            Command="{Binding AddDichVu}">
                         <WrapPanel>
                             <materialDesign:PackIcon Kind="Plus" Margin="10,0"/>
                             <TextBlock> Thêm dịch vụ </TextBlock>

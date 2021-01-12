@@ -85,7 +85,7 @@
 
                 <Grid Grid.Row="0">
                     <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 0, 20, 0"
-                                Command="{Binding AddCammand}" MinWidth="120">
+                                Command="{Binding AddCommand}" MinWidth="120">
                         Thêm mới
                     </Button>
                 </Grid>

@@ -9,6 +9,7 @@ using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.View;
 using System.Windows;
+using QuanLyDuLich2.View.Catalog;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -108,6 +109,26 @@ namespace QuanLyDuLich2.ViewModel
                 x =>
                 {
                     Reset_PhieuThuePhong();
+                });
+            }
+        }
+
+        public ICommand ChooseGuest
+
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    var window = new ChooseGuest();
+                    window.ShowDialog();
+
+                    if (((ChooseGuest_ViewModel)window.DataContext).SelectedKhach == null)
+                        return;
+                    HoTen = ((ChooseGuest_ViewModel)window.DataContext).SelectedKhach.HoTen;
+                    CMND = ((ChooseGuest_ViewModel)window.DataContext).SelectedKhach.CMND;
+                    DiaChi = ((ChooseGuest_ViewModel)window.DataContext).SelectedKhach.DiaChi;
                 });
             }
         }
