@@ -50,14 +50,14 @@ namespace QuanLyDuLich2
             if (kq == System.Windows.Forms.DialogResult.No)
                 return;
 
-            this_.Hide();
+            this.Hide();
             LoginWindow loginWindow = new LoginWindow();
 
             Util.ShowTodoMessage();
             //LoginViewModel.TaiKhoanSuDung = null;
             loginWindow.ShowDialog();
             MainViewModel.Start_Timer();
-            this_.Show();
+            this.Show();
         }
     }
 }
