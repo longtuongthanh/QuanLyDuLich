@@ -17,14 +17,14 @@ namespace QuanLyDuLich2.ViewModel
     {
         public EditRoom_ViewModel(ViewRoom_ViewModel parent)
         {
-            TitleText = "Thêm mới";
+            TitleText = "Thêm phòng mới";
             this.parent = parent;
             ResetLoaiPhong();
         }
 
         public EditRoom_ViewModel(RoomDetail_ViewModel data ,ViewRoom_ViewModel parent)
         {
-            TitleText = "Chỉnh sửa căn hộ";
+            TitleText = "Chỉnh sửa phòng";
             this.parent = parent;
             ResetLoaiPhong();
             SelectedPhong = data.SelectedPhong;
@@ -154,9 +154,7 @@ namespace QuanLyDuLich2.ViewModel
                 x =>
                 {
                     SaveLoaiPhong();
-                    IsDialogOpen = false;
-                    ResetDialog();
-                    MessageBox.Show("Đã lưu loại phòng thành công!");
+                    //MessageBox.Show("Đã lưu loại phòng thành công!");
                 });
             }
         }
@@ -232,9 +230,9 @@ namespace QuanLyDuLich2.ViewModel
         {
             if (!String.IsNullOrWhiteSpace(newLoaiPhong))
             {
-                if (DataProvider.Ins.DB.tbPhongs.Where(phong => phong.SoPhong == SoPhong).Count() > 0)
+                if (DataProvider.Ins.DB.tbLoaiPhongs.Where(phong => phong.LoaiPhong == newLoaiPhong).Count() > 0)
                 {
-                    MessageBox.Show("Loại phòng đã tồn tại!","Thêm mới loại phòng");
+                    MessageBox.Show("Loại phòng đã tồn tại!", "Thêm mới loại phòng");
                     return;
                 }
 
@@ -254,6 +252,8 @@ namespace QuanLyDuLich2.ViewModel
             DataProvider.Ins.DB.tbLoaiPhongs.Add(newPhong);
             await DataProvider.Ins.DB.SaveChangesAsync();
             ResetLoaiPhong();
+            IsDialogOpen = false;
+            ResetDialog();
         }
 
         async void Save()

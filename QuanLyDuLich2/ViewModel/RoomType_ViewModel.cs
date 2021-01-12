@@ -31,7 +31,20 @@ namespace QuanLyDuLich2.ViewModel
             set { _ListLoaiPhong = value; OnPropertyChanged(); }
         }
 
-        private tbLoaiPhong SelectedLoaiPhong;
+        private tbLoaiPhong _SelectedLoaiPhong;
+
+        public tbLoaiPhong SelectedLoaiPhong
+        {
+            get { return _SelectedLoaiPhong; }
+            set {
+                _SelectedLoaiPhong = value;
+                if (_SelectedLoaiPhong == null)
+                    IsSelected = false;
+                else
+                    IsSelected = true;
+                OnPropertyChanged(); 
+            }
+        }
 
         private string _type;
 
@@ -39,6 +52,14 @@ namespace QuanLyDuLich2.ViewModel
         {
             get { return _type; }
             set { _type = value; OnPropertyChanged(); }
+        }
+
+        private bool _IsAdd = true;
+
+        public bool IsAdd
+        {
+            get { return _IsAdd; }
+            set { _IsAdd = value; OnPropertyChanged(); }
         }
 
         private string _newLoaiPhong;
@@ -89,6 +110,14 @@ namespace QuanLyDuLich2.ViewModel
             set { _IsDialogOpen = value; OnPropertyChanged(); }
         }
 
+        private bool _IsSelected = false;
+
+        public bool IsSelected
+        {
+            get { return _IsSelected; }
+            set { _IsSelected = value; OnPropertyChanged(); }
+        }
+
         public ICommand AddCommand
         {
             get
@@ -98,6 +127,7 @@ namespace QuanLyDuLich2.ViewModel
                 {
                     IsDialogOpen = true;
                     type = "Thêm mới loại phòng: ";
+                    IsAdd = true;
                 });
             }
         }
@@ -109,8 +139,28 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
+                    if (SelectedLoaiPhong != null)
+                    {
+                        newLoaiPhong = SelectedLoaiPhong.LoaiPhong;
+                        DienTich = (int)(SelectedLoaiPhong.DienTich);
+                        DonGiaNgay = (int)(SelectedLoaiPhong.DonGiaNgay);
+                        DonGiaThang = (int)(SelectedLoaiPhong.DonGiaThang);
+                    }
                     IsDialogOpen = true;
                     type = "Chỉnh sửa loại phòng: ";
+                    IsAdd = false;
+                });
+            }
+        }
+
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    Delete();
                 });
             }
         }
@@ -122,10 +172,11 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
-                    SaveLoaiPhong();
-                    IsDialogOpen = false;
-                    ResetDialog();
-                    MessageBox.Show("Đã lưu loại phòng thành công!");
+                    if (IsAdd)
+                        SaveLoaiPhong();
+                    else
+                        SaveEdit();
+
                 });
             }
         }
@@ -139,6 +190,18 @@ namespace QuanLyDuLich2.ViewModel
                 {
                     IsDialogOpen = false;
                     ResetDialog();
+                });
+            }
+        }
+
+        public ICommand CancelCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    GoBack();
                 });
             }
         }
@@ -160,11 +223,41 @@ namespace QuanLyDuLich2.ViewModel
             }
         }
 
+        async void Delete()
+        {
+            if (SelectedLoaiPhong != null)
+            {
+                DataProvider.Ins.DB.tbLoaiPhongs.Remove(SelectedLoaiPhong);
+                try
+                {
+                    await DataProvider.Ins.DB.SaveChangesAsync();
+                    MessageBox.Show("Xoá thành công!");
+                    ResetLoaiPhong();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Hãy gỡ loại phòng này khỏi tất cả các phòng trước!");
+                }
+            }
+        }
+
+        async void SaveEdit()
+        {
+            SelectedLoaiPhong.DienTich = DienTich;
+            SelectedLoaiPhong.DonGiaNgay = DonGiaNgay;
+            SelectedLoaiPhong.DonGiaThang = DonGiaThang;
+            await DataProvider.Ins.DB.SaveChangesAsync();
+            MessageBox.Show("Đã lưu thay đổi thành công!");
+            ResetLoaiPhong();
+            IsDialogOpen = false;
+            ResetDialog();
+        }
+
         async void SaveLoaiPhong()
         {
             if (!String.IsNullOrWhiteSpace(newLoaiPhong))
             {
-                if (DataProvider.Ins.DB.tbPhongs.Where(phong => phong.SoPhong == SoPhong).Count() > 0)
+                if (DataProvider.Ins.DB.tbLoaiPhongs.Where(phong => phong.LoaiPhong == newLoaiPhong).Count() > 0)
                 {
                     MessageBox.Show("Loại phòng đã tồn tại!", "Thêm mới loại phòng");
                     return;
@@ -185,7 +278,10 @@ namespace QuanLyDuLich2.ViewModel
             };
             DataProvider.Ins.DB.tbLoaiPhongs.Add(newPhong);
             await DataProvider.Ins.DB.SaveChangesAsync();
+            MessageBox.Show("Đã lưu loại phòng thành công!");
             ResetLoaiPhong();
+            IsDialogOpen = false;
+            ResetDialog();
         }
 
         void GoBack()

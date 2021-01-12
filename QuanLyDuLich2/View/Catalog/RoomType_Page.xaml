@@ -19,115 +19,182 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
 
-
-    <Grid Grid.Column="2">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="Auto" MinHeight="50"/>
-        </Grid.RowDefinitions>
-        <StackPanel Margin="5" Grid.Row="0">
-            <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+    <Grid>
+        <materialDesign:DialogHost
+              IsOpen="{Binding IsDialogOpen, Mode=TwoWay}"
+              CloseOnClickAway="False"
+              Style="{StaticResource MaterialDesignEmbeddedDialogHost}"
+              DialogMargin="8">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <TextBlock FontWeight="Bold" FontSize="18" Text="{Binding type}">
+                    </TextBlock>
+                    <TextBox
+                        FontSize="18"
+                    materialDesign:HintAssist.Hint="Loại phòng"
+                    materialDesign:HintAssist.IsFloating="True"
+                    Foreground="{StaticResource SecondaryAccentBrush}" 
+                    HorizontalAlignment="Stretch"
+                    x:Name="LoaiPhongTextBox"
+                    IsEnabled="{Binding IsAdd}"
+                    Text="{Binding newLoaiPhong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    </TextBox>
+                    <TextBox Grid.Column="1"
+                              FontSize="18"
+                        materialDesign:HintAssist.Hint="Diện tích"
+                        materialDesign:HintAssist.IsFloating="True"
+                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                        VerticalAlignment="Center"
+                        Text="{Binding DienTich, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                    <TextBox Grid.Column="1"
+                              FontSize="18"
+                        materialDesign:HintAssist.Hint="Đơn giá ngày"
+                        materialDesign:HintAssist.IsFloating="True"
+                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                        VerticalAlignment="Center"
+                        Text="{Binding DonGiaNgay, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                    <TextBox Grid.Column="1"
+                              FontSize="18"
+                        materialDesign:HintAssist.Hint="Đơn giá tháng"
+                        materialDesign:HintAssist.IsFloating="True"
+                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                        VerticalAlignment="Center"
+                        Text="{Binding DonGiaThang, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                    <StackPanel
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            IsDefault="True"
+                            Margin="0 8 8 0"
+                                 FontSize="18"
+                            Command="{Binding SaveLoai}">
+                            Lưu
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            IsCancel="True"
+                            Margin="0 8 8 0"
+                                 FontSize="18"
+                            Command="{Binding CancelLoai}">
+                            Huỷ
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="Auto" MinHeight="50"/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="5" Grid.Row="0">
+                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
                                     TextWrapping="Wrap" TextAlignment="Center"
-                                    > Loại phòng</TextBlock>
-        </StackPanel>
-        <Button Grid.Row="1" Style="{StaticResource MaterialDesignRaisedButton}"
+                                    >Quản lí loại phòng</TextBlock>
+                </StackPanel>
+                <Button Grid.Row="1" Style="{StaticResource MaterialDesignRaisedButton}"
                             Margin="5" Content="Thêm mới" Background="{StaticResource PrimaryHueDarkBrush}"
                             FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center"
                             MinWidth="120"
                             Command="{Binding AddCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
-        <StackPanel Grid.Row="2">
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" 
+                <StackPanel Grid.Row="2">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" 
                                     TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Text="Loại phòng" />
-                <TextBlock Grid.Column="1"
+                        <TextBlock Grid.Column="1"
                                     TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Text="Diện tích" />
-                <TextBlock Grid.Column="2"
+                        <TextBlock Grid.Column="2"
                                     TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Text="Đơn giá ngày" />
-                <TextBlock Grid.Column="3" 
+                        <TextBlock Grid.Column="3" 
                                     TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Text="Đơn giá tháng" />
-            </Grid>
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListBox Margin="10"
+                    </Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ListBox Margin="10"
                      x:Name="listbox1"
                     materialDesign:ListBoxAssist.IsToggle="False"
                     materialDesign:ListViewAssist.ListViewItemPadding="10"
                     SelectionMode="Single"
                     ItemsSource="{Binding ListLoaiPhong}"
                     SelectedItem="{Binding SelectedLoaiPhong, Mode=TwoWay}">
-                    <ListBox.ItemTemplate>
+                            <ListBox.ItemTemplate>
 
-                        <DataTemplate>
-                            <Grid Margin="0, 0, 0, 0" VerticalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=listbox1}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="1*"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" 
+                                <DataTemplate>
+                                    <Grid Margin="0, 0, 0, 0" VerticalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=listbox1}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" 
                                     TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Text="{Binding LoaiPhong}" />
-                                <TextBlock Grid.Column="1"
+                                        <TextBlock Grid.Column="1"
                                     TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Text="{Binding DienTich, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                <TextBlock Grid.Column="2"
+                                        <TextBlock Grid.Column="2"
                                     TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Text="{Binding DonGiaNgay, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                <TextBlock Grid.Column="3" 
+                                        <TextBlock Grid.Column="3" 
                                     TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Text="{Binding DonGiaThang, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </ScrollViewer>
-        </StackPanel>
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <!-- When deleting, remember to edit existing rooms -->
-            <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </StackPanel>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- When deleting, remember to edit existing rooms -->
+                    <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Huỷ" Background="{StaticResource WarningHueBrush}"
                             FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
                             MinWidth="120"
                             Command="{Binding CancelCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
-            <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
+                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Chỉnh sửa" Background="{StaticResource PrimaryHueDarkBrush}"
                             FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
                             MinWidth="120"
                             Command="{Binding EditCommand}"
+                            IsEnabled="{Binding IsSelected}"
                             Visibility="{Binding VisibilityOfCancel}"/>
-            <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
+                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Xóa" Background="{StaticResource WarningHueBrush}"
                             FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
                             MinWidth="120"
                             Command="{Binding DeleteCommand}"
+                            IsEnabled="{Binding IsSelected}"
                             Visibility="{Binding VisibilityOfCancel}"/>
-        </Grid>
+                </Grid>
+            </Grid>
+        </materialDesign:DialogHost>
     </Grid>
 </Page>

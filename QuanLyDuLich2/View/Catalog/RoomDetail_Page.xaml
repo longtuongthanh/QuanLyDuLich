@@ -32,16 +32,16 @@
                         <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
                                         TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                        > Chi tiết căn hộ</TextBlock>
+                                        > Chi tiết phòng</TextBlock>
                         </StackPanel>
                         <WrapPanel Margin="10">
-                            <TextBlock FontSize="18" VerticalAlignment="Top"> Số căn hộ:</TextBlock>
+                            <TextBlock FontSize="18" VerticalAlignment="Top"> Số phòng:</TextBlock>
                             <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
                                             Text="{Binding SelectedPhong.SoPhong, Mode=OneWay}">
                             </TextBlock>
                         </WrapPanel>
                         <WrapPanel Margin="10">
-                            <TextBlock FontSize="18"> Loại căn hộ:</TextBlock>
+                            <TextBlock FontSize="18"> Loại phòng:</TextBlock>
                             <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
                                             Text="{Binding SelectedPhong.LoaiPhong, Mode=OneWay}">
                             </TextBlock>

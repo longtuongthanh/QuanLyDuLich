@@ -20,7 +20,7 @@
     <Grid>
         <materialDesign:DialogHost
               IsOpen="{Binding IsDialogOpen, Mode=TwoWay}"
-              CloseOnClickAway="True"
+              CloseOnClickAway="False"
               Style="{StaticResource MaterialDesignEmbeddedDialogHost}"
               DialogMargin="8">
             <materialDesign:DialogHost.DialogContent>

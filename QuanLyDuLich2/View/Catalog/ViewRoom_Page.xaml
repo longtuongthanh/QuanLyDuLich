@@ -110,7 +110,7 @@
                     <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Top">
                         <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 20, 20, 0"
                                     Command="{Binding AddCommand}" MinWidth="120">
-                            Thêm mới
+                            Thêm phòng mới
                         </Button>
                         <Button FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20, 20, 20, 0"
                                     Command="{Binding LoaiPhongCommand}" MinWidth="120">
