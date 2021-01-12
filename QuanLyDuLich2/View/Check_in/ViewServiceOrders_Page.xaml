@@ -171,11 +171,7 @@
 
             <!--#region RIGHT: VIEW PANEL-->
             <Grid Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="8*"/>
-                    <RowDefinition Height="1*" MinHeight="50"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid>
                     <!--View Panel-->
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
                         <StackPanel>
@@ -212,24 +208,89 @@
                                     </TextBlock>
                                 </WrapPanel>
                             </StackPanel>
+                            <ListBox Margin="20"
+                            materialDesign:ListViewAssist.ListViewItemPadding="10"
+                         materialDesign:ListBoxAssist.IsToggle="False"
+                         Style="{StaticResource MaterialDesignCardsListBox}"
+                         ItemsSource="{Binding DSCongVan}" SelectedItem="{Binding SelectedCongVan, Mode=TwoWay}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Vertical" Margin="5" Width="Auto">
+                                            <!--Header-->
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                                        Loại dịch vụ:
+                                                </TextBlock>
+                                                <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Căn hộ 3A"
+                                        FontSize="18"
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                                        VerticalAlignment="Center"
+                                        IsEnabled="{Binding EnableGiaTri}"
+                                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                                </ComboBox>
+                                            </Grid>
+
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="Auto" MinWidth="40"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Top" Margin="5,20,5,5">
+                                        Yêu cầu khách:
+                                                </TextBlock>
+                                                <TextBox Grid.Column="1" materialDesign:HintAssist.Hint=""
+                                        TextWrapping="Wrap"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                                        VerticalAlignment="Center"
+                                        IsEnabled="{Binding EnableGiaTri}" FontSize="18"
+                                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
+                                                </TextBox>
+                                            </Grid>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" MinWidth="120"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="Auto" MinWidth="120"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                                        Số lượng:
+                                                </TextBlock>
+                                                <TextBox FontSize="18" Grid.Column="1" materialDesign:HintAssist.Hint="200.000₫"
+                                    
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                                        VerticalAlignment="Center"
+                                        TextAlignment="Right"
+                                        PreviewTextInput="TextBox_PreviewTextInput"
+                                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                                </TextBox>
+                                                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                                        Đơn giá:
+                                                </TextBlock>
+                                                <TextBox FontSize="18" Grid.Column="1" materialDesign:HintAssist.Hint="200.000₫"
+                                    
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                        Foreground="{StaticResource SecondaryAccentBrush}" 
+                                        VerticalAlignment="Center"
+                                        TextAlignment="Right"
+                                        PreviewTextInput="TextBox_PreviewTextInput"
+                                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
+                                                </TextBox>
+                                            </Grid>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
                         </StackPanel>
                     </ScrollViewer>
-                </Grid>
-                <!--#endregion -->
-                <!--Action bar-->
-                <Grid Grid.Row="1"
-                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <Grid Grid.Column="1">
-                        <!-- show ViewServiceOrders 
-                        Page with all actions disabled -->
-                        <Button
-                                IsEnabled="{Binding IsViewDetailEnabled}"
-                                FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding ViewServiceOrderDetail}" MinWidth="120" 
-                                CommandParameter="{Binding SelectedServiceOrder}">
-                            Xem chi tiết
-                        </Button>
-                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
