@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QuanLyDuLich2.Model;
 using QuanLyDuLich2.ViewModel;
 
 namespace QuanLyDuLich2.View
@@ -25,6 +26,12 @@ namespace QuanLyDuLich2.View
         {
             InitializeComponent();
             this.DataContext = new Checkout_ViewModel();
+        }
+
+        public Checkout_Page(tbPhieuThuePhong x)
+        {
+            InitializeComponent();
+            this.DataContext = new Checkout_ViewModel(x);
         }
     }
 }

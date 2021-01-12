@@ -18,6 +18,15 @@ namespace QuanLyDuLich2.ViewModel
         {
             ResetPhieuThue();
         }
+
+        public Checkout_ViewModel(tbPhieuThuePhong x)
+        {
+            ResetPhieuThue();
+            SelectedPhieuThue = null;
+            SelectedPhieuThue = x;
+            WidthRight = "1*";
+            TinhTien();
+        }
         private ObservableCollection<tbPhieuThuePhong> _dsThue = new ObservableCollection<tbPhieuThuePhong>();
 
         public ObservableCollection<tbPhieuThuePhong> dsThue
@@ -144,9 +153,9 @@ namespace QuanLyDuLich2.ViewModel
 
         void TinhTien()
         {
-            long dongiathang = (long)SelectedPhieuThue.tbPhong.tbLoaiPhong.DonGiaThang;
-            long dongiangay = (long)SelectedPhieuThue.tbPhong.tbLoaiPhong.DonGiaNgay;
-            SoNgay = (long)(NgayTra - SelectedPhieuThue.NgayMuon).Value.TotalDays;
+            long dongiathang = (long)SelectedPhieuThue.DonGiaThang;
+            long dongiangay = (long)SelectedPhieuThue.DonGiaNgay;
+            SoNgay = (long)(NgayTra.Date - SelectedPhieuThue.NgayMuon.Value.Date).TotalDays+1;
             SoTien = SoNgay / 30 * dongiathang + SoNgay % 30 * dongiangay;
         }
 
