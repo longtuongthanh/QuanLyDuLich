@@ -35,30 +35,20 @@ namespace QuanLyDuLich2.ViewModel
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 if (UserName == null || Password == null)
-                    MessageBox.Show("Mời nhập tài khoản!");
-                Util.ShowTodoMessage();
-                p.Close();
-                /* TODO:
-                ObservableCollection<NGUOIDUNG> Account = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs);
-
-                foreach (var item in Account)
                 {
-                    if (item.TenDangNhap == UserName && item.MatKhau == Password)
-                    {
-                        //Gan static TaiKhoanSuDung
-                        TaiKhoanSuDung = item;
-                        
-                        //MessageBox.Show("Đăng nhập thành công");
-                        p.Close();
-                        return;
-                    }
-
+                    MessageBox.Show("Mời nhập tài khoản!");
+                    return;
                 }
-                MessageBox.Show("Tài khoản không hợp lệ!");
-              
-                //CheckLogin(p);
+                var user = DataProvider.Ins.DB.tbTaiKhoans.Find(UserName);
+                if (DataProvider.Ins.DB.tbTaiKhoans.Find(UserName)?.MatKhau != Password)
+                {
+                    MessageBox.Show("Sai mật khẩu hoặc tên tài khoản.");
+                    return;
+                }
+                MainViewModel.Ins.user = user;
 
-                //*/
+                MessageBox.Show("Đăng nhập thành công!");
+                p.Close();
             });
 
             CloseWindowCommand = new RelayCommand<Window>((p) => { return p == null ? false : true; }, (p) => {

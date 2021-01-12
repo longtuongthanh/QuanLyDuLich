@@ -9,6 +9,7 @@ using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using System.Windows.Controls;
 using QuanLyDuLich2.View.Catalog;
+using QuanLyDuLich2.Helper;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -48,6 +49,35 @@ namespace QuanLyDuLich2.ViewModel
         public bool ShowAddRoom = false;
         #endregion
         #region Command
+        private string filterText;
+        public string FilterText { get => filterText; set => filterText = value; }
+
+        bool FilterCondition(tbPhong item)
+        {
+            if (FilterText == null || FilterText == "")
+                return true;
+            return Util.Match(FilterText.ToLower(), item.LoaiPhong.ToLower()) ||
+                Util.Match(FilterText.ToLower(), item.sTinhTrang.ToLower()) ||
+                Util.Match(FilterText.ToLower(), item.SoPhong.ToLower());
+        }
+        public ICommand SearchCommand
+        {
+            get => new RelayCommand(obj =>
+            {
+                ResetPhong();
+                List<tbPhong> toRemove = new List<tbPhong>();
+                foreach (var item in dsPhong)
+                {
+                    if (!FilterCondition(item))
+                        toRemove.Add(item);
+                }
+                foreach (var item in toRemove)
+                {
+                    dsPhong.Remove(item);
+                }
+            });
+        }
+
         public ICommand AddCommand
         {
             get

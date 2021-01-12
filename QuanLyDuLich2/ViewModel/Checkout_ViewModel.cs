@@ -9,6 +9,7 @@ using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.View;
 using System.Windows.Forms;
+using QuanLyDuLich2.Helper;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -136,6 +137,38 @@ namespace QuanLyDuLich2.ViewModel
                     ShowRecieptPage();
                 });
             }
+        }
+
+        private string filterText;
+        public string FilterText { get => filterText; set => filterText = value; }
+
+        bool FilterCondition(tbPhieuThuePhong item)
+        {
+            if (FilterText == null || FilterText == "")
+                return true;
+            return Util.Match(FilterText.ToLower(), item.tbKhach.HoTen.ToLower()) ||
+                Util.Match(FilterText.ToLower(), item.SoPhong.ToLower()) ||
+                Util.Match(FilterText, item.NgayMuon.ToString()) ||
+                Util.Match(FilterText, item.NgayTra.ToString()) ||
+                Util.Match(FilterText, item.DonGiaNgay.ToString()) ||
+                Util.Match(FilterText, item.DonGiaThang.ToString());
+        }
+        public ICommand SearchCommand
+        {
+            get => new RelayCommand(obj =>
+            {
+                ResetPhieuThue();
+                List<tbPhieuThuePhong> toRemove = new List<tbPhieuThuePhong>();
+                foreach (var item in dsThue)
+                {
+                    if (!FilterCondition(item))
+                        toRemove.Add(item);
+                }
+                foreach (var item in toRemove)
+                {
+                    dsThue.Remove(item);
+                }
+            });
         }
 
         void Luu()

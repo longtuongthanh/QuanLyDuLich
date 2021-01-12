@@ -9,6 +9,7 @@
       Title="ViewActivity_Page"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       
+        xmlns:b="clr-namespace:QuanLyDuLich2.Helper"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -38,19 +39,29 @@
 
             <Border Grid.Column="1" CornerRadius="20" Margin="15,10,15,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
                 <DockPanel LastChildFill="True">
-                    <WrapPanel DockPanel.Dock="Right" VerticalAlignment="Center">
-                        <materialDesign:PackIcon DockPanel.Dock="Right" Kind="Search" Margin="10,0">
+                    <Button Width="Auto" Height="Auto" Padding="0,0" Background="Transparent" Foreground="{StaticResource SecondaryAccentBrush}" BorderThickness="0" DockPanel.Dock="Right">
+                        <materialDesign:PackIcon Kind="Search" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <materialDesign:PackIcon.LayoutTransform>
                                 <ScaleTransform ScaleX="2" ScaleY="2"/>
                             </materialDesign:PackIcon.LayoutTransform>
                         </materialDesign:PackIcon>
-                    </WrapPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
                     <TextBox VerticalContentAlignment="Bottom"
                                  Margin="10,0,10,0"
                                  BorderBrush="Transparent"
                                  FontWeight="SemiBold"
                                  FontSize="24"
-                                 Text="{Binding FilterText, Mode=TwoWay}"/>
+                                 b:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
+                                 Text="{Binding FilterText, Mode=TwoWay}">
+                        <TextBox.InputBindings>
+                            <KeyBinding Command="{Binding SearchCommand}" Key="Return" />
+                        </TextBox.InputBindings>
+                    </TextBox>
                 </DockPanel>
             </Border>
         </StackPanel>
@@ -99,7 +110,7 @@
                                     <TextBlock Grid.Column="1" FontSize="18" Margin="10" Text="{Binding SoPhong}"></TextBlock>
                                     <TextBlock Grid.Column="2" FontSize="18" Margin="10" Text="{Binding NgayMuon}"></TextBlock>
                                     <TextBlock Grid.Column="3" FontSize="18" Margin="10" Text="{Binding NgayTra}"></TextBlock>
-                                    <TextBlock Grid.Column="4" FontSize="18" Margin="10" Text="{Binding sHoaDon.ID}"></TextBlock>
+                                    <TextBlock Grid.Column="4" FontSize="18" Margin="10" Text="{Binding sHoaDon.ThanhTien, StringFormat='#,##0;(#,##0)'}"></TextBlock>
                                 </Grid>
                                 <!--/Button-->
                             </DataTemplate>
