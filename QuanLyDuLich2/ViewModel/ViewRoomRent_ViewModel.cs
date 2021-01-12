@@ -144,6 +144,8 @@ namespace QuanLyDuLich2.ViewModel
                 newItem.SoPhong = SelectedPhong.SoPhong;
                 newItem.NgayMuon = NgayThue;
                 newItem.NgayTra = null;
+                newItem.DonGiaNgay = SelectedPhong.tbLoaiPhong.DonGiaNgay ?? 0;
+                newItem.DonGiaThang = SelectedPhong.tbLoaiPhong.DonGiaThang ?? 0;
 
                 //Check
                 if (SelectedPhong.TinhTrang != 0)
