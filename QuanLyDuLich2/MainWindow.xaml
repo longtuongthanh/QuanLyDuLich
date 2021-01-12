@@ -60,16 +60,6 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/Catalog.png" Text="Danh mục" 
-                                                     IsEnabled="{Binding Enable_Info}" ToolTip="{Binding Info_Tooltip}"
-                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding Info_Page_SelectedCommand}"
-                                                    CommandParameter="{Binding ElementName=hamburger}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </HamburgerMenu:HamburgerMenuItem>
                     <HamburgerMenu:HamburgerMenuItem Icon="Images/home_in.png" Text="Thuê phòng" 
                                                      IsEnabled="{Binding Enable_RoomRent}" ToolTip="{Binding RoomRent_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
@@ -107,6 +97,17 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
                                 <i:InvokeCommandAction Command="{Binding Receipt_Page_SelectedCommand}"
+                                                    CommandParameter="{Binding ElementName=hamburger}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </HamburgerMenu:HamburgerMenuItem>
+
+                    <HamburgerMenu:HamburgerMenuItem Icon="Images/Catalog.png" Text="Danh mục" 
+                                                     IsEnabled="{Binding Enable_Info}" ToolTip="{Binding Info_Tooltip}"
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding Info_Page_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

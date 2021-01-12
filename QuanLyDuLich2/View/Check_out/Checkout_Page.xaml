@@ -39,9 +39,15 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0*" MinHeight="80"/>
+                    <RowDefinition Height="0.2*"/>
                     <!--RowDefinition Height="0*" MinHeight="30"/-->
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
+                <StackPanel Margin="5" Grid.Row="1">
+                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                               TextWrapping="WrapWithOverflow" TextAlignment="Center">
+                        Danh sách phiếu thuê phòng chưa trả</TextBlock>
+                </StackPanel>
                 <Grid Grid.Row="0">
                     <Border CornerRadius="20" Margin="15,10,25,15" Padding="20,5" BorderBrush="{StaticResource PrimaryHueDarkBrush}" BorderThickness="3">
                         <DockPanel LastChildFill="True">
@@ -62,7 +68,7 @@
                     </Border>
                 </Grid>
 
-                <Grid Grid.Row="1" Margin="20">
+                <Grid Grid.Row="2" Margin="20">
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>

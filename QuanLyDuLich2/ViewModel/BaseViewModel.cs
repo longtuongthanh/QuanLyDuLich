@@ -18,6 +18,7 @@ namespace QuanLyDuLich2.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+    /*
     class RelayCommand<T> : ICommand
     {
         private readonly Predicate<T> _canExecute;
@@ -54,4 +55,5 @@ namespace QuanLyDuLich2.ViewModel
             remove { CommandManager.RequerySuggested -= value; }
         }
     }
+    //*/
 }

@@ -22,5 +22,18 @@ namespace QuanLyDuLich2.Helper
         {
             Console.WriteLine("TODO at line " + lineNumber + " (" + caller + ")");
         }
+
+        public static bool Match(string one, string other)
+        {
+            string[] split1 = one.Split(' ');
+            string[] split2 = other.Split(' ');
+
+            foreach (string item1 in split1)
+                foreach (string item2 in split2)
+                    if (item1 == item2)
+                        return true;
+
+            return false;
+        }
     }
 }

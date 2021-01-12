@@ -136,7 +136,7 @@ namespace QuanLyDuLich2.ViewModel
 
 namespace QuanLyDuLich2.Model
 {
-    partial class tbPhong
+    public partial class tbPhong
     {
         public string sTinhTrang
         {
