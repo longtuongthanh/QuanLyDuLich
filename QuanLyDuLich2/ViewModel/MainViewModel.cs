@@ -351,56 +351,31 @@ namespace QuanLyDuLich2.ViewModel
             });
 
             Home_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = true;
-                //Selected_DangXuat = false;
                 FrameContent = new ViewActivity_Page();
-                Util.ShowTodoMessage();
-                //FrameContent.DataContext = new Home_PageViewModel();
             });
 
             Info_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
                 FrameContent = new Info_Page_Chooser();
-                Util.ShowTodoMessage();
-                //FrameContent.DataContext = new MoSo_ViewModel();
             });
 
             ViewRoomRent_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
                 FrameContent = new ViewRoomRent_Page();
-                Util.ShowTodoMessage();
-                //FrameContent.DataContext = new GuiTien_ViewModel();
             });
 
             Checkout_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
                 FrameContent = new Checkout_Page();
-                Util.ShowTodoMessage();
-                //FrameContent.DataContext = new RutTien_ViewModel();
             });
             NewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
                 FrameContent = new NewServiceOrders_Page();
-                Util.ShowTodoMessage();
-                //FrameContent.DataContext = new TraCuu_ViewModel();
             });
             ServiceFeedback_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
                 FrameContent = new ServiceFeedback_Page();
-                Util.ShowTodoMessage();
-                //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
             });
             Receipt_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
                 FrameContent = new Receipt_Page();
-                Util.ShowTodoMessage();
-                //FrameContent.DataContext = new BaoCaoDoanhSo_ViewModel();
+            });
+            ViewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+                FrameContent = new ViewServiceOrders_Page();
             });
             DangXuat_SelectedCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 System.Windows.Forms.DialogResult kq = System.Windows.Forms.MessageBox.Show("Bạn có chắc đăng xuất tài khoản này không?", "Đăng xuất", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question);
