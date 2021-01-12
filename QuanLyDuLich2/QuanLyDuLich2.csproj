@@ -543,11 +543,13 @@
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>
       <LastGenOutput>QLDL2_Database.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Model\QLDL2_Database.edmx.sql" />
     <Content Include="Model\QLDL2_Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>
       <LastGenOutput>QLDL2_Database.cs</LastGenOutput>
     </Content>
+    <Content Include="Model\SampleDatabase.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets')" />
