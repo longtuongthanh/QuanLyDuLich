@@ -77,8 +77,8 @@ namespace QuanLyDuLich2.ViewModel
         {
             tbPhieuChuyenKhoan newphieu = new tbPhieuChuyenKhoan()
             {
-                IDKhachHang = 1,
-                NoiDung = Khach + ", STK: " + TaiKhoanChuyen,
+                SoTaiKhoan = TaiKhoanChuyen,
+                NoiDung = Khach ,
                 SoTien = SoTien
             };
             DataProvider.Ins.DB.tbPhieuChuyenKhoans.Add(newphieu);

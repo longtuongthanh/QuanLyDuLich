@@ -235,6 +235,7 @@
       <DependentUpon>ThayDoiQuyDinh_Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Checkin_ViewModel.cs" />
     <Compile Include="ViewModel\Checkout_ViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\EditRoom_ViewModel.cs" />
@@ -533,6 +534,7 @@
     <Resource Include="Model\ChangeLog.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Model\SampleDatabase.sql" />
     <Resource Include="Images\Catalog.png" />
     <Resource Include="Images\home_in.png" />
     <Resource Include="Images\home_out.png" />
@@ -545,7 +547,7 @@
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>
       <LastGenOutput>QLDL2_Database.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\QLDL2_Database.sql" />
+    <Content Include="Model\QLDL2_Database.edmx.sql" />
     <Content Include="Model\QLDL2_Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>

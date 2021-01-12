@@ -138,6 +138,7 @@ namespace QuanLyDuLich2.ViewModel
                 {
                     IsDialogOpen = false;
                     ResetDialog();
+                    ResetListTyGia();
                 });
             }
         }

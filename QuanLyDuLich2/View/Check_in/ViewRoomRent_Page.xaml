@@ -42,7 +42,7 @@
                                     TextWrapping="WrapWithOverflow" TextAlignment="Center"
                                     > Phiếu thuê phòng</TextBlock>
                     </StackPanel>
-                    <Grid>
+                    <Grid Margin="0,10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" MinWidth="120"/>
                             <ColumnDefinition Width="1*"/>
@@ -51,9 +51,7 @@
                         <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5"> 
                         Phòng:
                         </TextBlock>
-                        <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Chọn phòng"
-                         
-                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                        <ComboBox Grid.Column="1"  
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                                   
@@ -70,7 +68,7 @@
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                     </Grid>
-                    <Grid>
+                    <Grid Margin="0,10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" MinWidth="120"/>
                             <ColumnDefinition Width="1*"/>
@@ -80,8 +78,6 @@
                         Tên khách:
                         </TextBlock>
                         <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Tên đầy đủ, có dấu"
-                         
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
@@ -92,7 +88,7 @@
                             <materialDesign:PackIcon Kind="Contact" Height="30" Width="30"/>
                         </Button>
                     </Grid>
-                    <Grid>
+                    <Grid Margin="0,10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" MinWidth="120"/>
                             <ColumnDefinition Width="1*"/>
@@ -102,8 +98,6 @@
                         Số CMND:
                         </TextBlock>
                         <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Chỉ chấp nhận CMND hoặc CCCD"
-                         
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          PreviewTextInput="TextBox_PreviewTextInput"
@@ -111,7 +105,7 @@
                          Text="{Binding CMND, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         </TextBox>
                     </Grid>
-                    <Grid>
+                    <Grid Margin="0,10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" MinWidth="120"/>
                             <ColumnDefinition Width="1*"/>
@@ -120,16 +114,14 @@
                         <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                          Địa chỉ khách:
                         </TextBlock>
-                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="1 Văn Cao, Ngô Quyền, Hải Phòng"
-                         
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        <TextBox Grid.Column="1" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
                          Text="{Binding DiaChi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         </TextBox>
                     </Grid>
-                    <Grid>
+                    <Grid Margin="0,10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" MinWidth="120"/>
                             <ColumnDefinition Width="1*"/>
@@ -138,9 +130,7 @@
                         <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Ngày thuê:
                         </TextBlock>
-                        <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
-                        
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                        <DatePicker Grid.Column="1"
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
                         IsEnabled="{Binding EnableGiaTri}"
