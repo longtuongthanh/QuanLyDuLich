@@ -248,6 +248,7 @@
     <Compile Include="ViewModel\Receipt_ViewModel.cs" />
     <Compile Include="ViewModel\RoomDetail_ViewModel.cs" />
     <Compile Include="ViewModel\RoomType_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewActivity_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoomRent_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoom_ViewModel.cs" />
     <Compile Include="ViewModel\ViewService_ViewModel.cs" />

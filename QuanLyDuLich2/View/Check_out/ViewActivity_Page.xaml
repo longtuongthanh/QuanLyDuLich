@@ -75,12 +75,12 @@
                                 Margin="0,20,0,20"
                                 materialDesign:ListViewAssist.ListViewItemPadding="10"
                                 materialDesign:ListBoxAssist.IsToggle="False"
-                                SelectedItem="{Binding SelectedPhong, Mode=TwoWay}"
+                                SelectedItem="{Binding SelectedPhieuThue, Mode=TwoWay}"
                                 SelectionMode="Single"
-                                ItemsSource="{Binding dsPhong}">
+                                ItemsSource="{Binding dsThue}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding SelectedPhongChange}"/>
+                                <i:InvokeCommandAction Command="{Binding SelectedThueChange}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         <ListBox.ItemTemplate>
@@ -95,10 +95,10 @@
                                         <ColumnDefinition Width="2*"/>
                                         <ColumnDefinition Width="2*"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding TenKhach}"></TextBlock>
+                                    <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding tbKhach.HoTen}"></TextBlock>
                                     <TextBlock Grid.Column="1" FontSize="18" Margin="0" Text="{Binding SoPhong}"></TextBlock>
-                                    <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding NgayDen}"></TextBlock>
-                                    <TextBlock Grid.Column="3" FontSize="18" Margin="0" Text="{Binding NgayDi}"></TextBlock>
+                                    <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding NgayMuon}"></TextBlock>
+                                    <TextBlock Grid.Column="3" FontSize="18" Margin="0" Text="{Binding NgayTra}"></TextBlock>
                                     <TextBlock Grid.Column="4" FontSize="18" Margin="0" Text="{Binding TongTien}"></TextBlock>
                                 </Grid>
                                 <!--/Button-->
