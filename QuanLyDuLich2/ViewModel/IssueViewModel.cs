@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.Model;
@@ -49,6 +50,8 @@ namespace QuanLyDuLich2.ViewModel
 
         public tbSuCo SelectedSuCo
         { get => selectedSuCo; set => selectedSuCo = value; }
+        private tbSuCo selectedSuCoTemp;
+        public tbSuCo SelectedSuCoTemp { get => selectedSuCoTemp; set => selectedSuCoTemp = value; }
 
         private tbSuCo selectedSuCo;
 
@@ -56,12 +59,41 @@ namespace QuanLyDuLich2.ViewModel
 
         public ICommand CancelCommand
         {
-            get => new RelayCommand(obj => IsAdd, obj =>
+            get => new RelayCommand(obj => true, obj =>
                 {
                     SelectedSuCo = null;
                 });
         }
 
-        
+        public ICommand SelectedIssueChange
+        {
+            get => new RelayCommand(obj => true, obj =>
+                {
+                    if (SelectedSuCo != null)
+                    {
+                        if (MessageBox.Show("Bạn có muốn lưu thay đổi trước khi xem sự cố mới?",
+                            "Lưu", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                            return;
+                        SelectedSuCo = SelectedSuCoTemp;
+                    }
+                });
+        }
+        public ICommand ConfirmCommand
+        {
+            get => new RelayCommand(obj => true, obj =>
+                {
+                    tbSuCo dbSuCo = DataProvider.Ins.DB.tbSuCoes.Find(selectedSuCo.ID);
+                    if (dbSuCo != null)
+                    {
+                        dbSuCo.LoaiSuCo = SelectedSuCo.LoaiSuCo;
+                        dbSuCo.NoiDung = SelectedSuCo.NoiDung;
+                        dbSuCo.ThoiGianTao = SelectedSuCo.ThoiGianTao;
+                    }
+                    else
+                        DataProvider.Ins.DB.tbSuCoes.Add(SelectedSuCo);
+
+                    MessageBox.Show("Đã lưu thành công.");
+                });
+        }
     }
 }

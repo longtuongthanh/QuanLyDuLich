@@ -8,6 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="18"
@@ -143,7 +144,7 @@
                             Width="150" Height="35" Command="{Binding CancelCommand}"/>
                 <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding onCreate}"
+                            Width="150" Height="35" Command="{Binding ConfirmCommand}"
                             Visibility="{Binding VisibilityOfCancel}"/>
             </Grid>
         </Grid>
@@ -167,7 +168,7 @@
                 <ListView 
                 FontSize="18" ItemsSource="{Binding dsIssues}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
                           HorizontalAlignment="Center" VerticalAlignment="Top" 
-                          SelectedValue="{Binding SelectedSuCo, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}">
+                          SelectedValue="{Binding SelectedSuCoTemp, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="auto" Header="Loại sự cố" DisplayMemberBinding="{Binding LoaiSuCo}"/>
@@ -175,6 +176,11 @@
                             <GridViewColumn Width="auto" Header="Trạng thái" DisplayMemberBinding="{Binding TrangThai}"/>
                         </GridView>
                     </ListView.View>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectedIssueChange}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                 </ListView>
             </ScrollViewer>
         </Grid>
