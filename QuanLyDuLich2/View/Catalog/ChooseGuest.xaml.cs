@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyDuLich2.Model;
+using QuanLyDuLich2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,7 @@ namespace QuanLyDuLich2.View.Catalog
         public ChooseGuest()
         {
             InitializeComponent();
+            this.DataContext = new ChooseGuest_ViewModel();
         }
     }
 }

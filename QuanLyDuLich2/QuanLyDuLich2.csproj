@@ -242,6 +242,7 @@
     <Compile Include="ViewModel\BaoCaoTheoNgay_ViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Checkout_ViewModel.cs" />
+    <Compile Include="ViewModel\ChooseGuest_ViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\EditRoom_ViewModel.cs" />
     <Compile Include="ViewModel\ExchangeRate_ViewModel.cs" />
