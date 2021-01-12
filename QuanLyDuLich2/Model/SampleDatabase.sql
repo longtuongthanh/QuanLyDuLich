@@ -36,11 +36,13 @@ INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Kinh Doanh')
 GO
 INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Lễ tân')
 GO
+INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Quản lý')
+GO
 INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Nhà bếp')
 GO
 INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Quầy bar')
 GO
-INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'admin', N'admin', N'Admin')
+INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'admin', N'admin', N'Quản lý')
 GO
 INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'bangiamdoc', N'1', N'Ban giám đốc')
 GO

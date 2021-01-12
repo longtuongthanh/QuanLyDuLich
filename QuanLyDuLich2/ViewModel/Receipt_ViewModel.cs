@@ -205,7 +205,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             long dongiathang = (long)SelectedPhieuThue.tbPhong.tbLoaiPhong.DonGiaThang;
             long dongiangay = (long)SelectedPhieuThue.tbPhong.tbLoaiPhong.DonGiaNgay;
-            SoNgay = (long)(SelectedPhieuThue.NgayTra - SelectedPhieuThue.NgayMuon).Value.TotalDays;
+            SoNgay = (long)(SelectedPhieuThue.NgayTra - SelectedPhieuThue.NgayMuon).Value.TotalDays + 1;
             SoTien = SoNgay / 30 * dongiathang + SoNgay % 30 * dongiangay;
         }
 

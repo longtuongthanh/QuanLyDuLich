@@ -29,8 +29,8 @@ namespace QuanLyDuLich2.ViewModel
         public LoginViewModel()
         {
             //DatabaseCheck.Ins.Check();
-            UserName = "admin";
-            Password = "admin";
+            UserName = "";
+            Password = "";
 
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {

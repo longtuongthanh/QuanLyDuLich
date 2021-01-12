@@ -9,6 +9,7 @@
       Title="ViewActivity_Page"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       
+        xmlns:b="clr-namespace:QuanLyDuLich2.Helper"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -55,6 +56,7 @@
                                  BorderBrush="Transparent"
                                  FontWeight="SemiBold"
                                  FontSize="24"
+                                 b:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
                                  Text="{Binding FilterText, Mode=TwoWay}">
                         <TextBox.InputBindings>
                             <KeyBinding Command="{Binding SearchCommand}" Key="Return" />
@@ -108,7 +110,7 @@
                                     <TextBlock Grid.Column="1" FontSize="18" Margin="10" Text="{Binding SoPhong}"></TextBlock>
                                     <TextBlock Grid.Column="2" FontSize="18" Margin="10" Text="{Binding NgayMuon}"></TextBlock>
                                     <TextBlock Grid.Column="3" FontSize="18" Margin="10" Text="{Binding NgayTra}"></TextBlock>
-                                    <TextBlock Grid.Column="4" FontSize="18" Margin="10" Text="{Binding sHoaDon.ID}"></TextBlock>
+                                    <TextBlock Grid.Column="4" FontSize="18" Margin="10" Text="{Binding sHoaDon.ThanhTien, StringFormat='#,##0;(#,##0)'}"></TextBlock>
                                 </Grid>
                                 <!--/Button-->
                             </DataTemplate>

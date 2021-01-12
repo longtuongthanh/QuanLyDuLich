@@ -8,6 +8,7 @@
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Checkout_Page"
       
+        xmlns:b="clr-namespace:QuanLyDuLich2.Helper"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -68,6 +69,7 @@
                                  BorderBrush="Transparent"
                                  FontWeight="SemiBold"
                                  FontSize="24"
+                                 b:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
                                  Text="{Binding FilterText, Mode=TwoWay}">
                                 <TextBox.InputBindings>
                                     <KeyBinding Command="{Binding SearchCommand}" Key="Return" />

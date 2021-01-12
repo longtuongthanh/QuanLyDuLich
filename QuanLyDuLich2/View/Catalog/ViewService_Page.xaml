@@ -10,6 +10,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       
+        xmlns:b="clr-namespace:QuanLyDuLich2.Helper"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -57,6 +58,7 @@
                                  BorderBrush="Transparent"
                                  FontWeight="SemiBold"
                                  FontSize="24"
+                                 b:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
                                  Text="{Binding FilterText, Mode=TwoWay}">
                         <TextBox.InputBindings>
                             <KeyBinding Command="{Binding SearchCommand}" Key="Return" />

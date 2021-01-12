@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:QuanLyDuLich2.View"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
      
+        xmlns:b="clr-namespace:QuanLyDuLich2.Helper"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ExchangeRate_Page"
@@ -101,6 +102,7 @@
                                  BorderBrush="Transparent"
                                  FontWeight="SemiBold"
                                  FontSize="24"
+                                 b:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
                                  Text="{Binding FilterText, Mode=TwoWay}">
                                 <TextBox.InputBindings>
                                     <KeyBinding Command="{Binding SearchCommand}" Key="Return" />
