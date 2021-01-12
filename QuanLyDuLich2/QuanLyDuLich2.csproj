@@ -215,11 +215,8 @@
     <Compile Include="MoSo_PrintPreview.xaml.cs">
       <DependentUpon>MoSo_PrintPreview.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PhieuRut_PrintPreview.xaml.cs">
-      <DependentUpon>PhieuRut_PrintPreview.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PhieuGui_PrintPreview.xaml.cs">
-      <DependentUpon>PhieuGui_PrintPreview.xaml</DependentUpon>
+    <Compile Include="Receipt_PrintPreview.xaml.cs">
+      <DependentUpon>Receipt_PrintPreview.xaml</DependentUpon>
     </Compile>
     <Compile Include="BaoCaoDoanhSo_PrintPreview.xaml.cs">
       <DependentUpon>BaoCaoDoanhSo_PrintPreview.xaml</DependentUpon>
@@ -248,10 +245,12 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MoneyTransfer_ViewModel.cs" />
     <Compile Include="ViewModel\NewServiceOrders_ViewModel.cs" />
+    <Compile Include="ViewModel\Receipt_PrintPreviewVM.cs" />
     <Compile Include="ViewModel\Receipt_ViewModel.cs" />
     <Compile Include="ViewModel\RoomDetail_ViewModel.cs" />
     <Compile Include="ViewModel\RoomType_ViewModel.cs" />
     <Compile Include="ViewModel\ViewActivity_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewReceipt_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoomRent_ViewModel.cs" />
     <Compile Include="ViewModel\ViewBaoCaoTheoNgay_ViewModel.cs" />
     <Compile Include="ViewModel\ViewBaoCaoTongHop_ViewModel.cs" />
@@ -285,6 +284,9 @@
     </Compile>
     <Compile Include="View\Catalog\ExchangeRate_Page.xaml.cs">
       <DependentUpon>ExchangeRate_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Check_out\ViewReceipt_Page.xaml.cs">
+      <DependentUpon>ViewReceipt_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
@@ -335,11 +337,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PhieuRut_PrintPreview.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PhieuGui_PrintPreview.xaml">
+    <Page Include="Receipt_PrintPreview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -400,6 +398,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Catalog\ExchangeRate_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Check_out\ViewReceipt_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

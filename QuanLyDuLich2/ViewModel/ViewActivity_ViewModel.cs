@@ -9,6 +9,7 @@ using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.View;
 using System.Windows.Forms;
+using QuanLyDuLich2.View.Check_out;
 using QuanLyDuLich2.Helper;
 
 namespace QuanLyDuLich2.ViewModel
@@ -78,6 +79,11 @@ namespace QuanLyDuLich2.ViewModel
                         var page = new Receipt_Page(SelectedPhieuThue);
                         MainViewModel.Ins.FrameContent = page;
                     }
+                    if(ButtonTitle == "Xem hoá đơn")
+                    {
+                        var page = new ViewReceipt_Page(SelectedPhieuThue.tbHoaDons.Last());
+                        MainViewModel.Ins.FrameContent = page;
+                    }
                 });
             }
         }
@@ -105,14 +111,14 @@ namespace QuanLyDuLich2.ViewModel
                             }
                             else
                             {
-                                ButtonTitle = "In hoá đơn";
+                                ButtonTitle = "Xem hoá đơn";
                                 ButtonEnable = true;
                             }
                         }
                     }
                     else
                     {
-                        ButtonTitle = "In hoá đơn";
+                        ButtonTitle = "Xem hoá đơn";
                         ButtonEnable = false;
                     }
                 });
