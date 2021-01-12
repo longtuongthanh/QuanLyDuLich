@@ -9,6 +9,8 @@ using QuanLyDuLich2.Model;
 using QuanLyDuLich2.View;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.Helper;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -66,18 +68,6 @@ namespace QuanLyDuLich2.ViewModel
                     return "Đã thanh toán";
             }
         }
-
-        public ICommand ViewServiceOrderDetail
-        {
-            get
-            {
-                return new RelayCommand<tbPhieuDichVu>(item => item != null, item =>
-                {
-                    MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(item);
-                });
-            }
-        }
-        
         public ICommand NewServiceOrderCammand
         {
             get
@@ -86,7 +76,7 @@ namespace QuanLyDuLich2.ViewModel
                     obj => { return true; },//MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan; }, 
                     obj =>
                     {
-                        MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(null); 
+                        MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(); 
                     });
             }
         }
@@ -123,5 +113,62 @@ namespace QuanLyDuLich2.ViewModel
         private string filterKhach;
         public string FilterKhach { get => filterKhach; set => filterKhach = value; }
         #endregion
+
+        #region ServiceOrderDetail
+        ObservableCollection<tbChiTietPhieuDichVu> _dsServiceOrderDetail = null;
+        public ObservableCollection<tbChiTietPhieuDichVu> dsServiceOrderDetail
+        {
+            get
+            {
+                if (_dsServiceOrderDetail == null)
+                {
+                    var temp = DataProvider.Ins.DB.tbDichVus.ToList();
+                    IEnumerable<tbChiTietPhieuDichVu> tb = DataProvider.Ins.DB.tbChiTietPhieuDichVus;
+                    _dsServiceOrderDetail = new ObservableCollection<tbChiTietPhieuDichVu>(tb.Select(
+                        item => new tbChiTietPhieuDichVu
+                        {
+                            tbDichVu = item.tbDichVu,
+                            DichVu = item.DichVu,
+                            DonGia = item.DonGia,
+                            PhieuDichVu = item.PhieuDichVu,
+                            SoLuong = item.SoLuong,
+                            YeuCauKhach = item.YeuCauKhach
+                        }));
+                }
+                return _dsServiceOrderDetail;
+            }
+        }
+        #endregion
+    }
+}
+
+namespace QuanLyDuLich2.Model
+{
+    partial class tbChiTietPhieuDichVu : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ThanhTien"));
+        }
+
+        public ObservableCollection<tbDichVu> dsServices
+        {
+            get
+            {
+                IEnumerable<tbDichVu> tb = DataProvider.Ins.DB.tbDichVus;
+
+                return new ObservableCollection<tbDichVu>(tb.Select(
+                    item => new tbDichVu
+                    {
+                        ChiTiet = item.ChiTiet,
+                        DonGia = item.DonGia,
+                        ID = item.ID,
+                        Ten = item.Ten
+                    }));
+            }
+        }
     }
 }

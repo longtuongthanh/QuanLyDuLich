@@ -9,7 +9,7 @@ namespace QuanLyDuLich2.Helper
     // Returns elements that pass any predicate
     public class FilterHelper_Any<T>
     {
-        HashSet<Predicate<T>> predicates;
+        HashSet<Predicate<T>> predicates = new HashSet<Predicate<T>>();
         public void Clear()
         {
             predicates.Clear();
@@ -40,7 +40,7 @@ namespace QuanLyDuLich2.Helper
     // Returns elements that pass all predicates
     public class FilterHelper_All<T>
     {
-        HashSet<Predicate<T>> predicates;
+        HashSet<Predicate<T>> predicates = new HashSet<Predicate<T>>();
         public void Clear()
         {
             predicates.Clear();
