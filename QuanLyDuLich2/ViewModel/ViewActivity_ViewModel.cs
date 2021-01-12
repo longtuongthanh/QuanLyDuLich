@@ -34,7 +34,7 @@ namespace QuanLyDuLich2.ViewModel
             set { _SelectedPhieuThue = value; OnPropertyChanged(); }
         }
 
-        private string _ButtonTitle;
+        private string _ButtonTitle = "In hoá đơn";
 
         public string ButtonTitle
         {
@@ -105,13 +105,13 @@ namespace QuanLyDuLich2.ViewModel
                             else
                             {
                                 ButtonTitle = "In hoá đơn";
-                                ButtonEnable = false;
+                                ButtonEnable = true;
                             }
                         }
                     }
                     else
                     {
-                        ButtonTitle = "Xem hoá đơn";
+                        ButtonTitle = "In hoá đơn";
                         ButtonEnable = false;
                     }
                 });
