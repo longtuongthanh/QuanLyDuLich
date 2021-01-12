@@ -9,6 +9,7 @@ using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.View;
 using System.Windows;
+using QuanLyDuLich2.View.Catalog;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -113,6 +114,26 @@ namespace QuanLyDuLich2.ViewModel
                 });
             }
         }
+
+        public ICommand AddDichVu
+
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    var window = new ChooseService();
+                    window.ShowDialog();
+
+                    if (((ChooseService_ViewModel)window.DataContext).SelectedDichVu == null)
+                        return;
+                    tbDichVu temp = ((ChooseService_ViewModel)window.DataContext).SelectedDichVu;
+                    MessageBox.Show(temp.Ten);
+                });
+            }
+        }
+        
 
         public ICommand ConfirmCommand
         {
