@@ -142,7 +142,7 @@ namespace QuanLyDuLich2.ViewModel
             {
                 newItem.Khach = Get_KhachID(HoTen, CMND, DiaChi); //tìm khách trên cả Họ Tên, CMND, Địa Chỉ
                 newItem.SoPhong = SelectedPhong.SoPhong;
-                newItem.NgayMuon = NgayThue;
+                newItem.NgayMuon = NgayThue.Date;
                 newItem.NgayTra = null;
                 newItem.DonGiaNgay = SelectedPhong.tbLoaiPhong.DonGiaNgay ?? 0;
                 newItem.DonGiaThang = SelectedPhong.tbLoaiPhong.DonGiaThang ?? 0;

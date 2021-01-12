@@ -55,17 +55,10 @@
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <ComboBox x:Name="cbReport" Width="150" materialDesign:HintAssist.Hint="Chọn loại báo cáo" Visibility="{Binding VisibilityOfAdd}" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                          SelectedItem="{Binding SelectedLoaiBaoCao}"
-                          IsEnabled="{Binding TextBoxReadOnly}">
-                        <ComboBoxItem IsSelected="True">Phòng ở</ComboBoxItem>
-                        <ComboBoxItem>Dịch vụ tiện ích</ComboBoxItem>
-                        <ComboBoxItem>Sự cố</ComboBoxItem>
-                    </ComboBox>
                     <Grid Grid.Column="1" HorizontalAlignment="Center">
                         <StackPanel Orientation="Horizontal">
                               <DatePicker x:Name="dpReport" Width="150" materialDesign:HintAssist.Hint="Chọn ngày báo cáo"
-                            HorizontalAlignment="Right"
+                            HorizontalAlignment="Right" Margin="10,0,10,0"
                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                             SelectedDate="{Binding SelectedDateReport,StringFormat='dd/MM/yyyy', Mode=TwoWay}"
                             SelectedDateFormat="Short" >
@@ -77,19 +70,9 @@
                                 </i:Interaction.Triggers>
 
                             </DatePicker>
-                            <materialDesign:PopupBox Visibility="{Binding VisibilityDatePickerPopup}"  VerticalAlignment="Center" Margin="5" PopupContent="{Binding PopupContent}" >
-                                <materialDesign:PopupBox.ToggleContent>
-                                    <materialDesign:PackIcon Foreground="Red" Kind="Error" />
-                                </materialDesign:PopupBox.ToggleContent>
-                            </materialDesign:PopupBox>
                         </StackPanel>
                     </Grid>
-                    <Grid Grid.Column="2">
-                        <Button Style="{StaticResource MaterialDesignRaisedButton}" 
-                        HorizontalAlignment="Center"
-                        Content="Lập báo cáo"
-                        Width="150" Height="35" Command="{Binding CreateReportCommand}"/>
-                    </Grid>
+                    <Grid Grid.Column="2"/>
                     <Grid Grid.Column="3">
                         <Button Style="{StaticResource MaterialDesignRaisedButton}" 
                         HorizontalAlignment="Center"
@@ -122,54 +105,40 @@
                             </materialDesign:Card>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <materialDesign:Card Margin="5,5,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                <ListView FontSize="18" ItemsSource="{Binding ListBaoCaoDisplay}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                          HorizontalAlignment="Center" VerticalAlignment="Top">
-                                    <ListView.View>
-                                        <GridView>
-                                            <GridViewColumn Width="100" Header="STT" DisplayMemberBinding="{Binding SoThuTu}"/>
-                                            <GridViewColumn Width="200" Header="{Binding TenSC_TenDichVu}" DisplayMemberBinding="{Binding TenDichVu}"/>
-                                            <GridViewColumn Width="200" Header="{Binding NgaySC_SLDichVu}" DisplayMemberBinding="{Binding SoLuongDichVu}"/>
-                                            <GridViewColumn Width="200" Header="{Binding DaGQ_TongThu}" DisplayMemberBinding="{Binding TongThu, StringFormat='#,##0;(#,##0)'}"/>                  
-                                        </GridView>
-                                    </ListView.View>
+                            <Grid HorizontalAlignment="Right" Width="1000">
+                                
+                            </Grid>
+                            <materialDesign:Card Margin="50,5,5,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <ListView FontSize="18" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                          HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <ListViewItem>
+                                        <WrapPanel>
+                                            <TextBlock FontWeight="Bold" FontSize="18" Margin="10" Text="Số phiếu thuê mới: "></TextBlock>
+                                            <TextBlock FontSize="18" Margin="10" Text="{Binding SLThue}"></TextBlock>
+                                        </WrapPanel>
+                                    </ListViewItem>
+                                    <ListViewItem>
+                                        <WrapPanel>
+                                            <TextBlock FontWeight="Bold" FontSize="18" Margin="10" Text="Số phòng đã trả: "></TextBlock>
+                                            <TextBlock FontSize="18" Margin="10" Text="{Binding SLTra}"></TextBlock>
+                                        </WrapPanel>
+                                    </ListViewItem>
+                                    <ListViewItem>
+                                        <WrapPanel>
+                                            <TextBlock FontWeight="Bold" FontSize="18" Margin="10" Text="Số phiếu dịch vụ mới: "></TextBlock>
+                                            <TextBlock FontSize="18" Margin="10" Text="{Binding SLDV}"></TextBlock>
+                                        </WrapPanel>
+                                    </ListViewItem>
+                                    <ListViewItem>
+                                        <WrapPanel>
+                                            <TextBlock FontWeight="Bold" FontSize="18" Margin="10" Text="Số báo cáo sự cố: "></TextBlock>
+                                            <TextBlock FontSize="18" Margin="10" Text="{Binding SLSC}"></TextBlock>
+                                        </WrapPanel>
+                                    </ListViewItem>
                                 </ListView>
 
                             </materialDesign:Card>
                         </Grid>
-                    </Grid>
-                    <Grid Grid.Column="2" Margin="5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <materialDesign:Card Height="35"
-                Background="{DynamicResource PrimaryHueDarkBrush}"
-                Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
-                Padding="5">
-                                <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="20" Text="        Danh sách báo cáo đã lập         "></TextBlock>
-                            </materialDesign:Card>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <ListView  ItemsSource="{Binding ListDaBaoCao}" SelectedItem="{Binding SelectedIndex}" ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          HorizontalContentAlignment="Stretch" FontSize="18" SelectionMode="Single"
-                          HorizontalAlignment="Center" VerticalAlignment="Top">
-                                <ListView.View>
-                                    <GridView>
-                                        <GridViewColumn Header="Ngày báo cáo" DisplayMemberBinding="{Binding NgayDaBaoCao }" />
-                                        <GridViewColumn Header="Loại báo cáo" DisplayMemberBinding="{Binding LoaiDaBaoCao}"/>
-                                    </GridView>
-                                </ListView.View>
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="SelectionChanged">
-                                        <i:InvokeCommandAction Command="{Binding SelectedTypedDate_Command}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </ListView>
-                        </Grid>
-
-
                     </Grid>
                 </Grid>
             </Grid>
