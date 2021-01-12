@@ -25,6 +25,7 @@ namespace QuanLyDuLich2.View
         public BaoCaoTheoNgay_Page()
         {
             InitializeComponent();
+            DataContext = new BaoCaoTheoNgay_ViewModel();
         }
     }
 }

@@ -42,8 +42,8 @@
                                     Text="Phiếu sự cố"
                                     />
                 </StackPanel>
-                
-                <Grid>
+
+                <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="120"/>
                         <ColumnDefinition Width="1*"/>
@@ -56,11 +56,12 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableLeTan}"
-                         ItemsSource="{Binding dsIssueType}"
-                         Text="{Binding SelectedSuCo.LoaiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         ItemsSource="{Binding ListLoaiSuCo}"
+                              SelectedValue="{Binding SelectedLoaiSuCo}"
+                         Text="{Binding SelectedLoaiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </ComboBox>
                 </Grid>
-                <Grid>
+                <Grid  Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="120"/>
                         <ColumnDefinition Width="1*"/>
@@ -70,51 +71,20 @@
                     </TextBlock>
                     <TextBox Grid.Column="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Nội dung sự cố"
                          Visibility="{Binding VisibilityOfEditThamSo}"
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                         Foreground="{StaticResource SecondaryAccentBrush}" 
+                          Margin="5"
+                             Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          TextWrapping="Wrap"
                          IsEnabled="{Binding EnableLeTan}"
-                         Text="{Binding SelectedSuCo.NoiDun, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding NoiDungSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding NoiDungChange}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </TextBox>
                 </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="40"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                         Tình trạng:
-                    </TextBlock>
-                    <ComboBox Grid.Column="1" Grid.ColumnSpan="2" x:Name="cbStt" Width="auto" Visibility="{Binding VisibilityOfAdd}" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    
-                          SelectedItem="{Binding SelectedTrangThai}"
-                          IsEnabled="{Binding TextBoxReadOnly}">
-                        <ComboBoxItem IsSelected="True">Chưa giải quyết</ComboBoxItem>
-                        <ComboBoxItem>Đã giải quyết</ComboBoxItem>
-                        
-                    </ComboBox>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="120"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
-                        Ngày lập:
-                    </TextBlock>
-                    <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="Ngày lập báo cáo"
-                        Visibility="{Binding VisibilityOfEditThamSo}"
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
-                        Foreground="{StaticResource SecondaryAccentBrush}" 
-                        VerticalAlignment="Center"
-                        IsEnabled="{Binding EnableLeTan}"
-                        FirstDayOfWeek="Monday"
-                        SelectedDateFormat="Long"
-                        SelectedDate="{Binding SelectedSuCo.ThoiGianTao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
-                </Grid>
-                <Grid Visibility="{Binding isQL_KT}">
+                <Grid Visibility="{Binding isQL_KT}" Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="120"/>
                         <ColumnDefinition Width="1*"/>
@@ -124,7 +94,7 @@
                     </TextBlock>
                     <TextBox Grid.Column="1" Grid.ColumnSpan="2" materialDesign:HintAssist.Hint="Chi phí giải quyết sự cố (VND)"
                          Visibility="{Binding VisibilityOfEditThamSo}"
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Margin="5"
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          TextWrapping="WrapWithOverflow"
@@ -132,23 +102,22 @@
                          Text="{Binding ChiPhiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                 </Grid>
-                
+
             </StackPanel>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
+
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5,0,5,0" Content="{Binding Action_Text}" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding UserAction}"
-                            Visibility="{Binding CanCreate}"/>
+
                 <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="Hủy" Background="{StaticResource WarningHueBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"/>
+                        Visibility="{Binding onCreate}"    
+                        Width="150" Height="35" Command="{Binding CancelInput}"/>
                 <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5,0,5,0" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding ConfirmCommand}"/>
+                           Visibility="{Binding onCreate}"   Margin="5,0,5,0" Content="Xác nhận" Background="{StaticResource SecondaryAccentBrush}"
+                            Width="150" Height="35" IsEnabled="{Binding createIsssue}" Command="{Binding AcceptInput}"/>
             </Grid>
         </Grid>
 
@@ -160,22 +129,22 @@
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
-           
-                <StackPanel Margin="5" Grid.Row="0">
-                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+
+            <StackPanel Margin="5" Grid.Row="0">
+                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
                                     TextWrapping="WrapWithOverflow" TextAlignment="Center"
                                     Text="Danh sách sự cố"
                                     />
-                </StackPanel>
+            </StackPanel>
             <ScrollViewer Grid.Row="1">
                 <ListView 
-                FontSize="18" ItemsSource="{Binding dsIssues}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                FontSize="18" ItemsSource="{Binding ListSuCo}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
                           HorizontalAlignment="Center" VerticalAlignment="Top" 
                           SelectedValue="{Binding SelectedSuCoTemp, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="auto" Header="Loại sự cố" DisplayMemberBinding="{Binding LoaiSuCo}"/>
-                            <GridViewColumn Width="auto" Header="Thời gian" DisplayMemberBinding="{Binding ThoiGianTao}"/>
+                            <GridViewColumn Width="auto" Header="Thời gian" DisplayMemberBinding="{Binding NgaySuCo,StringFormat='dd/MM/yyyy'}"/>
                             <GridViewColumn Width="auto" Header="Trạng thái" DisplayMemberBinding="{Binding TrangThai}"/>
                         </GridView>
                     </ListView.View>
@@ -186,6 +155,20 @@
                     </i:Interaction.Triggers>
                 </ListView>
             </ScrollViewer>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            Margin="0,0,24.5,0" Content="Cập nhật" Background="{StaticResource SecondaryAccentBrush}"
+                            Width="150" Height="35" Command="{Binding UpdateIssue}"
+                            Visibility="{Binding onSelected}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            Margin="5,0,5,0" Content="Tạo mới" Background="{StaticResource SecondaryAccentBrush}"
+                            Width="150" Height="35" Command="{Binding UserAction}"
+                            Visibility="{Binding CanCreate}"/>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
