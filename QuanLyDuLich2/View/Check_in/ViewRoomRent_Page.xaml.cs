@@ -25,7 +25,7 @@ namespace QuanLyDuLich2.View
         public ViewRoomRent_Page()
         {
             InitializeComponent();
-            this.DataContext = new Checkin_ViewModel();
+            this.DataContext = new ViewRoomRent_ViewModel();
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

@@ -18,12 +18,12 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
 
-    <Grid Grid.Column="2">
+    <Grid Grid.Column="2" Visibility="{Binding IsVisible}">
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="1*" MinHeight="50"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" >
             <!--View Panel-->
             <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
                 <StackPanel>
@@ -33,16 +33,16 @@
                         <StackPanel Margin="5">
                             <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
                                         TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                        > Chi tiết căn hộ</TextBlock>
+                                        > Chi tiết phòng</TextBlock>
                         </StackPanel>
                         <WrapPanel Margin="10">
-                            <TextBlock FontSize="18" VerticalAlignment="Top"> Số căn hộ:</TextBlock>
+                            <TextBlock FontSize="18" VerticalAlignment="Top"> Số phòng:</TextBlock>
                             <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
                                             Text="{Binding SelectedPhong.SoPhong, Mode=OneWay}">
                             </TextBlock>
                         </WrapPanel>
                         <WrapPanel Margin="10">
-                            <TextBlock FontSize="18"> Loại căn hộ:</TextBlock>
+                            <TextBlock FontSize="18"> Loại phòng:</TextBlock>
                             <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
                                             Text="{Binding SelectedPhong.LoaiPhong, Mode=OneWay}">
                             </TextBlock>
@@ -56,14 +56,14 @@
                         <WrapPanel Margin="10">
                             <TextBlock FontSize="18"> Đơn giá tháng:</TextBlock>
                             <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding DonGiaThang, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                            Text="{Binding SelectedPhong.tbLoaiPhong.DonGiaThang, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
                             </TextBlock>
                         </WrapPanel>
 
                         <WrapPanel Margin="10">
                             <TextBlock FontSize="18" VerticalAlignment="Top"> Đơn giá ngày:</TextBlock>
                             <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
-                                            Text="{Binding DonGiaNgay, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                            Text="{Binding SelectedPhong.tbLoaiPhong.DonGiaNgay, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
                             </TextBlock>
                         </WrapPanel>
 
@@ -92,7 +92,7 @@
                     <Button 
                                 Visibility="{Binding IsVisible}"
                                 FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding PerformAction}" MinWidth="120">
+                                Command="{Binding EditCommand}" MinWidth="120">
                         Chỉnh sửa
                     </Button>
                 </Grid>

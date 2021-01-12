@@ -149,7 +149,6 @@
     <Compile Include="Command\EventRaiser.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Helper\DatabaseCheck.cs" />
-    <Compile Include="Helper\FilterHelper.cs" />
     <Compile Include="Helper\Util.cs" />
     <Compile Include="Model\QLDL2_Database.Context.cs">
       <AutoGen>True</AutoGen>
@@ -236,26 +235,22 @@
       <DependentUpon>ThayDoiQuyDinh_Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\Checkin_ViewModel.cs" />
     <Compile Include="ViewModel\Checkout_ViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
+    <Compile Include="ViewModel\EditRoom_ViewModel.cs" />
+    <Compile Include="ViewModel\ExchangeRate_ViewModel.cs" />
     <Compile Include="ViewModel\Home_PageViewModel.cs" />
     <Compile Include="ViewModel\Info_ViewModel.cs" />
-    <Compile Include="ViewModel\IssueViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MoneyTransfer_ViewModel.cs" />
     <Compile Include="ViewModel\NewServiceOrders_ViewModel.cs" />
     <Compile Include="ViewModel\Receipt_ViewModel.cs" />
+    <Compile Include="ViewModel\RoomDetail_ViewModel.cs" />
+    <Compile Include="ViewModel\RoomType_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewRoomRent_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoom_ViewModel.cs" />
-    <Compile Include="ViewModel\ViewServiceOrders_ViewModel.cs" />
     <Compile Include="ViewModel\ViewService_ViewModel.cs" />
-    <Compile Include="View\Catalog\ChooseGuest.xaml.cs">
-      <DependentUpon>ChooseGuest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Catalog\ChooseService.xaml.cs">
-      <DependentUpon>ChooseService.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Catalog\EditRoom_Page.xaml.cs">
       <DependentUpon>EditRoom_Page.xaml</DependentUpon>
     </Compile>
@@ -358,14 +353,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Catalog\ChooseGuest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Catalog\ChooseService.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Catalog\EditRoom_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -548,6 +535,7 @@
     <Resource Include="Model\ChangeLog.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Model\SampleDatabase.sql" />
     <Resource Include="Images\Catalog.png" />
     <Resource Include="Images\home_in.png" />
     <Resource Include="Images\home_out.png" />
@@ -560,7 +548,7 @@
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>
       <LastGenOutput>QLDL2_Database.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\QLDL2_Database.sql" />
+    <Content Include="Model\QLDL2_Database.edmx.sql" />
     <Content Include="Model\QLDL2_Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>

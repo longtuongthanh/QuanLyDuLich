@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDuLich2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,18 @@ namespace QuanLyDuLich2.View.Catalog
         public EditRoom_Page()
         {
             InitializeComponent();
+        }
+
+        public EditRoom_Page(ViewRoom_ViewModel parent)
+        {
+            InitializeComponent();
+            this.DataContext = new EditRoom_ViewModel(parent);
+        }
+
+        public EditRoom_Page(RoomDetail_ViewModel data, ViewRoom_ViewModel parent)
+        {
+            InitializeComponent();
+            this.DataContext = new EditRoom_ViewModel(data, parent);
         }
     }
 }

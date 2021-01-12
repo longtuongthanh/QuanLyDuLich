@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyDuLich2.Model;
+using QuanLyDuLich2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,13 @@ namespace QuanLyDuLich2.View.Catalog
         public RoomDetail_Page()
         {
             InitializeComponent();
+            this.DataContext = new RoomDetail_ViewModel();
+        }
+
+        public RoomDetail_Page(tbPhong selectedPhong, ViewRoom_ViewModel parent)
+        {
+            InitializeComponent();
+            this.DataContext = new RoomDetail_ViewModel(selectedPhong, parent);
         }
     }
 }

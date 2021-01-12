@@ -12,9 +12,9 @@ using System.Windows;
 
 namespace QuanLyDuLich2.ViewModel
 {
-    class Checkin_ViewModel : BaseViewModel
+    class ViewRoomRent_ViewModel : BaseViewModel
     {
-        public Checkin_ViewModel()
+        public ViewRoomRent_ViewModel()
         {
             Load_dsPhong();
             Reset_PhieuThuePhong();
@@ -156,9 +156,10 @@ namespace QuanLyDuLich2.ViewModel
                     MessageBox.Show("Thông tin khách không hợp lệ");
                     return;
                 }
-                else
+                else if (!Check_KhachChuaThuePhong(newItem.Khach))
                 {
-                    SelectedPhong.TinhTrang = 1;
+                    MessageBox.Show("Khách ĐANG thuê một phòng khác.\nVui lòng kiểm tra lại");
+                    return;
                 }
 
             }
@@ -174,6 +175,7 @@ namespace QuanLyDuLich2.ViewModel
                 }
             }
 
+            DataProvider.Ins.DB.tbPhongs.Find(newItem.SoPhong).TinhTrang = 1;
             DataProvider.Ins.DB.tbPhieuThuePhongs.Add(newItem);
             DataProvider.Ins.DB.SaveChanges();
             MessageBox.Show("THUÊ PHÒNG THÀNH CÔNG !");
@@ -223,6 +225,16 @@ namespace QuanLyDuLich2.ViewModel
             }
 
             return result.ID;
+        }
+
+        //Kiểm tra xem khách có ĐANG thuê phòng khác hay không
+        bool Check_KhachChuaThuePhong(int khach)
+        {
+            foreach (tbPhieuThuePhong item in DataProvider.Ins.DB.tbPhieuThuePhongs)
+            {
+                if (item.NgayTra == null && item.Khach == khach) return false;
+            }
+            return true;
         }
         #endregion
     }

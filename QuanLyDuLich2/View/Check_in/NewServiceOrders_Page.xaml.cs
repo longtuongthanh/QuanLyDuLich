@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDuLich2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using QuanLyDuLich2.Model;
-using QuanLyDuLich2.ViewModel;
 
 namespace QuanLyDuLich2.View
 {
@@ -23,10 +22,10 @@ namespace QuanLyDuLich2.View
     /// </summary>
     public partial class NewServiceOrders_Page : Page
     {
-        public NewServiceOrders_Page(tbPhieuDichVu phieuDichVu)
+        public NewServiceOrders_Page()
         {
             InitializeComponent();
-            DataContext = new NewServiceOrders_ViewModel(phieuDichVu);
+            this.DataContext = new NewServiceOrders_ViewModel();
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

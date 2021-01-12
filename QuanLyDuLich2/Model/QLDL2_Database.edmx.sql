@@ -2,11 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/10/2021 18:42:20
+-- Date Created: 01/12/2021 09:40:15
 -- Generated from EDMX file: G:\Visual Studio\QuanLyDuLich\QuanLyDuLich2\Model\QLDL2_Database.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
+GO
+CREATE DATABASE QuanLyDuLich2;
 GO
 USE [QuanLyDuLich2];
 GO
@@ -17,47 +19,44 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK__tbChiTiet__DichV__5441852A]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbChiTietPhieuDichVu] DROP CONSTRAINT [FK__tbChiTiet__DichV__5441852A];
+IF OBJECT_ID(N'[dbo].[FK__tbChiTiet__DichV__4222D4EF]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbChiTietPhieuDichVu] DROP CONSTRAINT [FK__tbChiTiet__DichV__4222D4EF];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbChiTiet__Phieu__5535A963]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbChiTietPhieuDichVu] DROP CONSTRAINT [FK__tbChiTiet__Phieu__5535A963];
+IF OBJECT_ID(N'[dbo].[FK__tbChiTiet__Phieu__4316F928]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbChiTietPhieuDichVu] DROP CONSTRAINT [FK__tbChiTiet__Phieu__4316F928];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbHoaDon__IDKhac__5629CD9C]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbHoaDon] DROP CONSTRAINT [FK__tbHoaDon__IDKhac__5629CD9C];
+IF OBJECT_ID(N'[dbo].[FK__tbHoaDon__IDKhac__440B1D61]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbHoaDon] DROP CONSTRAINT [FK__tbHoaDon__IDKhac__440B1D61];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbHoaDon__PhieuC__571DF1D5]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbHoaDon] DROP CONSTRAINT [FK__tbHoaDon__PhieuC__571DF1D5];
+IF OBJECT_ID(N'[dbo].[FK__tbHoaDon__PhieuC__45F365D3]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbHoaDon] DROP CONSTRAINT [FK__tbHoaDon__PhieuC__45F365D3];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbHoaDon__PhieuT__5812160E]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbHoaDon] DROP CONSTRAINT [FK__tbHoaDon__PhieuT__5812160E];
+IF OBJECT_ID(N'[dbo].[FK__tbHoaDon__PhieuT__44FF419A]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbHoaDon] DROP CONSTRAINT [FK__tbHoaDon__PhieuT__44FF419A];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbPhieuCh__IDKha__59063A47]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuChuyenKhoan] DROP CONSTRAINT [FK__tbPhieuCh__IDKha__59063A47];
+IF OBJECT_ID(N'[dbo].[FK__tbPhieuCh__Ngoai__46E78A0C]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbPhieuChuyenKhoan] DROP CONSTRAINT [FK__tbPhieuCh__Ngoai__46E78A0C];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbPhieuCh__Ngoai__59FA5E80]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuChuyenKhoan] DROP CONSTRAINT [FK__tbPhieuCh__Ngoai__59FA5E80];
+IF OBJECT_ID(N'[dbo].[FK__tbPhieuDi__HoaDo__47DBAE45]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbPhieuDichVu] DROP CONSTRAINT [FK__tbPhieuDi__HoaDo__47DBAE45];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbPhieuDi__HoaDo__5AEE82B9]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuDichVu] DROP CONSTRAINT [FK__tbPhieuDi__HoaDo__5AEE82B9];
+IF OBJECT_ID(N'[dbo].[FK__tbPhieuDi__Khach__48CFD27E]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbPhieuDichVu] DROP CONSTRAINT [FK__tbPhieuDi__Khach__48CFD27E];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbPhieuDi__Khach__5BE2A6F2]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuDichVu] DROP CONSTRAINT [FK__tbPhieuDi__Khach__5BE2A6F2];
+IF OBJECT_ID(N'[dbo].[FK__tbPhieuTh__Khach__49C3F6B7]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbPhieuThuePhong] DROP CONSTRAINT [FK__tbPhieuTh__Khach__49C3F6B7];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbPhieuTh__Khach__5CD6CB2B]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuThuePhong] DROP CONSTRAINT [FK__tbPhieuTh__Khach__5CD6CB2B];
+IF OBJECT_ID(N'[dbo].[FK__tbPhieuTh__SoPho__4AB81AF0]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbPhieuThuePhong] DROP CONSTRAINT [FK__tbPhieuTh__SoPho__4AB81AF0];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbPhieuTh__SoPho__5DCAEF64]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuThuePhong] DROP CONSTRAINT [FK__tbPhieuTh__SoPho__5DCAEF64];
+IF OBJECT_ID(N'[dbo].[FK__tbPhong__LoaiPho__4BAC3F29]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbPhong] DROP CONSTRAINT [FK__tbPhong__LoaiPho__4BAC3F29];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbPhong__LoaiPho__5EBF139D]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhong] DROP CONSTRAINT [FK__tbPhong__LoaiPho__5EBF139D];
+IF OBJECT_ID(N'[dbo].[FK__tbSuCo__LoaiSuCo__4CA06362]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbSuCo] DROP CONSTRAINT [FK__tbSuCo__LoaiSuCo__4CA06362];
 GO
-IF OBJECT_ID(N'[dbo].[FK__tbSuCo__LoaiSuCo__5FB337D6]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbSuCo] DROP CONSTRAINT [FK__tbSuCo__LoaiSuCo__5FB337D6];
-GO
-IF OBJECT_ID(N'[dbo].[FK__tbTaiKhoa__LoaiT__60A75C0F]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbTaiKhoan] DROP CONSTRAINT [FK__tbTaiKhoa__LoaiT__60A75C0F];
+IF OBJECT_ID(N'[dbo].[FK__tbTaiKhoa__LoaiT__4D94879B]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbTaiKhoan] DROP CONSTRAINT [FK__tbTaiKhoa__LoaiT__4D94879B];
 GO
 
 -- --------------------------------------------------
@@ -186,10 +185,10 @@ GO
 -- Creating table 'tbPhieuChuyenKhoans'
 CREATE TABLE [dbo].[tbPhieuChuyenKhoans] (
     [ID] int IDENTITY(1,1) NOT NULL,
-    [IDKhachHang] int  NOT NULL,
     [SoTien] float  NOT NULL,
     [NoiDung] varchar(max)  NULL,
-    [NgoaiTe] nvarchar(3)  NULL
+    [NgoaiTe] nvarchar(3)  NULL,
+    [SoTaiKhoan] nvarchar(20)  NOT NULL
 );
 GO
 
@@ -211,7 +210,9 @@ CREATE TABLE [dbo].[tbPhieuThuePhongs] (
     [Khach] int  NOT NULL,
     [SoPhong] nvarchar(10)  NOT NULL,
     [NgayMuon] datetime  NULL,
-    [NgayTra] datetime  NULL
+    [NgayTra] datetime  NULL,
+    [DonGiaNgay] float  NOT NULL,
+    [DonGiaThang] float  NOT NULL
 );
 GO
 
@@ -228,7 +229,9 @@ CREATE TABLE [dbo].[tbSuCoes] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [NoiDung] varchar(max)  NULL,
     [ThoiGianTao] datetime  NULL,
-    [LoaiSuCo] nvarchar(24)  NOT NULL
+    [LoaiSuCo] nvarchar(24)  NOT NULL,
+    [ChiPhi] float  NULL,
+    [TinhTrang] int  NOT NULL
 );
 GO
 
@@ -347,22 +350,22 @@ GO
 
 -- Creating foreign key on [DichVu] in table 'tbChiTietPhieuDichVus'
 ALTER TABLE [dbo].[tbChiTietPhieuDichVus]
-ADD CONSTRAINT [FK__tbChiTiet__DichV__5441852A]
+ADD CONSTRAINT [FK__tbChiTiet__DichV__4222D4EF]
     FOREIGN KEY ([DichVu])
     REFERENCES [dbo].[tbDichVus]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbChiTiet__DichV__5441852A'
-CREATE INDEX [IX_FK__tbChiTiet__DichV__5441852A]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbChiTiet__DichV__4222D4EF'
+CREATE INDEX [IX_FK__tbChiTiet__DichV__4222D4EF]
 ON [dbo].[tbChiTietPhieuDichVus]
     ([DichVu]);
 GO
 
 -- Creating foreign key on [PhieuDichVu] in table 'tbChiTietPhieuDichVus'
 ALTER TABLE [dbo].[tbChiTietPhieuDichVus]
-ADD CONSTRAINT [FK__tbChiTiet__Phieu__5535A963]
+ADD CONSTRAINT [FK__tbChiTiet__Phieu__4316F928]
     FOREIGN KEY ([PhieuDichVu])
     REFERENCES [dbo].[tbPhieuDichVus]
         ([ID])
@@ -371,180 +374,165 @@ GO
 
 -- Creating foreign key on [IDKhachHang] in table 'tbHoaDons'
 ALTER TABLE [dbo].[tbHoaDons]
-ADD CONSTRAINT [FK__tbHoaDon__IDKhac__5629CD9C]
+ADD CONSTRAINT [FK__tbHoaDon__IDKhac__440B1D61]
     FOREIGN KEY ([IDKhachHang])
     REFERENCES [dbo].[tbKhaches]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbHoaDon__IDKhac__5629CD9C'
-CREATE INDEX [IX_FK__tbHoaDon__IDKhac__5629CD9C]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbHoaDon__IDKhac__440B1D61'
+CREATE INDEX [IX_FK__tbHoaDon__IDKhac__440B1D61]
 ON [dbo].[tbHoaDons]
     ([IDKhachHang]);
 GO
 
 -- Creating foreign key on [PhieuChuyenKhoan] in table 'tbHoaDons'
 ALTER TABLE [dbo].[tbHoaDons]
-ADD CONSTRAINT [FK__tbHoaDon__PhieuC__571DF1D5]
+ADD CONSTRAINT [FK__tbHoaDon__PhieuC__45F365D3]
     FOREIGN KEY ([PhieuChuyenKhoan])
     REFERENCES [dbo].[tbPhieuChuyenKhoans]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbHoaDon__PhieuC__571DF1D5'
-CREATE INDEX [IX_FK__tbHoaDon__PhieuC__571DF1D5]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbHoaDon__PhieuC__45F365D3'
+CREATE INDEX [IX_FK__tbHoaDon__PhieuC__45F365D3]
 ON [dbo].[tbHoaDons]
     ([PhieuChuyenKhoan]);
 GO
 
 -- Creating foreign key on [PhieuThuePhong] in table 'tbHoaDons'
 ALTER TABLE [dbo].[tbHoaDons]
-ADD CONSTRAINT [FK__tbHoaDon__PhieuT__5812160E]
+ADD CONSTRAINT [FK__tbHoaDon__PhieuT__44FF419A]
     FOREIGN KEY ([PhieuThuePhong])
     REFERENCES [dbo].[tbPhieuThuePhongs]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbHoaDon__PhieuT__5812160E'
-CREATE INDEX [IX_FK__tbHoaDon__PhieuT__5812160E]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbHoaDon__PhieuT__44FF419A'
+CREATE INDEX [IX_FK__tbHoaDon__PhieuT__44FF419A]
 ON [dbo].[tbHoaDons]
     ([PhieuThuePhong]);
 GO
 
 -- Creating foreign key on [HoaDon] in table 'tbPhieuDichVus'
 ALTER TABLE [dbo].[tbPhieuDichVus]
-ADD CONSTRAINT [FK__tbPhieuDi__HoaDo__5AEE82B9]
+ADD CONSTRAINT [FK__tbPhieuDi__HoaDo__47DBAE45]
     FOREIGN KEY ([HoaDon])
     REFERENCES [dbo].[tbHoaDons]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuDi__HoaDo__5AEE82B9'
-CREATE INDEX [IX_FK__tbPhieuDi__HoaDo__5AEE82B9]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuDi__HoaDo__47DBAE45'
+CREATE INDEX [IX_FK__tbPhieuDi__HoaDo__47DBAE45]
 ON [dbo].[tbPhieuDichVus]
     ([HoaDon]);
 GO
 
--- Creating foreign key on [IDKhachHang] in table 'tbPhieuChuyenKhoans'
-ALTER TABLE [dbo].[tbPhieuChuyenKhoans]
-ADD CONSTRAINT [FK__tbPhieuCh__IDKha__59063A47]
-    FOREIGN KEY ([IDKhachHang])
-    REFERENCES [dbo].[tbKhaches]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuCh__IDKha__59063A47'
-CREATE INDEX [IX_FK__tbPhieuCh__IDKha__59063A47]
-ON [dbo].[tbPhieuChuyenKhoans]
-    ([IDKhachHang]);
-GO
-
 -- Creating foreign key on [Khach] in table 'tbPhieuDichVus'
 ALTER TABLE [dbo].[tbPhieuDichVus]
-ADD CONSTRAINT [FK__tbPhieuDi__Khach__5BE2A6F2]
+ADD CONSTRAINT [FK__tbPhieuDi__Khach__48CFD27E]
     FOREIGN KEY ([Khach])
     REFERENCES [dbo].[tbKhaches]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuDi__Khach__5BE2A6F2'
-CREATE INDEX [IX_FK__tbPhieuDi__Khach__5BE2A6F2]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuDi__Khach__48CFD27E'
+CREATE INDEX [IX_FK__tbPhieuDi__Khach__48CFD27E]
 ON [dbo].[tbPhieuDichVus]
     ([Khach]);
 GO
 
 -- Creating foreign key on [Khach] in table 'tbPhieuThuePhongs'
 ALTER TABLE [dbo].[tbPhieuThuePhongs]
-ADD CONSTRAINT [FK__tbPhieuTh__Khach__5CD6CB2B]
+ADD CONSTRAINT [FK__tbPhieuTh__Khach__49C3F6B7]
     FOREIGN KEY ([Khach])
     REFERENCES [dbo].[tbKhaches]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuTh__Khach__5CD6CB2B'
-CREATE INDEX [IX_FK__tbPhieuTh__Khach__5CD6CB2B]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuTh__Khach__49C3F6B7'
+CREATE INDEX [IX_FK__tbPhieuTh__Khach__49C3F6B7]
 ON [dbo].[tbPhieuThuePhongs]
     ([Khach]);
 GO
 
 -- Creating foreign key on [LoaiPhong] in table 'tbPhongs'
 ALTER TABLE [dbo].[tbPhongs]
-ADD CONSTRAINT [FK__tbPhong__LoaiPho__5EBF139D]
+ADD CONSTRAINT [FK__tbPhong__LoaiPho__4BAC3F29]
     FOREIGN KEY ([LoaiPhong])
     REFERENCES [dbo].[tbLoaiPhongs]
         ([LoaiPhong])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbPhong__LoaiPho__5EBF139D'
-CREATE INDEX [IX_FK__tbPhong__LoaiPho__5EBF139D]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbPhong__LoaiPho__4BAC3F29'
+CREATE INDEX [IX_FK__tbPhong__LoaiPho__4BAC3F29]
 ON [dbo].[tbPhongs]
     ([LoaiPhong]);
 GO
 
 -- Creating foreign key on [LoaiSuCo] in table 'tbSuCoes'
 ALTER TABLE [dbo].[tbSuCoes]
-ADD CONSTRAINT [FK__tbSuCo__LoaiSuCo__5FB337D6]
+ADD CONSTRAINT [FK__tbSuCo__LoaiSuCo__4CA06362]
     FOREIGN KEY ([LoaiSuCo])
     REFERENCES [dbo].[tbLoaiSuCoes]
         ([LoaiSuCo])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbSuCo__LoaiSuCo__5FB337D6'
-CREATE INDEX [IX_FK__tbSuCo__LoaiSuCo__5FB337D6]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbSuCo__LoaiSuCo__4CA06362'
+CREATE INDEX [IX_FK__tbSuCo__LoaiSuCo__4CA06362]
 ON [dbo].[tbSuCoes]
     ([LoaiSuCo]);
 GO
 
 -- Creating foreign key on [LoaiTaiKhoan] in table 'tbTaiKhoans'
 ALTER TABLE [dbo].[tbTaiKhoans]
-ADD CONSTRAINT [FK__tbTaiKhoa__LoaiT__60A75C0F]
+ADD CONSTRAINT [FK__tbTaiKhoa__LoaiT__4D94879B]
     FOREIGN KEY ([LoaiTaiKhoan])
     REFERENCES [dbo].[tbLoaiTaiKhoans]
         ([LoaiTaiKhoan])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbTaiKhoa__LoaiT__60A75C0F'
-CREATE INDEX [IX_FK__tbTaiKhoa__LoaiT__60A75C0F]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbTaiKhoa__LoaiT__4D94879B'
+CREATE INDEX [IX_FK__tbTaiKhoa__LoaiT__4D94879B]
 ON [dbo].[tbTaiKhoans]
     ([LoaiTaiKhoan]);
 GO
 
 -- Creating foreign key on [NgoaiTe] in table 'tbPhieuChuyenKhoans'
 ALTER TABLE [dbo].[tbPhieuChuyenKhoans]
-ADD CONSTRAINT [FK__tbPhieuCh__Ngoai__59FA5E80]
+ADD CONSTRAINT [FK__tbPhieuCh__Ngoai__46E78A0C]
     FOREIGN KEY ([NgoaiTe])
     REFERENCES [dbo].[tbTyGias]
         ([NgoaiTe])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuCh__Ngoai__59FA5E80'
-CREATE INDEX [IX_FK__tbPhieuCh__Ngoai__59FA5E80]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuCh__Ngoai__46E78A0C'
+CREATE INDEX [IX_FK__tbPhieuCh__Ngoai__46E78A0C]
 ON [dbo].[tbPhieuChuyenKhoans]
     ([NgoaiTe]);
 GO
 
 -- Creating foreign key on [SoPhong] in table 'tbPhieuThuePhongs'
 ALTER TABLE [dbo].[tbPhieuThuePhongs]
-ADD CONSTRAINT [FK__tbPhieuTh__SoPho__5DCAEF64]
+ADD CONSTRAINT [FK__tbPhieuTh__SoPho__4AB81AF0]
     FOREIGN KEY ([SoPhong])
     REFERENCES [dbo].[tbPhongs]
         ([SoPhong])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuTh__SoPho__5DCAEF64'
-CREATE INDEX [IX_FK__tbPhieuTh__SoPho__5DCAEF64]
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuTh__SoPho__4AB81AF0'
+CREATE INDEX [IX_FK__tbPhieuTh__SoPho__4AB81AF0]
 ON [dbo].[tbPhieuThuePhongs]
     ([SoPhong]);
 GO
