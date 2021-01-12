@@ -1,4 +1,5 @@
-﻿using QuanLyDuLich2.ViewModel;
+﻿using QuanLyDuLich2.Model;
+using QuanLyDuLich2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,12 @@ namespace QuanLyDuLich2
     /// <summary>
     /// Interaction logic for 
     /// </summary>
-    public partial class PhieuGui_PrintPreview : Window
+    public partial class Receipt_PrintPreview : Window
     {
-        public PhieuGui_PrintPreview(BaseViewModel x)
+        public Receipt_PrintPreview(tbHoaDon x)
         {
             InitializeComponent();
-            this.DataContext = x;
+            this.DataContext = new Receipt_PrintPreviewVM(x);
         }
     }
 }

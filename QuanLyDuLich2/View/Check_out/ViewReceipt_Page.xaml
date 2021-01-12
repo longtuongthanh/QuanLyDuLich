@@ -1,0 +1,283 @@
+﻿<Page x:Class="QuanLyDuLich2.View.Check_out.ViewReceipt_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyDuLich2.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="ViewReceipt_Page"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="18"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <materialDesign:Card Margin="5"
+                  Background="{DynamicResource PrimaryHueDarkBrush}"
+                  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                  Padding="8">
+                <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="20">LẬP HOÁ ĐƠN</TextBlock>
+            </materialDesign:Card>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="colMailBox" Width="{Binding BoxWidth}" MinWidth="480"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0*" MinHeight="50"/>
+                    <!--RowDefinition Height="0*" MinHeight="30"/-->
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <materialDesign:DialogHost
+                          IsOpen="{Binding IsDialogOpen, Mode=TwoWay}"
+                          CloseOnClickAway="False"
+                          Style="{StaticResource MaterialDesignEmbeddedDialogHost}"
+                          DialogMargin="8">
+                        <materialDesign:DialogHost.DialogContent>
+                            <Grid Margin="16" MaxHeight="500">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="120"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.5*"/>
+                                            <ColumnDefinition Width="0.2*"/>
+                                            <ColumnDefinition Width="0.2*"/>
+                                            <ColumnDefinition Width="0.2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="18" Margin="5" Text="Tên dịch vụ"></TextBlock>
+                                        <TextBlock Grid.Column="1" FontWeight="Bold" FontSize="18" Margin="5" Text="Số lượng"></TextBlock>
+                                        <TextBlock Grid.Column="2" FontWeight="Bold" FontSize="18" Margin="5" Text="Đơn giá"></TextBlock>
+                                        <TextBlock Grid.Column="3" FontWeight="Bold" FontSize="18" Margin="5" Text="Thành tiền"></TextBlock>
+                                    </Grid>
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                        <ListBox x:Name="listbox2"
+                                        Margin="0,20,0,20"
+                                        materialDesign:ListViewAssist.ListViewItemPadding="10"
+                                        materialDesign:ListBoxAssist.IsToggle="False"
+                                        SelectionMode="Single"
+                                        ItemsSource="{Binding ListDV}">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Margin="0, 0, 0, 0" VerticalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=listbox1}">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="0.5*"/>
+                                                            <ColumnDefinition Width="0.2*"/>
+                                                            <ColumnDefinition Width="0.2*"/>
+                                                            <ColumnDefinition Width="0.2*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" FontSize="18" Margin="0"
+                                                               Text="{Binding tbDichVu.Ten}">
+                                                        </TextBlock>
+                                                        <TextBlock Grid.Column="1" FontSize="18" Margin="0"
+                                                               Text="{Binding SoLuong}">
+                                                        </TextBlock>
+                                                        <TextBlock Grid.Column="2" FontSize="18" Margin="0"
+                                                               Text="{Binding DonGia, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                                        </TextBlock>
+                                                        <TextBlock Grid.Column="3" FontSize="18" Margin="0"
+                                                               Text="{Binding ThanhTien, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                                        </TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </ScrollViewer>
+                                </StackPanel>
+                                <StackPanel
+                                    Grid.Row="1"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Center">
+                                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                        IsDefault="True"
+                                        Command="{Binding OK}">
+                                        OK
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </materialDesign:DialogHost.DialogContent>
+                        <StackPanel Margin="15">
+                            <StackPanel Margin="5">
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                                    TextWrapping="WrapWithOverflow" TextAlignment="Center">
+                                    Dịch vụ đã sử dụng
+                                </TextBlock>
+                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="0.2*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="18" Margin="5" Text="Mã phiếu dịch vụ"></TextBlock>
+                                <TextBlock Grid.Column="1" FontWeight="Bold" FontSize="18" Margin="5" Text="Ngày tạo phiếu"></TextBlock>
+                                <TextBlock Grid.Column="2" FontWeight="Bold" FontSize="18" Margin="5" Text="Thành tiền"></TextBlock>
+                            </Grid>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ListBox x:Name="listbox1"
+                                Margin="0,20,0,20"
+                                materialDesign:ListViewAssist.ListViewItemPadding="10"
+                                materialDesign:ListBoxAssist.IsToggle="False"
+                                SelectedItem="{Binding SelectedDV, Mode=TwoWay}"
+                                SelectionMode="Single"
+                                ItemsSource="{Binding dsDichVu}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="SelectionChanged">
+                                            <i:InvokeCommandAction Command="{Binding SelectedDVChange}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <ListBox.ItemTemplate>
+
+                                        <DataTemplate>
+                                            <Grid Margin="0, 0, 0, 0" VerticalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=listbox1}">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.2*"/>
+                                                    <ColumnDefinition Width="0.2*"/>
+                                                    <ColumnDefinition Width="0.2*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding ID}"></TextBlock>
+                                                <TextBlock Grid.Column="1" FontSize="18" Margin="0" Text="{Binding ThoiGian, StringFormat='dd/MM/yyyy'}"></TextBlock>
+                                                <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding ThanhTien, StringFormat='#,##0;(#,##0)', Mode=OneWay}"></TextBlock>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </ScrollViewer>
+                        </StackPanel>
+                    </materialDesign:DialogHost>
+                </Grid>
+            </Grid>
+            <!--#endregion -->
+
+            <!--Spliter-->
+            <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
+
+            <!--#region RIGHT: VIEW PANEL-->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0*" MinHeight="50"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <!--View Panel-->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto">
+                        <StackPanel>
+                            <!--CongVan Info-->
+                            <StackPanel Orientation="Vertical" Margin="0,10">
+                                <!--Header-->
+                                <StackPanel Margin="5">
+                                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                                    TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                                    > Hóa đơn</TextBlock>
+                                </StackPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top">Phòng thuê:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhieuThue.SoPhong, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Tên khách hàng:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhieuThue.tbKhach.HoTen, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> CMND:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhieuThue.tbKhach.CMND, Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Ngày thuê</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhieuThue.NgayMuon, StringFormat='dd/MM/yyyy', Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18"> Ngày trả</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedPhieuThue.NgayTra, StringFormat='dd/MM/yyyy', Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Tiền thuê phòng:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SoTien, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Tiền dịch vụ:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SoTienDichVu, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="10">
+                                    <TextBlock FontSize="18" VerticalAlignment="Top"> Tổng tiền:</TextBlock>
+                                    <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding TongTien, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <Grid Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="Auto" MinWidth="65"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                                <Grid Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" MinWidth="124"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="Auto" MinWidth="65"/>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+                <!--#endregion -->
+                <!--Action bar-->
+                <Grid Grid.Row="1"
+                      Height="50" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            Margin="5" Content="Hủy" Background="{StaticResource WarningHueBrush}"
+                            MinWidth="120"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" Command="{Binding CancelCommand}"
+                            Visibility="{Binding Visibility}"/>
+                        <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
+                            Margin="5" Content="In hóa đơn" Background="{StaticResource PrimaryHueDarkBrush}"
+                            MinWidth="120"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" Command="{Binding PrintCommand}"
+                            Visibility="{Binding Visibility}"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
