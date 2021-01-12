@@ -33,5 +33,25 @@ namespace QuanLyDuLich2.View
             var textBox = sender as TextBox;
             e.Handled = Regex.IsMatch(e.Text, "[^0-9.]+");
         }
+
+        private void UpdateThanhTien()
+        {
+            NewServiceOrders_ViewModel vm = (this.DataContext as NewServiceOrders_ViewModel);
+            for (int i=0; i<vm.dsChiTietPhieuDichVu.Count; i++)
+            {
+                vm.dsChiTietPhieuDichVu[i].DonGia = vm.dsChiTietPhieuDichVu[i].SoLuong * (vm.dsChiTietPhieuDichVu[i].tbDichVu != null ? vm.dsChiTietPhieuDichVu[i].tbDichVu.DonGia : 0);
+                MessageBox.Show(vm.dsChiTietPhieuDichVu[i].DonGia.ToString());
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateThanhTien();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateThanhTien();
+        }
     }
 }
