@@ -20,12 +20,6 @@
       Title="ViewRoomRent_Page">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{Binding BoxWidth}" MinWidth="300" MaxWidth="900"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
@@ -149,7 +143,7 @@
                         SelectedDate="{Binding NgayThue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
                     </Grid>
                 </StackPanel>
-                
+
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -166,14 +160,5 @@
                 </Grid>
             </Grid>
         </ScrollViewer>
-
-        <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
-
-        <Grid Grid.Column="2">
-            <!-- SELECTOR SCREEN, bind to either [Choose guest] or [Choose room] -->
-            <Frame x:Name="main" Margin="0,0,0,0" NavigationUIVisibility="Hidden"
-                       Content="{Binding FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            </Frame>
-        </Grid>
     </Grid>
 </Page>

@@ -386,7 +386,7 @@ namespace QuanLyDuLich2.ViewModel
             NewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 //Selected_HOME = false;
                 //Selected_DangXuat = false;
-                FrameContent = new NewServiceOrders_Page(null);
+                FrameContent = new NewServiceOrders_Page();
                 Util.ShowTodoMessage();
                 //FrameContent.DataContext = new TraCuu_ViewModel();
             });

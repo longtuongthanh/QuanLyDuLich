@@ -73,7 +73,7 @@ namespace QuanLyDuLich2.ViewModel
             {
                 return new RelayCommand<tbPhieuDichVu>(item => item != null, item =>
                 {
-                    MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(item);
+                    //MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(item);
                 });
             }
         }
@@ -86,7 +86,7 @@ namespace QuanLyDuLich2.ViewModel
                     obj => { return true; },//MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan; }, 
                     obj =>
                     {
-                        MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(null); 
+                        //MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(null); 
                     });
             }
         }
