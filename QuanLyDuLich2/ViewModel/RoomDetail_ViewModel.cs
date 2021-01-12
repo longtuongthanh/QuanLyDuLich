@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace QuanLyDuLich2.ViewModel
@@ -41,13 +42,6 @@ namespace QuanLyDuLich2.ViewModel
             set { _Khach = value; OnPropertyChanged(); }
         }
 
-        private string _IsVisible = "Visible";
-
-        public string IsVisible
-        {
-            get { return _IsVisible; }
-            set { _IsVisible = value; OnPropertyChanged(); }
-        }
 
         private string _XoaButton;
 
@@ -55,6 +49,18 @@ namespace QuanLyDuLich2.ViewModel
         {
             get { return _XoaButton; }
             set { _XoaButton = value; OnPropertyChanged(); }
+        }
+
+        private Visibility _IsVisible = Visibility.Visible;
+        public Visibility IsVisible
+        {
+            get {
+                if (MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.QuanLy)
+                    return _IsVisible;
+                else
+                    return Visibility.Collapsed;
+            }
+            set { _IsVisible = value; }
         }
 
         public ICommand XoaPhong
@@ -124,7 +130,7 @@ namespace QuanLyDuLich2.ViewModel
             else
             {
                 Khach = "";
-                IsVisible = "Collapsed";
+                IsVisible = Visibility.Collapsed;
             }
         }
     }

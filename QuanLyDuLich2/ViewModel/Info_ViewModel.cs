@@ -160,8 +160,6 @@ namespace QuanLyDuLich2.ViewModel
             //UpdateRoom_Tooltip = UpdateService_Tooltip = UpdateExchange_Tooltip =
             ViewRoom_Tooltip = ViewService_Tooltip = ViewExchange_Tooltip = "Không thể truy cập";
             
-            if (MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.KeToan ||
-                MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.QuanLy)
             {
                 Init_Valid_Button(2);
                 Init_Valid_Tooltip(2);
@@ -169,14 +167,6 @@ namespace QuanLyDuLich2.ViewModel
                 Init_Valid_Tooltip(3);
                 Init_Valid_Button(4);
                 Init_Valid_Tooltip(4);
-            }
-            
-            if (MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.LeTan)
-            {
-                Init_Valid_Button(2);
-                Init_Valid_Tooltip(2);
-                Init_Valid_Button(3);
-                Init_Valid_Tooltip(3);
             }
         }
 

@@ -239,6 +239,7 @@
     <Compile Include="ViewModel\Receipt_ViewModel.cs" />
     <Compile Include="ViewModel\RoomDetail_ViewModel.cs" />
     <Compile Include="ViewModel\RoomType_ViewModel.cs" />
+    <Compile Include="ViewModel\UserDetail_ViewModel.cs" />
     <Compile Include="ViewModel\ViewActivity_ViewModel.cs" />
     <Compile Include="ViewModel\ViewBaoCaoTongHop_ViewModel.cs" />
     <Compile Include="ViewModel\ViewReceipt_ViewModel.cs" />
@@ -247,6 +248,7 @@
     <Compile Include="ViewModel\ViewServiceOrders_ViewModel.cs" />
     <Compile Include="ViewModel\ViewService_ViewModel.cs" />
     <Compile Include="ViewModel\ViewSuCo_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewUser_ViewModel.cs" />
     <Compile Include="View\Catalog\ChooseGuest.xaml.cs">
       <DependentUpon>ChooseGuest.xaml</DependentUpon>
     </Compile>
@@ -321,6 +323,12 @@
     </Compile>
     <Compile Include="View\Issues\ViewSuCo_Page.xaml.cs">
       <DependentUpon>ViewSuCo_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserDetail_Window.xaml.cs">
+      <DependentUpon>UserDetail_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewUser_Page.xaml.cs">
+      <DependentUpon>ViewUser_Page.xaml</DependentUpon>
     </Compile>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -446,6 +454,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\UserDetail_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewUser_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -528,6 +544,8 @@
     <Resource Include="Model\ChangeLog.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\report.png" />
+    <Resource Include="Images\statistics.png" />
     <Content Include="Model\SampleDatabase.sql" />
     <Resource Include="Images\Catalog.png" />
     <Resource Include="Images\home_in.png" />

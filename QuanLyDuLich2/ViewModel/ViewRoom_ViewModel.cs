@@ -103,7 +103,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(obj => MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.QuanLy ,
                 x =>
                 {
                     //IsVisible = "Visible";
@@ -126,7 +126,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(obj => MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.QuanLy,
                 x =>
                 {
                     //IsVisible = "Visible";
