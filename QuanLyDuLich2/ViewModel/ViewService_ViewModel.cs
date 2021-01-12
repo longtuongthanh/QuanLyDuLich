@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.Helper;
+using System.Windows.Forms;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -52,8 +53,132 @@ namespace QuanLyDuLich2.ViewModel
             set { _IsVisible = value; OnPropertyChanged(); }
         }
 
+        private string _type;
+
+        public string type
+        {
+            get { return _type; }
+            set { _type = value; OnPropertyChanged(); }
+        }
+
+        private bool _IsAdd = true;
+
+        public bool IsAdd
+        {
+            get { return _IsAdd; }
+            set { _IsAdd = value; OnPropertyChanged(); }
+        }
+
+        private string _newDichVu;
+
+        public string newDichVu
+        {
+            get { return _newDichVu; }
+            set { _newDichVu = value; OnPropertyChanged(); }
+        }
+
+        private string _newChiTiet;
+
+        public string newChiTiet
+        {
+            get { return _newChiTiet; }
+            set { _newChiTiet = value; OnPropertyChanged(); }
+        }
+
+        private int _newDonGia;
+
+        public int newDonGia
+        {
+            get { return _newDonGia; }
+            set { _newDonGia = value; OnPropertyChanged(); }
+        }
+
+        private bool _IsDialogOpen = false;
+
+        public bool IsDialogOpen
+        {
+            get { return _IsDialogOpen; }
+            set { _IsDialogOpen = value; OnPropertyChanged(); }
+        }
+
         #endregion
         #region Command
+        public ICommand AddCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    IsDialogOpen = true;
+                    type = "Thêm mới dịch vụ: ";
+                    IsAdd = true;
+                });
+            }
+        }
+
+        public ICommand EditCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    if (SelectedDV != null)
+                    {
+                        newDichVu = SelectedDV.Ten;
+                        newChiTiet= SelectedDV.ChiTiet;
+                        newDonGia = (int)(SelectedDV.DonGia);
+
+                    }
+                    IsDialogOpen = true;
+                    type = "Chỉnh sửa dịch vụ: ";
+                    IsAdd = false;
+                });
+            }
+        }
+
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    Delete();
+                });
+            }
+        }
+
+        public ICommand SaveDichVu
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    if (IsAdd)
+                        SaveNewDichVu();
+                    else
+                        SaveEdit();
+
+                });
+            }
+        }
+
+        public ICommand CancelDichVu
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    IsDialogOpen = false;
+                    ResetDialog();
+                });
+            }
+        }
+
 
         private string filterText;
         public string FilterText { get => filterText; set => filterText = value; }
@@ -117,6 +242,67 @@ namespace QuanLyDuLich2.ViewModel
                 //else
                 //    Khach = "Không có";
             }
+        }
+
+        void ResetDialog()
+        {
+            newDichVu = "";
+            newChiTiet = "";
+            newDonGia = 0;
+        }
+
+        async void Delete()
+        {
+            if (SelectedDV != null)
+            {
+                DataProvider.Ins.DB.tbDichVus.Remove(SelectedDV);
+                try
+                {
+                    await DataProvider.Ins.DB.SaveChangesAsync();
+                    MessageBox.Show("Xoá thành công!");
+                    ResetDichVu();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Dịch vụ này đã được sử dụng, không thể xoá.");
+                }
+            }
+        }
+
+        async void SaveEdit()
+        {
+            SelectedDV.ChiTiet = newChiTiet;
+            SelectedDV.DonGia = newDonGia;
+            await DataProvider.Ins.DB.SaveChangesAsync();
+            MessageBox.Show("Đã lưu thay đổi thành công!");
+            ResetDichVu();
+            IsDialogOpen = false;
+            ResetDialog();
+        }
+
+        async void SaveNewDichVu()
+        {
+            if (!String.IsNullOrWhiteSpace(newDichVu))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Tên dịch vụ không thể bỏ trống", "Thêm mới dịch vụ");
+                return;
+            }
+            tbDichVu newDV = new tbDichVu()
+            {
+                Ten = newDichVu,
+                ChiTiet = newChiTiet,
+                DonGia = newDonGia,
+            };
+            DataProvider.Ins.DB.tbDichVus.Add(newDV);
+            await DataProvider.Ins.DB.SaveChangesAsync();
+            MessageBox.Show("Đã lưu dịch vụ thành công!");
+            ResetDichVu();
+            IsDialogOpen = false;
+            ResetDialog();
         }
         #endregion
     }

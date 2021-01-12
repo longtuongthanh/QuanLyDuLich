@@ -55,7 +55,7 @@
                          Visibility="{Binding VisibilityOfEditThamSo}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}"
+                         IsEnabled="{Binding EnableLeTan}"
                          ItemsSource="{Binding ListLoaiSuCo}"
                               SelectedValue="{Binding SelectedLoaiSuCo}"
                          Text="{Binding SelectedLoaiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
@@ -75,8 +75,7 @@
                              Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          TextWrapping="Wrap"
-                             
-                         IsEnabled="{Binding EnableGiaTri}"
+                         IsEnabled="{Binding EnableLeTan}"
                          Text="{Binding NoiDungSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="TextChanged">
@@ -99,7 +98,7 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          TextWrapping="WrapWithOverflow"
-                         IsEnabled="{Binding EnableChiPhi}"
+                         IsEnabled="{Binding EnabledChiPhi}"
                          Text="{Binding ChiPhiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                 </Grid>

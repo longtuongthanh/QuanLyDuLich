@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyDuLich2.View.Catalog"
         mc:Ignorable="d"
-        Title="ChooseService" Height="450" Width="1000"
+        Title="ChooseService" Height="450" Width="500"
        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       
@@ -19,8 +19,6 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="colMailBox" Width="1*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Margin="5">
             <Grid.RowDefinitions>
@@ -43,9 +41,9 @@
                                 Margin="0,20,0,20"
                                 materialDesign:ListViewAssist.ListViewItemPadding="10"
                                 materialDesign:ListBoxAssist.IsToggle="False"
-                                SelectedItem="{Binding SelectedPhong, Mode=TwoWay}"
+                                SelectedItem="{Binding SelectedDichVu, Mode=TwoWay}"
                                 SelectionMode="Single"
-                                ItemsSource="{Binding dsPhong}">
+                                ItemsSource="{Binding ListDichVu}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding SelectedPhongChange}"/>
@@ -61,9 +59,9 @@
                                         <ColumnDefinition Width="2.5*"/>
                                         <ColumnDefinition Width="1.5*"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding SoPhong}"></TextBlock>
-                                    <TextBlock Grid.Column="1" FontSize="18" Margin="0" Text="{Binding LoaiPhong}"></TextBlock>
-                                    <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding sTinhTrang}"></TextBlock>
+                                    <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding Ten}"></TextBlock>
+                                    <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="18" Margin="0" Text="{Binding ChiTiet}"></TextBlock>
+                                    <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding DonGia}"></TextBlock>
                                 </Grid>
                                 <!--/Button-->
                             </DataTemplate>
@@ -77,93 +75,11 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5" Content="Thêm khách mới" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"/>
                 <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5" Content="Chọn" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"/>
-            </Grid>
-        </Grid>
-
-        <GridSplitter Grid.Column="1" Width="3" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Stretch"/>
-        <Grid Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <StackPanel  Orientation="Vertical" Margin="5" Width="Auto">
-                <!--Header-->
-                <StackPanel Margin="5">
-                    <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
-                                    TextWrapping="Wrap" TextAlignment="Center"
-                                    Text="Thông tin dịch vụ"
-                                    ></TextBlock>
-                </StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="128"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Bottom" Margin="5,20,5,5">
-                        Tên dịch vụ:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" 
-                         Style="{StaticResource MaterialDesignTextBox}" 
-                         Foreground="{StaticResource SecondaryAccentBrush}" 
-                         VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}" FontSize="18"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </TextBox>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="128"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Top" Margin="5,20,5,5">
-                         Đơn giá:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" 
-                         Style="{StaticResource MaterialDesignTextBox}" 
-                         Foreground="{StaticResource SecondaryAccentBrush}" 
-                         VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}" FontSize="18"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    </TextBox>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" MinWidth="128"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="18" Grid.Column="0" VerticalAlignment="Top" Margin="5,20,5,5">
-                     Chi tiết:
-                    </TextBlock>
-                    <TextBox Grid.Column="1" 
-                         Style="{StaticResource MaterialDesignTextBox}" 
-                         Foreground="{StaticResource SecondaryAccentBrush}" 
-                         VerticalAlignment="Center"
-                         TextWrapping="Wrap"
-                         IsEnabled="{Binding EnableGiaTri}" FontSize="18"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
-                    </TextBox>
-                </Grid>
-            </StackPanel>
-
-            <Grid Grid.Row="1" Margin="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5" Content="Hủy" Background="{StaticResource WarningHueBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
-                <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
+                            Width="150" Height="35" IsEnabled="{Binding IsEnable}"
+                        Command="{Binding SelectCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
             </Grid>
         </Grid>
     </Grid>

@@ -25,6 +25,10 @@ namespace QuanLyDuLich2.Helper
 
         public static bool Match(string one, string other)
         {
+            if (one == null || one == "")
+                return false;
+            if (other == null || other == "")
+                return false;
             string[] split1 = one.Split(' ');
             string[] split2 = other.Split(' ');
 

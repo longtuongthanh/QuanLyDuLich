@@ -69,6 +69,18 @@ namespace QuanLyDuLich2.ViewModel
                     return "Đã thanh toán";
             }
         }
+
+        public ICommand ViewServiceOrderDetail
+        {
+            get
+            {
+                return new RelayCommand<tbPhieuDichVu>(item => item != null, item =>
+                {
+                    //MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(item);
+                });
+            }
+        }
+        
         public ICommand NewServiceOrderCammand
         {
             get
@@ -102,7 +114,7 @@ namespace QuanLyDuLich2.ViewModel
                     if (FilterDate != null)
                         filterHelper_.Insert(item => item.ThoiGian != null && item.ThoiGian.Value.Date == FilterDate.Value.Date);
                     if (FilterKhach != null && FilterKhach != "")
-                        filterHelper_.Insert(item => Util.Match(item.tbKhach.HoTen, FilterKhach));
+                        filterHelper_.Insert(item => Util.Match(item.tbKhach?.HoTen, FilterKhach));
 
                     _dsServiceOrder = null;
                     OnPropertyChanged("dsServiceOrder");
