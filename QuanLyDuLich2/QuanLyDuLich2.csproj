@@ -240,7 +240,6 @@
     <Compile Include="ViewModel\RoomDetail_ViewModel.cs" />
     <Compile Include="ViewModel\RoomType_ViewModel.cs" />
     <Compile Include="ViewModel\ViewActivity_ViewModel.cs" />
-    <Compile Include="ViewModel\ViewBaoCaoTheoNgay_ViewModel.cs" />
     <Compile Include="ViewModel\ViewBaoCaoTongHop_ViewModel.cs" />
     <Compile Include="ViewModel\ViewReceipt_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoomRent_ViewModel.cs" />
@@ -482,8 +481,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Scripts\jquery-3.5.1.min.map" />
-    <None Include="Scripts\jquery-3.5.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -532,12 +529,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model\SampleDatabase.sql" />
-    <Content Include="Scripts\jquery-3.5.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.5.1.js" />
-    <Content Include="Scripts\jquery-3.5.1.min.js" />
-    <Content Include="Scripts\jquery-3.5.1.slim.js" />
-    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
-    <Content Include="Scripts\nugetexample.js" />
     <Resource Include="Images\Catalog.png" />
     <Resource Include="Images\home_in.png" />
     <Resource Include="Images\home_out.png" />

@@ -159,13 +159,24 @@ namespace QuanLyDuLich2.ViewModel
 
             //UpdateRoom_Tooltip = UpdateService_Tooltip = UpdateExchange_Tooltip =
             ViewRoom_Tooltip = ViewService_Tooltip = ViewExchange_Tooltip = "Không thể truy cập";
-
-            Util.ShowTodoMessage();
-            // TODO: choose which is valid for user
-            for (int i = 0; i < 6; i++)
+            
+            if (MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.KeToan ||
+                MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.QuanLy)
             {
-                Init_Valid_Button(i + 1);
-                Init_Valid_Tooltip(i + 1);
+                Init_Valid_Button(2);
+                Init_Valid_Tooltip(2);
+                Init_Valid_Button(3);
+                Init_Valid_Tooltip(3);
+                Init_Valid_Button(4);
+                Init_Valid_Tooltip(4);
+            }
+            
+            if (MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.LeTan)
+            {
+                Init_Valid_Button(2);
+                Init_Valid_Tooltip(2);
+                Init_Valid_Button(3);
+                Init_Valid_Tooltip(3);
             }
         }
 
@@ -245,7 +256,6 @@ namespace QuanLyDuLich2.ViewModel
                     while (!TimerStop)
                     {
                         await Task.Delay(1000);
-                        Util.ShowTodoMessage();
                         Init_Button_User();
                         /*
                         if (LoginViewModel.TaiKhoanSuDung != null)
@@ -264,26 +274,15 @@ namespace QuanLyDuLich2.ViewModel
             });
 
             ViewRoom_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = true;
-                //Selected_DangXuat = false;
                 MainViewModel.Ins.FrameContent = new ViewRoom_Page();
-                //FrameContent.DataContext = new Home_PageViewModel();
             });
 
             ViewService_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
                 MainViewModel.Ins.FrameContent = new ViewService_Page();
-                Util.ShowTodoMessage();
-                //FrameContent.DataContext = new MoSo_ViewModel();
             });
 
             ViewExchange_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                //Selected_HOME = false;
-                //Selected_DangXuat = false;
                 MainViewModel.Ins.FrameContent = new ExchangeRate_Page();
-                Util.ShowTodoMessage();
-                //FrameContent.DataContext = new GuiTien_ViewModel();
             });
             /*
             UpdateRoom_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {

@@ -138,7 +138,7 @@ namespace QuanLyDuLich2.ViewModel
                 {
                     var temp = DataProvider.Ins.DB.tbDichVus.ToList();
                     IEnumerable<tbChiTietPhieuDichVu> tb = DataProvider.Ins.DB.tbChiTietPhieuDichVus
-                        .Where(item => item.PhieuDichVu == SelectedServiceOrder.ID);
+                        .Where(item => SelectedServiceOrder != null && item.PhieuDichVu == SelectedServiceOrder.ID);
                     _dsServiceOrderDetail = new ObservableCollection<tbChiTietPhieuDichVu>(tb.Select(
                         item => new tbChiTietPhieuDichVu
                         {

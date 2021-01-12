@@ -51,11 +51,32 @@ namespace QuanLyDuLich2.ViewModel
         #region Command
         private string filterText;
         public string FilterText { get => filterText; set => filterText = value; }
+        public bool Empty;
+        public bool Used;
+        public bool CheckedOut;
+        public bool Issue;
+        public bool NotAvail;
 
         bool FilterCondition(tbPhong item)
         {
             if (FilterText == null || FilterText == "")
                 return true;
+
+            if (Empty && item.TinhTrang != 0)
+                return false;
+
+            if (Used && item.TinhTrang != 1)
+                return false;
+
+            if (CheckedOut && item.TinhTrang != 2)
+                return false;
+
+            if (Issue && item.TinhTrang != 3)
+                return false;
+
+            if (NotAvail && item.TinhTrang != 4)
+                return false;
+
             return Util.Match(FilterText.ToLower(), item.LoaiPhong.ToLower()) ||
                 Util.Match(FilterText.ToLower(), item.sTinhTrang.ToLower()) ||
                 Util.Match(FilterText.ToLower(), item.SoPhong.ToLower());

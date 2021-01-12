@@ -57,32 +57,10 @@ namespace QuanLyDuLich2.ViewModel
                     while (true)
                     {
                         await Task.Delay(1000);
-
-                        //Khởi tạo tài khoản cho toàn bộ chương trình
-                        InitTaiKhoan();
+                        
                         NgayGioHienTai = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
                     }
                 });
-        }
-
-        private void InitTaiKhoan()
-        {
-            Util.ShowTodoMessage();
-            /*
-            if (user == LoginViewModel.TaiKhoanSuDung) return; // check to update Ten one time only for utilize
-
-            user = LoginViewModel.TaiKhoanSuDung;
-            if (user == null) return; 
-
-            TenTaiKhoan = user.HoTen;
-            ObservableCollection<NHOMNGUOIDUNG> listNhom = new ObservableCollection<NHOMNGUOIDUNG>(DataProvider.Ins.DB.NHOMNGUOIDUNGs);
-            foreach (var item in listNhom)
-                if (user.MaNhom == item.MaNhom)
-                {
-                    ChucVu = item.TenNhom;
-                    break;
-                }
-            //*/
         }
         #endregion
 

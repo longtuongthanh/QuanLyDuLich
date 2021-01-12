@@ -338,7 +338,6 @@ namespace QuanLyDuLich2.ViewModel
                     while (!TimerStop)
                     {
                         await Task.Delay(1000);
-                        Util.ShowTodoMessage();
                         Init_Button_User();
                         /*
                         if (LoginViewModel.TaiKhoanSuDung != null)
