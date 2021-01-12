@@ -1,4 +1,5 @@
 ﻿using QuanLyDuLich2.Helper;
+using QuanLyDuLich2.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,6 +26,16 @@ namespace QuanLyDuLich2.ViewModel
         {
             get { return _ListLoaiSuCo; }
             set { _ListLoaiSuCo = value; OnPropertyChanged(); }
+        }
+        public bool EnabledChiPhi
+        {
+            get => MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.KeToan ||
+                MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.QuanLy;
+        }
+        public bool EnableLeTan
+        {
+            get => MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.LeTan ||
+                MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.QuanLy;
         }
         public ViewSuCo_ViewModel()
         {

@@ -55,7 +55,7 @@
                          Visibility="{Binding VisibilityOfEditThamSo}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}"
+                         IsEnabled="{Binding EnableLeTan}"
                          ItemsSource="{Binding dsIssueType}"
                          Text="{Binding SelectedSuCo.LoaiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </ComboBox>
@@ -74,7 +74,7 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          TextWrapping="Wrap"
-                         IsEnabled="{Binding EnableGiaTri}"
+                         IsEnabled="{Binding EnableLeTan}"
                          Text="{Binding SelectedSuCo.NoiDun, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                 </Grid>
@@ -109,7 +109,7 @@
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
-                        IsEnabled="{Binding EnableGiaTri}"
+                        IsEnabled="{Binding EnableLeTan}"
                         FirstDayOfWeek="Monday"
                         SelectedDateFormat="Long"
                         SelectedDate="{Binding SelectedSuCo.ThoiGianTao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
@@ -128,7 +128,7 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          TextWrapping="WrapWithOverflow"
-                         IsEnabled="{Binding EnableGiaTri}"
+                         IsEnabled="{Binding EnabledChiPhi}"
                          Text="{Binding ChiPhiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                 </Grid>
