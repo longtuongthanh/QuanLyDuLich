@@ -55,16 +55,14 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         ItemsSource="{Binding dsIssueType}"
+                         Text="{Binding SelectedSuCo.LoaiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </ComboBox>
-                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}" Padding="5,0"
-                                        Command="{Binding Open_ContactLayout_Gui}" VerticalAlignment="Bottom"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="120"/>
                         <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="Auto" MinWidth="40"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Nội dung:
@@ -74,9 +72,9 @@
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         TextWrapping="WrapWithOverflow"
+                         TextWrapping="Wrap"
                          IsEnabled="{Binding EnableGiaTri}"
-                         Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                         Text="{Binding SelectedSuCo.NoiDun, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                 </Grid>
                 <Grid>
@@ -113,7 +111,7 @@
                         IsEnabled="{Binding EnableGiaTri}"
                         FirstDayOfWeek="Monday"
                         SelectedDateFormat="Long"
-                        Text="{Binding GiaTri, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
+                        SelectedDate="{Binding SelectedSuCo.ThoiGianTao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
                 </Grid>
                 <Grid Visibility="{Binding isQL_KT}">
                     <Grid.ColumnDefinitions>
@@ -137,18 +135,12 @@
             </StackPanel>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Margin="5,0,5,0" Content="{Binding Action_Text}" Background="{StaticResource PrimaryHueDarkBrush}"
-                            Width="150" Height="35" Command="{Binding CancelCommand}"
-                            Visibility="{Binding CanCreate}"/>
                 <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="Hủy" Background="{StaticResource WarningHueBrush}"
-                            Width="150" Height="35" Command="{Binding onCreate}"
-                            Visibility="{Binding VisibilityOfCancel}"/>
+                            Width="150" Height="35" Command="{Binding CancelCommand}"/>
                 <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
                             Margin="5,0,5,0" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
                             Width="150" Height="35" Command="{Binding onCreate}"
@@ -171,22 +163,20 @@
                                     Text="Danh sách sự cố"
                                     />
                 </StackPanel>
-          
-            <ListView Grid.Row="1"
-                FontSize="18" ItemsSource="{Binding ListSuCo}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
-                          HorizontalAlignment="Center" VerticalAlignment="Top">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Width="auto" Header="STT" DisplayMemberBinding="{Binding SoThuTu}"/>
-                        <GridViewColumn Width="auto" Header="Loại sự cố" DisplayMemberBinding="{Binding LoaiSuCo}"/>
-                        <GridViewColumn Width="auto" Header="Thời gian" DisplayMemberBinding="{Binding NgaySuCo}"/>
-                        <GridViewColumn Width="auto" Header="Trạng thái" DisplayMemberBinding="{Binding TrangThai}"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <Grid Grid.Row="2">
-                
-            </Grid>
+            <ScrollViewer Grid.Row="1">
+                <ListView 
+                FontSize="18" ItemsSource="{Binding dsIssues}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                          HorizontalAlignment="Center" VerticalAlignment="Top" 
+                          SelectedValue="{Binding SelectedSuCo, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="auto" Header="Loại sự cố" DisplayMemberBinding="{Binding LoaiSuCo}"/>
+                            <GridViewColumn Width="auto" Header="Thời gian" DisplayMemberBinding="{Binding ThoiGianTao}"/>
+                            <GridViewColumn Width="auto" Header="Trạng thái" DisplayMemberBinding="{Binding TrangThai}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

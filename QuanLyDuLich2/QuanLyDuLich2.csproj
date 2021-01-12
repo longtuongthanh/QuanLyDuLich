@@ -241,6 +241,7 @@
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\Home_PageViewModel.cs" />
     <Compile Include="ViewModel\Info_ViewModel.cs" />
+    <Compile Include="ViewModel\IssueViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MoneyTransfer_ViewModel.cs" />
@@ -251,6 +252,9 @@
     <Compile Include="ViewModel\ViewService_ViewModel.cs" />
     <Compile Include="View\Catalog\ChooseGuest.xaml.cs">
       <DependentUpon>ChooseGuest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Catalog\ChooseService.xaml.cs">
+      <DependentUpon>ChooseService.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Catalog\EditRoom_Page.xaml.cs">
       <DependentUpon>EditRoom_Page.xaml</DependentUpon>
@@ -355,6 +359,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Catalog\ChooseGuest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Catalog\ChooseService.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
