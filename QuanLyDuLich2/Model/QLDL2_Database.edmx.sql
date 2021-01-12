@@ -8,6 +8,8 @@
 
 SET QUOTED_IDENTIFIER OFF;
 GO
+CREATE DATABASE QuanLyDuLich2;
+GO
 USE [QuanLyDuLich2];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
@@ -186,7 +188,7 @@ CREATE TABLE [dbo].[tbPhieuChuyenKhoans] (
     [SoTien] float  NOT NULL,
     [NoiDung] varchar(max)  NULL,
     [NgoaiTe] nvarchar(3)  NULL,
-    [SoTaiKhoan] nvarchar(1)  NOT NULL
+    [SoTaiKhoan] nvarchar(20)  NOT NULL
 );
 GO
 

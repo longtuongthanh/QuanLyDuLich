@@ -12,9 +12,9 @@ using System.Windows;
 
 namespace QuanLyDuLich2.ViewModel
 {
-    class Checkin_ViewModel : BaseViewModel
+    class ViewRoomRent_ViewModel : BaseViewModel
     {
-        public Checkin_ViewModel()
+        public ViewRoomRent_ViewModel()
         {
             Load_dsPhong();
             Reset_PhieuThuePhong();
