@@ -54,9 +54,7 @@
                     <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                     Ngày lập phiếu:
                     </TextBlock>
-                    <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX"
-                        
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                    <DatePicker Grid.Column="1" materialDesign:HintAssist.Hint="XX-XX-XXXX" 
                     Foreground="{StaticResource SecondaryAccentBrush}" 
                     VerticalAlignment="Center"
                     IsEnabled="{Binding EnableGiaTri}"
@@ -251,9 +249,7 @@
                         Giảm giá:
                 </TextBlock>
                 <WrapPanel Grid.Column="1">
-                    <TextBox materialDesign:HintAssist.Hint="50.000₫"
-                         
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    <TextBox materialDesign:HintAssist.Hint="0"
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
                         PreviewTextInput="TextBox_PreviewTextInput"

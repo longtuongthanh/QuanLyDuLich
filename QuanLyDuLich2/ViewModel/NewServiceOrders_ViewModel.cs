@@ -242,6 +242,8 @@ namespace QuanLyDuLich2.ViewModel
 
                     DataProvider.Ins.DB.tbPhieuDichVus.Add(newPhieuDichVu);
 
+                    DataProvider.Ins.DB.SaveChanges();
+
                     var clone = new ObservableCollection<tbPhieuDichVu>();
                     foreach (var item in DataProvider.Ins.DB.tbPhieuDichVus)
                     {
@@ -263,6 +265,8 @@ namespace QuanLyDuLich2.ViewModel
                     }
 
                     DataProvider.Ins.DB.SaveChanges();
+
+                    ResetAll();
                 });
             }
         }
@@ -323,5 +327,15 @@ namespace QuanLyDuLich2.ViewModel
             return true;
         }
         #endregion
+
+        void ResetAll()
+        {
+            NgayLap = DateTime.Today;
+            SelectedKhach = null;
+            GiamGia = 0;
+            dsChiTietDichVu.Clear();
+            GhiChu = "";
+            Update_ThanhTien();
+        }
     }
 }
