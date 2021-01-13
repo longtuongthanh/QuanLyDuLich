@@ -14,13 +14,23 @@ namespace QuanLyDuLich2.ViewModel
 {
     class ChiTietDichVu : BaseViewModel
     {
+        static int AutoID = 0;
+
         public ChiTietDichVu()
         {
+            _ID = AutoID++;
             SelectedDichVu = null;
             YeuCauKhach = "";
             SoLuong = 0;
         }
 
+        private int _ID;
+        public int ID {
+            get
+            {
+                return _ID;
+            } 
+        }
         
         private tbDichVu _SelectedDichVu = new tbDichVu();
         public tbDichVu SelectedDichVu
@@ -134,18 +144,6 @@ namespace QuanLyDuLich2.ViewModel
             }
         }
 
-        private bool _SelectedChiTietDichVu_IsSelected = false;
-        private ChiTietDichVu _SelectedChiTietDichVu = new ChiTietDichVu();
-        public ChiTietDichVu SelectedChiTietDichVu
-        {
-            get { return _SelectedChiTietDichVu; }
-            set
-            {
-               // set(ref _SelectedChiTietDichVu, value); // ** see below
-                _SelectedChiTietDichVu_IsSelected = (_SelectedChiTietDichVu !=null);
-            }
-        }
-
         void Load_dsDichVu()
         {
             dsDichVu.Clear();
@@ -231,6 +229,9 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
+                    //CHECK LEGIT
+                    if (!CheckLegit()) return;
+
                     //ADD PHIEU DICH VU
                     tbPhieuDichVu newPhieuDichVu = new tbPhieuDichVu();
                     newPhieuDichVu.Khach = SelectedKhach.ID;
@@ -240,7 +241,13 @@ namespace QuanLyDuLich2.ViewModel
                     newPhieuDichVu.GhiChu = GhiChu;
 
                     DataProvider.Ins.DB.tbPhieuDichVus.Add(newPhieuDichVu);
-                    int newPhieuDichVuID = DataProvider.Ins.DB.tbPhieuDichVus.Last<tbPhieuDichVu>().ID;
+
+                    var clone = new ObservableCollection<tbPhieuDichVu>();
+                    foreach (var item in DataProvider.Ins.DB.tbPhieuDichVus)
+                    {
+                        clone.Add(item);
+                    }
+                    int newPhieuDichVuID = clone.Last().ID;
 
                     //ADD CHI TIET DICH VU
                     foreach (ChiTietDichVu item in dsChiTietDichVu)
@@ -254,6 +261,8 @@ namespace QuanLyDuLich2.ViewModel
 
                         DataProvider.Ins.DB.tbChiTietPhieuDichVus.Add(newChiTietPhieuDichVu);
                     }
+
+                    DataProvider.Ins.DB.SaveChanges();
                 });
             }
         }
@@ -265,17 +274,54 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
-                    if (SelectedChiTietDichVu == null || !dsChiTietDichVu.Contains(SelectedChiTietDichVu)) return; //if SelectedItem is no more in the list --> return
-                    dsChiTietDichVu.Remove(SelectedChiTietDichVu);
-                    SelectedChiTietDichVu = null;
-                    OnPropertyChanged();
+                    if (x == null || !dsChiTietDichVu.Contains(x)) return;
+                    dsChiTietDichVu.Remove(x as ChiTietDichVu);
                 });
             }
         }
         #endregion
 
         #region GLOBAL FUNCTIONS
+        bool CheckLegit()
+        {
+            //CHECK PHIEU DICH VU
+            if (GiamGia == 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Bạn chưa nhập phiếu giảm giá. Bạn có muốn tiếp tục ?", "Phiếu giảm giá", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.No) return false;
+            }
 
+            if (SelectedKhach == null)
+            {
+                MessageBox.Show("Chưa có thông tin khách !");
+                return false;
+            }
+
+            if (NgayLap > DateTime.Now)
+            {
+                MessageBox.Show("Ngày lập phiếu không hợp lệ !");
+                return false;
+            }
+
+            if (ThanhTien < 0)
+            {
+                MessageBox.Show("Số tiền thanh toán không hợp lệ !");
+                return false;
+            }
+
+            //CHECK CHI TIET DICH VU
+            foreach (ChiTietDichVu item in dsChiTietDichVu)
+            {
+                if (item.SelectedDichVu == null || item.SoLuong <= 0 || item.DonGia <= 0)
+                {
+                    MessageBox.Show("Danh sách dịch vụ không hợp lệ !");
+                    return false;
+                }
+            }
+
+            //NOTHING WRONG, RETURN TRUE
+            return true;
+        }
         #endregion
     }
 }
