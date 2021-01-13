@@ -31,7 +31,7 @@ namespace QuanLyDuLich2.ViewModel
                 {tbTaiKhoan.UserTypes.KeToan, "Kế toán" },
                 {tbTaiKhoan.UserTypes.LeTan, "Lễ tân" },
                 {tbTaiKhoan.UserTypes.QuanLy, "Quản lý" },
-                {tbTaiKhoan.UserTypes.Unknown, "" }
+                {tbTaiKhoan.UserTypes.Unknown, "Khách" }
             };
 
             User = user;

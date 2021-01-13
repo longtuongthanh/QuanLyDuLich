@@ -201,10 +201,10 @@ namespace QuanLyDuLich2.ViewModel
         private void Init_Button()
         {
             Enable_Home = Enable_ViewServiceOrders = Enable_RoomRent = Enable_EditUser = Enable_ServiceOrder = Enable_Checkout = Enable_Receipt = Enable_BaoCao = Enable_Info =  false;
-            Enable_Home = true;
+            Enable_Info = true;
             // tooltip handle
             Info_Tooltip = RoomRent_Tooltip = ServiceOrder_Tooltip = Checkout_Tooltip = EditUser_Tooltip = Receipt_Tooltip = BaoCao_Tooltip = ViewServiceOrders_Tooltip = "Không thể truy cập";
-            Home_Tooltip = "Có thể truy cập";
+            Info_Tooltip = "Có thể truy cập";
             if (user?.UserType == tbTaiKhoan.UserTypes.QuanLy)
                 for (int i = 0; i < 8; i++)
                 {
