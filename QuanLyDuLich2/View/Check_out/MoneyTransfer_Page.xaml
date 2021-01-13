@@ -91,7 +91,7 @@
                                     VerticalAlignment="Center"
                                     FirstDayOfWeek="Monday"
                                     SelectedDateFormat="Short"
-                                    Text="{Binding NgayChuyen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
+                                    SelectedDate="{Binding NgayChuyen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>
                     </Grid>
                     <Grid Margin="5">
                         <Grid.ColumnDefinitions>

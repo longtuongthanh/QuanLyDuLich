@@ -24,7 +24,7 @@ namespace QuanLyDuLich2.ViewModel
 
         public string MyTaiKhoan { get; set; } = "012-345-678-910";
 
-        public DateTime NgayChuyen { get; set; } = DateTime.Now;
+        public DateTime NgayChuyen { get; set; } = DateTime.Now.Date;
 
         Receipt_ViewModel go_back;
 

@@ -57,7 +57,14 @@ namespace QuanLyDuLich2.ViewModel
         public DateTime NgayTra
         {
             get { return _NgayTra; }
-            set { _NgayTra = value; OnPropertyChanged(); }
+            set
+            {
+                if (value.Date >= (SelectedPhieuThue.NgayMuon ?? DateTime.Now.Date))
+                    _NgayTra = value.Date;
+                else
+                    _NgayTra = SelectedPhieuThue.NgayMuon ?? DateTime.Now.Date;
+                OnPropertyChanged();
+            }
         }
 
         private long _SoNgay;
@@ -196,7 +203,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             long dongiathang = (long)SelectedPhieuThue.DonGiaThang;
             long dongiangay = (long)SelectedPhieuThue.DonGiaNgay;
-            SoNgay = (long)(NgayTra.Date - SelectedPhieuThue.NgayMuon.Value.Date).TotalDays+1;
+            SoNgay = (long)(NgayTra.Date - SelectedPhieuThue.NgayMuon.Value.Date).TotalDays + 1;
             SoTien = SoNgay / 30 * dongiathang + SoNgay % 30 * dongiangay;
         }
 

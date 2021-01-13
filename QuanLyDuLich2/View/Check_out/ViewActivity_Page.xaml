@@ -66,7 +66,11 @@
             </Border>
         </StackPanel>
         <Grid Grid.Row="1" Margin="20">
-            <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2.5*"/>
@@ -81,7 +85,7 @@
                     <TextBlock Grid.Column="3" FontWeight="Bold" FontSize="18" Margin="5" Text="Ngày đi"></TextBlock>
                     <TextBlock Grid.Column="4" FontWeight="Bold" FontSize="18" Margin="5" Text="Hoá đơn"></TextBlock>
                 </Grid>
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
                     <ListBox x:Name="listbox1"
                                 Margin="0,20,0,20"
                                 materialDesign:ListViewAssist.ListViewItemPadding="0"
@@ -117,7 +121,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </ScrollViewer>
-            </StackPanel>
+            </Grid>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
