@@ -89,7 +89,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem   
+                    <!--<HamburgerMenu:HamburgerMenuItem   
                                                      Icon="Images/Money.png" Text="Lập hóa đơn" 
                                                      Visibility="{Binding Enable_Receipt}" ToolTip="{Binding Receipt_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
@@ -99,7 +99,7 @@
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </HamburgerMenu:HamburgerMenuItem>
+                    </HamburgerMenu:HamburgerMenuItem>-->
 
                     <HamburgerMenu:HamburgerMenuItem Icon="Images/Catalog.png" Text="Danh mục" 
                                                      Visibility="{Binding Enable_Info}" ToolTip="{Binding Info_Tooltip}"

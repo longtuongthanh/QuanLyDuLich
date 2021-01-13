@@ -22,7 +22,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -81,7 +81,7 @@
                     <TextBlock Grid.Column="3" FontWeight="Bold" FontSize="18" Margin="5" Text="Ngày đi"></TextBlock>
                     <TextBlock Grid.Column="4" FontWeight="Bold" FontSize="18" Margin="5" Text="Hoá đơn"></TextBlock>
                 </Grid>
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ScrollViewer VerticalScrollBarVisibility="Visible">
                     <ListBox x:Name="listbox1"
                                 Margin="0,20,0,20"
                                 materialDesign:ListViewAssist.ListViewItemPadding="0"
