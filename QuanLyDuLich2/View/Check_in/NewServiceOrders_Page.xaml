@@ -225,8 +225,13 @@
                                             Text="{Binding DonGia, StringFormat={}{0}₫, Mode=OneWay}"/>
                                     </Grid>
                                     <WrapPanel Grid.Column="5">
-                                        <Button Style="{StaticResource MaterialDesignFlatButton}" Height="24"
-                                                Command="{Binding Path=DataContext.Remove_Service,RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" >
+                                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                                VerticalContentAlignment="Center"
+                                                Command="{Binding RelativeSource={
+                                                        RelativeSource FindAncestor, 
+                                                        AncestorType={x:Type Page}},
+                                                        Path=DataContext.Remove_Service}"
+                                                CommandParameter="{Binding }">
                                             <materialDesign:PackIcon Kind="Close"/>
                                         </Button>
                                     </WrapPanel>

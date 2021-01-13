@@ -24,9 +24,6 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         
-        DataContext="{StaticResource MainVM}"
-        
-        
         x:Name="this_"
         Title="Làng Quốc tế Hướng Dương" Height="650" Width="800">
 
