@@ -12,6 +12,57 @@ using System.Windows;
 
 namespace QuanLyDuLich2.ViewModel
 {
+    class ChiTietDichVu : BaseViewModel
+    {
+        public ChiTietDichVu()
+        {
+            SelectedDichVu = null;
+            YeuCauKhach = "";
+            SoLuong = 0;
+        }
+
+        
+        private tbDichVu _SelectedDichVu = new tbDichVu();
+        public tbDichVu SelectedDichVu
+        {
+            get { return _SelectedDichVu; }
+            set
+            {
+                if (_SelectedDichVu != value) { _SelectedDichVu = value; RaisePropertyChanged("SelectedDichVu"); }
+            }
+        }
+
+
+        private string _YeuCauKhach = "";
+        public string YeuCauKhach
+        {
+            get { return _YeuCauKhach; }
+            set
+            {
+                if (_YeuCauKhach != value) { _YeuCauKhach = value; RaisePropertyChanged("YeuCauKhach"); RaisePropertyChanged("DonGia"); }
+            }
+        }
+
+        private int _SoLuong = 0;
+        public int SoLuong
+        {
+            get { return _SoLuong; }
+            set
+            {
+                if (_SoLuong != value) { _SoLuong = value; RaisePropertyChanged("SoLuong"); RaisePropertyChanged("DonGia"); }
+            }
+        }
+
+        public double? DonGia
+        {
+            get
+            {
+                RaisePropertyChanged("ChiTietDichVu");
+                return SoLuong * (SelectedDichVu != null ? SelectedDichVu.DonGia : 0);
+            }
+        }
+    }
+
     class NewServiceOrders_ViewModel : BaseViewModel
     {
         public NewServiceOrders_ViewModel()
@@ -43,8 +94,8 @@ namespace QuanLyDuLich2.ViewModel
             }
         }
 
-        private tbPhong _SelectedKhach;
-        public tbPhong SelectedKhach
+        private tbKhach _SelectedKhach;
+        public tbKhach SelectedKhach
         {
             get { return _SelectedKhach; }
             set {
@@ -73,14 +124,25 @@ namespace QuanLyDuLich2.ViewModel
             }
         }
 
-        private ObservableCollection<tbChiTietPhieuDichVu> _dsChiTietPhieuDichVu = new ObservableCollection<tbChiTietPhieuDichVu>();
-        public ObservableCollection<tbChiTietPhieuDichVu> dsChiTietPhieuDichVu
+        private ObservableCollection<ChiTietDichVu> _dsChiTietDichVu = new ObservableCollection<ChiTietDichVu>();
+        public ObservableCollection<ChiTietDichVu> dsChiTietDichVu
         {
-            get { return _dsChiTietPhieuDichVu; }
+            get { return _dsChiTietDichVu; }
+            set 
+            { 
+                if (_dsChiTietDichVu != value) { _dsChiTietDichVu = value; OnPropertyChanged(); } 
+            }
+        }
+
+        private bool _SelectedChiTietDichVu_IsSelected = false;
+        private ChiTietDichVu _SelectedChiTietDichVu = new ChiTietDichVu();
+        public ChiTietDichVu SelectedChiTietDichVu
+        {
+            get { return _SelectedChiTietDichVu; }
             set
             {
-                _dsChiTietPhieuDichVu = value;
-                OnPropertyChanged();
+               // set(ref _SelectedChiTietDichVu, value); // ** see below
+                _SelectedChiTietDichVu_IsSelected = (_SelectedChiTietDichVu !=null);
             }
         }
 
@@ -94,6 +156,46 @@ namespace QuanLyDuLich2.ViewModel
         }
         #endregion
 
+        #region GIẢM GIÁ
+        private double? _GiamGia = 0;
+        public double? GiamGia
+        {
+            get { return _GiamGia; }
+            set { if (_GiamGia != value) { _GiamGia = value; OnPropertyChanged(); RaisePropertyChanged("ThanhTien"); } }
+        }
+        #endregion
+
+        #region THÀNH TIỀN
+        public double? ThanhTien
+        {
+            get 
+            {
+                double? result = -GiamGia;
+                foreach (ChiTietDichVu item in dsChiTietDichVu)
+                    result += item.DonGia;
+                return result;
+            }
+        }
+
+        public void Update_ThanhTien()
+        {
+            RaisePropertyChanged("ThanhTien");
+        }
+        #endregion
+
+
+        #region GHI CHÚ
+        private string _GhiChu = "";
+        public string GhiChu
+        {
+            get { return _GhiChu; }
+            set
+            {
+                if (_GhiChu != value) { _GhiChu = value; OnPropertyChanged(); }
+            }
+        }
+        #endregion
+
         #region ICOMMANDS
         public ICommand AddNew_DichVu
         {
@@ -102,11 +204,71 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
-                    tbChiTietPhieuDichVu newTbChiTietPhieuDichVu = new tbChiTietPhieuDichVu();
-                    newTbChiTietPhieuDichVu.SoLuong = 1;
-                    newTbChiTietPhieuDichVu.DonGia = 0;
+                    dsChiTietDichVu.Add(new ChiTietDichVu());
+                    OnPropertyChanged();
+                });
+            }
+        }
 
-                    dsChiTietPhieuDichVu.Add(newTbChiTietPhieuDichVu);
+        public ICommand CancelCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    dsChiTietDichVu.Clear();
+                    GiamGia = 0;
+                    OnPropertyChanged();
+                });
+            }
+        }
+
+        public ICommand ConfirmCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    //ADD PHIEU DICH VU
+                    tbPhieuDichVu newPhieuDichVu = new tbPhieuDichVu();
+                    newPhieuDichVu.Khach = SelectedKhach.ID;
+                    newPhieuDichVu.ThoiGian = NgayLap;
+                    newPhieuDichVu.TienGiam = GiamGia;
+                    newPhieuDichVu.ThanhTien = ThanhTien;
+                    newPhieuDichVu.GhiChu = GhiChu;
+
+                    DataProvider.Ins.DB.tbPhieuDichVus.Add(newPhieuDichVu);
+                    int newPhieuDichVuID = DataProvider.Ins.DB.tbPhieuDichVus.Last<tbPhieuDichVu>().ID;
+
+                    //ADD CHI TIET DICH VU
+                    foreach (ChiTietDichVu item in dsChiTietDichVu)
+                    {
+                        tbChiTietPhieuDichVu newChiTietPhieuDichVu = new tbChiTietPhieuDichVu();
+                        newChiTietPhieuDichVu.PhieuDichVu = newPhieuDichVuID;
+                        newChiTietPhieuDichVu.DichVu = item.SelectedDichVu.ID;
+                        newChiTietPhieuDichVu.YeuCauKhach = item.YeuCauKhach;
+                        newChiTietPhieuDichVu.SoLuong = item.SoLuong;
+                        newChiTietPhieuDichVu.DonGia = item.DonGia;
+
+                        DataProvider.Ins.DB.tbChiTietPhieuDichVus.Add(newChiTietPhieuDichVu);
+                    }
+                });
+            }
+        }
+
+        public ICommand Remove_Service
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    if (SelectedChiTietDichVu == null || !dsChiTietDichVu.Contains(SelectedChiTietDichVu)) return; //if SelectedItem is no more in the list --> return
+                    dsChiTietDichVu.Remove(SelectedChiTietDichVu);
+                    SelectedChiTietDichVu = null;
+                    OnPropertyChanged();
                 });
             }
         }
