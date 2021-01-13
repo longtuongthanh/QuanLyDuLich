@@ -9,16 +9,76 @@ using System.Windows.Input;
 using QuanLyDuLich2.Command;
 using QuanLyDuLich2.View;
 using System.Windows;
-using QuanLyDuLich2.View.Catalog;
 
 namespace QuanLyDuLich2.ViewModel
 {
+    class ChiTietDichVu : BaseViewModel
+    {
+        static int AutoID = 0;
+
+        public ChiTietDichVu()
+        {
+            _ID = AutoID++;
+            SelectedDichVu = null;
+            YeuCauKhach = "";
+            SoLuong = 0;
+        }
+
+        private int _ID;
+        public int ID {
+            get
+            {
+                return _ID;
+            } 
+        }
+        
+        private tbDichVu _SelectedDichVu = new tbDichVu();
+        public tbDichVu SelectedDichVu
+        {
+            get { return _SelectedDichVu; }
+            set
+            {
+                if (_SelectedDichVu != value) { _SelectedDichVu = value; RaisePropertyChanged("SelectedDichVu"); }
+            }
+        }
+
+
+        private string _YeuCauKhach = "";
+        public string YeuCauKhach
+        {
+            get { return _YeuCauKhach; }
+            set
+            {
+                if (_YeuCauKhach != value) { _YeuCauKhach = value; RaisePropertyChanged("YeuCauKhach"); RaisePropertyChanged("DonGia"); }
+            }
+        }
+
+        private int _SoLuong = 0;
+        public int SoLuong
+        {
+            get { return _SoLuong; }
+            set
+            {
+                if (_SoLuong != value) { _SoLuong = value; RaisePropertyChanged("SoLuong"); RaisePropertyChanged("DonGia"); }
+            }
+        }
+
+        public double? DonGia
+        {
+            get
+            {
+                RaisePropertyChanged("ChiTietDichVu");
+                return SoLuong * (SelectedDichVu != null ? SelectedDichVu.DonGia : 0);
+            }
+        }
+    }
+
     class NewServiceOrders_ViewModel : BaseViewModel
     {
         public NewServiceOrders_ViewModel()
         {
             Load_dsKhach();
-            //Reset_PhieuThuePhong();
+            Load_dsDichVu();
         }
 
         #region NGÀY LẬP PHIẾU
@@ -44,12 +104,12 @@ namespace QuanLyDuLich2.ViewModel
             }
         }
 
-        private tbPhong _SelectedKhach;
-        public tbPhong SelectedKhach
+        private tbKhach _SelectedKhach;
+        public tbKhach SelectedKhach
         {
             get { return _SelectedKhach; }
-            set { 
-                if (_SelectedKhach != value) { _SelectedKhach = value; OnPropertyChanged(); } 
+            set {
+                if (_SelectedKhach != value) { _SelectedKhach = value; OnPropertyChanged(); }
             }
         }
 
@@ -58,82 +118,109 @@ namespace QuanLyDuLich2.ViewModel
             dsKhach.Clear();
             //Chỉ lấy những khách hiện đang thuê phòng 
             foreach (tbPhieuThuePhong phong in DataProvider.Ins.DB.tbPhieuThuePhongs)
-                if (phong.NgayTra == null && !dsKhach.Contains(DataProvider.Ins.DB.tbKhaches.Find(phong.Khach)) ) //the second condition help avoid duplicated items
+                if (phong.NgayTra == null && !dsKhach.Contains(DataProvider.Ins.DB.tbKhaches.Find(phong.Khach))) //the second condition help avoid duplicated items
                     dsKhach.Add(DataProvider.Ins.DB.tbKhaches.Find(phong.Khach));
         }
         #endregion
 
-        #region HỌ TÊN KHÁCH
-        private string _HoTen;
-        public string HoTen
+        #region CHI TIẾT DỊCH VỤ
+        private ObservableCollection<tbDichVu> _dsDichVu = new ObservableCollection<tbDichVu>();
+        public ObservableCollection<tbDichVu> dsDichVu
         {
-            get { return _HoTen; }
-            set { 
-                if (_HoTen != value) {_HoTen = value; OnPropertyChanged(); } 
-            }
-        }
-        #endregion
-
-        #region CMND
-        private string _CMND;
-        public string CMND
-        {
-            get { return _CMND; }
-            set {
-                if (_CMND != value) {_CMND = value; OnPropertyChanged(); }
-            }
-        }
-        bool CmndIsValid(string value)
-        {
-            return (value.Length == 9 || value.Length == 12);
-        }
-        #endregion
-
-        #region ĐỊA CHỈ KHÁCH
-        private string _DiaChi;
-        public string DiaChi
-        {
-            get { return _DiaChi; }
+            get { return _dsDichVu; }
             set
             {
-                if (_DiaChi != value) { _DiaChi = value; OnPropertyChanged(); }
+                if (_dsDichVu != value) { _dsDichVu = value; OnPropertyChanged(); }
+            }
+        }
+
+        private ObservableCollection<ChiTietDichVu> _dsChiTietDichVu = new ObservableCollection<ChiTietDichVu>();
+        public ObservableCollection<ChiTietDichVu> dsChiTietDichVu
+        {
+            get { return _dsChiTietDichVu; }
+            set 
+            { 
+                if (_dsChiTietDichVu != value) { _dsChiTietDichVu = value; OnPropertyChanged(); } 
+            }
+        }
+
+        void Load_dsDichVu()
+        {
+            dsDichVu.Clear();
+            foreach (tbDichVu item in DataProvider.Ins.DB.tbDichVus)
+            {
+                dsDichVu.Add(item);
             }
         }
         #endregion
 
+        #region GIẢM GIÁ
+        private double? _GiamGia = 0;
+        public double? GiamGia
+        {
+            get { return _GiamGia; }
+            set { if (_GiamGia != value) { _GiamGia = value; OnPropertyChanged(); RaisePropertyChanged("ThanhTien"); } }
+        }
+        #endregion
+
+        #region THÀNH TIỀN
+        public double? ThanhTien
+        {
+            get 
+            {
+                double? result = -GiamGia;
+                foreach (ChiTietDichVu item in dsChiTietDichVu)
+                    result += item.DonGia;
+                return result;
+            }
+        }
+
+        public void Update_ThanhTien()
+        {
+            RaisePropertyChanged("ThanhTien");
+        }
+        #endregion
+
+
+        #region GHI CHÚ
+        private string _GhiChu = "";
+        public string GhiChu
+        {
+            get { return _GhiChu; }
+            set
+            {
+                if (_GhiChu != value) { _GhiChu = value; OnPropertyChanged(); }
+            }
+        }
+        #endregion
 
         #region ICOMMANDS
-        public ICommand ResetAllCommand
+        public ICommand AddNew_DichVu
         {
             get
             {
                 return new RelayCommand(
                 x =>
                 {
-                    //Reset_PhieuThuePhong();
+                    dsChiTietDichVu.Add(new ChiTietDichVu());
+                    OnPropertyChanged();
                 });
             }
         }
 
-        public ICommand AddDichVu
-
+        public ICommand CancelCommand
         {
             get
             {
                 return new RelayCommand(
                 x =>
                 {
-                    var window = new ChooseService();
-                    window.ShowDialog();
-
-                    if (((ChooseService_ViewModel)window.DataContext).SelectedDichVu == null)
-                        return;
-                    tbDichVu temp = ((ChooseService_ViewModel)window.DataContext).SelectedDichVu;
-                    MessageBox.Show(temp.Ten);
+                    dsChiTietDichVu.Clear();
+                    GiamGia = 0;
+                    OnPropertyChanged();
                 });
             }
         }
-        
 
         public ICommand ConfirmCommand
         {
@@ -142,125 +229,99 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
-                    //Add_PhieuThuePhong();
+                    //CHECK LEGIT
+                    if (!CheckLegit()) return;
+
+                    //ADD PHIEU DICH VU
+                    tbPhieuDichVu newPhieuDichVu = new tbPhieuDichVu();
+                    newPhieuDichVu.Khach = SelectedKhach.ID;
+                    newPhieuDichVu.ThoiGian = NgayLap;
+                    newPhieuDichVu.TienGiam = GiamGia;
+                    newPhieuDichVu.ThanhTien = ThanhTien;
+                    newPhieuDichVu.GhiChu = GhiChu;
+
+                    DataProvider.Ins.DB.tbPhieuDichVus.Add(newPhieuDichVu);
+
+                    var clone = new ObservableCollection<tbPhieuDichVu>();
+                    foreach (var item in DataProvider.Ins.DB.tbPhieuDichVus)
+                    {
+                        clone.Add(item);
+                    }
+                    int newPhieuDichVuID = clone.Last().ID;
+
+                    //ADD CHI TIET DICH VU
+                    foreach (ChiTietDichVu item in dsChiTietDichVu)
+                    {
+                        tbChiTietPhieuDichVu newChiTietPhieuDichVu = new tbChiTietPhieuDichVu();
+                        newChiTietPhieuDichVu.PhieuDichVu = newPhieuDichVuID;
+                        newChiTietPhieuDichVu.DichVu = item.SelectedDichVu.ID;
+                        newChiTietPhieuDichVu.YeuCauKhach = item.YeuCauKhach;
+                        newChiTietPhieuDichVu.SoLuong = item.SoLuong;
+                        newChiTietPhieuDichVu.DonGia = item.DonGia;
+
+                        DataProvider.Ins.DB.tbChiTietPhieuDichVus.Add(newChiTietPhieuDichVu);
+                    }
+
+                    DataProvider.Ins.DB.SaveChanges();
+                });
+            }
+        }
+
+        public ICommand Remove_Service
+        {
+            get
+            {
+                return new RelayCommand(
+                x =>
+                {
+                    if (x == null || !dsChiTietDichVu.Contains(x)) return;
+                    dsChiTietDichVu.Remove(x as ChiTietDichVu);
                 });
             }
         }
         #endregion
 
         #region GLOBAL FUNCTIONS
-        /**
-        void Reset_PhieuThuePhong()
+        bool CheckLegit()
         {
-            SelectedPhong = null;
-            HoTen = "";
-            CMND = "";
-            DiaChi = "";
-            NgayThue = DateTime.Now;
-        }
-
-        void Add_PhieuThuePhong()
-        {
-            tbPhieuThuePhong newItem = new tbPhieuThuePhong();
-            try
+            //CHECK PHIEU DICH VU
+            if (GiamGia == 0)
             {
-                newItem.Khach = Get_KhachID(HoTen, CMND, DiaChi); //tìm khách trên cả Họ Tên, CMND, Địa Chỉ
-                newItem.SoPhong = SelectedPhong.SoPhong;
-                newItem.NgayMuon = NgayThue;
-                newItem.NgayTra = null;
-
-                //Check
-                if (SelectedPhong.TinhTrang != 0)
-                {
-                    MessageBox.Show("Phòng đã được thuê trước đó.");
-                    return;
-                }
-                else if (!CmndIsValid(CMND) || newItem.Khach == -1)
-                {
-                    MessageBox.Show("Thông tin khách không hợp lệ");
-                    return;
-                }
-                else if (!Check_KhachChuaThuePhong(newItem.Khach))
-                {
-                    MessageBox.Show("Khách ĐANG thuê một phòng khác.\nVui lòng kiểm tra lại");
-                    return;
-                }
-
+                MessageBoxResult result = MessageBox.Show("Bạn chưa nhập phiếu giảm giá. Bạn có muốn tiếp tục ?", "Phiếu giảm giá", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.No) return false;
             }
-            catch (Exception e)
+
+            if (SelectedKhach == null)
             {
-                MessageBoxResult result = MessageBox.Show(e.Message + "\nBạn có muốn tiếp tục ?", "Lỗi thuê phòng: ", MessageBoxButton.OKCancel);
-                switch (result)
+                MessageBox.Show("Chưa có thông tin khách !");
+                return false;
+            }
+
+            if (NgayLap > DateTime.Now)
+            {
+                MessageBox.Show("Ngày lập phiếu không hợp lệ !");
+                return false;
+            }
+
+            if (ThanhTien < 0)
+            {
+                MessageBox.Show("Số tiền thanh toán không hợp lệ !");
+                return false;
+            }
+
+            //CHECK CHI TIET DICH VU
+            foreach (ChiTietDichVu item in dsChiTietDichVu)
+            {
+                if (item.SelectedDichVu == null || item.SoLuong <= 0 || item.DonGia <= 0)
                 {
-                    case MessageBoxResult.OK:
-                        break;
-                    case MessageBoxResult.Cancel:
-                        return;
+                    MessageBox.Show("Danh sách dịch vụ không hợp lệ !");
+                    return false;
                 }
             }
 
-            DataProvider.Ins.DB.tbPhongs.Find(newItem.SoPhong).TinhTrang = 1;
-            DataProvider.Ins.DB.tbPhieuThuePhongs.Add(newItem);
-            DataProvider.Ins.DB.SaveChanges();
-            MessageBox.Show("THUÊ PHÒNG THÀNH CÔNG !");
-        }
-
-        int Get_KhachID(string hoTen, string cmnd, string diaChi)
-        {
-            ///Kiểm tra có khách nào đã tồn tại cùng 3 thông tin trên hay không 
-            ///Báo lỗi khi 
-            ///1- Trùng CMND, khác Tên
-            ///2- Trùng Tên và Địa chỉ, khác CMND
-            ///Nếu tìm ra thì trả về ID của khách đó ( trùng Tên && CMND )
-            ///Nếu không tìm ra thì tạo Khách mới và trả về ID của khách đó
-
-            //Check trùng CMND
-            tbKhach result = null;
-            foreach (tbKhach item in DataProvider.Ins.DB.tbKhaches)
-            {
-                //kiểm tra trường hợp 1
-                if (item.CMND == cmnd && item.HoTen != hoTen)
-                {
-                    MessageBox.Show("Đã tồn tại khách có tên khác và sử dụng CMND có số trên.\nVui lòng kiểm tra lại.");
-                    return -1;
-                }
-                //kiểm tra trường hợp 2
-                else if (item.HoTen == hoTen && item.DiaChi == diaChi && item.CMND != cmnd)
-                {
-                    MessageBox.Show("Đã tồn tại khách hàng cùng tên, cùng địa chỉ, khác CMND.\nVui lòng kiểm tra lại.");
-                    return -1;
-                }
-
-                //kiểm tra xem có khớp CMND và Họ Tên không --> nếu có thì lấy
-                else if (item.CMND == cmnd && item.HoTen == hoTen)
-                    result = item;
-            }
-
-            //kiểm tra phép check kia đã tìm được hay chưa --> nếu chưa thì tạo khách mới
-            if (result == null)
-            {
-                result = new tbKhach();
-                result.HoTen = hoTen;
-                result.CMND = cmnd;
-                result.DiaChi = diaChi;
-
-                DataProvider.Ins.DB.tbKhaches.Add(result);
-                DataProvider.Ins.DB.SaveChanges();
-            }
-
-            return result.ID;
-        }
-
-        //Kiểm tra xem khách có ĐANG thuê phòng khác hay không
-        bool Check_KhachChuaThuePhong(int khach)
-        {
-            foreach (tbPhieuThuePhong item in DataProvider.Ins.DB.tbPhieuThuePhongs)
-            {
-                if (item.NgayTra == null && item.Khach == khach) return false;
-            }
+            //NOTHING WRONG, RETURN TRUE
             return true;
         }
-        **/
         #endregion
     }
 }

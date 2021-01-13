@@ -30,12 +30,13 @@
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <!--Header-->
             <StackPanel Margin="5">
                 <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
                                 TextWrapping="WrapWithOverflow" TextAlignment="Center"
-                                > Phiếu dịch vụ</TextBlock>
+                                > PHIẾU DỊCH VỤ</TextBlock>
             </StackPanel>
 
             <Grid Grid.Row="1">
@@ -73,7 +74,7 @@
                     <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5"> 
                     Khách hàng:
                     </TextBlock>
-                    <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Chọn phòng"
+                    <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Chọn khách"
                          
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
                         Foreground="{StaticResource SecondaryAccentBrush}" 
@@ -101,29 +102,144 @@
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <DockPanel>
                     <TextBlock VerticalAlignment="Bottom" Margin="5" DockPanel.Dock="Left">
                         Danh sách dịch vụ:
                     </TextBlock>
 
-                    <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"
-                            Command="{Binding AddDichVu}">
+                    <Button DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFlatButton}"
+                            Command="{Binding AddNew_DichVu}">
                         <WrapPanel>
                             <materialDesign:PackIcon Kind="Plus" Margin="10,0"/>
-                            <TextBlock> Thêm dịch vụ </TextBlock>
+                            <TextBlock> Thêm dịch vụ</TextBlock>
                         </WrapPanel>
                     </Button>
                 </DockPanel>
-                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="200.000₫"
-                        IsEnabled="False"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Foreground="{StaticResource SecondaryAccentBrush}" 
-                        VerticalAlignment="Center"
-                        PreviewTextInput="TextBox_PreviewTextInput"
-                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
-                </TextBox>
+                
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid Grid.Column="0" Margin="10,0">
+                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                   VerticalAlignment="Bottom"
+                                    Text="Tên dịch vụ"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="10,0">
+                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                   VerticalAlignment="Bottom"
+                                    Text="Yêu cầu khách"/>
+                    </Grid>
+                    <Grid Grid.Column="2" Margin="10,0">
+                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                   VerticalAlignment="Bottom"
+                                    Text="Số lượng"/>
+                    </Grid>
+                    <Grid Grid.Column="3" Margin="10,0">
+                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                   VerticalAlignment="Bottom"
+                                    Text="Đơn giá"/>
+                    </Grid>
+                    <Grid Grid.Column="4" Margin="10,0">
+                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                   VerticalAlignment="Bottom"
+                                    Text="Thành tiền"/>
+                    </Grid>
+                    <ListView Name="lstService" 
+                             Grid.Row="1" Grid.ColumnSpan="1000" Margin="0"
+                             Foreground="{StaticResource SecondaryAccentBrush}" 
+                             HorizontalContentAlignment="Stretch"
+                             ItemsSource="{Binding dsChiTietDichVu}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="9*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Chọn dịch vụ"
+                                            Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                            Foreground="{StaticResource SecondaryAccentBrush}" 
+                                  
+                                            SelectedItem="{Binding Path=SelectedDichVu, Mode=TwoWay}"
+                                            ItemsSource="{
+                                                        Binding RelativeSource={
+                                                        RelativeSource FindAncestor, 
+                                                        AncestorType={x:Type Page}},
+                                                        Path=DataContext.dsDichVu}"
+                                            SelectionChanged="ComboBox_SelectionChanged"
+                                        >
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding Path=Ten}"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </Grid>
+                                    <Grid Grid.Column="1" Margin="10,0">
+                                        <TextBox VerticalAlignment="Center"
+                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                             Foreground="{StaticResource SecondaryAccentBrush}" 
+                                             IsEnabled="{Binding EnableGiaTri}"
+                                             Text="{Binding Path=YeuCauKhach, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                        </TextBox>
+                                    </Grid>
+                                    <Grid Grid.Column="2" Margin="10,0">
+                                        <TextBox VerticalAlignment="Center"
+                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                             Foreground="{StaticResource SecondaryAccentBrush}" 
+                                             PreviewTextInput="TextBox_PreviewTextInput"
+                                             IsEnabled="{Binding EnableGiaTri}"
+                                             TextChanged="TextBox_TextChanged"
+                                             Text="{Binding Path=SoLuong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">       
+                                        </TextBox>
+                                    </Grid>
+                                    <Grid Grid.Column="3" Margin="10,0">
+                                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                            VerticalAlignment="Bottom"
+                                            Text="{Binding Path=SelectedDichVu.DonGia, Mode=TwoWay, StringFormat={}{0}₫}"/>
+                                    </Grid>
+                                    <Grid Grid.Column="4" Margin="10,0">
+                                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                            VerticalAlignment="Bottom"
+                                            Text="{Binding DonGia, StringFormat={}{0}₫, Mode=OneWay}"/>
+                                    </Grid>
+                                    <WrapPanel Grid.Column="5">
+                                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                                VerticalContentAlignment="Center"
+                                                Command="{Binding RelativeSource={
+                                                        RelativeSource FindAncestor, 
+                                                        AncestorType={x:Type Page}},
+                                                        Path=DataContext.Remove_Service}"
+                                                CommandParameter="{Binding }">
+                                            <materialDesign:PackIcon Kind="Close"/>
+                                        </Button>
+                                    </WrapPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
             </Grid>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
@@ -134,15 +250,20 @@
                 <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                         Giảm giá:
                 </TextBlock>
-                <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="50.000₫"
+                <WrapPanel Grid.Column="1">
+                    <TextBox materialDesign:HintAssist.Hint="50.000₫"
                          
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
                         PreviewTextInput="TextBox_PreviewTextInput"
                         IsEnabled="{Binding EnableGiaTri}"
-                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
-                </TextBox>
+                        Text="{Binding GiamGia, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                    <TextBlock VerticalAlignment="Bottom" Margin="10,5">
+                        ₫
+                    </TextBlock>
+                </WrapPanel>
             </Grid>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
@@ -153,14 +274,33 @@
                 <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
                     Thành tiền:
                 </TextBlock>
-                <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="150.000₫"
+                <TextBlock Grid.Column="1" materialDesign:HintAssist.Hint="150.000₫"
                         IsEnabled="False"
+                        Style="{StaticResource MaterialDesignHeadline4TextBlock}" 
+                        Foreground="{StaticResource WarningHueBrush}" 
+                        VerticalAlignment="Center"
+                        PreviewTextInput="TextBox_PreviewTextInput"
+                        Text="{Binding ThanhTien, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=OneWay}">
+                </TextBlock>
+            </Grid>
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="124"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="Auto" MinWidth="40"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                        Ghi chú:
+                </TextBlock>
+                <DockPanel Grid.Column="1">
+                    <TextBox materialDesign:HintAssist.Hint="Ghi chú" 
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
-                        PreviewTextInput="TextBox_PreviewTextInput"
-                        Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0}₫, Mode=TwoWay}">
-                </TextBox>
+                        IsEnabled="{Binding EnableGiaTri}"
+                        Text="{Binding GhiChu, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    </TextBox>
+                </DockPanel>
             </Grid>
         </Grid>
 
@@ -174,13 +314,9 @@
                         Margin="10" Content="Hủy" Background="{StaticResource WarningHueBrush}"
                         Width="Auto" Height="35" Command="{Binding CancelCommand}"
                         Visibility="{Binding VisibilityOfCancel}"/>
-            <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" 
-                        Margin="5" Content="Phản hồi" Background="{StaticResource PrimaryHueDarkBrush}"
-                        Width="Auto" Height="35" Command="{Binding CancelCommand}"
-                        Visibility="{Binding VisibilityOfCancel}"/>
             <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" 
                         Margin="10" Content="Xác nhận" Background="{StaticResource PrimaryHueDarkBrush}"
-                        Width="Auto" Height="35" Command="{Binding CancelCommand}"
+                        Width="Auto" Height="35" Command="{Binding ConfirmCommand}"
                         Visibility="{Binding VisibilityOfCancel}"/>
         </Grid>
     </Grid>

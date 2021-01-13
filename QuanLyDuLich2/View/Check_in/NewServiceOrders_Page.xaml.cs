@@ -33,5 +33,20 @@ namespace QuanLyDuLich2.View
             var textBox = sender as TextBox;
             e.Handled = Regex.IsMatch(e.Text, "[^0-9.]+");
         }
+
+        private void UpdateThanhTien()
+        {
+            (this.DataContext as NewServiceOrders_ViewModel).Update_ThanhTien();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateThanhTien();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateThanhTien();
+        }
     }
 }
