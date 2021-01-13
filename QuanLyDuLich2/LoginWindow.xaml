@@ -95,7 +95,11 @@
                 </materialDesign:Card>
             </Grid>
             <Grid Grid.Column="1">
-                <Image Source="/Images/logoms.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250"/>
+                <Image Source="/Images/logoms.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250">
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2" CenterX="-250" CenterY="-250"/>
+                    </Image.RenderTransform>
+                </Image>
             </Grid>
         </Grid>
     </Grid>

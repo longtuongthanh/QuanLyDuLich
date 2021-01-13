@@ -496,7 +496,6 @@
     <Resource Include="Images\11-logout.png" />
     <Resource Include="Images\favorite.png" />
     <Resource Include="Images\list.png" />
-    <Resource Include="Images\logoms.png" />
     <Resource Include="Images\logout.png" />
     <Resource Include="Images\new.png" />
     <Resource Include="Images\person.png" />
@@ -514,6 +513,7 @@
     <Resource Include="Model\ChangeLog.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\logoms.png" />
     <Content Include="Model\SampleDatabase.sql" />
     <Content Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
