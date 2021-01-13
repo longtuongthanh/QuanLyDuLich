@@ -46,8 +46,7 @@ namespace QuanLyDuLich2.ViewModel
                     return;
                 }
                 MainViewModel.Ins.user = user;
-
-                MessageBox.Show("Đăng nhập thành công!");
+                
                 p.Close();
             });
 

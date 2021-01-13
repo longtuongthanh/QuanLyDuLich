@@ -62,16 +62,17 @@ namespace QuanLyDuLich2.ViewModel
                        if (User != null)
                        {
                            User = DataProvider.Ins.DB.tbTaiKhoans.Find(User.TenTaiKhoan);
-                           User.MatKhau = Password;
-                           User.UserType = UserType;
 
                            if (User.UserType == tbTaiKhoan.UserTypes.QuanLy)
-                               if (DataProvider.Ins.DB.tbTaiKhoans.Count(item => item.UserType == tbTaiKhoan.UserTypes.QuanLy) <= 1)
+                               if (DataProvider.Ins.DB.tbTaiKhoans.ToList().Count(item => item.UserType == tbTaiKhoan.UserTypes.QuanLy) <= 1)
                                {
                                    MessageBox.Show("Bạn là Quản lý cuối cùng. Vui lòng trao " +
                                          "quyền quản lý cho người khác trước khi chuyển quyền.");
                                    return;
                                }
+
+                           User.MatKhau = Password;
+                           User.UserType = UserType;
 
                            DataProvider.Ins.DB.SaveChanges();
                            MessageBox.Show("Lưu thành công.");

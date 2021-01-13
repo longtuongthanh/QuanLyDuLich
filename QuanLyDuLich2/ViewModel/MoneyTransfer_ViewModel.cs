@@ -24,6 +24,8 @@ namespace QuanLyDuLich2.ViewModel
 
         public string MyTaiKhoan { get; set; } = "012-345-678-910";
 
+        public DateTime NgayChuyen { get; set; } = DateTime.Now;
+
         Receipt_ViewModel go_back;
 
         private long _SoTien;
@@ -100,6 +102,8 @@ namespace QuanLyDuLich2.ViewModel
         {
             var page = new Receipt_Page();
             page.DataContext = go_back;
+            go_back.TienNhan = SoTien;
+            go_back.TienNhanAvail = false;
             ((Receipt_ViewModel)page.DataContext).id_ck = saved_id;
             MainViewModel.Ins.FrameContent = page;
         }

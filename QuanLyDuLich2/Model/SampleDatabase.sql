@@ -42,37 +42,27 @@ INSERT [dbo].[tbLoaiSuCoes] ([LoaiSuCo]) VALUES (N'Góp ý')
 GO
 INSERT [dbo].[tbLoaiSuCoes] ([LoaiSuCo]) VALUES (N'Hư hỏng')
 GO
-INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Admin')
-GO
-INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Ban giám đốc')
-GO
-INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Buồng bàn')
-GO
-INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Kế toán')
-GO
-INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Kinh Doanh')
-GO
 INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Lễ tân')
 GO
 INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Quản lý')
 GO
-INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Nhà bếp')
+INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Kế toán')
 GO
-INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Quầy bar')
+INSERT [dbo].[tbLoaiTaiKhoans] ([LoaiTaiKhoan]) VALUES (N'Khách')
 GO
 INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'admin', N'admin', N'Quản lý')
 GO
-INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'bangiamdoc', N'1', N'Ban giám đốc')
+INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'bangiamdoc', N'1', N'Quản lý')
 GO
-INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'buongban', N'1', N'Buồng bàn')
+INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'buongban', N'1', N'Khách')
 GO
 INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'ketoan', N'1', N'Kế toán')
 GO
-INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'kinhdoanh', N'1', N'Kinh Doanh')
+INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'kinhdoanh', N'1', N'Kế toán')
 GO
 INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'letan', N'1', N'Lễ tân')
 GO
-INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'nhabep', N'1', N'Nhà bếp')
+INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'nhabep', N'1', N'Khách')
 GO
-INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'quaybar', N'1', N'Quầy bar')
+INSERT [dbo].[tbTaiKhoans] ([TenTaiKhoan], [MatKhau], [LoaiTaiKhoan]) VALUES (N'quaybar', N'1', N'Khách')
 GO

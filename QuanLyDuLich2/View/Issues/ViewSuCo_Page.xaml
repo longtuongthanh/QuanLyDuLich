@@ -55,7 +55,7 @@
                          Visibility="{Binding VisibilityOfEditThamSo}" 
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableLeTan}"
+                         IsEnabled="{Binding EnabledLeTan, Mode=OneWay}"
                          ItemsSource="{Binding ListLoaiSuCo}"
                               SelectedValue="{Binding SelectedLoaiSuCo}"
                          Text="{Binding SelectedLoaiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
@@ -75,7 +75,7 @@
                              Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          TextWrapping="Wrap"
-                         IsEnabled="{Binding EnableLeTan}"
+                         IsEnabled="{Binding EnabledLeTan, Mode=OneWay}"
                          Text="{Binding NoiDungSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="TextChanged">

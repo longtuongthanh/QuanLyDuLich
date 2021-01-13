@@ -34,16 +34,6 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"
                     Width="300" Background="{DynamicResource MaterialDesignPaper}">
-            <Canvas HorizontalAlignment="Right" VerticalAlignment="Top">
-                <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
-                        Command="{Binding Open_PreviousPage}">
-                    <materialDesign:PackIcon Kind="Close">
-                        <materialDesign:PackIcon.RenderTransform>
-                            <ScaleTransform ScaleX="2" ScaleY="2" CenterX="4" CenterY="7"/>
-                        </materialDesign:PackIcon.RenderTransform>
-                    </materialDesign:PackIcon>
-                </Button>
-            </Canvas>
             <TextBlock Margin="40,10,40,5" TextAlignment="Center"
                        Style="{StaticResource MaterialDesignHeadline5TextBlock}" TextWrapping="Wrap"> 
                 Vui lòng chọn loại danh mục:

@@ -291,17 +291,11 @@
     <Compile Include="View\Check_out\Receipt_Page.xaml.cs">
       <DependentUpon>Receipt_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Selector\SelectGuest_Page.xaml.cs">
-      <DependentUpon>SelectGuest_Page.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Check_in\ViewRoomRent_Page.xaml.cs">
       <DependentUpon>ViewRoomRent_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Check_in\NewServiceOrders_Page.xaml.cs">
       <DependentUpon>NewServiceOrders_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UC_ActionButtons.xaml.cs">
-      <DependentUpon>UC_ActionButtons.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Catalog\ViewRoom_Page.xaml.cs">
       <DependentUpon>ViewRoom_Page.xaml</DependentUpon>
@@ -404,19 +398,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Selector\SelectGuest_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Check_in\ViewRoomRent_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Check_in\NewServiceOrders_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UC_ActionButtons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -525,6 +511,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UnitTest\" />
+    <Folder Include="View\Selector\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Model\ChangeLog.txt" />
