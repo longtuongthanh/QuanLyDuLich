@@ -87,7 +87,7 @@
                         Width="120" Content="ĐĂNG NHẬP">
                             </Button>
                             <Button Grid.Column="1" Command="{Binding CloseWindowCommand}" CommandParameter="{Binding ElementName=loginWindow}"
-                        Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                        Style="{StaticResource MaterialDesignRaisedButton}" Background="{StaticResource SecondaryAccentBrush}"
                         Width="120" Content="THOÁT">
                             </Button>
                         </Grid>
