@@ -13,7 +13,7 @@
             <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#bf5c06"/>
             <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFF"/>
             <!-- accent -->
-            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#C0DFFA"/>
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#0077FF"/>
             <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#FFFFFF"/>
             <SolidColorBrush x:Key="WarningHueBrush" Color="#FF2244"/>
             <ResourceDictionary.MergedDictionaries>
