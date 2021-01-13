@@ -208,6 +208,7 @@ namespace QuanLyDuLich2.ViewModel
             DataProvider.Ins.DB.tbPhieuThuePhongs.Add(newItem);
             DataProvider.Ins.DB.SaveChanges();
             MessageBox.Show("THUÊ PHÒNG THÀNH CÔNG !");
+            Reset_PhieuThuePhong();
         }
 
         int Get_KhachID(string hoTen, string cmnd, string diaChi)

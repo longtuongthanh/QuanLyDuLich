@@ -170,7 +170,7 @@
                 <!--</Grid>-->
 
                 <Grid Grid.Row="1" VerticalAlignment="Bottom">
-                    <Button Background="{StaticResource WarningHueBrush}" Height="50"
+                    <Button Background="{StaticResource PrimaryHueDarkBrush}" Height="50"
                                 ToolTip="Đăng xuất" Command="{Binding DangXuat_SelectedCommand}"
                                                    CommandParameter="{Binding ElementName=this_}">
                         <Image Source="Images/logout.png" Width="10" Height="10" />

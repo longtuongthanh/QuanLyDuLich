@@ -377,9 +377,9 @@ namespace QuanLyDuLich2.ViewModel
             NewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 FrameContent = new NewServiceOrders_Page();
             });
-            Receipt_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
-                FrameContent = new Receipt_Page();
-            });
+            //Receipt_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
+            //    FrameContent = new Receipt_Page();
+            //});
             ViewServiceOrders_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {
                 FrameContent = new ViewServiceOrders_Page();
             });

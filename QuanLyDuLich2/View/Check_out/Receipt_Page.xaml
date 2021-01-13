@@ -236,6 +236,30 @@
                                             Text="{Binding TongTien, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
                                     </TextBlock>
                                 </WrapPanel>
+                                <Grid Grid.Row="1" Margin="10"
+                      Height="50" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                    <WrapPanel>
+                                        <TextBlock Grid.Column="0" FontSize="18" VerticalAlignment="Center"> Chuyển sang ngoại tệ:</TextBlock>
+                                        <TextBlock MinWidth="50" Width="Auto" Grid.Column="1" FontSize="18" Margin="20,0,0,0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SoTienChuyenDoi, StringFormat='#,##0.00;(#,##0.00)', Mode=OneWay}"/>
+                                        <ComboBox Grid.Column="2"  
+                             Foreground="{StaticResource SecondaryAccentBrush}" 
+                             VerticalAlignment="Center"
+                             SelectedItem="{Binding SelectedNgoaiTe, Mode=TwoWay}"
+                             ItemsSource="{Binding ListNgoaiTe}">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding Path=NgoaiTe}"/>
+                                                        <TextBlock Text="   - Tỷ giá: " FontStyle="Italic" Style="{StaticResource MaterialDesignSubtitle2TextBlock}"/>
+                                                        <TextBlock Text="{Binding Path=TyGia}" FontWeight="DemiBold" Style="{StaticResource MaterialDesignSubtitle2TextBlock}"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+
+                                    </WrapPanel>
+                                </Grid>
                                 <Grid Margin="10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" MinWidth="124"/>
@@ -260,12 +284,7 @@
                                         </i:Interaction.Triggers>
                                     </TextBox>
 
-                                    <ComboBox Grid.Column="2" Margin="5, 0"
-                                    Style="{StaticResource MaterialDesignComboBox}" 
-                                    Foreground="{StaticResource SecondaryAccentBrush}" 
-                                    VerticalAlignment="Bottom" FontSize="18"
-                                    Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                                    </ComboBox>
+                                   
                                 </Grid>
                                 <Grid Margin="10">
                                     <Grid.ColumnDefinitions>
@@ -286,14 +305,9 @@
                                     Text="{Binding TienThoi, UpdateSourceTrigger=PropertyChanged, StringFormat='#,##0;(#,##0)',  Mode=TwoWay}">
                                     </TextBox>
                                     
-                                    <ComboBox Grid.Column="2" Margin="5, 0"
-                                    Style="{StaticResource MaterialDesignComboBox}" 
-                                    Foreground="{StaticResource SecondaryAccentBrush}" 
-                                    VerticalAlignment="Bottom" FontSize="18"
-                                    Text="{Binding GiaTri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                                    </ComboBox>
                                 </Grid>
                             </StackPanel>
+                            
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>

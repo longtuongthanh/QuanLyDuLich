@@ -24,6 +24,7 @@ namespace QuanLyDuLich2.ViewModel
             SelectedPhieuThue = temp;
             TinhTien();
             GetDSDichVu();
+            GetListTyGia();
             TinhTienDichVu();
             TinhThanhTien();
         }
@@ -53,6 +54,40 @@ namespace QuanLyDuLich2.ViewModel
         {
             get { return _ListDV; }
             set { _ListDV = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<tbTyGia> _ListNgoaiTe = new ObservableCollection<tbTyGia>();
+
+        public ObservableCollection<tbTyGia> ListNgoaiTe
+        {
+            get { return _ListNgoaiTe; }
+            set { _ListNgoaiTe = value; OnPropertyChanged(); }
+        }
+
+        private tbTyGia _SelectedNgoaiTe;
+
+        public tbTyGia SelectedNgoaiTe
+        {
+            get { return _SelectedNgoaiTe; }
+            set { 
+                _SelectedNgoaiTe = value; 
+                OnPropertyChanged();
+                if(_SelectedNgoaiTe != null)
+                {
+                    if (TongTien != 0)
+                        SoTienChuyenDoi = TongTien/ _SelectedNgoaiTe.TyGia??1;
+                    else
+                        SoTienChuyenDoi = 0;
+                }
+            }
+        }
+
+        private double _SoTienChuyenDoi;
+
+        public double SoTienChuyenDoi
+        {
+            get { return _SoTienChuyenDoi; }
+            set { _SoTienChuyenDoi = value; OnPropertyChanged(); }
         }
 
         private tbPhieuDichVu _SelectedDV;
@@ -231,6 +266,15 @@ namespace QuanLyDuLich2.ViewModel
             foreach(tbPhieuDichVu item in DataProvider.Ins.DB.tbPhieuDichVus.Where(pdv => pdv.tbHoaDon == null && pdv.Khach == SelectedPhieuThue.Khach))
             {
                 dsDichVu.Add(item);
+            }
+        }
+
+        void GetListTyGia()
+        {
+            ListNgoaiTe.Clear();
+            foreach(tbTyGia item in DataProvider.Ins.DB.tbTyGias)
+            {
+                ListNgoaiTe.Add(item);
             }
         }
 
