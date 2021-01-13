@@ -40,7 +40,7 @@ namespace QuanLyDuLich2
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new MainViewModel();
+            DataContext = new MainViewModel();
         }
 
 
