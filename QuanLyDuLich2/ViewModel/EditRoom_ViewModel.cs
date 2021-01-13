@@ -20,6 +20,10 @@ namespace QuanLyDuLich2.ViewModel
             TitleText = "Thêm phòng mới";
             this.parent = parent;
             ResetLoaiPhong();
+
+            BindingListTinhTrang();
+
+            SelectedTinhTrang = "Trống";
         }
 
         public EditRoom_ViewModel(RoomDetail_ViewModel data ,ViewRoom_ViewModel parent)
@@ -27,11 +31,31 @@ namespace QuanLyDuLich2.ViewModel
             TitleText = "Chỉnh sửa phòng";
             this.parent = parent;
             ResetLoaiPhong();
+
+            BindingListTinhTrang();
+
             SelectedPhong = data.SelectedPhong;
             SoPhong = data.SelectedPhong.SoPhong;
             SelectedLoaiPhong = data.SelectedPhong.LoaiPhong;
+            SelectedTinhTrang = data.SelectedPhong.sTinhTrang;
             IsAdd = false;
             IsEnableSave = true;
+        }
+
+        void BindingListTinhTrang()
+        {
+            ListTinhTrang.Add("Trống");
+            ListTinhTrang.Add("Đang sử dụng");
+            ListTinhTrang.Add("Đã trả phòng");
+            ListTinhTrang.Add("Sự cố");
+            ListTinhTrang.Add("Không sử dụng");
+        }
+
+        private ObservableCollection<string> _ListTinhTrang = new ObservableCollection<string>();
+        public ObservableCollection<string> ListTinhTrang
+        {
+            get { return _ListTinhTrang; }
+            set { _ListLoaiPhong = value; OnPropertyChanged(); }
         }
 
         private ViewRoom_ViewModel parent;
@@ -132,6 +156,14 @@ namespace QuanLyDuLich2.ViewModel
         {
             get { return _IsDialogOpen; }
             set { _IsDialogOpen = value; OnPropertyChanged(); }
+        }
+
+        private string _SelectedTinhTrang;
+
+        public string SelectedTinhTrang
+        {
+            get { return _SelectedTinhTrang; }
+            set { _SelectedTinhTrang = value; OnPropertyChanged(); }
         }
 
         public ICommand AddLoaiPhong
@@ -266,11 +298,21 @@ namespace QuanLyDuLich2.ViewModel
             }
             else
             {
+                int temp = 0;
+                switch(SelectedTinhTrang)
+                {
+                    case "Trống": temp = 0; break;
+                    case "Đang sử dụng": temp = 1; break;
+                    case "Đã trả phòng": temp = 2; break;
+                    case "Sự cố": temp = 3; break;
+                    case "Không sử dụng": temp = 4; break;
+                }
+
                 tbPhong newPhong = new tbPhong()
                 {
                     SoPhong = SoPhong,
                     LoaiPhong = SelectedLoaiPhong,
-                    TinhTrang = 0
+                    TinhTrang = temp
                 };
                 DataProvider.Ins.DB.tbPhongs.Add(newPhong);
                 await DataProvider.Ins.DB.SaveChangesAsync();

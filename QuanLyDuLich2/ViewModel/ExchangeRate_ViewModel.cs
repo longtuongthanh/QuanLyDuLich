@@ -72,9 +72,9 @@ namespace QuanLyDuLich2.ViewModel
             set { _newNgoaiTe = value; OnPropertyChanged(); }
         }
 
-        private int _newTyGia;
+        private double _newTyGia;
 
-        public int newTyGia
+        public double newTyGia
         {
             get { return _newTyGia; }
             set { _newTyGia = value; OnPropertyChanged(); }
@@ -90,7 +90,7 @@ namespace QuanLyDuLich2.ViewModel
                     if (SelectedTyGia != null)
                     {
                         newNgoaiTe = SelectedTyGia.NgoaiTe;
-                        newTyGia = (int)(SelectedTyGia.TyGia);
+                        newTyGia = SelectedTyGia.TyGia??0;
                         IsDialogOpen = true;
                         type = "Chỉnh sửa tỷ giá: ";
                         IsAdd = false;
