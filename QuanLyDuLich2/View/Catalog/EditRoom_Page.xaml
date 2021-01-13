@@ -131,7 +131,7 @@
                          FontSize="18"
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
-                         IsEnabled="{Binding EnableGiaTri}"
+                         IsEnabled="{Binding EnableEdit, Mode=OneWay}"
                          ItemsSource="{Binding ListLoaiPhong, Mode=TwoWay}"
                          SelectedValue="{Binding SelectedLoaiPhong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                             </ComboBox>

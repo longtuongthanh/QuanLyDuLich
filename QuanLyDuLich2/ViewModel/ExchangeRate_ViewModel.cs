@@ -72,9 +72,9 @@ namespace QuanLyDuLich2.ViewModel
             set { _newNgoaiTe = value; OnPropertyChanged(); }
         }
 
-        private int _newTyGia;
+        private double _newTyGia;
 
-        public int newTyGia
+        public double newTyGia
         {
             get { return _newTyGia; }
             set { _newTyGia = value; OnPropertyChanged(); }
@@ -111,13 +111,14 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(x => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
+                                             MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.KeToan,
                 x =>
                 {
                     if (SelectedTyGia != null)
                     {
                         newNgoaiTe = SelectedTyGia.NgoaiTe;
-                        newTyGia = (int)(SelectedTyGia.TyGia);
+                        newTyGia = SelectedTyGia.TyGia ?? 0;
                         IsDialogOpen = true;
                         type = "Chỉnh sửa tỷ giá: ";
                         IsAdd = false;
@@ -130,7 +131,8 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(x => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
+                                             MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.KeToan,
                 x =>
                 {
                     IsDialogOpen = true;

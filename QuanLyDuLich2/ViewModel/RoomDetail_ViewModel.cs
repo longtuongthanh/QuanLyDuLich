@@ -55,7 +55,7 @@ namespace QuanLyDuLich2.ViewModel
         public Visibility IsVisible
         {
             get {
-                if (MainViewModel.Ins.user.UserType == tbTaiKhoan.UserTypes.QuanLy)
+                if (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy)
                     return _IsVisible;
                 else
                     return Visibility.Collapsed;
@@ -67,7 +67,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(x => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy,
                 x =>
                 {
                     if (SelectedPhong.TinhTrang != 4)
@@ -94,7 +94,8 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand( x => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
+                                              MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan,
                 x =>
                 {
                     var page = new EditRoom_Page(this,parent);

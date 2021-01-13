@@ -228,7 +228,6 @@
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\EditRoom_ViewModel.cs" />
     <Compile Include="ViewModel\ExchangeRate_ViewModel.cs" />
-    <Compile Include="ViewModel\Home_PageViewModel.cs" />
     <Compile Include="ViewModel\Info_ViewModel.cs" />
     <Compile Include="ViewModel\IssueViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -279,9 +278,6 @@
     <Compile Include="View\Check_out\ViewReceipt_Page.xaml.cs">
       <DependentUpon>ViewReceipt_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Home_Page.xaml.cs">
-      <DependentUpon>Home_Page.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Catalog\Info_Page_Chooser.xaml.cs">
       <DependentUpon>Info_Page_Chooser.xaml</DependentUpon>
     </Compile>
@@ -296,9 +292,6 @@
     </Compile>
     <Compile Include="View\Selector\SelectGuest_Page.xaml.cs">
       <DependentUpon>SelectGuest_Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Check_in\ServiceFeedback_Page.xaml.cs">
-      <DependentUpon>ServiceFeedback_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Check_in\ViewRoomRent_Page.xaml.cs">
       <DependentUpon>ViewRoomRent_Page.xaml</DependentUpon>
@@ -390,10 +383,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Home_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Catalog\Info_Page_Chooser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -415,10 +404,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Selector\SelectGuest_Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Check_in\ServiceFeedback_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

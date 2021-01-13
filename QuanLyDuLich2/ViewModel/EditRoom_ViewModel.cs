@@ -125,6 +125,8 @@ namespace QuanLyDuLich2.ViewModel
             get { return _SaveToolTip; }
             set { _SaveToolTip = value; OnPropertyChanged(); }
         }
+        
+        public bool EnableEdit { get => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy; }
 
         private bool _IsDialogOpen = false;
 
