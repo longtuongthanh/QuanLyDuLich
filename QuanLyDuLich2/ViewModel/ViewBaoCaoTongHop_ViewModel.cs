@@ -103,7 +103,7 @@ namespace QuanLyDuLich2.ViewModel
             }
             foreach (tbPhieuThuePhong tb in DataProvider.Ins.DB.tbPhieuThuePhongs)
             {
-                if (tb.NgayTra.Value.Date >= SelectedFromMonthReport.Date && tb.NgayTra.Value.Date <= SelectedToMonthReport.Date)
+                if (tb.NgayTra?.Date >= SelectedFromMonthReport.Date && tb.NgayTra?.Date <= SelectedToMonthReport.Date)
                 {
 
                     SLTra++;

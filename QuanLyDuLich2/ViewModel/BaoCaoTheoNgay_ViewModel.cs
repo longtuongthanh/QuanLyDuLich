@@ -96,7 +96,7 @@ namespace QuanLyDuLich2.ViewModel
             }
             foreach (tbPhieuThuePhong tb in DataProvider.Ins.DB.tbPhieuThuePhongs)
             {
-                if (tb.NgayTra.Value.Date == tempPre.Date)
+                if (tb.NgayTra?.Date == tempPre.Date)
                 {
 
                     SLTra++;
@@ -137,7 +137,7 @@ namespace QuanLyDuLich2.ViewModel
             }
             foreach (tbPhieuThuePhong tb in DataProvider.Ins.DB.tbPhieuThuePhongs)
             {
-                if (tb.NgayTra.Value.Date == SelectedDateReport.Date)
+                if (tb.NgayTra?.Date == SelectedDateReport.Date)
                 {
 
                     SLTra++;
