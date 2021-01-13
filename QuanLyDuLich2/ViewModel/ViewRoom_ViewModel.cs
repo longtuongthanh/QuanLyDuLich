@@ -55,6 +55,22 @@ namespace QuanLyDuLich2.ViewModel
             {
                 ResetPhong();
                 List<tbPhong> toRemove = new List<tbPhong>();
+
+                filterHelper.Clear();
+
+                if (Empty)
+                    filterHelper.Insert(item => item.TinhTrang == 0);
+                if (Used)
+                    filterHelper.Insert(item => item.TinhTrang == 1);
+                if (CheckedOut)
+                    filterHelper.Insert(item => item.TinhTrang == 2);
+                if (Issue)
+                    filterHelper.Insert(item => item.TinhTrang == 3);
+                if (NotAvail)
+                    filterHelper.Insert(item => item.TinhTrang == 4);
+
+                dsPhong = new ObservableCollection<tbPhong>(filterHelper.Filter(dsPhong));
+
                 foreach (var item in dsPhong)
                 {
                     if (!FilterCondition(item))
@@ -132,31 +148,18 @@ namespace QuanLyDuLich2.ViewModel
         #region Function
         private string filterText;
         public string FilterText { get => filterText; set => filterText = value; }
-        public bool Empty;
-        public bool Used;
-        public bool CheckedOut;
-        public bool Issue;
-        public bool NotAvail;
+        public bool Empty { get; set; }
+        public bool Used { get; set; }
+        public bool CheckedOut { get; set; }
+        public bool Issue { get; set; }
+        public bool NotAvail { get; set; }
+
+        FilterHelper_Any<tbPhong> filterHelper = new FilterHelper_Any<tbPhong>();
 
         bool FilterCondition(tbPhong item)
         {
             if (FilterText == null || FilterText == "")
                 return true;
-
-            if (Empty && item.TinhTrang != 0)
-                return false;
-
-            if (Used && item.TinhTrang != 1)
-                return false;
-
-            if (CheckedOut && item.TinhTrang != 2)
-                return false;
-
-            if (Issue && item.TinhTrang != 3)
-                return false;
-
-            if (NotAvail && item.TinhTrang != 4)
-                return false;
 
             return Util.Match(FilterText.ToLower(), item.LoaiPhong.ToLower()) ||
                 Util.Match(FilterText.ToLower(), item.sTinhTrang.ToLower()) ||

@@ -25,73 +25,75 @@ namespace QuanLyDuLich2.ViewModel
 
         static private Task TimerTask = null;
 
-        private bool _Selected_HOME;
-        public bool Selected_HOME
-        {
-            get => _Selected_HOME;
-            set { _Selected_HOME = value; OnPropertyChanged(); }
-        }
-
-        private bool _Selected_DangXuat;
-        public bool Selected_DangXuat
-        {
-            get => _Selected_DangXuat;
-            set { _Selected_DangXuat = value; OnPropertyChanged(); }
-        }
-        private bool _Enable_Home;
-        public bool Enable_Home
+        private Visibility _Enable_Home;
+        public Visibility Enable_Home
         {
             get => _Enable_Home;
             set { _Enable_Home = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_Info;
-        public bool Enable_Info
+        private Visibility _Enable_Info;
+        public Visibility Enable_Info
         {
             get => _Enable_Info;
             set { _Enable_Info = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_RoomRent;
-        public bool Enable_RoomRent
+        private Visibility _Enable_RoomRent;
+        public Visibility Enable_RoomRent
         {
             get => _Enable_RoomRent;
             set { _Enable_RoomRent = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_EditUser;
-        public bool Enable_EditUser
+        private Visibility _Enable_EditUser;
+        public Visibility Enable_EditUser
         {
             get => _Enable_EditUser;
             set { _Enable_EditUser = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_ServiceOrder;
-        public bool Enable_ServiceOrder
+        private Visibility _Enable_ServiceOrder;
+        public Visibility Enable_ServiceOrder
         {
             get => _Enable_ServiceOrder;
             set { _Enable_ServiceOrder = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_Checkout;
-        public bool Enable_Checkout
+        private Visibility _Enable_Checkout;
+        public Visibility Enable_Checkout
         {
             get => _Enable_Checkout;
             set { _Enable_Checkout = value; OnPropertyChanged(); }
         }
 
-        private bool _Enable_Receipt;
-        public bool Enable_Receipt
+        private Visibility _Enable_Receipt;
+        public Visibility Enable_Receipt
         {
             get => _Enable_Receipt;
             set { _Enable_Receipt = value; OnPropertyChanged(); }
         }
-        private bool _Enable_ViewServiceOrders;
-        public bool Enable_ViewServiceOrders
+        private Visibility _Enable_ViewServiceOrders;
+        public Visibility Enable_ViewServiceOrders
         {
             get => _Enable_ViewServiceOrders;
             set { _Enable_ViewServiceOrders = value; OnPropertyChanged(); }
         }
+
+        private Visibility _Enable_BaoCao;
+        public Visibility Enable_BaoCao
+        {
+            get => _Enable_BaoCao;
+            set { _Enable_BaoCao = value; OnPropertyChanged(); }
+        }
+
+        private Visibility _Enable_ViewIssue;
+        public Visibility Enable_ViewIssue
+        {
+            get => _Enable_ViewIssue;
+            set { _Enable_ViewIssue = value; OnPropertyChanged(); }
+        }
+
         private Page _FrameContent;
 
         public Page FrameContent
@@ -115,13 +117,6 @@ namespace QuanLyDuLich2.ViewModel
         public ICommand ViewReportByMonth_Page_SelectedCommand { get; set; }
         public ICommand ViewIssue_Page_SelectedCommand { get; set; }
         #endregion
-
-        private bool _Enable_QLNS;
-        public bool Enable_BaoCao
-        {
-            get => _Enable_QLNS;
-            set { _Enable_QLNS = value; OnPropertyChanged(); }
-        }
 
         // tool tip of navigation
         private string _Home_Tooltip;
@@ -187,6 +182,13 @@ namespace QuanLyDuLich2.ViewModel
             set { _BaoCao_Tooltip = value; OnPropertyChanged(); }
         }
 
+        private string _ViewIssue_Tooltip;
+        public string ViewIssue_Tooltip
+        {
+            get => _ViewIssue_Tooltip;
+            set { _ViewIssue_Tooltip = value; OnPropertyChanged(); }
+        }
+
         #endregion
 
         public bool isLoaded = false;
@@ -200,13 +202,13 @@ namespace QuanLyDuLich2.ViewModel
 
         private void Init_Button()
         {
-            Enable_Home = Enable_ViewServiceOrders = Enable_RoomRent = Enable_EditUser = Enable_ServiceOrder = Enable_Checkout = Enable_Receipt = Enable_BaoCao = Enable_Info =  false;
-            Enable_Info = true;
+            Enable_ViewIssue = Enable_Home = Enable_ViewServiceOrders = Enable_RoomRent = Enable_EditUser = Enable_ServiceOrder = Enable_Checkout = Enable_Receipt = Enable_BaoCao = Enable_Info =  Visibility.Collapsed;
+            Enable_Info = Visibility.Visible;
             // tooltip handle
-            Info_Tooltip = RoomRent_Tooltip = ServiceOrder_Tooltip = Checkout_Tooltip = EditUser_Tooltip = Receipt_Tooltip = BaoCao_Tooltip = ViewServiceOrders_Tooltip = "Không thể truy cập";
+            ViewIssue_Tooltip = Info_Tooltip = RoomRent_Tooltip = ServiceOrder_Tooltip = Checkout_Tooltip = EditUser_Tooltip = Receipt_Tooltip = BaoCao_Tooltip = ViewServiceOrders_Tooltip = "Không thể truy cập";
             Info_Tooltip = "Có thể truy cập";
             if (user?.UserType == tbTaiKhoan.UserTypes.QuanLy)
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 9; i++)
                 {
                     Init_Valid_Button(i + 1);
                     Init_Valid_Tooltip(i + 1);
@@ -219,9 +221,11 @@ namespace QuanLyDuLich2.ViewModel
                 Init_Valid_Tooltip(2);
                 Init_Valid_Button(7);
                 Init_Valid_Tooltip(7);
+                Init_Valid_Button(9);
+                Init_Valid_Tooltip(9);
             }
             if (user?.UserType == tbTaiKhoan.UserTypes.LeTan)
-                for (int i = 1; i < 8; i++)
+                for (int i = 1; i < 9; i++)
                     if (i + 1 != 7 && i + 1 != 4)
                     {
                         Init_Valid_Button(i + 1);
@@ -234,30 +238,31 @@ namespace QuanLyDuLich2.ViewModel
             switch (maChucNang)
             {
                 case 1:
-                    Enable_BaoCao = true;
+                    Enable_BaoCao = Visibility.Visible;
                     break;
                 case 2:
-                    Enable_Info = true;
+                    Enable_Home = Visibility.Visible;
                     break;
                 case 3:
-                    Enable_RoomRent = true;
+                    Enable_RoomRent = Visibility.Visible;
                     break;
                 case 4:
-                    Enable_EditUser = true;
+                    Enable_EditUser = Visibility.Visible;
                     break;
                 case 5:
-                    Enable_ServiceOrder = true;
+                    Enable_ServiceOrder = Visibility.Visible;
                     break;
                 case 6:
-                    Enable_Checkout = true;
+                    Enable_Checkout = Visibility.Visible;
                     break;
                 case 7:
-                    Enable_Receipt = true;
+                    Enable_Receipt = Visibility.Visible;
                     break;
                 case 8:
-                    Enable_ViewServiceOrders = true;
+                    Enable_ViewServiceOrders = Visibility.Visible;
                     break;
                 case 9:
+                    Enable_ViewIssue = Visibility.Visible;
                     break;
             }
         }
@@ -271,7 +276,7 @@ namespace QuanLyDuLich2.ViewModel
                     BaoCao_Tooltip = "Có thể truy cập";
                     break;
                 case 2:
-                    Info_Tooltip = "Có thể truy cập";
+                    Home_Tooltip = "Có thể truy cập";
                     break;
                 case 3:
                     RoomRent_Tooltip = "Có thể truy cập";
@@ -292,6 +297,7 @@ namespace QuanLyDuLich2.ViewModel
                     ViewServiceOrders_Tooltip = "Có thể truy cập";
                     break;
                 case 9:
+                    ViewIssue_Tooltip = "Có thể truy cập";
                     break;
             }
         }
@@ -320,8 +326,6 @@ namespace QuanLyDuLich2.ViewModel
                 _ins = this;
             else
                 throw new InvalidOperationException();
-            //Selected_HOME = true;
-            //Selected_DangXuat = false;
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
 
                 //if (p == null) return;
@@ -329,41 +333,30 @@ namespace QuanLyDuLich2.ViewModel
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
                 isLoaded = true;
-
-                //if (loginWindow.DataContext == null) return;
-                //var loginVM = loginWindow.DataContext as LoginViewModel;
-                //if (loginVM.isLogin)
-                //{
+                
                 p.Show();
-                //    LoadRemainsData(); // show remain table
-                //}
-                //else
-                //{
-
-                //}
 
                 TimerTask = new Task(async () =>
                 {
                     bool TimerStop = false;
                     while (!TimerStop)
                     {
-                        await Task.Delay(1000);
                         Init_Button_User();
 
                         await ReloadUserInfo();
-                        /*
-                        if (LoginViewModel.TaiKhoanSuDung != null)
-                        {
-                            Init_Button_User(LoginViewModel.TaiKhoanSuDung);
-
-                            TimerStop = true;
-                        }
-                        //*/
+                        await Task.Delay(1000);
                     }
                 });
                 TimerTask.Start();
 
-                FrameContent = new Info_Page_Chooser();
+                if (user.UserType == tbTaiKhoan.UserTypes.Unknown)
+                {
+                    FrameContent = new Info_Page_Chooser();
+                }
+                else
+                {
+                    FrameContent = new ViewActivity_Page();
+                }
             });
 
             Home_Page_SelectedCommand = new RelayCommand<HamburgerMenu.HamburgerMenu>((p) => { return true; }, (p) => {

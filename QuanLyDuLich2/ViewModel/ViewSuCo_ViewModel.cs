@@ -67,6 +67,8 @@ namespace QuanLyDuLich2.ViewModel
             if (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
                 MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan)
                 CanCreate = Visibility.Visible;
+            else
+                CanCreate = Visibility.Hidden;
             onCreate = Visibility.Hidden;
             onSelected = Visibility.Hidden;
             BindingListLoaiSuCO();

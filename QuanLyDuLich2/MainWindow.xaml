@@ -52,7 +52,9 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <HamburgerMenu:HamburgerMenu x:Name="hamburger" MaxWidth="500" Background="{StaticResource PrimaryHueMidBrush}" MenuIconColor="{StaticResource SecondaryAccentBrush}" SelectionIndicatorColor="{StaticResource PrimaryHueLightBrush}" MenuItemForeground="FloralWhite" HorizontalAlignment="Left">
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/home.png" Text="Trang chủ" IsEnabled="{Binding Enable_Home}" ToolTip="{Binding Home_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                    <HamburgerMenu:HamburgerMenuItem
+                         
+                        Icon="Images/home.png" Text="Trang chủ" Visibility="{Binding Enable_Home}" ToolTip="{Binding Home_Tooltip}" ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
                                 <i:InvokeCommandAction Command="{Binding Home_Page_SelectedCommand}"
@@ -60,8 +62,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/home_in.png" Text="Thuê phòng" 
-                                                     IsEnabled="{Binding Enable_RoomRent}" ToolTip="{Binding RoomRent_Tooltip}" 
+                    <HamburgerMenu:HamburgerMenuItem  Icon="Images/home_in.png" Text="Thuê phòng" 
+                                                     Visibility="{Binding Enable_RoomRent}" ToolTip="{Binding RoomRent_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -70,8 +72,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/service.png" Text="Đăng ký dịch vụ" 
-                                                     IsEnabled="{Binding Enable_ServiceOrder}" ToolTip="{Binding ServiceOrder_Tooltip}" 
+                    <HamburgerMenu:HamburgerMenuItem  Icon="Images/service.png" Text="Đăng ký dịch vụ" 
+                                                     Visibility="{Binding Enable_ServiceOrder}" ToolTip="{Binding ServiceOrder_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -80,8 +82,8 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem Icon="Images/home_out.png" Text="Trả phòng"
-                                                     IsEnabled="{Binding Enable_Checkout}" ToolTip="{Binding Checkout_Tooltip}" 
+                    <HamburgerMenu:HamburgerMenuItem  Icon="Images/home_out.png" Text="Trả phòng"
+                                                     Visibility="{Binding Enable_Checkout}" ToolTip="{Binding Checkout_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -90,9 +92,9 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem  
+                    <HamburgerMenu:HamburgerMenuItem   
                                                      Icon="Images/Money.png" Text="Lập hóa đơn" 
-                                                     IsEnabled="{Binding Enable_Receipt}" ToolTip="{Binding Receipt_Tooltip}" 
+                                                     Visibility="{Binding Enable_Receipt}" ToolTip="{Binding Receipt_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -103,7 +105,7 @@
                     </HamburgerMenu:HamburgerMenuItem>
 
                     <HamburgerMenu:HamburgerMenuItem Icon="Images/Catalog.png" Text="Danh mục" 
-                                                     IsEnabled="{Binding Enable_Info}" ToolTip="{Binding Info_Tooltip}"
+                                                     Visibility="{Binding Enable_Info}" ToolTip="{Binding Info_Tooltip}"
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -112,9 +114,9 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem 
+                    <HamburgerMenu:HamburgerMenuItem  
                                                      Icon="Images/OrderList.png" Text="Danh sách phiếu dịch vụ" 
-                                                     IsEnabled="{Binding Enable_ViewServiceOrders}" ToolTip="{Binding ViewServiceOrders_Tooltip}" 
+                                                     Visibility="{Binding Enable_ViewServiceOrders}" ToolTip="{Binding ViewServiceOrders_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -123,9 +125,9 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem 
+                    <HamburgerMenu:HamburgerMenuItem  
                                                      Icon="Images/statistics.png" Text="Báo cáo doanh số theo ngày" 
-                                                     IsEnabled="{Binding Enable_BaoCao}" ToolTip="{Binding BaoCao_Tooltip}" 
+                                                     Visibility="{Binding Enable_BaoCao}" ToolTip="{Binding BaoCao_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -134,9 +136,9 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem 
+                    <HamburgerMenu:HamburgerMenuItem  
                                                      Icon="Images/report.png" Text="Báo cáo doanh số tổng hợp" 
-                                                     IsEnabled="{Binding Enable_BaoCao}" ToolTip="{Binding BaoCao_Tooltip}" 
+                                                     Visibility="{Binding Enable_BaoCao}" ToolTip="{Binding BaoCao_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -145,9 +147,9 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem 
+                    <HamburgerMenu:HamburgerMenuItem  
                                                      Icon="Images/spam.png" Text="Sự cố" 
-                                                     IsEnabled="{Binding Enable_ViewIssue}" ToolTip="{Binding ViewIssue_Tooltip}" 
+                                                     Visibility="{Binding Enable_ViewIssue}" ToolTip="{Binding ViewIssue_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -156,9 +158,9 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem 
+                    <HamburgerMenu:HamburgerMenuItem  
                                                      Icon="Images/person.png" Text="Quản lý người dùng" 
-                                                     IsEnabled="{Binding Enable_EditUser}" ToolTip="{Binding EditUser_Tooltip}" 
+                                                     Visibility="{Binding Enable_EditUser}" ToolTip="{Binding EditUser_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">

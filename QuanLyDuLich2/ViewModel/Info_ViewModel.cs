@@ -25,20 +25,6 @@ namespace QuanLyDuLich2.ViewModel
 
         static private Task TimerTask = null;
 
-        private bool _Selected_HOME;
-        public bool Selected_HOME
-        {
-            get => _Selected_HOME;
-            set { _Selected_HOME = value; OnPropertyChanged(); }
-        }
-
-        private bool _Selected_DangXuat;
-        public bool Selected_DangXuat
-        {
-            get => _Selected_DangXuat;
-            set { _Selected_DangXuat = value; OnPropertyChanged(); }
-        }
-
         private bool _Enable_ViewRoom;
         public bool Enable_ViewRoom
         {
@@ -229,25 +215,11 @@ namespace QuanLyDuLich2.ViewModel
         #endregion
         public Info_ViewModel() // all main page handling goes there
         {
-            //Selected_HOME = true;
-            //Selected_DangXuat = false;
             LoadedWindowCommand = new RelayCommand<Page>((p) => { return true; }, (p) => {
                 TimerTask = new Task(async () =>
                 {
-                    bool TimerStop = false;
-                    while (!TimerStop)
-                    {
-                        await Task.Delay(1000);
-                        Init_Button_User();
-                        /*
-                        if (LoginViewModel.TaiKhoanSuDung != null)
-                        {
-                            Init_Button_User(LoginViewModel.TaiKhoanSuDung);
-
-                            TimerStop = true;
-                        }
-                        //*/
-                    }
+                    await Task.Delay(1000);
+                    Init_Button_User();
                 });
                 TimerTask.Start();
             });
