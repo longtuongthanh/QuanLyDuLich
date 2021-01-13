@@ -131,27 +131,33 @@
                     </Grid.RowDefinitions>
                     
                     <Grid Grid.Column="0" Margin="10,0">
-                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                        <TextBlock
+                            FontSize="16" FontWeight="Bold"
+                            Style="{StaticResource MaterialDesignCaptionTextBlock}"
                                    VerticalAlignment="Bottom"
                                     Text="Tên dịch vụ"/>
                     </Grid>
                     <Grid Grid.Column="1" Margin="10,0">
-                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                        <TextBlock FontSize="16" FontWeight="Bold"
+                            Style="{StaticResource MaterialDesignCaptionTextBlock}"
                                    VerticalAlignment="Bottom"
                                     Text="Yêu cầu khách"/>
                     </Grid>
                     <Grid Grid.Column="2" Margin="10,0">
-                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                        <TextBlock FontSize="16" FontWeight="Bold"
+                            Style="{StaticResource MaterialDesignCaptionTextBlock}"
                                    VerticalAlignment="Bottom"
                                     Text="Số lượng"/>
                     </Grid>
                     <Grid Grid.Column="3" Margin="10,0">
-                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                        <TextBlock FontSize="16" FontWeight="Bold"
+                            Style="{StaticResource MaterialDesignCaptionTextBlock}"
                                    VerticalAlignment="Bottom"
                                     Text="Đơn giá"/>
                     </Grid>
                     <Grid Grid.Column="4" Margin="10,0">
-                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                        <TextBlock FontSize="16" FontWeight="Bold"
+                            Style="{StaticResource MaterialDesignCaptionTextBlock}"
                                    VerticalAlignment="Bottom"
                                     Text="Thành tiền"/>
                     </Grid>
@@ -174,7 +180,7 @@
 
                                     <Grid Grid.Column="0">
                                         <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="Chọn dịch vụ"
-                                            Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                                                  FontSize="16"
                                             Foreground="{StaticResource SecondaryAccentBrush}" 
                                   
                                             SelectedItem="{Binding Path=SelectedDichVu, Mode=TwoWay}"
@@ -194,8 +200,9 @@
                                             </ComboBox.ItemTemplate>
                                         </ComboBox>
                                     </Grid>
-                                    <Grid Grid.Column="1" Margin="10,0">
+                                    <Grid Grid.Column="1" Margin="20,0">
                                         <TextBox VerticalAlignment="Center"
+                                                 FontSize="16"
                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                              Foreground="{StaticResource SecondaryAccentBrush}" 
                                              IsEnabled="{Binding EnableGiaTri}"
@@ -204,6 +211,7 @@
                                     </Grid>
                                     <Grid Grid.Column="2" Margin="10,0">
                                         <TextBox VerticalAlignment="Center"
+                                                 FontSize="16"
                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                              Foreground="{StaticResource SecondaryAccentBrush}" 
                                              PreviewTextInput="TextBox_PreviewTextInput"
@@ -214,11 +222,13 @@
                                     </Grid>
                                     <Grid Grid.Column="3" Margin="10,0">
                                         <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                                   FontSize="16"
                                             VerticalAlignment="Bottom"
                                             Text="{Binding Path=SelectedDichVu.DonGia, Mode=TwoWay, StringFormat={}{0}₫}"/>
                                     </Grid>
                                     <Grid Grid.Column="4" Margin="10,0">
                                         <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                                   FontSize="16"
                                             VerticalAlignment="Bottom"
                                             Text="{Binding DonGia, StringFormat={}{0}₫, Mode=OneWay}"/>
                                     </Grid>
