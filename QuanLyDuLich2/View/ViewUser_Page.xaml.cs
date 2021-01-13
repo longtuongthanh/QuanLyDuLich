@@ -12,17 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QuanLyDuLich2.ViewModel;
 
 namespace QuanLyDuLich2.View
 {
     /// <summary>
-    /// Interaction logic for Home_Page.xaml
+    /// Interaction logic for ViewUser_Page.xaml
     /// </summary>
-    public partial class Home_Page : Page
+    public partial class ViewUser_Page : Page
     {
-        public Home_Page()
+        public ViewUser_Page()
         {
             InitializeComponent();
+            DataContext = new ViewUser_ViewModel();
         }
     }
 }

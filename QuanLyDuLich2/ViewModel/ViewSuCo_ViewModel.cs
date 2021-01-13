@@ -64,7 +64,9 @@ namespace QuanLyDuLich2.ViewModel
         {
             EnableGiaTri = false;
             EnableChiPhi = false;
-            CanCreate = Visibility.Visible;
+            if (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
+                MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan)
+                CanCreate = Visibility.Visible;
             onCreate = Visibility.Hidden;
             onSelected = Visibility.Hidden;
             BindingListLoaiSuCO();
@@ -198,7 +200,16 @@ namespace QuanLyDuLich2.ViewModel
             get { return _CanCreate; }
             set { _CanCreate = value; OnPropertyChanged(); }
         }
-        
+        public bool EnabledChiPhi
+        {
+            get => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
+                   MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.KeToan;
+        }
+        public bool EnabledLeTan
+        {
+            get => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
+                   MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan;
+        }
 
         public ICommand UserAction {
             get

@@ -45,7 +45,7 @@
                         materialDesign:HintAssist.IsFloating="True"
                         Foreground="{StaticResource SecondaryAccentBrush}" 
                         VerticalAlignment="Center"
-                        Text="{Binding newTyGia, StringFormat='#,##0;(#,##0)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        Text="{Binding newTyGia, StringFormat='#,##0.0#;(#,##0.0#)', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                     <StackPanel
                         Orientation="Horizontal"

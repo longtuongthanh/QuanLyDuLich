@@ -22,6 +22,8 @@ namespace QuanLyDuLich2.ViewModel
             this.go_back = go_back;
         }
 
+        public string MyTaiKhoan { get; set; } = "012-345-678-910";
+
         Receipt_ViewModel go_back;
 
         private long _SoTien;

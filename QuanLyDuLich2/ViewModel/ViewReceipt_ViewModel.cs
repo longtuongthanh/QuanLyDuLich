@@ -247,36 +247,5 @@ namespace QuanLyDuLich2.ViewModel
             IsDialogOpen = false;
             GetDSDichVu();
         }
-
-        async void LuuHoaDon()
-        {
-            tbHoaDon newHoaDon = new tbHoaDon()
-            {
-                IDKhachHang = SelectedPhieuThue.Khach,
-                PhieuThuePhong = SelectedPhieuThue.ID,
-                ThanhTien = TongTien
-            };
-            if (id_ck != -1)
-            {
-                newHoaDon.PhieuChuyenKhoan = id_ck;
-            }
-            DataProvider.Ins.DB.tbHoaDons.Add(newHoaDon);
-            await DataProvider.Ins.DB.SaveChangesAsync();
-
-            ObservableCollection<tbHoaDon> clone = new ObservableCollection<tbHoaDon>();
-
-            foreach (tbHoaDon item in DataProvider.Ins.DB.tbHoaDons)
-            {
-                clone.Add(item);
-            }
-
-            saved_id = clone.Last().ID;
-
-            foreach (tbPhieuDichVu item in DataProvider.Ins.DB.tbPhieuDichVus.Where(pdv => pdv.tbHoaDon == null && pdv.Khach == SelectedPhieuThue.Khach))
-            {
-                item.HoaDon = saved_id;
-            }
-            await DataProvider.Ins.DB.SaveChangesAsync();
-        }
     }
 }

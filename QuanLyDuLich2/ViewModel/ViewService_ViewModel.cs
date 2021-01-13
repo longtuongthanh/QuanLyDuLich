@@ -107,7 +107,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(x => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy,
                 x =>
                 {
                     IsDialogOpen = true;
@@ -121,7 +121,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(x => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy,
                 x =>
                 {
                     if (SelectedDV != null)
@@ -142,7 +142,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(x => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy,
                 x =>
                 {
                     Delete();

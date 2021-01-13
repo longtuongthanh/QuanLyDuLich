@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace QuanLyDuLich2.ViewModel
@@ -41,13 +42,6 @@ namespace QuanLyDuLich2.ViewModel
             set { _Khach = value; OnPropertyChanged(); }
         }
 
-        private string _IsVisible = "Visible";
-
-        public string IsVisible
-        {
-            get { return _IsVisible; }
-            set { _IsVisible = value; OnPropertyChanged(); }
-        }
 
         private string _XoaButton;
 
@@ -57,11 +51,23 @@ namespace QuanLyDuLich2.ViewModel
             set { _XoaButton = value; OnPropertyChanged(); }
         }
 
+        private Visibility _IsVisible = Visibility.Visible;
+        public Visibility IsVisible
+        {
+            get {
+                if (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy)
+                    return _IsVisible;
+                else
+                    return Visibility.Collapsed;
+            }
+            set { _IsVisible = value; }
+        }
+
         public ICommand XoaPhong
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(x => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy,
                 x =>
                 {
                     if (SelectedPhong.TinhTrang != 4)
@@ -88,7 +94,8 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand( x => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
+                                              MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan,
                 x =>
                 {
                     var page = new EditRoom_Page(this,parent);
@@ -124,7 +131,7 @@ namespace QuanLyDuLich2.ViewModel
             else
             {
                 Khach = "";
-                IsVisible = "Collapsed";
+                IsVisible = Visibility.Collapsed;
             }
         }
     }

@@ -28,7 +28,6 @@ namespace QuanLyDuLich2.Model
         private DataProvider()
         {
             DB = new QuanLyDuLich2Entities();
-            Util.ShowTodoMessage();
         }
     }
 }

@@ -18,7 +18,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
 
-    <Grid Grid.Column="2" Visibility="{Binding IsVisible}">
+    <Grid Grid.Column="2">
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="1*" MinHeight="50"/>
@@ -84,7 +84,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
+                    
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
@@ -96,15 +96,7 @@
                         Chỉnh sửa
                     </Button>
                 </Grid>
-                <Grid Grid.Column="1" Visibility="{Binding Action2Visibility}">
-                    <Button
-                                Visibility="{Binding IsVisible}"
-                                FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                Command="{Binding PerformAction2}" MinWidth="120">
-                        Chọn
-                    </Button>
-                </Grid>
-                <Grid Grid.Column="2" Visibility="{Binding Action3Visibility}">
+                <Grid Grid.Column="1" Visibility="{Binding Action3Visibility}">
                     <Button 
                                 Visibility="{Binding IsVisible}"
                                 FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"

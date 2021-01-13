@@ -110,17 +110,6 @@
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
                     <HamburgerMenu:HamburgerMenuItem 
-                                                     Icon="Images/feedback.png" Text="Góp ý dịch vụ" 
-                                                     IsEnabled="{Binding Enable_ServiceFeedback}" ToolTip="{Binding ServiceFeedback_Tooltip}" 
-                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="GotFocus">
-                                <i:InvokeCommandAction Command="{Binding ServiceFeedback_Page_SelectedCommand}"
-                                                    CommandParameter="{Binding ElementName=hamburger}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </HamburgerMenu:HamburgerMenuItem>
-                    <HamburgerMenu:HamburgerMenuItem 
                                                      Icon="Images/OrderList.png" Text="Danh sách phiếu dịch vụ" 
                                                      IsEnabled="{Binding Enable_ViewServiceOrders}" ToolTip="{Binding ViewServiceOrders_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
@@ -132,8 +121,8 @@
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
                     <HamburgerMenu:HamburgerMenuItem 
-                                                     Icon="Images/OrderList.png" Text="Báo cáo doanh số theo ngày" 
-                                                     IsEnabled="{Binding Enable_ViewReportByDay}" ToolTip="{Binding ViewReportByDay_Tooltip}" 
+                                                     Icon="Images/statistics.png" Text="Báo cáo doanh số theo ngày" 
+                                                     IsEnabled="{Binding Enable_BaoCao}" ToolTip="{Binding BaoCao_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -143,8 +132,8 @@
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
                     <HamburgerMenu:HamburgerMenuItem 
-                                                     Icon="Images/OrderList.png" Text="Báo cáo doanh số tổng hợp" 
-                                                     IsEnabled="{Binding Enable_ViewReportByMonth}" ToolTip="{Binding ViewReportByMonth_Tooltip}" 
+                                                     Icon="Images/report.png" Text="Báo cáo doanh số tổng hợp" 
+                                                     IsEnabled="{Binding Enable_BaoCao}" ToolTip="{Binding BaoCao_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
@@ -160,6 +149,17 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
                                 <i:InvokeCommandAction Command="{Binding ViewIssue_Page_SelectedCommand}"
+                                                    CommandParameter="{Binding ElementName=hamburger}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </HamburgerMenu:HamburgerMenuItem>
+                    <HamburgerMenu:HamburgerMenuItem 
+                                                     Icon="Images/person.png" Text="Quản lý người dùng" 
+                                                     IsEnabled="{Binding Enable_EditUser}" ToolTip="{Binding EditUser_Tooltip}" 
+                                                     ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding ViewUser_SelectedCommand}"
                                                     CommandParameter="{Binding ElementName=hamburger}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

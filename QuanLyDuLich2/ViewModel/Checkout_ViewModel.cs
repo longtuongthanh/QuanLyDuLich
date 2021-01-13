@@ -183,6 +183,11 @@ namespace QuanLyDuLich2.ViewModel
         {
             var page = new Receipt_Page(SelectedPhieuThue);
             MainViewModel.Ins.FrameContent = page;
+            MessageBox.Show("Vui lòng đăng nhập dưới tài khoản kế toán");
+            LoginWindow login = new LoginWindow();
+            login.ShowDialog();
+            if (MainViewModel.Ins.user.UserType != tbTaiKhoan.UserTypes.KeToan)
+                MainViewModel.Ins.FrameContent = new Info_Page_Chooser();
         }
 
         void TinhTien()

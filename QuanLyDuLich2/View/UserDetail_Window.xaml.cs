@@ -1,8 +1,8 @@
-﻿using System;
+﻿using QuanLyDuLich2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,25 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QuanLyDuLich2.Model;
 
 namespace QuanLyDuLich2.View
 {
     /// <summary>
-    /// Interaction logic for ServiceFeedback_Page.xaml
+    /// Interaction logic for UserDetail_Window.xaml
     /// </summary>
-    public partial class ServiceFeedback_Page : Page
+    public partial class UserDetail_Window : Window
     {
-        public ServiceFeedback_Page()
+        public UserDetail_Window(tbTaiKhoan user = null)
         {
             InitializeComponent();
-        }
-
-        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            var textBox = sender as TextBox;
-            e.Handled = Regex.IsMatch(e.Text, "[^0-9,]+");
+            DataContext = new UserDetail_ViewModel(this, user, passwordBox);
         }
     }
 }

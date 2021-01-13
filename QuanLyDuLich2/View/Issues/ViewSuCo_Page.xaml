@@ -98,7 +98,7 @@
                          Foreground="{StaticResource SecondaryAccentBrush}" 
                          VerticalAlignment="Center"
                          TextWrapping="WrapWithOverflow"
-                         IsEnabled="{Binding EnabledChiPhi}"
+                         IsEnabled="{Binding EnabledChiPhi, Mode=OneWay}"
                          Text="{Binding ChiPhiSuCo, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     </TextBox>
                 </Grid>

@@ -69,6 +69,18 @@ namespace QuanLyDuLich2.ViewModel
                 return new RelayCommand(
                 x =>
                 {
+                    if (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy)
+                        return true;
+                    if (ButtonTitle == "Trả phòng")
+                        return MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan;
+                    if (ButtonTitle == "Tạo hoá đơn")
+                        return MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.KeToan;
+                    if (ButtonTitle == "Xem hoá đơn")
+                        return true;
+                    return false;
+                },
+                x =>
+                {
                     if (ButtonTitle == "Trả phòng")
                     {
                         var page = new Checkout_Page(SelectedPhieuThue);

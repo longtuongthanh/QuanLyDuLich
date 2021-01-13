@@ -49,17 +49,6 @@ namespace QuanLyDuLich2.ViewModel
         public bool ShowAddRoom = false;
         #endregion
         #region Command
-        private string filterText;
-        public string FilterText { get => filterText; set => filterText = value; }
-
-        bool FilterCondition(tbPhong item)
-        {
-            if (FilterText == null || FilterText == "")
-                return true;
-            return Util.Match(FilterText.ToLower(), item.LoaiPhong.ToLower()) ||
-                Util.Match(FilterText.ToLower(), item.sTinhTrang.ToLower()) ||
-                Util.Match(FilterText.ToLower(), item.SoPhong.ToLower());
-        }
         public ICommand SearchCommand
         {
             get => new RelayCommand(obj =>
@@ -82,7 +71,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(obj => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ,
                 x =>
                 {
                     //IsVisible = "Visible";
@@ -105,7 +94,7 @@ namespace QuanLyDuLich2.ViewModel
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand(obj => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy,
                 x =>
                 {
                     //IsVisible = "Visible";
@@ -141,6 +130,38 @@ namespace QuanLyDuLich2.ViewModel
         }
         #endregion
         #region Function
+        private string filterText;
+        public string FilterText { get => filterText; set => filterText = value; }
+        public bool Empty;
+        public bool Used;
+        public bool CheckedOut;
+        public bool Issue;
+        public bool NotAvail;
+
+        bool FilterCondition(tbPhong item)
+        {
+            if (FilterText == null || FilterText == "")
+                return true;
+
+            if (Empty && item.TinhTrang != 0)
+                return false;
+
+            if (Used && item.TinhTrang != 1)
+                return false;
+
+            if (CheckedOut && item.TinhTrang != 2)
+                return false;
+
+            if (Issue && item.TinhTrang != 3)
+                return false;
+
+            if (NotAvail && item.TinhTrang != 4)
+                return false;
+
+            return Util.Match(FilterText.ToLower(), item.LoaiPhong.ToLower()) ||
+                Util.Match(FilterText.ToLower(), item.sTinhTrang.ToLower()) ||
+                Util.Match(FilterText.ToLower(), item.SoPhong.ToLower());
+        }
         public void ResetPhong()
         {
             dsPhong.Clear();

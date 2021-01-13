@@ -86,8 +86,8 @@ namespace QuanLyDuLich2.ViewModel
             get
             {
                 return new RelayCommand(
-                    obj => { return MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan ||
-                        MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy; }, 
+                    obj => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan ||
+                           MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy, 
                     obj =>
                     {
                         MainViewModel.Ins.FrameContent = new NewServiceOrders_Page(); 
@@ -137,18 +137,23 @@ namespace QuanLyDuLich2.ViewModel
                 if (_dsServiceOrderDetail == null)
                 {
                     var temp = DataProvider.Ins.DB.tbDichVus.ToList();
-                    IEnumerable<tbChiTietPhieuDichVu> tb = DataProvider.Ins.DB.tbChiTietPhieuDichVus
-                        .Where(item => item.PhieuDichVu == SelectedServiceOrder.ID);
-                    _dsServiceOrderDetail = new ObservableCollection<tbChiTietPhieuDichVu>(tb.Select(
-                        item => new tbChiTietPhieuDichVu
-                        {
-                            tbDichVu = item.tbDichVu,
-                            DichVu = item.DichVu,
-                            DonGia = item.DonGia,
-                            PhieuDichVu = item.PhieuDichVu,
-                            SoLuong = item.SoLuong,
-                            YeuCauKhach = item.YeuCauKhach
-                        }));
+                    if (SelectedServiceOrder != null)
+                    {
+                        IEnumerable<tbChiTietPhieuDichVu> tb = DataProvider.Ins.DB.tbChiTietPhieuDichVus
+                            .Where(item => item.PhieuDichVu == SelectedServiceOrder.ID);
+                        _dsServiceOrderDetail = new ObservableCollection<tbChiTietPhieuDichVu>(tb.Select(
+                            item => new tbChiTietPhieuDichVu
+                            {
+                                tbDichVu = item.tbDichVu,
+                                DichVu = item.DichVu,
+                                DonGia = item.DonGia,
+                                PhieuDichVu = item.PhieuDichVu,
+                                SoLuong = item.SoLuong,
+                                YeuCauKhach = item.YeuCauKhach
+                            }));
+                    }
+                    else
+                        _dsServiceOrderDetail = new ObservableCollection<tbChiTietPhieuDichVu>();
                 }
                 return _dsServiceOrderDetail;
             }
