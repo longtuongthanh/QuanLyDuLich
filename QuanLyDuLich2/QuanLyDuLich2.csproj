@@ -226,6 +226,7 @@
     <Compile Include="ViewModel\ChooseGuest_ViewModel.cs" />
     <Compile Include="ViewModel\ChooseService_ViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
+    <Compile Include="ViewModel\DependentPropertiesAttribute.cs" />
     <Compile Include="ViewModel\EditRoom_ViewModel.cs" />
     <Compile Include="ViewModel\ExchangeRate_ViewModel.cs" />
     <Compile Include="ViewModel\Info_ViewModel.cs" />
