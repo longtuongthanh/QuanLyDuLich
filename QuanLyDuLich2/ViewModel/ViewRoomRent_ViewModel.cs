@@ -141,6 +141,7 @@ namespace QuanLyDuLich2.ViewModel
                 x =>
                 {
                     Add_PhieuThuePhong();
+                    Reset_PhieuThuePhong();
                 });
             }
         }
@@ -161,6 +162,17 @@ namespace QuanLyDuLich2.ViewModel
             tbPhieuThuePhong newItem = new tbPhieuThuePhong();
             try
             {
+                //Check
+                if (SelectedPhong.TinhTrang != 0)
+                {
+                    MessageBox.Show("Phòng đã được thuê trước đó.");
+                    return;
+                }
+                if (!CmndIsValid(CMND))
+                {
+                    MessageBox.Show("Thông tin khách không hợp lệ");
+                    return;
+                }
                 newItem.Khach = Get_KhachID(HoTen, CMND, DiaChi); //tìm khách trên cả Họ Tên, CMND, Địa Chỉ
                 newItem.SoPhong = SelectedPhong.SoPhong;
                 newItem.NgayMuon = NgayThue.Date;
@@ -168,18 +180,12 @@ namespace QuanLyDuLich2.ViewModel
                 newItem.DonGiaNgay = SelectedPhong.tbLoaiPhong.DonGiaNgay ?? 0;
                 newItem.DonGiaThang = SelectedPhong.tbLoaiPhong.DonGiaThang ?? 0;
 
-                //Check
-                if (SelectedPhong.TinhTrang != 0)
-                {
-                    MessageBox.Show("Phòng đã được thuê trước đó.");
-                    return;
-                }
-                else if (!CmndIsValid(CMND) || newItem.Khach == -1)
+                if (newItem.Khach == -1)
                 {
                     MessageBox.Show("Thông tin khách không hợp lệ");
                     return;
                 }
-                else if (!Check_KhachChuaThuePhong(newItem.Khach))
+                if (!Check_KhachChuaThuePhong(newItem.Khach))
                 {
                     MessageBox.Show("Khách ĐANG thuê một phòng khác.\nVui lòng kiểm tra lại");
                     return;

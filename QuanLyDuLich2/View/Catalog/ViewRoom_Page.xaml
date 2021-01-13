@@ -183,7 +183,7 @@
 
             <!--#region RIGHT: VIEW PANEL-->
             <Grid Grid.Column="2">
-                <Frame x:Name="main" Margin="0,0,0,0" NavigationUIVisibility="Hidden"
+                <Frame x:Name="main" Margin="0,0,0,50" NavigationUIVisibility="Hidden"
                        Content="{Binding FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
                 </Frame>

@@ -142,14 +142,18 @@ namespace QuanLyDuLich2.ViewModel
         public bool EnableGiaTri
         {
             get { return _EnableGiaTri; }
-            set { _EnableGiaTri = value; OnPropertyChanged(); }
+            set { _EnableGiaTri = value; OnPropertyChanged();
+                OnPropertyChanged("EnabledLeTan");
+            }
         }
         private bool _EnableChiPhi;
 
         public bool EnableChiPhi
         {
             get { return _EnableChiPhi; }
-            set { _EnableChiPhi = value; OnPropertyChanged(); }
+            set { _EnableChiPhi = value; OnPropertyChanged();
+                OnPropertyChanged("EnabledChiPhi");
+            }
         }
         private string _SelectedLoaiSuCo;
 
@@ -204,13 +208,15 @@ namespace QuanLyDuLich2.ViewModel
         }
         public bool EnabledChiPhi
         {
-            get => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
-                   MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.KeToan;
+            get => (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
+                    MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.KeToan) &&
+                    EnableChiPhi;
         }
         public bool EnabledLeTan
         {
-            get => MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
-                   MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan;
+            get => (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy ||
+                    MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.LeTan) && 
+                    EnableGiaTri;
         }
 
         public ICommand UserAction {

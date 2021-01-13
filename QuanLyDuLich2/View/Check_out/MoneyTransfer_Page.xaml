@@ -89,7 +89,6 @@
                         <DatePicker Grid.Column="1"
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Center"
-                                    IsEnabled="{Binding EnableGiaTri}"
                                     FirstDayOfWeek="Monday"
                                     SelectedDateFormat="Short"
                                     Text="{Binding NgayChuyen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0.5"/>

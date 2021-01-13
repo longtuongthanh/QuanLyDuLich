@@ -250,6 +250,7 @@
                                     Foreground="{StaticResource SecondaryAccentBrush}" 
                                     VerticalAlignment="Bottom"
                                          TextAlignment="Left"
+                                             IsEnabled="{Binding TienNhanAvail, UpdateSourceTrigger=PropertyChanged}"
                                     PreviewTextInput="TextBox_PreviewTextInput"
                                     Text="{Binding TienNhan, UpdateSourceTrigger=PropertyChanged, StringFormat='#,##0;(#,##0)', Mode=TwoWay}">
                                         <i:Interaction.Triggers>

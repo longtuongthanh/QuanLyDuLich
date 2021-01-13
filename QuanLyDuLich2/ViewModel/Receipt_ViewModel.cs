@@ -189,11 +189,13 @@ namespace QuanLyDuLich2.ViewModel
             }
         }
 
+        private bool hasTransfered = false;
+        public bool TienNhanAvail { get => !hasTransfered; set => hasTransfered = !value; }
         public ICommand TransferCommand
         {
             get
             {
-                return new RelayCommand(
+                return new RelayCommand( x=> !hasTransfered,
                 x =>
                 {
                     PhieuChuyenKhoan();
