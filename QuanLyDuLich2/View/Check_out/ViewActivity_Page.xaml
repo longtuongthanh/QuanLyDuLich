@@ -64,6 +64,46 @@
                     </TextBox>
                 </DockPanel>
             </Border>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
+                    <Border Height="24" Width="24" CornerRadius="16"
+                            Background="{StaticResource PrimaryHueMidBrush}"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                            BorderBrush="Black" BorderThickness="1"
+                            materialDesign:ShadowAssist.ShadowEdges="All"/>
+                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               VerticalAlignment="Center" Margin="10">
+                        Phòng đang thuê
+                    </TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Column="1" HorizontalAlignment="Center">
+                    <Border Height="24" Width="24" CornerRadius="16"
+                            Background="LightGreen"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                            BorderBrush="Black" BorderThickness="1"
+                            materialDesign:ShadowAssist.ShadowEdges="All"/>
+                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               VerticalAlignment="Center" Margin="10">
+                        Phòng đã trả
+                    </TextBlock>
+                </WrapPanel>
+                <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
+                    <Border Height="24" Width="24" CornerRadius="16"
+                            Background="WhiteSmoke"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                            BorderBrush="Black" BorderThickness="1"
+                            materialDesign:ShadowAssist.ShadowEdges="All"/>
+                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                               VerticalAlignment="Center" Margin="10">
+                        Phòng đã lập hóa đơn
+                    </TextBlock>
+                </WrapPanel>
+            </Grid>
         </StackPanel>
         <Grid Grid.Row="1" Margin="20">
             <StackPanel>
