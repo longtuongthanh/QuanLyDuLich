@@ -23,6 +23,7 @@ namespace QuanLyDuLich2.Model
         public string Ten { get; set; }
         public string ChiTiet { get; set; }
         public Nullable<double> DonGia { get; set; }
+        public string DonViTinh { get; set; }
     
         public virtual ICollection<tbChiTietPhieuDichVu> tbChiTietPhieuDichVus { get; set; }
     }

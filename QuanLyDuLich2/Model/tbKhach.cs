@@ -17,6 +17,7 @@ namespace QuanLyDuLich2.Model
         public tbKhach()
         {
             this.tbHoaDons = new HashSet<tbHoaDon>();
+            this.tbPhieuDatPhongs = new HashSet<tbPhieuDatPhong>();
             this.tbPhieuDichVus = new HashSet<tbPhieuDichVu>();
             this.tbPhieuThuePhongs = new HashSet<tbPhieuThuePhong>();
         }
@@ -27,6 +28,7 @@ namespace QuanLyDuLich2.Model
         public string DiaChi { get; set; }
     
         public virtual ICollection<tbHoaDon> tbHoaDons { get; set; }
+        public virtual ICollection<tbPhieuDatPhong> tbPhieuDatPhongs { get; set; }
         public virtual ICollection<tbPhieuDichVu> tbPhieuDichVus { get; set; }
         public virtual ICollection<tbPhieuThuePhong> tbPhieuThuePhongs { get; set; }
     }
