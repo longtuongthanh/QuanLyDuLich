@@ -24,9 +24,6 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         
-        DataContext="{StaticResource MainVM}"
-        
-        
         x:Name="this_"
         Title="Làng Quốc tế Hướng Dương" Height="650" Width="800">
 
@@ -92,7 +89,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </HamburgerMenu:HamburgerMenuItem>
-                    <!--HamburgerMenu:HamburgerMenuItem   
+                    <!--<HamburgerMenu:HamburgerMenuItem   
                                                      Icon="Images/Money.png" Text="Lập hóa đơn" 
                                                      Visibility="{Binding Enable_Receipt}" ToolTip="{Binding Receipt_Tooltip}" 
                                                      ToolTipService.Placement="Right" ToolTipService.HorizontalOffset="10">

@@ -583,7 +583,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ThoiGianTao" Type="DateTime" Precision="3" />
           <Property Name="LoaiSuCo" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
           <Property Name="ChiPhi" Type="Double" />

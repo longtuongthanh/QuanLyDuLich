@@ -116,9 +116,9 @@ namespace QuanLyDuLich2.ViewModel
         void Load_dsKhach()
         {
             dsKhach.Clear();
-            //Chỉ lấy những khách hiện đang thuê phòng 
+            //Chỉ lấy những khách hiện đang thuê phòng && trả phòng sau hôm nay
             foreach (tbPhieuThuePhong phong in DataProvider.Ins.DB.tbPhieuThuePhongs)
-                if (phong.NgayTra == null && !dsKhach.Contains(DataProvider.Ins.DB.tbKhaches.Find(phong.Khach))) //the second condition help avoid duplicated items
+                if ((phong.NgayTra == null || phong.NgayTra > DateTime.Now) && !dsKhach.Contains(DataProvider.Ins.DB.tbKhaches.Find(phong.Khach))) //the second condition help avoid duplicated items
                     dsKhach.Add(DataProvider.Ins.DB.tbKhaches.Find(phong.Khach));
         }
         #endregion
@@ -314,6 +314,7 @@ namespace QuanLyDuLich2.ViewModel
             }
 
             //CHECK CHI TIET DICH VU
+            if (dsChiTietDichVu.Count <= 0) return false;
             foreach (ChiTietDichVu item in dsChiTietDichVu)
             {
                 if (item.SelectedDichVu == null || item.SoLuong <= 0 || item.DonGia <= 0)
