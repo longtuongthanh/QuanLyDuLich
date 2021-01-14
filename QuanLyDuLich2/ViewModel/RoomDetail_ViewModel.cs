@@ -22,6 +22,17 @@ namespace QuanLyDuLich2.ViewModel
             SelectedPhong = selected;
             this.parent = parent;
             ResetThongTinPhong();
+            if (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.Unknown)
+                IsVisibleGuest = Visibility.Visible;
+            else
+                IsVisibleGuest = Visibility.Hidden;
+        }
+        private Visibility _IsVisibleGuest;
+
+        public Visibility IsVisibleGuest
+        {
+            get { return _IsVisibleGuest; }
+            set { _IsVisibleGuest = value; OnPropertyChanged(); }
         }
 
         private ViewRoom_ViewModel parent;
@@ -58,7 +69,7 @@ namespace QuanLyDuLich2.ViewModel
                 if (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy)
                     return _IsVisible;
                 else
-                    return Visibility.Collapsed;
+                    return Visibility.Hidden;
             }
             set { _IsVisible = value; }
         }
@@ -131,7 +142,7 @@ namespace QuanLyDuLich2.ViewModel
             else
             {
                 Khach = "";
-                IsVisible = Visibility.Collapsed;
+                IsVisible = Visibility.Hidden;
             }
         }
     }
