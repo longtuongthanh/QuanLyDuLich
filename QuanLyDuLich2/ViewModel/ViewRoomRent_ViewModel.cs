@@ -87,7 +87,7 @@ namespace QuanLyDuLich2.ViewModel
             }
         }
         #endregion
-
+        
         #region NGÀY THUÊ PHÒNG
         private DateTime _NgayThue = DateTime.Now;
         public DateTime NgayThue
@@ -128,8 +128,7 @@ namespace QuanLyDuLich2.ViewModel
                         return;
                     HoTen = ((ChooseGuest_ViewModel)window.DataContext).SelectedKhach.HoTen;
                     CMND = ((ChooseGuest_ViewModel)window.DataContext).SelectedKhach.CMND;
-                    DiaChi = ((ChooseGuest_ViewModel)window.DataContext).SelectedKhach.DiaChi;
-                });
+                    DiaChi = ((ChooseGuest_ViewModel)window.DataContext).SelectedKhach.DiaChi;                });
             }
         }
 
@@ -251,6 +250,13 @@ namespace QuanLyDuLich2.ViewModel
                 result.DiaChi = diaChi;
 
                 DataProvider.Ins.DB.tbKhaches.Add(result);
+                DataProvider.Ins.DB.SaveChanges();
+            }
+            else
+            {
+                result.HoTen = hoTen;
+                result.CMND = cmnd;
+                result.DiaChi = diaChi;
                 DataProvider.Ins.DB.SaveChanges();
             }
 

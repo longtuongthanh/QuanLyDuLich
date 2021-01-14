@@ -115,6 +115,23 @@
                          Text="{Binding DiaChi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         </TextBox>
                     </Grid>
+
+                    <Grid Margin="0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="120"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="40"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Margin="5">
+                            Số điện thoại:
+                        </TextBlock>
+                        <TextBox Grid.Column="1" 
+                         Foreground="{StaticResource SecondaryAccentBrush}" 
+                         VerticalAlignment="Center"
+                         IsEnabled="{Binding EnableGiaTri}"
+                         Text="{Binding SDT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        </TextBox>
+                    </Grid>
                     <Grid Margin="0,10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" MinWidth="120"/>

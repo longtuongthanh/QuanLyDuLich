@@ -233,6 +233,12 @@
                                             Text="{Binding SelectedDV.DonGia, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
                                             </TextBlock>
                                         </WrapPanel>
+                                        <WrapPanel Margin="10">
+                                            <TextBlock FontSize="18"> Đơn vị:</TextBlock>
+                                            <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedDV.DonViTinh, Mode=OneWay}">
+                                            </TextBlock>
+                                        </WrapPanel>
                                     </StackPanel>
                                 </StackPanel>
                             </ScrollViewer>
