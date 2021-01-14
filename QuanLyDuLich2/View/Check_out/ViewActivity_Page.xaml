@@ -81,14 +81,15 @@
                     <TextBlock Grid.Column="3" FontWeight="Bold" FontSize="18" Margin="5" Text="Ngày đi"></TextBlock>
                     <TextBlock Grid.Column="4" FontWeight="Bold" FontSize="18" Margin="5" Text="Hoá đơn"></TextBlock>
                 </Grid>
-                <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox x:Name="listbox1"
                                 Margin="0,20,0,20"
                                 materialDesign:ListViewAssist.ListViewItemPadding="0"
                                 materialDesign:ListBoxAssist.IsToggle="False"
                                 SelectedItem="{Binding SelectedPhieuThue, Mode=TwoWay}"
                                 SelectionMode="Single"
-                                ItemsSource="{Binding dsThue}">
+                                ItemsSource="{Binding dsThue}"
+                             MaxHeight="450">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding SelectedThueChange}"/>
