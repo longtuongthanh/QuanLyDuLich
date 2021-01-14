@@ -2,13 +2,11 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/12/2021 09:40:15
+-- Date Created: 01/14/2021 10:22:53
 -- Generated from EDMX file: G:\Visual Studio\QuanLyDuLich\QuanLyDuLich2\Model\QLDL2_Database.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
-GO
-CREATE DATABASE QuanLyDuLich2;
 GO
 USE [QuanLyDuLich2];
 GO
@@ -20,93 +18,102 @@ GO
 -- --------------------------------------------------
 
 IF OBJECT_ID(N'[dbo].[FK__tbChiTiet__DichV__4222D4EF]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbChiTietPhieuDichVu] DROP CONSTRAINT [FK__tbChiTiet__DichV__4222D4EF];
+    ALTER TABLE [dbo].[tbChiTietPhieuDichVus] DROP CONSTRAINT [FK__tbChiTiet__DichV__4222D4EF];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbChiTiet__Phieu__4316F928]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbChiTietPhieuDichVu] DROP CONSTRAINT [FK__tbChiTiet__Phieu__4316F928];
+    ALTER TABLE [dbo].[tbChiTietPhieuDichVus] DROP CONSTRAINT [FK__tbChiTiet__Phieu__4316F928];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbHoaDon__IDKhac__440B1D61]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbHoaDon] DROP CONSTRAINT [FK__tbHoaDon__IDKhac__440B1D61];
+    ALTER TABLE [dbo].[tbHoaDons] DROP CONSTRAINT [FK__tbHoaDon__IDKhac__440B1D61];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbHoaDon__PhieuC__45F365D3]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbHoaDon] DROP CONSTRAINT [FK__tbHoaDon__PhieuC__45F365D3];
+    ALTER TABLE [dbo].[tbHoaDons] DROP CONSTRAINT [FK__tbHoaDon__PhieuC__45F365D3];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbHoaDon__PhieuT__44FF419A]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbHoaDon] DROP CONSTRAINT [FK__tbHoaDon__PhieuT__44FF419A];
+    ALTER TABLE [dbo].[tbHoaDons] DROP CONSTRAINT [FK__tbHoaDon__PhieuT__44FF419A];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbPhieuCh__Ngoai__46E78A0C]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuChuyenKhoan] DROP CONSTRAINT [FK__tbPhieuCh__Ngoai__46E78A0C];
+    ALTER TABLE [dbo].[tbPhieuChuyenKhoans] DROP CONSTRAINT [FK__tbPhieuCh__Ngoai__46E78A0C];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbPhieuDa__Khach__5CD6CB2B]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbPhieuDatPhongs] DROP CONSTRAINT [FK__tbPhieuDa__Khach__5CD6CB2B];
+GO
+IF OBJECT_ID(N'[dbo].[FK__tbPhieuDa__SoPho__5DCAEF64]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[tbPhieuDatPhongs] DROP CONSTRAINT [FK__tbPhieuDa__SoPho__5DCAEF64];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbPhieuDi__HoaDo__47DBAE45]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuDichVu] DROP CONSTRAINT [FK__tbPhieuDi__HoaDo__47DBAE45];
+    ALTER TABLE [dbo].[tbPhieuDichVus] DROP CONSTRAINT [FK__tbPhieuDi__HoaDo__47DBAE45];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbPhieuDi__Khach__48CFD27E]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuDichVu] DROP CONSTRAINT [FK__tbPhieuDi__Khach__48CFD27E];
+    ALTER TABLE [dbo].[tbPhieuDichVus] DROP CONSTRAINT [FK__tbPhieuDi__Khach__48CFD27E];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbPhieuTh__Khach__49C3F6B7]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuThuePhong] DROP CONSTRAINT [FK__tbPhieuTh__Khach__49C3F6B7];
+    ALTER TABLE [dbo].[tbPhieuThuePhongs] DROP CONSTRAINT [FK__tbPhieuTh__Khach__49C3F6B7];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbPhieuTh__SoPho__4AB81AF0]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhieuThuePhong] DROP CONSTRAINT [FK__tbPhieuTh__SoPho__4AB81AF0];
+    ALTER TABLE [dbo].[tbPhieuThuePhongs] DROP CONSTRAINT [FK__tbPhieuTh__SoPho__4AB81AF0];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbPhong__LoaiPho__4BAC3F29]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbPhong] DROP CONSTRAINT [FK__tbPhong__LoaiPho__4BAC3F29];
+    ALTER TABLE [dbo].[tbPhongs] DROP CONSTRAINT [FK__tbPhong__LoaiPho__4BAC3F29];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbSuCo__LoaiSuCo__4CA06362]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbSuCo] DROP CONSTRAINT [FK__tbSuCo__LoaiSuCo__4CA06362];
+    ALTER TABLE [dbo].[tbSuCoes] DROP CONSTRAINT [FK__tbSuCo__LoaiSuCo__4CA06362];
 GO
 IF OBJECT_ID(N'[dbo].[FK__tbTaiKhoa__LoaiT__4D94879B]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[tbTaiKhoan] DROP CONSTRAINT [FK__tbTaiKhoa__LoaiT__4D94879B];
+    ALTER TABLE [dbo].[tbTaiKhoans] DROP CONSTRAINT [FK__tbTaiKhoa__LoaiT__4D94879B];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[tbBaoCao]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbBaoCao];
+IF OBJECT_ID(N'[dbo].[tbBaoCaos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbBaoCaos];
 GO
-IF OBJECT_ID(N'[dbo].[tbChiTietPhieuDichVu]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbChiTietPhieuDichVu];
+IF OBJECT_ID(N'[dbo].[tbChiTietPhieuDichVus]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbChiTietPhieuDichVus];
 GO
-IF OBJECT_ID(N'[dbo].[tbDichVu]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbDichVu];
+IF OBJECT_ID(N'[dbo].[tbDichVus]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbDichVus];
 GO
-IF OBJECT_ID(N'[dbo].[tbHoaDon]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbHoaDon];
+IF OBJECT_ID(N'[dbo].[tbHoaDons]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbHoaDons];
 GO
-IF OBJECT_ID(N'[dbo].[tbKhach]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbKhach];
+IF OBJECT_ID(N'[dbo].[tbKhaches]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbKhaches];
 GO
-IF OBJECT_ID(N'[dbo].[tbLoaiPhong]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbLoaiPhong];
+IF OBJECT_ID(N'[dbo].[tbLoaiPhongs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbLoaiPhongs];
 GO
-IF OBJECT_ID(N'[dbo].[tbLoaiSuCo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbLoaiSuCo];
+IF OBJECT_ID(N'[dbo].[tbLoaiSuCoes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbLoaiSuCoes];
 GO
-IF OBJECT_ID(N'[dbo].[tbLoaiTaiKhoan]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbLoaiTaiKhoan];
+IF OBJECT_ID(N'[dbo].[tbLoaiTaiKhoans]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbLoaiTaiKhoans];
 GO
-IF OBJECT_ID(N'[dbo].[tbPhieuChuyenKhoan]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbPhieuChuyenKhoan];
+IF OBJECT_ID(N'[dbo].[tbPhieuChuyenKhoans]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbPhieuChuyenKhoans];
 GO
-IF OBJECT_ID(N'[dbo].[tbPhieuDichVu]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbPhieuDichVu];
+IF OBJECT_ID(N'[dbo].[tbPhieuDatPhongs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbPhieuDatPhongs];
 GO
-IF OBJECT_ID(N'[dbo].[tbPhieuThuePhong]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbPhieuThuePhong];
+IF OBJECT_ID(N'[dbo].[tbPhieuDichVus]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbPhieuDichVus];
 GO
-IF OBJECT_ID(N'[dbo].[tbPhong]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbPhong];
+IF OBJECT_ID(N'[dbo].[tbPhieuThuePhongs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbPhieuThuePhongs];
 GO
-IF OBJECT_ID(N'[dbo].[tbSuCo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbSuCo];
+IF OBJECT_ID(N'[dbo].[tbPhongs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbPhongs];
 GO
-IF OBJECT_ID(N'[dbo].[tbTaiKhoan]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbTaiKhoan];
+IF OBJECT_ID(N'[dbo].[tbSuCoes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbSuCoes];
 GO
-IF OBJECT_ID(N'[dbo].[tbTyGia]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[tbTyGia];
+IF OBJECT_ID(N'[dbo].[tbTaiKhoans]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbTaiKhoans];
+GO
+IF OBJECT_ID(N'[dbo].[tbTyGias]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[tbTyGias];
 GO
 
 -- --------------------------------------------------
@@ -138,7 +145,8 @@ CREATE TABLE [dbo].[tbDichVus] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [Ten] nvarchar(max)  NULL,
     [ChiTiet] nvarchar(max)  NULL,
-    [DonGia] float  NULL
+    [DonGia] float  NULL,
+    [DonViTinh] nvarchar(max)  NULL
 );
 GO
 
@@ -166,7 +174,8 @@ CREATE TABLE [dbo].[tbLoaiPhongs] (
     [LoaiPhong] nvarchar(10)  NOT NULL,
     [DienTich] float  NULL,
     [DonGiaThang] float  NULL,
-    [DonGiaNgay] float  NULL
+    [DonGiaNgay] float  NULL,
+    [MoTa] nvarchar(max)  NULL
 );
 GO
 
@@ -189,6 +198,17 @@ CREATE TABLE [dbo].[tbPhieuChuyenKhoans] (
     [NoiDung] varchar(max)  NULL,
     [NgoaiTe] nvarchar(3)  NULL,
     [SoTaiKhoan] nvarchar(20)  NOT NULL
+);
+GO
+
+-- Creating table 'tbPhieuDatPhongs'
+CREATE TABLE [dbo].[tbPhieuDatPhongs] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Khach] int  NOT NULL,
+    [SoPhong] nvarchar(10)  NOT NULL,
+    [NgayMuon] datetime  NULL,
+    [NgayTra] datetime  NULL,
+    [SDT] nvarchar(10)  NULL
 );
 GO
 
@@ -305,6 +325,12 @@ GO
 -- Creating primary key on [ID] in table 'tbPhieuChuyenKhoans'
 ALTER TABLE [dbo].[tbPhieuChuyenKhoans]
 ADD CONSTRAINT [PK_tbPhieuChuyenKhoans]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'tbPhieuDatPhongs'
+ALTER TABLE [dbo].[tbPhieuDatPhongs]
+ADD CONSTRAINT [PK_tbPhieuDatPhongs]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
@@ -432,6 +458,21 @@ ON [dbo].[tbPhieuDichVus]
     ([HoaDon]);
 GO
 
+-- Creating foreign key on [Khach] in table 'tbPhieuDatPhongs'
+ALTER TABLE [dbo].[tbPhieuDatPhongs]
+ADD CONSTRAINT [FK__tbPhieuDa__Khach__5CD6CB2B]
+    FOREIGN KEY ([Khach])
+    REFERENCES [dbo].[tbKhaches]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuDa__Khach__5CD6CB2B'
+CREATE INDEX [IX_FK__tbPhieuDa__Khach__5CD6CB2B]
+ON [dbo].[tbPhieuDatPhongs]
+    ([Khach]);
+GO
+
 -- Creating foreign key on [Khach] in table 'tbPhieuDichVus'
 ALTER TABLE [dbo].[tbPhieuDichVus]
 ADD CONSTRAINT [FK__tbPhieuDi__Khach__48CFD27E]
@@ -520,6 +561,21 @@ GO
 CREATE INDEX [IX_FK__tbPhieuCh__Ngoai__46E78A0C]
 ON [dbo].[tbPhieuChuyenKhoans]
     ([NgoaiTe]);
+GO
+
+-- Creating foreign key on [SoPhong] in table 'tbPhieuDatPhongs'
+ALTER TABLE [dbo].[tbPhieuDatPhongs]
+ADD CONSTRAINT [FK__tbPhieuDa__SoPho__5DCAEF64]
+    FOREIGN KEY ([SoPhong])
+    REFERENCES [dbo].[tbPhongs]
+        ([SoPhong])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK__tbPhieuDa__SoPho__5DCAEF64'
+CREATE INDEX [IX_FK__tbPhieuDa__SoPho__5DCAEF64]
+ON [dbo].[tbPhieuDatPhongs]
+    ([SoPhong]);
 GO
 
 -- Creating foreign key on [SoPhong] in table 'tbPhieuThuePhongs'

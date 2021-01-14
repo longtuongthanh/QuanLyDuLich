@@ -34,6 +34,7 @@ namespace QuanLyDuLich2.Model
         public DbSet<tbLoaiSuCo> tbLoaiSuCoes { get; set; }
         public DbSet<tbLoaiTaiKhoan> tbLoaiTaiKhoans { get; set; }
         public DbSet<tbPhieuChuyenKhoan> tbPhieuChuyenKhoans { get; set; }
+        public DbSet<tbPhieuDatPhong> tbPhieuDatPhongs { get; set; }
         public DbSet<tbPhieuDichVu> tbPhieuDichVus { get; set; }
         public DbSet<tbPhieuThuePhong> tbPhieuThuePhongs { get; set; }
         public DbSet<tbPhong> tbPhongs { get; set; }
