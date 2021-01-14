@@ -152,10 +152,12 @@
                                         <ColumnDefinition Width="2*"/>
                                         <ColumnDefinition Width="5*"/>
                                         <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="2*"/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="18" Margin="5" Text="Mã dịch vụ"></TextBlock>
                                     <TextBlock Grid.Column="1" FontWeight="Bold" FontSize="18" Margin="5" Text="Dịch vụ"></TextBlock>
-                                    <TextBlock Grid.Column="2" FontWeight="Bold" FontSize="18" Margin="5" Text="Đơn giá"></TextBlock>
+                                    <TextBlock Grid.Column="2" FontWeight="Bold" FontSize="18" Margin="5" Text="Đơn vị"></TextBlock>
+                                    <TextBlock Grid.Column="3" FontWeight="Bold" FontSize="18" Margin="5" Text="Đơn giá"></TextBlock>
                                 </Grid>
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                                     <ListBox x:Name="listbox1"
@@ -225,6 +227,12 @@
                                             <TextBlock FontSize="18" VerticalAlignment="Top"> Chi tiết:</TextBlock>
                                             <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
                                             Text="{Binding SelectedDV.ChiTiet, Mode=OneWay}">
+                                            </TextBlock>
+                                        </WrapPanel>
+                                        <WrapPanel Margin="10">
+                                            <TextBlock FontSize="18"> Đơn giá:</TextBlock>
+                                            <TextBlock FontSize="18" Margin="10,0" Style="{StaticResource MaterialDesignButtonTextBlock}"
+                                            Text="{Binding SelectedDV.DonViTinh, StringFormat='#,##0;(#,##0)', Mode=OneWay}">
                                             </TextBlock>
                                         </WrapPanel>
                                         <WrapPanel Margin="10">

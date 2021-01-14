@@ -31,10 +31,12 @@
                         <ColumnDefinition Width="1.5*"/>
                         <ColumnDefinition Width="2.5*"/>
                         <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1.5*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="18" Margin="5" Text="Tên dịch vụ"></TextBlock>
                     <TextBlock Grid.Column="1" FontWeight="Bold" FontSize="18" Margin="5" Text="Chi tiết"></TextBlock>
-                    <TextBlock Grid.Column="2" FontWeight="Bold" FontSize="18" Margin="5" Text="Đơn giá"></TextBlock>
+                    <TextBlock Grid.Column="2" FontWeight="Bold" FontSize="18" Margin="5" Text="Đơn vị"></TextBlock>
+                    <TextBlock Grid.Column="3" FontWeight="Bold" FontSize="18" Margin="5" Text="Đơn giá"></TextBlock>
                 </Grid>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox x:Name="listbox1"
@@ -44,6 +46,7 @@
                                 SelectedItem="{Binding SelectedDichVu, Mode=TwoWay}"
                                 SelectionMode="Single"
                                 ItemsSource="{Binding ListDichVu}">
+                        
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding SelectedPhongChange}"/>
@@ -61,6 +64,7 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" FontSize="18" Margin="0" Text="{Binding Ten}"></TextBlock>
                                     <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="18" Margin="0" Text="{Binding ChiTiet}"></TextBlock>
+                                    <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding DonViTinh}"></TextBlock>
                                     <TextBlock Grid.Column="2" FontSize="18" Margin="0" Text="{Binding DonGia}"></TextBlock>
                                 </Grid>
                                 <!--/Button-->
