@@ -1,4 +1,5 @@
-﻿using QuanLyDuLich2.ViewModel;
+﻿using QuanLyDuLich2.Model;
+using QuanLyDuLich2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,13 @@ namespace QuanLyDuLich2.View
         public ViewRoomBooking_Page()
         {
             InitializeComponent();
-            this.DataContext = new ViewRoomRent_ViewModel();
+            this.DataContext = new ViewRoomBooking_ViewModel();
         }
-        public ViewRoomBooking_Page(string a)
+        public ViewRoomBooking_Page(tbPhong x)
         {
-            
+            InitializeComponent();
+            this.DataContext = new ViewRoomBooking_ViewModel(x);
+
         }
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
