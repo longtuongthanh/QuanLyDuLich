@@ -243,6 +243,7 @@
     <Compile Include="ViewModel\ViewActivity_ViewModel.cs" />
     <Compile Include="ViewModel\ViewBaoCaoTongHop_ViewModel.cs" />
     <Compile Include="ViewModel\ViewReceipt_ViewModel.cs" />
+    <Compile Include="ViewModel\ViewRoomBooking_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoomRent_ViewModel.cs" />
     <Compile Include="ViewModel\ViewRoom_ViewModel.cs" />
     <Compile Include="ViewModel\ViewServiceOrders_ViewModel.cs" />
