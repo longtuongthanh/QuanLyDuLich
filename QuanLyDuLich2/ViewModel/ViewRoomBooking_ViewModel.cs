@@ -214,8 +214,7 @@ namespace QuanLyDuLich2.ViewModel
                 newItem.SoPhong = SelectedPhong.SoPhong;
                 newItem.NgayMuon = NgayThue.Date;
                 newItem.NgayTra = NgayTra.Date;
-                newItem.DonGiaNgay = SelectedPhong.tbLoaiPhong.DonGiaNgay ?? 0;
-                newItem.DonGiaThang = SelectedPhong.tbLoaiPhong.DonGiaThang ?? 0;
+               
                 newItem.SDT = SDT;
 
                 if (newItem.Khach == -1)
