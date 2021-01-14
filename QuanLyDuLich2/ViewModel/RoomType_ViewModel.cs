@@ -10,6 +10,7 @@ using QuanLyDuLich2.Command;
 using System.Windows.Controls;
 using QuanLyDuLich2.View.Catalog;
 using System.Windows.Forms;
+using System.Windows;
 
 namespace QuanLyDuLich2.ViewModel
 {
@@ -19,6 +20,10 @@ namespace QuanLyDuLich2.ViewModel
         {
             ResetLoaiPhong();
             this.parent = parent;
+            if (MainViewModel.Ins.user?.UserType == tbTaiKhoan.UserTypes.QuanLy)
+                VisibilityOfCancel = Visibility.Visible;
+            else
+                VisibilityOfCancel = Visibility.Hidden;
         }
 
         private ViewRoom_ViewModel parent;
@@ -84,6 +89,13 @@ namespace QuanLyDuLich2.ViewModel
         {
             get { return _DonGiaNgay; }
             set { _DonGiaNgay = value; OnPropertyChanged(); }
+        }
+        private Visibility _VisibilityOfCancel;
+
+        public Visibility VisibilityOfCancel
+        {
+            get { return _VisibilityOfCancel; }
+            set { _VisibilityOfCancel = value;OnPropertyChanged(); }
         }
 
         private int _DienTich;
@@ -231,12 +243,12 @@ namespace QuanLyDuLich2.ViewModel
                 try
                 {
                     await DataProvider.Ins.DB.SaveChangesAsync();
-                    MessageBox.Show("Xoá thành công!");
+                    System.Windows.MessageBox.Show("Xoá thành công!");
                     ResetLoaiPhong();
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Hãy gỡ loại phòng này khỏi tất cả các phòng trước!");
+                    System.Windows.MessageBox.Show("Hãy gỡ loại phòng này khỏi tất cả các phòng trước!");
                 }
             }
         }
@@ -247,7 +259,7 @@ namespace QuanLyDuLich2.ViewModel
             SelectedLoaiPhong.DonGiaNgay = DonGiaNgay;
             SelectedLoaiPhong.DonGiaThang = DonGiaThang;
             await DataProvider.Ins.DB.SaveChangesAsync();
-            MessageBox.Show("Đã lưu thay đổi thành công!");
+            System.Windows.MessageBox.Show("Đã lưu thay đổi thành công!");
             ResetLoaiPhong();
             IsDialogOpen = false;
             ResetDialog();
@@ -259,14 +271,14 @@ namespace QuanLyDuLich2.ViewModel
             {
                 if (DataProvider.Ins.DB.tbLoaiPhongs.Where(phong => phong.LoaiPhong == newLoaiPhong).Count() > 0)
                 {
-                    MessageBox.Show("Loại phòng đã tồn tại!", "Thêm mới loại phòng");
+                    System.Windows.MessageBox.Show("Loại phòng đã tồn tại!", "Thêm mới loại phòng");
                     return;
                 }
 
             }
             else
             {
-                MessageBox.Show("Loại phòng không thể bỏ trống", "Thêm mới loại phòng");
+                System.Windows.MessageBox.Show("Loại phòng không thể bỏ trống", "Thêm mới loại phòng");
                 return;
             }
             tbLoaiPhong newPhong = new tbLoaiPhong()
@@ -278,7 +290,7 @@ namespace QuanLyDuLich2.ViewModel
             };
             DataProvider.Ins.DB.tbLoaiPhongs.Add(newPhong);
             await DataProvider.Ins.DB.SaveChangesAsync();
-            MessageBox.Show("Đã lưu loại phòng thành công!");
+            System.Windows.MessageBox.Show("Đã lưu loại phòng thành công!");
             ResetLoaiPhong();
             IsDialogOpen = false;
             ResetDialog();
