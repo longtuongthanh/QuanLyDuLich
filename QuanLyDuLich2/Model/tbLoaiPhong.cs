@@ -23,6 +23,7 @@ namespace QuanLyDuLich2.Model
         public Nullable<double> DienTich { get; set; }
         public Nullable<double> DonGiaThang { get; set; }
         public Nullable<double> DonGiaNgay { get; set; }
+        public string MoTa { get; set; }
     
         public virtual ICollection<tbPhong> tbPhongs { get; set; }
     }

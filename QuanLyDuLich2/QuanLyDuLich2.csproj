@@ -163,6 +163,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDL2_Database.edmx</DependentUpon>
     </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\tbBaoCao.cs">
       <DependentUpon>QLDL2_Database.tt</DependentUpon>
     </Compile>
@@ -190,6 +194,9 @@
     <Compile Include="Model\tbPhieuChuyenKhoan.cs">
       <DependentUpon>QLDL2_Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\tbPhieuDatPhong.cs">
+      <DependentUpon>QLDL2_Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\tbPhieuDichVu.cs">
       <DependentUpon>QLDL2_Database.tt</DependentUpon>
     </Compile>
@@ -208,10 +215,6 @@
     <Compile Include="Model\tbTyGia.cs">
       <DependentUpon>QLDL2_Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Receipt_PrintPreview.xaml.cs">
       <DependentUpon>Receipt_PrintPreview.xaml</DependentUpon>
     </Compile>

@@ -12,20 +12,16 @@ namespace QuanLyDuLich2.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tbPhong
+    public partial class tbPhieuDatPhong
     {
-        public tbPhong()
-        {
-            this.tbPhieuDatPhongs = new HashSet<tbPhieuDatPhong>();
-            this.tbPhieuThuePhongs = new HashSet<tbPhieuThuePhong>();
-        }
-    
+        public int ID { get; set; }
+        public int Khach { get; set; }
         public string SoPhong { get; set; }
-        public string LoaiPhong { get; set; }
-        public Nullable<int> TinhTrang { get; set; }
+        public Nullable<System.DateTime> NgayMuon { get; set; }
+        public Nullable<System.DateTime> NgayTra { get; set; }
+        public string SDT { get; set; }
     
-        public virtual tbLoaiPhong tbLoaiPhong { get; set; }
-        public virtual ICollection<tbPhieuDatPhong> tbPhieuDatPhongs { get; set; }
-        public virtual ICollection<tbPhieuThuePhong> tbPhieuThuePhongs { get; set; }
+        public virtual tbKhach tbKhach { get; set; }
+        public virtual tbPhong tbPhong { get; set; }
     }
 }

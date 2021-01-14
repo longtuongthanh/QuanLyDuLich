@@ -35,6 +35,7 @@
           <Property Name="Ten" Type="nvarchar(max)" />
           <Property Name="ChiTiet" Type="nvarchar(max)" />
           <Property Name="DonGia" Type="float" />
+          <Property Name="DonViTinh" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tbHoaDons">
           <Key>
@@ -63,6 +64,7 @@
           <Property Name="DienTich" Type="float" />
           <Property Name="DonGiaThang" Type="float" />
           <Property Name="DonGiaNgay" Type="float" />
+          <Property Name="MoTa" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tbLoaiSuCoes">
           <Key>
@@ -85,6 +87,17 @@
           <Property Name="NoiDung" Type="varchar(max)" />
           <Property Name="NgoaiTe" Type="nvarchar" MaxLength="3" />
           <Property Name="SoTaiKhoan" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbPhieuDatPhongs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Khach" Type="int" Nullable="false" />
+          <Property Name="SoPhong" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NgayMuon" Type="datetime" />
+          <Property Name="NgayTra" Type="datetime" />
+          <Property Name="SDT" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="tbPhieuDichVus">
           <Key>
@@ -216,6 +229,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbPhieuDa__Khach__5CD6CB2B">
+          <End Role="tbKhaches" Type="Self.tbKhaches" Multiplicity="1" />
+          <End Role="tbPhieuDatPhongs" Type="Self.tbPhieuDatPhongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbKhaches">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbPhieuDatPhongs">
+              <PropertyRef Name="Khach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbPhieuDa__SoPho__5DCAEF64">
+          <End Role="tbPhongs" Type="Self.tbPhongs" Multiplicity="1" />
+          <End Role="tbPhieuDatPhongs" Type="Self.tbPhieuDatPhongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPhongs">
+              <PropertyRef Name="SoPhong" />
+            </Principal>
+            <Dependent Role="tbPhieuDatPhongs">
+              <PropertyRef Name="SoPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__tbPhieuDi__HoaDo__47DBAE45">
           <End Role="tbHoaDons" Type="Self.tbHoaDons" Multiplicity="0..1" />
           <End Role="tbPhieuDichVus" Type="Self.tbPhieuDichVus" Multiplicity="*" />
@@ -310,6 +347,7 @@
           <EntitySet Name="tbLoaiSuCoes" EntityType="Self.tbLoaiSuCoes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbLoaiTaiKhoans" EntityType="Self.tbLoaiTaiKhoans" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbPhieuChuyenKhoans" EntityType="Self.tbPhieuChuyenKhoans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPhieuDatPhongs" EntityType="Self.tbPhieuDatPhongs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbPhieuDichVus" EntityType="Self.tbPhieuDichVus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbPhieuThuePhongs" EntityType="Self.tbPhieuThuePhongs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbPhongs" EntityType="Self.tbPhongs" Schema="dbo" store:Type="Tables" />
@@ -339,6 +377,14 @@
           <AssociationSet Name="FK__tbPhieuCh__Ngoai__46E78A0C" Association="Self.FK__tbPhieuCh__Ngoai__46E78A0C">
             <End Role="tbTyGias" EntitySet="tbTyGias" />
             <End Role="tbPhieuChuyenKhoans" EntitySet="tbPhieuChuyenKhoans" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbPhieuDa__Khach__5CD6CB2B" Association="Self.FK__tbPhieuDa__Khach__5CD6CB2B">
+            <End Role="tbKhaches" EntitySet="tbKhaches" />
+            <End Role="tbPhieuDatPhongs" EntitySet="tbPhieuDatPhongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbPhieuDa__SoPho__5DCAEF64" Association="Self.FK__tbPhieuDa__SoPho__5DCAEF64">
+            <End Role="tbPhongs" EntitySet="tbPhongs" />
+            <End Role="tbPhieuDatPhongs" EntitySet="tbPhieuDatPhongs" />
           </AssociationSet>
           <AssociationSet Name="FK__tbPhieuDi__HoaDo__47DBAE45" Association="Self.FK__tbPhieuDi__HoaDo__47DBAE45">
             <End Role="tbHoaDons" EntitySet="tbHoaDons" />
@@ -383,6 +429,7 @@
           <EntitySet Name="tbLoaiSuCoes" EntityType="QuanLyDuLich2Model.tbLoaiSuCo" />
           <EntitySet Name="tbLoaiTaiKhoans" EntityType="QuanLyDuLich2Model.tbLoaiTaiKhoan" />
           <EntitySet Name="tbPhieuChuyenKhoans" EntityType="QuanLyDuLich2Model.tbPhieuChuyenKhoan" />
+          <EntitySet Name="tbPhieuDatPhongs" EntityType="QuanLyDuLich2Model.tbPhieuDatPhong" />
           <EntitySet Name="tbPhieuDichVus" EntityType="QuanLyDuLich2Model.tbPhieuDichVu" />
           <EntitySet Name="tbPhieuThuePhongs" EntityType="QuanLyDuLich2Model.tbPhieuThuePhong" />
           <EntitySet Name="tbPhongs" EntityType="QuanLyDuLich2Model.tbPhong" />
@@ -413,6 +460,10 @@
             <End Role="tbHoaDon" EntitySet="tbHoaDons" />
             <End Role="tbPhieuDichVu" EntitySet="tbPhieuDichVus" />
           </AssociationSet>
+          <AssociationSet Name="FK__tbPhieuDa__Khach__5CD6CB2B" Association="QuanLyDuLich2Model.FK__tbPhieuDa__Khach__5CD6CB2B">
+            <End Role="tbKhach" EntitySet="tbKhaches" />
+            <End Role="tbPhieuDatPhong" EntitySet="tbPhieuDatPhongs" />
+          </AssociationSet>
           <AssociationSet Name="FK__tbPhieuDi__Khach__48CFD27E" Association="QuanLyDuLich2Model.FK__tbPhieuDi__Khach__48CFD27E">
             <End Role="tbKhach" EntitySet="tbKhaches" />
             <End Role="tbPhieuDichVu" EntitySet="tbPhieuDichVus" />
@@ -436,6 +487,10 @@
           <AssociationSet Name="FK__tbPhieuCh__Ngoai__46E78A0C" Association="QuanLyDuLich2Model.FK__tbPhieuCh__Ngoai__46E78A0C">
             <End Role="tbTyGia" EntitySet="tbTyGias" />
             <End Role="tbPhieuChuyenKhoan" EntitySet="tbPhieuChuyenKhoans" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbPhieuDa__SoPho__5DCAEF64" Association="QuanLyDuLich2Model.FK__tbPhieuDa__SoPho__5DCAEF64">
+            <End Role="tbPhong" EntitySet="tbPhongs" />
+            <End Role="tbPhieuDatPhong" EntitySet="tbPhieuDatPhongs" />
           </AssociationSet>
           <AssociationSet Name="FK__tbPhieuTh__SoPho__4AB81AF0" Association="QuanLyDuLich2Model.FK__tbPhieuTh__SoPho__4AB81AF0">
             <End Role="tbPhong" EntitySet="tbPhongs" />
@@ -474,6 +529,7 @@
           <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DonGia" Type="Double" />
+          <Property Name="DonViTinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tbChiTietPhieuDichVus" Relationship="QuanLyDuLich2Model.FK__tbChiTiet__DichV__4222D4EF" FromRole="tbDichVu" ToRole="tbChiTietPhieuDichVu" />
         </EntityType>
         <EntityType Name="tbHoaDon">
@@ -499,6 +555,7 @@
           <Property Name="HoTen" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tbHoaDons" Relationship="QuanLyDuLich2Model.FK__tbHoaDon__IDKhac__440B1D61" FromRole="tbKhach" ToRole="tbHoaDon" />
+          <NavigationProperty Name="tbPhieuDatPhongs" Relationship="QuanLyDuLich2Model.FK__tbPhieuDa__Khach__5CD6CB2B" FromRole="tbKhach" ToRole="tbPhieuDatPhong" />
           <NavigationProperty Name="tbPhieuDichVus" Relationship="QuanLyDuLich2Model.FK__tbPhieuDi__Khach__48CFD27E" FromRole="tbKhach" ToRole="tbPhieuDichVu" />
           <NavigationProperty Name="tbPhieuThuePhongs" Relationship="QuanLyDuLich2Model.FK__tbPhieuTh__Khach__49C3F6B7" FromRole="tbKhach" ToRole="tbPhieuThuePhong" />
         </EntityType>
@@ -510,6 +567,7 @@
           <Property Name="DienTich" Type="Double" />
           <Property Name="DonGiaThang" Type="Double" />
           <Property Name="DonGiaNgay" Type="Double" />
+          <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tbPhongs" Relationship="QuanLyDuLich2Model.FK__tbPhong__LoaiPho__4BAC3F29" FromRole="tbLoaiPhong" ToRole="tbPhong" />
         </EntityType>
         <EntityType Name="tbLoaiSuCo">
@@ -537,6 +595,19 @@
           <Property Name="SoTaiKhoan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tbHoaDons" Relationship="QuanLyDuLich2Model.FK__tbHoaDon__PhieuC__45F365D3" FromRole="tbPhieuChuyenKhoan" ToRole="tbHoaDon" />
           <NavigationProperty Name="tbTyGia" Relationship="QuanLyDuLich2Model.FK__tbPhieuCh__Ngoai__46E78A0C" FromRole="tbPhieuChuyenKhoan" ToRole="tbTyGia" />
+        </EntityType>
+        <EntityType Name="tbPhieuDatPhong">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Khach" Type="Int32" Nullable="false" />
+          <Property Name="SoPhong" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NgayMuon" Type="DateTime" Precision="3" />
+          <Property Name="NgayTra" Type="DateTime" Precision="3" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbKhach" Relationship="QuanLyDuLich2Model.FK__tbPhieuDa__Khach__5CD6CB2B" FromRole="tbPhieuDatPhong" ToRole="tbKhach" />
+          <NavigationProperty Name="tbPhong" Relationship="QuanLyDuLich2Model.FK__tbPhieuDa__SoPho__5DCAEF64" FromRole="tbPhieuDatPhong" ToRole="tbPhong" />
         </EntityType>
         <EntityType Name="tbPhieuDichVu">
           <Key>
@@ -576,6 +647,7 @@
           <Property Name="LoaiPhong" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="TinhTrang" Type="Int32" />
           <NavigationProperty Name="tbLoaiPhong" Relationship="QuanLyDuLich2Model.FK__tbPhong__LoaiPho__4BAC3F29" FromRole="tbPhong" ToRole="tbLoaiPhong" />
+          <NavigationProperty Name="tbPhieuDatPhongs" Relationship="QuanLyDuLich2Model.FK__tbPhieuDa__SoPho__5DCAEF64" FromRole="tbPhong" ToRole="tbPhieuDatPhong" />
           <NavigationProperty Name="tbPhieuThuePhongs" Relationship="QuanLyDuLich2Model.FK__tbPhieuTh__SoPho__4AB81AF0" FromRole="tbPhong" ToRole="tbPhieuThuePhong" />
         </EntityType>
         <EntityType Name="tbSuCo">
@@ -583,7 +655,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ThoiGianTao" Type="DateTime" Precision="3" />
           <Property Name="LoaiSuCo" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
           <Property Name="ChiPhi" Type="Double" />
@@ -679,6 +751,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbPhieuDa__Khach__5CD6CB2B">
+          <End Type="QuanLyDuLich2Model.tbKhach" Role="tbKhach" Multiplicity="1" />
+          <End Type="QuanLyDuLich2Model.tbPhieuDatPhong" Role="tbPhieuDatPhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbKhach">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbPhieuDatPhong">
+              <PropertyRef Name="Khach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__tbPhieuDi__Khach__48CFD27E">
           <End Type="QuanLyDuLich2Model.tbKhach" Role="tbKhach" Multiplicity="1" />
           <End Type="QuanLyDuLich2Model.tbPhieuDichVu" Role="tbPhieuDichVu" Multiplicity="*" />
@@ -751,6 +835,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbPhieuDa__SoPho__5DCAEF64">
+          <End Type="QuanLyDuLich2Model.tbPhong" Role="tbPhong" Multiplicity="1" />
+          <End Type="QuanLyDuLich2Model.tbPhieuDatPhong" Role="tbPhieuDatPhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPhong">
+              <PropertyRef Name="SoPhong" />
+            </Principal>
+            <Dependent Role="tbPhieuDatPhong">
+              <PropertyRef Name="SoPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__tbPhieuTh__SoPho__4AB81AF0">
           <End Type="QuanLyDuLich2Model.tbPhong" Role="tbPhong" Multiplicity="1" />
           <End Type="QuanLyDuLich2Model.tbPhieuThuePhong" Role="tbPhieuThuePhong" Multiplicity="*" />
@@ -794,6 +890,7 @@
           <EntitySetMapping Name="tbDichVus">
             <EntityTypeMapping TypeName="QuanLyDuLich2Model.tbDichVu">
               <MappingFragment StoreEntitySet="tbDichVus">
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="ChiTiet" ColumnName="ChiTiet" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
@@ -825,6 +922,7 @@
           <EntitySetMapping Name="tbLoaiPhongs">
             <EntityTypeMapping TypeName="QuanLyDuLich2Model.tbLoaiPhong">
               <MappingFragment StoreEntitySet="tbLoaiPhongs">
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
                 <ScalarProperty Name="DonGiaNgay" ColumnName="DonGiaNgay" />
                 <ScalarProperty Name="DonGiaThang" ColumnName="DonGiaThang" />
                 <ScalarProperty Name="DienTich" ColumnName="DienTich" />
@@ -853,6 +951,18 @@
                 <ScalarProperty Name="NgoaiTe" ColumnName="NgoaiTe" />
                 <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
                 <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPhieuDatPhongs">
+            <EntityTypeMapping TypeName="QuanLyDuLich2Model.tbPhieuDatPhong">
+              <MappingFragment StoreEntitySet="tbPhieuDatPhongs">
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+                <ScalarProperty Name="NgayMuon" ColumnName="NgayMuon" />
+                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
+                <ScalarProperty Name="Khach" ColumnName="Khach" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
